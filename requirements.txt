@@ -5,3 +5,4 @@ transformers==4.18.0
 pandas
 numpy
 typing
+rdkit
