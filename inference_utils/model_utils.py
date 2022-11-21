@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from transformers import AutoModel, AutoTokenizer
 
+
 class DNN_module(nn.Module):
     def __init__(self, one_hot_enc_len, n_hidden_layers, layer_sizes, dropout: float=0.2):
         super(DNN_module, self).__init__()
@@ -45,31 +46,18 @@ class DNN_module(nn.Module):
             x = self.active(x)
             x = self.dropout(x)
             x = self.fc5(x)
-        x = x.squeeze(1)
         
+        x = x.squeeze(1)
         return x
 
-class fishbAIT(nn.Module):
+class fishbAIT_model(nn.Module):
     '''
-    Class to build Transformer and DNN structure. Supports maximum 3 hidden layers and RoBERTa transformers.
+    Class to combine the Transformer (chemberta) and DNN module.
     '''
     def __init__(self, roberta=None, dnn=None):
-        super(fishbAIT, self).__init__()
+        super(fishbAIT_model, self).__init__()
         self.roberta = roberta 
         self.dnn = dnn
-
-    def from_pretrained(self, version: str='EC50EC10', path=None):
-        self.roberta = AutoModel.from_pretrained(f'StyrbjornKall/fishbAIT_{version}')
-
-        self.dnn = DNN_module(one_hot_enc_len=1, n_hidden_layers=3, layer_sizes=[500,480,300])
-        if version == 'EC50':
-            self.dnn.one_hot_enc_len = 1
-        elif version == 'EC10':
-            self.dnn.one_hot_enc_len = 8
-        elif version == 'EC50EC10':
-            self.dnn.one_hot_enc_len = 9
-        
-        self.dnn = self.__loadcheckpoint__(self.dnn, version, path)
         
     def forward(self, sent_id, mask, exposure_duration, one_hot_encoding):
         roberta_output = self.roberta(sent_id, attention_mask=mask)[0]#.detach()#[:,0,:]#.detach() # all samples in batch : only CLS embedding : entire embedding dimension
@@ -80,25 +68,3 @@ class fishbAIT(nn.Module):
         out = self.dnn(inputs)
         
         return out
-
-    def __loadcheckpoint__(self, dnn, version, path):
-        try:
-            if path != None:
-                checkpoint_dnn = torch.load(path+f'{version}_dnn_saved_weights.pt', map_location='cpu')
-            else:
-                checkpoint_dnn = torch.load(f'../fishbAIT/{version}_dnn_saved_weights.pt', map_location='cpu')
-            dnn.load_state_dict(checkpoint_dnn)
-        except:  
-            if path != None:
-                raise FileNotFoundError(
-                    f'''Tried to load DNN module from path 
-                    {path}{version}_dnn_saved_weights.pt
-                    but could not find file. Please specify the full path to the saved model.''')
-            else:
-                raise FileNotFoundError(
-                    f'''Tried to load DNN module from path 
-                    ../fishbAIT/{version}_dnn_saved_weights.pt
-                    but could not find file. Please specify the full path to the saved model.''')
-        
-        return dnn
-        
