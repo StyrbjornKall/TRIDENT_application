@@ -51,7 +51,7 @@ class fishbAIT:
             if path != None:
                 checkpoint_dnn = torch.load(f'{path}final_model_{version}_dnn_saved_weights.pt', map_location=self.device)
             else:
-                checkpoint_dnn = torch.load(f'../fishbAIT/final_model_{version}_dnn_saved_weights.pt', map_location=self.device)
+                checkpoint_dnn = torch.load(f'./fishbAIT/final_model_{version}_dnn_saved_weights.pt', map_location=self.device)
         except:
             raise FileNotFoundError(
                 f'''Tried to load DNN module from path 
@@ -59,6 +59,7 @@ class fishbAIT:
                 but could not find file. Please specify the full path to the saved model.''')
 
         dnn.load_state_dict(checkpoint_dnn)
+
         
         return dnn
 
