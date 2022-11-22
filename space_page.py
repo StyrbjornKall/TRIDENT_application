@@ -148,8 +148,16 @@ def PlotUMAP_CLSProjection(endpoint, n_neighbors, min_dist):
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=pl1['predictions log10(mg/L)'],
-                                size=5)),
+                                color=pl2['predictions log10(mg/L)'],
+                                size=5,
+                                line=dict(width=2,
+                                        color='black'),
+                                colorbar=dict(
+                                    title='mg/L',
+                                    tickvals=[2,0,-2,-4],
+                                    ticktext=["10<sup>2</sup>", "10<sup>0</sup>", "10<sup>-2</sup>", "<10<sup>-4</sup>"],
+                                    orientation='h'),
+                                )),
                     row=1, col=1)
     hover = (
     pl2['SMILES_Canonical_RDKit'])
@@ -163,7 +171,13 @@ def PlotUMAP_CLSProjection(endpoint, n_neighbors, min_dist):
                                 color=pl2['predictions log10(mg/L)'],
                                 size=5,
                                 line=dict(width=2,
-                                        color='black'))),
+                                        color='black'),
+                                colorbar=dict(
+                                    title='mg/L',
+                                    tickvals=[2,0,-2,-4],
+                                    ticktext=["10<sup>2</sup>", "10<sup>0</sup>", "10<sup>-2</sup>", "<10<sup>-4</sup>"],
+                                    orientation='h'),
+                                )),
                     row=1, col=1)
     
     fig.update_layout(height=800)
