@@ -29,9 +29,9 @@ def print_space_page():
 def PlotPCA_CLSProjection_REACH(endpoint):
 
     if endpoint=='EC50':
-        results = pd.read_csv('data/REACH_predictions_EC50_EC50EC10.csv',sep='\t')
+        results = pd.read_pickle('data/REACH_predictions_EC50_EC50EC10.zip',sep='\t', compression='zip')
     else:
-        results = pd.read_csv('data/REACH_predictions_EC10_EC50EC10.csv',sep='\t')
+        results = pd.read_pickle('data/REACH_predictions_EC10_EC50EC10.zip',sep='\t', compression='zip')
     results.CLS_embeddings = results.CLS_embeddings.apply(lambda x: json.loads(x))
     embeddings = np.array(results.CLS_embeddings.tolist())
 
