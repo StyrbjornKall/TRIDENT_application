@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import torch
-import tokenizers
 import documentation_page
 import predict_page
 import contact_page
 import publications_page
+import space_page
 import hydralit_components as hc
 
 
@@ -44,17 +43,7 @@ footer:after{
 }
 </style>'''
 st.markdown(footer, unsafe_allow_html=True)
-@st.cache(hash_funcs={
-    tokenizers.Tokenizer: lambda _: None, 
-    tokenizers.AddedToken: lambda _: None})
-def loadmodel(version):
-    fishbait = fishbAIT(model_version=version)
-    fishbait.load_fine_tuned_model()
-    return fishbait
 
-def loadtokenizer(version):
-    tokenizer = AutoTokenizer.from_pretrained(f'StyrbjornKall/fishbAIT_{version}')
-    return tokenizer
 
 
 ### predictions #############################
@@ -85,7 +74,7 @@ if menu_id == 'Home':
     with col1:
         
         st.markdown('''
-        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;">
+        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;margin-top:20px;">
         <span style="text-align:center;"><h1>
         FASTER  
         </h1></span>
@@ -95,7 +84,7 @@ if menu_id == 'Home':
         </div>''', unsafe_allow_html=True)
     with col2:
         st.markdown('''
-        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;">
+        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;margin-top:20px;">
         <span style="text-align:center;"><h1>
         BETTER  
         </h1></span>
@@ -105,7 +94,7 @@ if menu_id == 'Home':
         </div>''', unsafe_allow_html=True)
     with col3:
         st.markdown('''
-        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;">
+        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;margin-top:20px;">
         <span style="text-align:center;"><h1>
         SUPERIOR  
         </h1></span>
@@ -127,4 +116,7 @@ if menu_id == 'Contact':
     contact_page.print_contact_page()
 
 if menu_id == 'Publications':
-    publications.print_publications_page()
+    publications_page.print_publications_page()
+
+if menu_id == 'Explore the Chemical Space':
+    space_page.print_space_page()

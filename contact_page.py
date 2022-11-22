@@ -5,8 +5,10 @@ def print_contact_page():
     with col2:
         st.title('Contact')
         st.subheader('Send us an email')
+        st.markdown('Please sen us an email to report bugs or if send us a list of SMILES yielding erronous outputs')
         with st.form("my_form", clear_on_submit=True):
             name = st.text_input('Name')
+            affiliation = st.text_input('Affiliation (Optional)')
             email = st.text_input('email')
             message = st.text_area('Message')
 
