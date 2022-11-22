@@ -7,3 +7,5 @@ numpy
 typing
 rdkit
 hydralit_components
+scikit-learn
+plotly
