@@ -39,10 +39,10 @@ def PlotPCA_CLSProjection(endpoint):
 
     if endpoint=='EC50':
         results = pd.read_pickle('data/REACH_predictions_EC50_EC50EC10.zip', compression='zip')
-        our_smiles = pd.read_pickle('C:/Users/skall/OneDrive - Chalmers/Documents/REACH/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
+        our_smiles = pd.read_pickle('data/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
     else:
         results = pd.read_pickle('data/REACH_predictions_EC10_EC50EC10.zip', compression='zip')
-        our_smiles = pd.read_pickle('C:/Users/skall/OneDrive - Chalmers/Documents/REACH/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
+        our_smiles = pd.read_pickle('data/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
 
     results = pd.concat([results, our_smiles])
     results.CLS_embeddings = results.CLS_embeddings.apply(lambda x: json.loads(x))
@@ -117,10 +117,10 @@ def PlotUMAP_CLSProjection(endpoint, n_neighbors, min_dist):
 
     if endpoint=='EC50':
         results = pd.read_pickle('data/REACH_predictions_EC50_EC50EC10.zip', compression='zip')
-        our_smiles = pd.read_pickle('C:/Users/skall/OneDrive - Chalmers/Documents/REACH/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
+        our_smiles = pd.read_pickle('data/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
     else:
         results = pd.read_pickle('data/REACH_predictions_EC10_EC50EC10.zip', compression='zip')
-        our_smiles = pd.read_pickle('C:/Users/skall/OneDrive - Chalmers/Documents/REACH/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
+        our_smiles = pd.read_pickle('data/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
 
     results = pd.concat([results, our_smiles])
     results.CLS_embeddings = results.CLS_embeddings.apply(lambda x: json.loads(x))
