@@ -11,10 +11,9 @@ import hydralit_components as hc
 
 st.set_page_config(layout="wide", page_title='fishbAIT - predicting ecotoxicity using AI', page_icon='🐟')
 
-
 menu_data = [
     {'icon': "far fa-chart-bar", 'label':"Use fishbAIT"},
-    {'icon': "far fa-copy", 'label':"<a href='https://www.nature.com/'>Publications</a>"},
+    {'icon': "far fa-copy", 'label':'Publication'},
     {'icon': "far fa-file-earmark", 'label':"Documentation"},#no tooltip message
     {'icon':"🌌",'label':"Explore the Chemical Space"},
     {'icon': "envelope",'label':"Contact"},
@@ -76,30 +75,30 @@ if menu_id == 'Home':
         st.markdown('''
         <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;margin-top:20px;">
         <span style="text-align:center;"><h1>
-        FASTER  
-        </h1></span>
-        <p style="font-size:200%;">
-        fishbAIT is a faster software
-        </p>
-        </div>''', unsafe_allow_html=True)
-    with col2:
-        st.markdown('''
-        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;margin-top:20px;">
-        <span style="text-align:center;"><h1>
         BETTER  
         </h1></span>
         <p style="font-size:200%;">
         fishbAIT is a better software
         </p>
         </div>''', unsafe_allow_html=True)
+    with col2:
+        st.markdown('''
+        <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;margin-top:20px;">
+        <span style="text-align:center;"><h1>
+        FASTER  
+        </h1></span>
+        <p style="font-size:200%;">
+        fishbAIT is a faster software
+        </p>
+        </div>''', unsafe_allow_html=True)
     with col3:
         st.markdown('''
         <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .5); padding:10px;margin-top:20px;">
         <span style="text-align:center;"><h1>
-        SUPERIOR  
+        STRONGER  
         </h1></span>
         <p style="font-size:200%;">
-        fishbAIT is a superior software
+        fishbAIT is a stronger software
         </p>
         </div>''', unsafe_allow_html=True)
 
@@ -115,7 +114,7 @@ if menu_id == 'Documentation':
 if menu_id == 'Contact':
     contact_page.print_contact_page()
 
-if menu_id == 'Publications':
+if menu_id == 'Publication':
     publications_page.print_publications_page()
 
 if menu_id == 'Explore the Chemical Space':

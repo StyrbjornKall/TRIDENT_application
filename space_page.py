@@ -68,7 +68,7 @@ def PlotPCA_CLSProjection(endpoint):
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=results['predictions log10(mg/L)'],
+                                color=pl1['predictions log10(mg/L)'],
                                 size=5,
                                 colorbar=dict(
                                     title='mg/L',
@@ -148,7 +148,7 @@ def PlotUMAP_CLSProjection(endpoint, n_neighbors, min_dist):
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=pl2['predictions log10(mg/L)'],
+                                color=pl1['predictions log10(mg/L)'],
                                 size=5,
                                 line=dict(width=2,
                                         color='black'),
