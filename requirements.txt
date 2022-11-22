@@ -6,4 +6,4 @@ pandas
 numpy
 typing
 rdkit
-streamlit-option-menu
+hydralit_components
