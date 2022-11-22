@@ -64,7 +64,7 @@ def PlotPCA_CLSProjection(endpoint):
     fig.add_trace(go.Scatter(x=pl1.pc1, y=pl1.pc2, 
                     mode='markers',
                     text=hover,
-                    name='REACH'
+                    name='REACH',
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,

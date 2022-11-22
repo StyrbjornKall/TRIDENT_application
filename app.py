@@ -14,7 +14,7 @@ st.set_page_config(layout="wide", page_title='fishbAIT - predicting ecotoxicity 
 
 menu_data = [
     {'icon': "far fa-chart-bar", 'label':"Use fishbAIT"},
-    {'icon': "far fa-copy", 'label':"Publications"},
+    {'icon': "far fa-copy", 'label':"<a href='https://www.nature.com/'>Publications</a>"},
     {'icon': "far fa-file-earmark", 'label':"Documentation"},#no tooltip message
     {'icon':"🌌",'label':"Explore the Chemical Space"},
     {'icon': "envelope",'label':"Contact"},
