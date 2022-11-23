@@ -45,7 +45,7 @@ st.markdown(footer, unsafe_allow_html=True)
 
 
 
-### predictions #############################
+### APP #############################
 if menu_id == 'Home':
     st.markdown(
          f"""
