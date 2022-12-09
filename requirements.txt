@@ -5,7 +5,7 @@ transformers==4.18.0
 pandas
 numpy
 typing
-rdkit
+rdkit==2022.03.5
 hydralit_components
 scikit-learn
 plotly
