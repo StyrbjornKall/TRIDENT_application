@@ -63,7 +63,7 @@ class PreProcessDataForInference():
     
     def __GetOneHotEndpoint(self, list_of_endpoints: List[str]):
         '''
-        Builds one hot encoded numpy arrays for given endpoints. Groups EC10 and NOEC measurements by renaming EC10 --> NOEC.
+        Builds one hot encoded numpy arrays for given endpoints. Groups EC10 and NOEC measurements by renaming NOEC --> EC10.
         '''
         if 'EC10' in list_of_endpoints:
             print(f"Renamed NOEC *EC10* in {sum(self.dataframe['endpoint'] == 'NOEC')} positions")
@@ -93,8 +93,7 @@ class PreProcessDataForInference():
         Builds one hot encoded numpy arrays for given effects.
         '''
         if len(list_of_effects) > 1:
-            effect_order = ['MOR','DVP','ITX','REP','MPH','POP','GRO']
-            hot_enc_dict = dict(zip(effect_order, np.eye(len(effect_order), dtype=int).tolist()))
+            hot_enc_dict = dict(zip(list_of_effects, np.eye(len(list_of_effects), dtype=int).tolist()))
             self.dataframe = self.dataframe.reset_index().drop(columns='index', axis=1)
             try:
                 encoded_clas = self.dataframe.effect.apply(lambda x: np.array(hot_enc_dict[x]))
@@ -173,3 +172,8 @@ class BuildInferenceDataLoaderAndDataset:
 
         sampler = SequentialSampler(self.dataset)
         self.dataloader = DataLoader(self.dataset, sampler=sampler, batch_size=self.bs, collate_fn=self.collator, num_workers=self.num_workers)
+
+def check_training_data(SMILES, model_version):
+    training_data = pd.read_excel('./data/Preprocessed_complete_data.xlsx', sheet_name='dataset')
+    return SMILES in training_data.SMILES_Canonical_RDKit.drop_duplicates().tolist()
+

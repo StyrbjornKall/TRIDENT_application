@@ -38,37 +38,33 @@ def print_space_page():
 def PlotPCA_CLSProjection(endpoint):
 
     if endpoint=='EC50':
-        results = pd.read_pickle('data/REACH_predictions_EC50_EC50EC10.zip', compression='zip')
-        our_smiles = pd.read_pickle('data/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
+        reach = pd.read_pickle('data/REACH_data_predicted_with_EC50EC10model_EC50_96h_MOR.zip', compression='zip')
+        train = pd.read_pickle('data/EC50_96h_training_data_predicted_with_EC50EC10model_EC50_96h_MOR.zip', compression='zip')
     else:
-        results = pd.read_pickle('data/REACH_predictions_EC10_EC50EC10.zip', compression='zip')
-        our_smiles = pd.read_pickle('data/oursmilesec50mor96_EC50_EC50.zip', compression='zip')
+        reach = pd.read_pickle('data/REACH_data_predicted_with_EC50EC10model_EC10_96h_MOR.zip', compression='zip')
+        train = pd.read_pickle('data/EC10_training_data_predicted_with_EC50EC10model_EC10_96h_MOR.zip', compression='zip')
 
-    results = pd.concat([results, our_smiles])
-    results.CLS_embeddings = results.CLS_embeddings.apply(lambda x: json.loads(x))
-    embeddings = np.array(results.CLS_embeddings.tolist())
+    embeddings = np.array(pd.concat([reach.CLS_embeddings, train.CLS_embeddings]).CLS_embeddings.tolist())
 
     pcomp = PCA(n_components=3)
     pcac = pcomp.fit_transform(embeddings)
-    results['pc1'], results['pc2'] = pcac[:,0], pcac[:,1]
+    reach['pc1'], reach['pc2'] = pcac[:len(reach),0], pcac[:len(reach),1]
+    train['pc1'], train['pc2'] = pcac[len(reach)+1:,0], pcac[len(reach)+1:,1]
 
-    pl1 = results[~results.SMILES_Canonical_RDKit.isin(our_smiles.SMILES_Canonical_RDKit.tolist())]
-    pl2 = results[results.SMILES_Canonical_RDKit.isin(our_smiles.SMILES_Canonical_RDKit.tolist())]
-
-    hover = (pl1['SMILES_Canonical_RDKit'])
 
     fig = make_subplots(rows=1, cols=1,
         subplot_titles=(['']),
         horizontal_spacing=0.02)
     
-    fig.add_trace(go.Scatter(x=pl1.pc1, y=pl1.pc2, 
+    hover = (reach['SMILES_Canonical_RDKit'])
+    fig.add_trace(go.Scatter(x=reach.pc1, y=reach.pc2, 
                     mode='markers',
                     text=hover,
                     name='REACH',
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=pl1['predictions log10(mg/L)'],
+                                color=reach['predictions log10(mg/L)'],
                                 size=5,
                                 colorbar=dict(
                                     title='mg/L',
@@ -78,16 +74,16 @@ def PlotPCA_CLSProjection(endpoint):
                                 )),
                     row=1, col=1)
 
-    hover = (pl2['SMILES_Canonical_RDKit'])
+    hover = (train['cmpdname']+'<br>'+train['SMILES_Canonical_RDKit'])
 
-    fig.add_trace(go.Scatter(x=pl2.pc1, y=pl2.pc2, 
+    fig.add_trace(go.Scatter(x=train.pc1, y=train.pc2, 
                     mode='markers',
                     text=hover,
                     name='Training data',
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=pl2['predictions log10(mg/L)'],
+                                color=train['predictions log10(mg/L)'],
                                 size=5,
                                 line=dict(width=2,
                                         color='black'),
