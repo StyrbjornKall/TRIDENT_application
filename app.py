@@ -51,9 +51,6 @@ st.markdown(footer, unsafe_allow_html=True)
 
 
 ### APP #############################
-with open("background.svg", "rb") as image_file:
-        image_data = image_file.read()
-        bg_base64 = base64.b64encode(image_data).decode()
 
 if menu_id == 'Home':
     st.markdown(
