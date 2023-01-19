@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import json
-import pickle as pkl
+import pickle
 import umap
 import plotly.graph_objects as go
 import plotly.express as px
@@ -16,10 +16,13 @@ def print_space_page():
     with col1:
         st.markdown('## Projection metrics')
         projection = st.selectbox('Projection method', ('UMAP','PCA'))
+        species_groups = {'fish': 'fish', 'invertebrates': 'invertebrates', 'algae': 'algae'}
         endpoints = {'EC50': 'EC50', 'EC10': 'EC10'}
-        effects = {'MOR': 'MOR', 'DVP': 'DVP', 'GRO': 'GRO','POP': 'POP','MPH':'MPH'}
+        effects = {'MOR': 'MOR', 'DVP': 'DVP', 'ITX':'ITX', 'GRO': 'GRO','POP': 'POP','MPH':'MPH'}
+        PREDICTION_SPECIES = species_groups[st.radio("Select Endpoint ",tuple(species_groups.keys()), on_change=None)]
         PREDICTION_ENDPOINT = endpoints[st.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None)]
-        PREDICTION_EFFECT = effects[st.radio("Select Effect ",tuple(effects.keys()))]
+        PREDICTION_EFFECT = effects[st.radio("Select Effect ",tuple(effects.keys()), on_change=None)]
+        PREDICTION_EXTENDED_DATA = st.checkbox('show predictions outside training data')
         if projection == 'UMAP':
             MIN_DISTNACE = st.number_input('min distance')
             N_NEIGHBORS = st.number_input('n neighbors')
@@ -30,62 +33,60 @@ def print_space_page():
         if run_prediction:
             with st.spinner(text = 'Inference in Progress...'):
                 if projection == 'PCA':
-                    st.plotly_chart(PlotPCA_CLSProjection(PREDICTION_ENDPOINT), use_container_width=True, theme='streamlit')
+                    st.plotly_chart(PlotPCA_CLSProjection(PREDICTION_ENDPOINT, PREDICTION_EFFECT, PREDICTION_SPECIES, PREDICTION_EXTENDED_DATA), use_container_width=True, theme='streamlit')
                 if projection == 'UMAP':
                     st.plotly_chart(PlotUMAP_CLSProjection(PREDICTION_ENDPOINT, N_NEIGHBORS, MIN_DISTNACE), use_container_width=True, theme='streamlit')
 
 @st.cache
-def PlotPCA_CLSProjection(endpoint):
+def PlotPCA_CLSProjection(endpoint, effect, species_group, show_all_predictions):
 
-    if endpoint=='EC50':
-        reach = pd.read_pickle('data/REACH_data_predicted_with_EC50EC10model_EC50_96h_MOR.zip', compression='zip')
-        train = pd.read_pickle('data/EC50_96h_training_data_predicted_with_EC50EC10model_EC50_96h_MOR.zip', compression='zip')
-    else:
-        reach = pd.read_pickle('data/REACH_data_predicted_with_EC50EC10model_EC10_96h_MOR.zip', compression='zip')
-        train = pd.read_pickle('data/EC10_training_data_predicted_with_EC50EC10model_EC10_96h_MOR.zip', compression='zip')
+    all_preds = pd.read_pickle(f'data/{species_group}_{endpoint}_{effect}_predictions.zip', compression='zip')
 
-    embeddings = np.array(pd.concat([reach.CLS_embeddings, train.CLS_embeddings]).CLS_embeddings.tolist())
+    embeddings = np.array(all_preds.CLS_embeddings.tolist())
 
     pcomp = PCA(n_components=3)
     pcac = pcomp.fit_transform(embeddings)
-    reach['pc1'], reach['pc2'] = pcac[:len(reach),0], pcac[:len(reach),1]
-    train['pc1'], train['pc2'] = pcac[len(reach)+1:,0], pcac[len(reach)+1:,1]
+    all_preds['pc1'], all_preds['pc2'] = pcac[:,0], pcac[:,1]
+
+    train_effect_preds = all_preds[all_preds['in effect training data']]
+    train_species_preds = all_preds[all_preds['in species group training data']]
+    remaining_preds = all_preds[(~all_preds['in effect training data']) | (~all_preds['in species group training data'])]
 
 
     fig = make_subplots(rows=1, cols=1,
         subplot_titles=(['']),
         horizontal_spacing=0.02)
-    
-    hover = (reach['SMILES_Canonical_RDKit'])
-    fig.add_trace(go.Scatter(x=reach.pc1, y=reach.pc2, 
+
+    if show_all_predictions:
+        hover = (remaining_preds['SMILES_Canonical_RDKit'])
+        fig.add_trace(go.Scatter(x=remaining_preds.pc1, y=remaining_preds.pc2, 
+                        mode='markers',
+                        text=hover,
+                        name='Not in training data',
+                        marker=dict(colorscale='turbo_r',
+                                    cmax=4,
+                                    cmin=-4,
+                                    color=remaining_preds['predictions log10(mg/L)'],
+                                    size=5,
+                                    colorbar=dict(
+                                        title='mg/L',
+                                        tickvals=[2,0,-2,-4],
+                                        ticktext=["10<sup>2</sup>", "10<sup>0</sup>", "10<sup>-2</sup>", "<10<sup>-4</sup>"],
+                                        orientation='h'),
+                        )),
+                        row=1, col=1)
+
+    hover = (train_species_preds['SMILES_Canonical_RDKit'])
+    fig.add_trace(go.Scatter(x=train_species_preds.pc1, y=train_species_preds.pc2, 
                     mode='markers',
                     text=hover,
-                    name='REACH',
+                    name='Training data: In Species group',
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=reach['predictions log10(mg/L)'],
+                                color=train_species_preds['predictions log10(mg/L)'],
                                 size=5,
-                                colorbar=dict(
-                                    title='mg/L',
-                                    tickvals=[2,0,-2,-4],
-                                    ticktext=["10<sup>2</sup>", "10<sup>0</sup>", "10<sup>-2</sup>", "<10<sup>-4</sup>"],
-                                    orientation='h'),
-                                )),
-                    row=1, col=1)
-
-    hover = (train['cmpdname']+'<br>'+train['SMILES_Canonical_RDKit'])
-
-    fig.add_trace(go.Scatter(x=train.pc1, y=train.pc2, 
-                    mode='markers',
-                    text=hover,
-                    name='Training data',
-                    marker=dict(colorscale='turbo_r',
-                                cmax=4,
-                                cmin=-4,
-                                color=train['predictions log10(mg/L)'],
-                                size=5,
-                                line=dict(width=2,
+                                line=dict(width=1,
                                         color='black'),
                                 colorbar=dict(
                                     title='mg/L',
@@ -93,6 +94,26 @@ def PlotPCA_CLSProjection(endpoint):
                                     ticktext=["10<sup>2</sup>", "10<sup>0</sup>", "10<sup>-2</sup>", "<10<sup>-4</sup>"],
                                     orientation='h'),
                     )),
+                    row=1, col=1)
+    
+    hover = (train_effect_preds['SMILES_Canonical_RDKit'])
+    fig.add_trace(go.Scatter(x=train_effect_preds.pc1, y=train_effect_preds.pc2, 
+                    mode='markers',
+                    text=hover,
+                    name='Training data: In Species group with Effect match',
+                    marker=dict(colorscale='turbo_r',
+                                cmax=4,
+                                cmin=-4,
+                                color=train_effect_preds['predictions log10(mg/L)'],
+                                size=5,
+                                line=dict(width=1,
+                                        color='red'),
+                                colorbar=dict(
+                                    title='mg/L',
+                                    tickvals=[2,0,-2,-4],
+                                    ticktext=["10<sup>2</sup>", "10<sup>0</sup>", "10<sup>-2</sup>", "<10<sup>-4</sup>"],
+                                    orientation='h'),
+                                )),
                     row=1, col=1)
 
     fig.update_xaxes(title_text=f"PC1 {np.round(100*pcomp.explained_variance_ratio_[0],1)}%",
