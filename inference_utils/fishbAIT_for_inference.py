@@ -109,7 +109,7 @@ class fishbAIT_for_inference:
 
         loader = BuildInferenceDataLoaderAndDataset(
             processed_data, 
-            variables=['SMILES_Canonical_RDKit', 'exposure_duration', 'OneHotEnc_concatenated'], 
+            variables=['SMILES_Canonical_RDKit', 'exposure_duration log10(h)', 'OneHotEnc_concatenated'], 
             tokenizer = self.tokenizer).dataloader
 
         self.fishbAIT_model.eval()

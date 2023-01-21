@@ -71,7 +71,7 @@ def print_predict_page():
 
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
-                min_value=1, max_value=300, step=2)
+                min_value=24, max_value=10000, step=24)
 
             if file_up:
                 if file_up.name.endswith('csv'):
@@ -113,7 +113,7 @@ def print_predict_page():
             
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
-                min_value=0, max_value=300, step=2)
+                min_value=24, max_value=10000, step=24)
 
             if st.button("Predict"):
                 data = pd.DataFrame()
@@ -150,6 +150,36 @@ def print_predict_page():
             with col3:
                 st.markdown('# Results analysis')
                 with st.expander("Expand results analysis"):
-                    data['SMILES inside training data'] = data.SMILES.apply(lambda x: check_training_data(x, f'{MODELTYPE}_{PREDICTION_SPECIES}'))
-                    st.write(data.head())
+                    st.markdown('''
+                    ## Training data alerts
+                    If the chemical is inside the training data of the model, a 1 is present in the respective training column. A chemical 
+                    can be inside the training data in two ways.
+                    1. As a **species-match**, i.e. when the chosen model was developed, experimental data for this chemical was present for this species group.
+                    2. As an **endpoint-match**, i.e. when the chosen model was developed for this species group, experimental data for this chemical was present for the chosen endpoint.
+                    3. As an exact **effect-match**, i.e. when the chosen model was developed for this combination of species and endpoint, experimental data for the chosen effect was present.
+                    
+                    Note this does not include exact exposure duration matches since most of the trainable parameters are found in the transformer architecture which only uses the SMILES.''')
+                    
+                    results = check_training_data(results, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                    st.write(results.head())
+
+                    # Download results
+                    st.download_button(
+                        label="Download results as CSV",
+                        data=results.to_csv().encode('utf-8'),
+                        file_name='ecoCAIT_prediction_results.csv',
+                        mime='text/csv',
+                        on_click=None
+                    )
+
+                    # Closest chemical in training set
+                    st.markdown('''
+                    ## Closest chemical in training set
+                    To better understand the toxicity prediction, the predicted chemical's closest resemblence in terms of chemical structure can be determined
+                    by calculating the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set.
+                    This similarity score is a better way of understanding how the model places the chemical in terms of its toxicity as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
+
+                    results = check_closest_chemical(results, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                    
+                    st.write(results.head())
 

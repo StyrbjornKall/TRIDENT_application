@@ -11,17 +11,46 @@ from plotly.subplots import make_subplots
 
 from sklearn.decomposition import PCA
 
+
+effectordering = {
+            'EC50_algae': {'POP':'POP'},
+            'EC10_algae': {'POP':'POP'},
+            'EC50EC10_algae': {'POP':'POP'}, 
+            'EC50_invertebrates': {'MOR':'MOR','ITX':'ITX'},
+            'EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
+            'EC50EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
+            'EC50_fish': {'MOR':'MOR'},
+            'EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} ,
+            'EC50EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} 
+            }
+
+endpointordering = {
+            'EC50_algae': {'EC50':'EC50'},
+            'EC10_algae': {'EC10':'EC10'},
+            'EC50EC10_algae': {'EC50':'EC50', 'EC10': 'EC10'}, 
+            'EC50_invertebrates': {'EC50':'EC50'},
+            'EC10_invertebrates': {'EC10':'EC10'},
+            'EC50EC10_invertebrates': {'EC50':'EC50', 'EC10': 'EC10'},
+            'EC50_fish': {'EC50':'EC50'},
+            'EC10_fish': {'EC10':'EC10'},
+            'EC50EC10_fish': {'EC50':'EC50', 'EC10': 'EC10'} 
+            }
+
 def print_space_page():
     col1, col2 = st.columns((1,3))
     with col1:
         st.markdown('## Projection metrics')
         projection = st.selectbox('Projection method', ('UMAP','PCA'))
-        species_groups = {'fish': 'fish', 'invertebrates': 'invertebrates', 'algae': 'algae'}
-        endpoints = {'EC50': 'EC50', 'EC10': 'EC10'}
-        effects = {'MOR': 'MOR', 'DVP': 'DVP', 'ITX':'ITX', 'GRO': 'GRO','POP': 'POP','MPH':'MPH'}
-        PREDICTION_SPECIES = species_groups[st.radio("Select Endpoint ",tuple(species_groups.keys()), on_change=None)]
-        PREDICTION_ENDPOINT = endpoints[st.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None)]
-        PREDICTION_EFFECT = effects[st.radio("Select Effect ",tuple(effects.keys()), on_change=None)]
+        species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
+        model_type = {'Combined model (best performance)': 'EC50EC10', 'EC50 model': 'EC50','EC10 model': 'EC10'}
+        
+        PREDICTION_SPECIES = species_group[st.radio("Select Species group", tuple(species_group.keys()), on_change=None, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
+        MODELTYPE = model_type[st.radio("Select Model type", tuple(model_type), on_change=None, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
+        endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
+        effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
+        PREDICTION_ENDPOINT = endpoints[st.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
+        PREDICTION_EFFECT = effects[st.radio("Select Effect ",tuple(effects.keys()), on_change=None, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
+        
         PREDICTION_EXTENDED_DATA = st.checkbox('show predictions outside training data')
         if projection == 'UMAP':
             MIN_DISTNACE = st.number_input('min distance')
@@ -33,14 +62,14 @@ def print_space_page():
         if run_prediction:
             with st.spinner(text = 'Inference in Progress...'):
                 if projection == 'PCA':
-                    st.plotly_chart(PlotPCA_CLSProjection(PREDICTION_ENDPOINT, PREDICTION_EFFECT, PREDICTION_SPECIES, PREDICTION_EXTENDED_DATA), use_container_width=True, theme='streamlit')
+                    st.plotly_chart(PlotPCA_CLSProjection(MODELTYPE, PREDICTION_ENDPOINT, PREDICTION_EFFECT, PREDICTION_SPECIES, PREDICTION_EXTENDED_DATA), use_container_width=True, theme='streamlit')
                 if projection == 'UMAP':
                     st.plotly_chart(PlotUMAP_CLSProjection(PREDICTION_ENDPOINT, N_NEIGHBORS, MIN_DISTNACE), use_container_width=True, theme='streamlit')
 
 @st.cache
-def PlotPCA_CLSProjection(endpoint, effect, species_group, show_all_predictions):
+def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions):
 
-    all_preds = pd.read_pickle(f'data/{species_group}_{endpoint}_{effect}_predictions.zip', compression='zip')
+    all_preds = pd.read_pickle(f'data/{model_type}_model_predictions/{species_group}_{endpoint}_{effect}_predictions.zip', compression='zip')
 
     embeddings = np.array(all_preds.CLS_embeddings.tolist())
 

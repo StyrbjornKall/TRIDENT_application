@@ -173,7 +173,29 @@ class BuildInferenceDataLoaderAndDataset:
         sampler = SequentialSampler(self.dataset)
         self.dataloader = DataLoader(self.dataset, sampler=sampler, batch_size=self.bs, collate_fn=self.collator, num_workers=self.num_workers)
 
-def check_training_data(SMILES, model_version):
-    training_data = pd.read_excel('./data/Preprocessed_complete_data.xlsx', sheet_name='dataset')
-    return SMILES in training_data.SMILES_Canonical_RDKit.drop_duplicates().tolist()
+def check_training_data(df, species_group, endpoint, effect):
+    species_matches = []
+    endpoint_matches = []
+    effect_matches = []
 
+    training_data = pd.read_pickle('./data/fixed_smiles_format.zip', compression='zip')
+    training_data = training_data[training_data.species_group == species_group]
+
+    for SMILES in df.SMILES_Canonical_RDKit.tolist():
+        training_data = training_data[training_data.SMILES_Canonical_RDKit == SMILES]
+        species_match = 1 if SMILES in training_data.SMILES_Canonical_RDKit.tolist() else 0
+        training_data = training_data[training_data.endpoint == endpoint]
+        endpoint_match = 1 if SMILES in training_data.SMILES_Canonical_RDKit.tolist() else 0
+        training_data = training_data[training_data.effect == effect]
+        effect_match = 1 if SMILES in training_data.SMILES_Canonical_RDKit.tolist() else 0
+        species_matches.append(species_match)
+        endpoint_matches.append(endpoint_match)
+        effect_matches.append(effect_match)
+
+    df['species match'] = species_matches
+    df['endpoint match'] = endpoint_matches
+    df['effect match'] = effect_matches
+    
+    return df
+
+    
