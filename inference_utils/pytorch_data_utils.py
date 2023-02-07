@@ -9,6 +9,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader, SequentialSampler
 
 from transformers import DataCollatorWithPadding
+from sklearn.metrics.pairwise import cosine_similarity 
 
 RDLogger.DisableLog('rdApp.*')
 PandasDataFrame = TypeVar('pandas.core.frame.DataFrame')
@@ -173,29 +174,84 @@ class BuildInferenceDataLoaderAndDataset:
         sampler = SequentialSampler(self.dataset)
         self.dataloader = DataLoader(self.dataset, sampler=sampler, batch_size=self.bs, collate_fn=self.collator, num_workers=self.num_workers)
 
-def check_training_data(df, species_group, endpoint, effect):
-    species_matches = []
+def check_training_data_from_scratch(df, model_type, species_group, endpoint, effect):
+
     endpoint_matches = []
     effect_matches = []
-
-    training_data = pd.read_pickle('./data/fixed_smiles_format.zip', compression='zip')
+    
+    training_data = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
+    training_data = training_data.drop_duplicates(subset=['SMILES_Canonical_RDKit','species_group','endpoint','effect'])
+    #filter out species match to limit search
     training_data = training_data[training_data.species_group == species_group]
-
-    for SMILES in df.SMILES_Canonical_RDKit.tolist():
-        training_data = training_data[training_data.SMILES_Canonical_RDKit == SMILES]
-        species_match = 1 if SMILES in training_data.SMILES_Canonical_RDKit.tolist() else 0
+    #filter out endpoint to limit search
+    if model_type != 'EC50EC10':
         training_data = training_data[training_data.endpoint == endpoint]
-        endpoint_match = 1 if SMILES in training_data.SMILES_Canonical_RDKit.tolist() else 0
-        training_data = training_data[training_data.effect == effect]
-        effect_match = 1 if SMILES in training_data.SMILES_Canonical_RDKit.tolist() else 0
-        species_matches.append(species_match)
+
+    for SMILES in df.SMILES_Canonical_RDKit.drop_duplicates().tolist():
+        data = training_data[training_data.SMILES_Canonical_RDKit==SMILES]
+        if data.empty:
+            endpoint_match=0
+            effect_match=0
+        else:
+            data = data[data.endpoint == endpoint]
+            endpoint_match = 1 if SMILES in data.SMILES_Canonical_RDKit.tolist() else 0
+            data = data[data.effect == effect]
+            effect_match = 1 if SMILES in data.SMILES_Canonical_RDKit.tolist() else 0
+
         endpoint_matches.append(endpoint_match)
         effect_matches.append(effect_match)
 
-    df['species match'] = species_matches
     df['endpoint match'] = endpoint_matches
     df['effect match'] = effect_matches
     
     return df
 
+def check_training_data(df, model_type, species_group, endpoint, effect):
+
+    endpoint_matches = []
+    effect_matches = []
     
+    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions.pkl.zip', compression='zip')
+    all_preds = all_preds[['SMILES_Canonical_RDKit',f'{model_type}_{species_group}_{endpoint}_{effect} endpoint match', f'{model_type}_{species_group}_{endpoint}_{effect} effect match']]
+ 
+    for SMILES in df.SMILES_Canonical_RDKit.drop_duplicates().tolist():
+        data = all_preds[all_preds.SMILES_Canonical_RDKit==SMILES]
+        if data.empty:
+            endpoint_match=0
+            effect_match=0
+        else:
+            endpoint_match = data[f'{model_type}_{species_group}_{endpoint}_{effect} endpoint match']
+            effect_match = data[f'{model_type}_{species_group}_{endpoint}_{effect} effect match']
+
+        endpoint_matches.append(endpoint_match)
+        effect_matches.append(effect_match)
+
+    df['endpoint match'] = endpoint_matches
+    df['effect match'] = effect_matches
+    
+    return df
+
+def check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT):
+    training_data = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
+    if MODELTYPE == 'EC50EC10':
+        PREDICTION_ENDPOINT = ('EC50','EC10')
+    # Get training set
+    training_data = training_data[(training_data.species_group == PREDICTION_SPECIES) & (training_data.endpoint.isin(list(PREDICTION_ENDPOINT)))]
+    training_data = training_data.drop_duplicates(subset=['SMILES_Canonical_RDKit'])
+    training_data = PreProcessDataForInference(training_data).GetCanonicalSMILES()
+    
+    cls_df = pd.read_pickle(f'./data/predictions/{MODELTYPE}_{PREDICTION_SPECIES}_CLS_embeddings.pkl.zip', compression='zip')
+    training_data = training_data.merge(cls_df, on='SMILES_Canonical_RDKit')
+    cls_training_data = np.asarray(training_data.CLS_embeddings.tolist(), dtype=np.float32)
+    cls = np.asarray(results.CLS_embeddings.tolist(), dtype=np.float32)
+    if len(results) ==1:
+        cls = cls.reshape(1,-1)
+
+    cossim = cosine_similarity(cls_training_data, cls)
+    idx = np.argmax(cossim, axis=0)
+    similarity_score = np.diag(cossim[idx])
+    results['most similar chemical'] = training_data.SMILES_Canonical_RDKit.iloc[idx].tolist()
+    results['cosine similarity'] = similarity_score
+
+    return results 
+

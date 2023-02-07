@@ -1,10 +1,14 @@
 import streamlit as st
+import io
 import numpy as np
 import pandas as pd
 import torch
+from rdkit import Chem
+from rdkit.Chem import Draw
 import tokenizers
 from inference_utils.fishbAIT_for_inference import fishbAIT_for_inference
-from inference_utils.pytorch_data_utils import check_training_data
+from inference_utils.pytorch_data_utils import check_training_data, PreProcessDataForInference, check_closest_chemical
+from streamlit_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
 effectordering = {
             'EC50_algae': {'POP':'POP'},
@@ -44,7 +48,7 @@ def loadtokenizer(version):
 
 
 def print_predict_page():
-    col1, col2, col3 = st.columns([2,3,3])
+    col1, col2 = st.columns([1,3])
     with col1:
         st.markdown('## Prediction metrics')
         input_type = st.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch")
@@ -71,7 +75,7 @@ def print_predict_page():
 
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
-                min_value=24, max_value=10000, step=24)
+                min_value=24, max_value=300, step=24)
 
             if file_up:
                 if file_up.name.endswith('csv'):
@@ -99,9 +103,13 @@ def print_predict_page():
                         exposure_duration=EXPOSURE_DURATION, 
                         endpoint=PREDICTION_ENDPOINT, 
                         effect=PREDICTION_EFFECT,
-                        return_cls_embeddings=False)
+                        return_cls_embeddings=True)
                     
                     placeholder.empty()
+                    mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
+                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES.tolist()))
+                    st.markdown('''Structure (generated using RDKit):\n''')
+                    st.image(img)
                     
 
         elif ~st.session_state.batch:        
@@ -113,7 +121,7 @@ def print_predict_page():
             
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
-                min_value=24, max_value=10000, step=24)
+                min_value=24, max_value=300, step=24)
 
             if st.button("Predict"):
                 data = pd.DataFrame()
@@ -128,8 +136,11 @@ def print_predict_page():
                         exposure_duration=EXPOSURE_DURATION, 
                         endpoint=PREDICTION_ENDPOINT, 
                         effect=PREDICTION_EFFECT,
-                        return_cls_embeddings=False)
-
+                        return_cls_embeddings=True)
+                mol = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
+                img = Draw.MolsToGridImage(mol,legends=(results.SMILES.tolist()))
+                st.markdown('''Structure (generated using RDKit):\n''')
+                st.image(img)
                         
 
         if results.empty == False:
@@ -147,7 +158,7 @@ def print_predict_page():
                     on_click=None
                 )
 
-            with col3:
+            with col2:
                 st.markdown('# Results analysis')
                 with st.expander("Expand results analysis"):
                     st.markdown('''
@@ -158,9 +169,22 @@ def print_predict_page():
                     2. As an **endpoint-match**, i.e. when the chosen model was developed for this species group, experimental data for this chemical was present for the chosen endpoint.
                     3. As an exact **effect-match**, i.e. when the chosen model was developed for this combination of species and endpoint, experimental data for the chosen effect was present.
                     
+                    A match is denoted **1**.
+                    
                     Note this does not include exact exposure duration matches since most of the trainable parameters are found in the transformer architecture which only uses the SMILES.''')
                     
-                    results = check_training_data(results, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                    results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                    st.write(results.head())
+
+                    # Closest chemical in training set
+                    st.markdown('''
+                    ## Closest chemical in training set
+                    To better understand the toxicity prediction, the predicted chemical's closest resemblence in terms of chemical structure can be determined
+                    by calculating the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set.
+                    This similarity score is a better way of understanding how the model places the chemical in terms of its toxicity as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
+
+                    results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                    
                     st.write(results.head())
 
                     # Download results
@@ -172,14 +196,22 @@ def print_predict_page():
                         on_click=None
                     )
 
-                    # Closest chemical in training set
+                    # Space location
                     st.markdown('''
-                    ## Closest chemical in training set
-                    To better understand the toxicity prediction, the predicted chemical's closest resemblence in terms of chemical structure can be determined
-                    by calculating the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set.
-                    This similarity score is a better way of understanding how the model places the chemical in terms of its toxicity as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
+                    ## CLS-embedding projection (PCA)
+                    ''')
 
-                    results = check_closest_chemical(results, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                    fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=results)
+                    st.plotly_chart(fig, use_container_width=True, theme='streamlit')
                     
-                    st.write(results.head())
+                    buffer = io.StringIO()
+                    fig.write_html(buffer, include_plotlyjs='cdn')
+                    html_bytes = buffer.getvalue().encode()
+
+                    st.download_button(
+                        label='Lagging? --> Download HTML',
+                        data=html_bytes,
+                        file_name='interactive_CLS_projection.html',
+                        mime='text/html'
+                    )
 
