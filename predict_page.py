@@ -112,7 +112,7 @@ def print_predict_page():
                     except:
                         img = None
                     st.markdown('''Structure (generated using RDKit):\n''')
-                    if img not None:
+                    if img is not None:
                         st.image(img)
                     else:
                         st.markdown('⚠️ Not structurally correct')
@@ -143,13 +143,13 @@ def print_predict_page():
                         endpoint=PREDICTION_ENDPOINT, 
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
-                mol = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
+                mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
                 try:
                     img = Draw.MolsToGridImage(mols,legends=(results.SMILES.tolist()))
                 except:
                     img = None
                 st.markdown('''Structure (generated using RDKit):\n''')
-                if img not None:
+                if img is not None:
                     st.image(img)
                 else:
                     st.markdown('⚠️ Not structurally correct')
