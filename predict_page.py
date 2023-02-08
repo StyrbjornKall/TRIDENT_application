@@ -107,9 +107,15 @@ def print_predict_page():
                     
                     placeholder.empty()
                     mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
-                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES.tolist()))
+                    try:
+                        img = Draw.MolsToGridImage(mols,legends=(results.SMILES.tolist()))
+                    except:
+                        img = None
                     st.markdown('''Structure (generated using RDKit):\n''')
-                    st.image(img)
+                    if img not None:
+                        st.image(img)
+                    else:
+                        st.markdown('⚠️ Not structurally correct')
                     
 
         elif ~st.session_state.batch:        
@@ -138,9 +144,15 @@ def print_predict_page():
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
                 mol = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
-                img = Draw.MolsToGridImage(mol,legends=(results.SMILES.tolist()))
+                try:
+                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES.tolist()))
+                except:
+                    img = None
                 st.markdown('''Structure (generated using RDKit):\n''')
-                st.image(img)
+                if img not None:
+                    st.image(img)
+                else:
+                    st.markdown('⚠️ Not structurally correct')
                         
 
         if results.empty == False:
