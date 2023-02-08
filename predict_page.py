@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import torch
 from rdkit import Chem
-from rdkit.Chem import Draw
+from rdkit.Chem.Draw import MolsToGridImage
 import tokenizers
 from inference_utils.fishbAIT_for_inference import fishbAIT_for_inference
 from inference_utils.pytorch_data_utils import check_training_data, PreProcessDataForInference, check_closest_chemical
