@@ -220,8 +220,8 @@ def check_training_data(df, model_type, species_group, endpoint, effect):
             endpoint_match=0
             effect_match=0
         else:
-            endpoint_match = data[f'{model_type}_{species_group}_{endpoint}_{effect} endpoint match']
-            effect_match = data[f'{model_type}_{species_group}_{endpoint}_{effect} effect match']
+            endpoint_match = data[f'{model_type}_{species_group}_{endpoint}_{effect} endpoint match'].iloc[0]
+            effect_match = data[f'{model_type}_{species_group}_{endpoint}_{effect} effect match'].iloc[0]
 
         endpoint_matches.append(endpoint_match)
         effect_matches.append(effect_match)
@@ -236,7 +236,7 @@ def check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_EN
     if MODELTYPE == 'EC50EC10':
         PREDICTION_ENDPOINT = ('EC50','EC10')
     # Get training set
-    training_data = training_data[(training_data.species_group == PREDICTION_SPECIES) & (training_data.endpoint.isin(list(PREDICTION_ENDPOINT)))]
+    training_data = training_data[(training_data.species_group == PREDICTION_SPECIES) & (training_data.endpoint.isin(list(tuple(PREDICTION_ENDPOINT))))]
     training_data = training_data.drop_duplicates(subset=['SMILES_Canonical_RDKit'])
     training_data = PreProcessDataForInference(training_data).GetCanonicalSMILES()
     

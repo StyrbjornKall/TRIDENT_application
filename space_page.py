@@ -34,7 +34,7 @@ def print_space_page():
     col1, col2 = st.columns((1,3))
     with col1:
         st.markdown('## Projection metrics')
-        projection = st.selectbox('Projection method', ('UMAP','PCA'))
+        projection = st.selectbox('Projection method', ('PCA','UMAP'))
         species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
         model_type = {'Combined model (best performance)': 'EC50EC10'}
         

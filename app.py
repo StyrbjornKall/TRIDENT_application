@@ -10,7 +10,7 @@ import hydralit_components as hc
 import base64
 from PIL import Image
 
-st.set_page_config(layout="wide", page_title='ecoCAIT - predicting ecotoxicity using AI', page_icon="🌍")
+st.set_page_config(layout="wide", page_title='ecoCAIT - predicting ecotoxicity using AI', page_icon="🐟")
 
 #import styles
 with open('styles.css')as f:
@@ -18,11 +18,11 @@ with open('styles.css')as f:
 
 
 menu_data = [
-    {'icon': "far fa-chart-bar", 'label':"Use ecoCAIT"},
-    {'icon': "far fa-copy", 'label':'Publication'},
-    {'icon': "far fa-file-earmark", 'label':"Documentation"},#no tooltip message
+    {'icon': "📊", 'label':"Use ecoCAIT"},
+    {'icon': "📎", 'label':'Publication'},
+    {'icon': "📄", 'label':"Documentation"},#no tooltip message
     {'icon':"🌌",'label':"Explore the chemical space"},
-    {'icon': "envelope",'label':"Contact"},
+    {'icon': "✉️",'label':"Contact"},
 ]
 
 over_theme = over_theme = {'txc_inactive': 'black','menu_background':'white', 'txc_active':'#F63366'}

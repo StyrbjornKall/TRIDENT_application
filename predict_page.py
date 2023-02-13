@@ -115,7 +115,7 @@ def print_predict_page():
                     if img is not None:
                         st.image(img)
                     else:
-                        st.markdown('⚠️ Not structurally correct')
+                        st.markdown('⚠️ Not chemically valid')
                     
 
         elif ~st.session_state.batch:        
@@ -152,7 +152,7 @@ def print_predict_page():
                 if img is not None:
                     st.image(img)
                 else:
-                    st.markdown('⚠️ Not structurally correct')
+                    st.markdown('⚠️ Not chemically valid')
                         
 
         if results.empty == False:
@@ -177,9 +177,8 @@ def print_predict_page():
                     ## Training data alerts
                     If the chemical is inside the training data of the model, a 1 is present in the respective training column. A chemical 
                     can be inside the training data in two ways.
-                    1. As a **species-match**, i.e. when the chosen model was developed, experimental data for this chemical was present for this species group.
-                    2. As an **endpoint-match**, i.e. when the chosen model was developed for this species group, experimental data for this chemical was present for the chosen endpoint.
-                    3. As an exact **effect-match**, i.e. when the chosen model was developed for this combination of species and endpoint, experimental data for the chosen effect was present.
+                    1. As an **endpoint-match**, i.e. when the chosen model was developed for this species group, experimental data for this chemical was present for the chosen endpoint.
+                    2. As an exact **effect-match**, i.e. when the chosen model was developed for this combination of species and endpoint, experimental data for the chosen effect was present.
                     
                     A match is denoted **1**.
                     

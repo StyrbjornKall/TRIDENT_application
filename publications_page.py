@@ -1,6 +1,7 @@
 import streamlit as st
 
-st.markdown('''
-# Publication page
-empty for now
-''')
+def print_publications_page():
+    st.markdown('''
+    # Publication page
+    empty for now
+    ''')
