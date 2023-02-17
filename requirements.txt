@@ -1,5 +1,5 @@
 -f https://download.pytorch.org/whl/torch_stable.html
-torch==1.11.0+cpu
+torch==1.13.1
 streamlit
 transformers==4.18.0
 pandas
