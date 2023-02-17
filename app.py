@@ -10,7 +10,7 @@ import hydralit_components as hc
 import base64
 from PIL import Image
 
-st.set_page_config(layout="wide", page_title='ecoCAIT - predicting ecotoxicity using AI', page_icon="🐟")
+st.set_page_config(layout="wide", page_title='ecoCAIT - predicting chemical ecotoxicity using AI', page_icon="🐟")
 
 #import styles
 with open('styles.css')as f:
