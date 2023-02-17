@@ -75,7 +75,7 @@ def print_predict_page():
 
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
-                min_value=24, max_value=300, step=24)
+                min_value=24, max_value=720, step=24)
 
             if file_up:
                 if file_up.name.endswith('csv'):
@@ -127,7 +127,7 @@ def print_predict_page():
             
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
-                min_value=24, max_value=300, step=24)
+                min_value=24, max_value=720, step=24)
 
             if st.button("Predict"):
                 data = pd.DataFrame()
