@@ -3,7 +3,7 @@ import io
 import pandas as pd
 import numpy as np
 
-from streamlit_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
+from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection, PlotPaCMAP_CLSProjection
 
 
 effectordering = {
@@ -34,7 +34,7 @@ def print_space_page():
     col1, col2 = st.columns((1,3))
     with col1:
         st.markdown('## Projection metrics')
-        projection = st.selectbox('Projection method', ('PCA','UMAP'))
+        projection = st.selectbox('Projection method', ('PCA','PaCMAP','UMAP'))
         species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
         model_type = {'Combined model (best performance)': 'EC50EC10'}
         
@@ -60,9 +60,12 @@ def print_space_page():
                     st.plotly_chart(fig, use_container_width=True, theme='streamlit')
                     
                 if projection == 'UMAP':
-                    fig = PlotUMAP_CLSProjection(MODELTYPE, PREDICTION_ENDPOINT, PREDICTION_EFFECT, PREDICTION_SPECIES, PREDICTION_EXTENDED_DATA, N_NEIGHBORS, MIN_DISTNACE)
+                    fig = PlotUMAP_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=PREDICTION_EXTENDED_DATA, inference_df=None, n_neighbors=N_NEIGHBORS, min_dist=MIN_DISTNACE)
                     st.plotly_chart(fig, use_container_width=True, theme='streamlit')
-
+                    
+                if projection == 'PaCMAP':
+                    fig = PlotPaCMAP_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=PREDICTION_EXTENDED_DATA, inference_df=None)
+                    st.plotly_chart(fig, use_container_width=True, theme='streamlit')
 
             buffer = io.StringIO()
             fig.write_html(buffer, include_plotlyjs='cdn')

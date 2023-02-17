@@ -10,3 +10,4 @@ hydralit_components
 scikit-learn
 plotly
 umap-learn
+pacmap

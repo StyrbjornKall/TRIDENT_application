@@ -7,8 +7,8 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 import tokenizers
 from inference_utils.ecoCAIT_for_inference import ecoCAIT_for_inference
-from inference_utils.pytorch_data_utils import check_training_data, PreProcessDataForInference, check_closest_chemical
-from streamlit_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
+from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical
+from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
 effectordering = {
             'EC50_algae': {'POP':'POP'},

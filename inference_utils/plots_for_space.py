@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import umap
+import pacmap
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -17,8 +18,8 @@ def __formathover(df):
 
 def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions, inference_df=None):
 
-    all_preds = pd.read_pickle(f'../data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
-    cls_df = pd.read_pickle(f'../data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
+    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
+    cls_df = pd.read_pickle(f'./data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
     all_preds = all_preds.merge(cls_df, on='SMILES_Canonical_RDKit')
     embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float32)
     # If we want to plot predicted chemicals from streamlit prediction
@@ -135,8 +136,8 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
 
 
 def PlotUMAP_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions, inference_df=None, n_neighbors=15, min_dist=0.1):
-    all_preds = pd.read_pickle(f'../data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
-    cls_df = pd.read_pickle(f'../data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
+    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
+    cls_df = pd.read_pickle(f'./data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
     all_preds = all_preds.merge(cls_df, on='SMILES_Canonical_RDKit')
     embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float32)
     # If we want to plot predicted chemicals from streamlit prediction
@@ -259,8 +260,8 @@ def PlotUMAP_CLSProjection(model_type, endpoint, effect, species_group, show_all
 
 def PlotPaCMAP_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions, inference_df=None):
 
-    all_preds = pd.read_pickle(f'../data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
-    cls_df = pd.read_pickle(f'../data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
+    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
+    cls_df = pd.read_pickle(f'./data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
     all_preds = all_preds.merge(cls_df, on='SMILES_Canonical_RDKit')
     embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float32)
     # If we want to plot predicted chemicals from streamlit prediction
