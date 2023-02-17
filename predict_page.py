@@ -6,7 +6,7 @@ import torch
 from rdkit import Chem
 from rdkit.Chem import Draw
 import tokenizers
-from inference_utils.fishbAIT_for_inference import fishbAIT_for_inference
+from inference_utils.ecoCAIT_for_inference import ecoCAIT_for_inference
 from inference_utils.pytorch_data_utils import check_training_data, PreProcessDataForInference, check_closest_chemical
 from streamlit_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
@@ -38,12 +38,12 @@ endpointordering = {
     tokenizers.Tokenizer: lambda _: None, 
     tokenizers.AddedToken: lambda _: None})
 def loadmodel(version):
-    fishbait = fishbAIT_(model_version=version)
-    fishbait.load_fine_tuned_model()
-    return fishbait
+    ecocait = ecoCAIT_(model_version=version)
+    ecocait.load_fine_tuned_model()
+    return ecocait
 
 def loadtokenizer(version):
-    tokenizer = AutoTokenizer.from_pretrained(f'StyrbjornKall/fishbAIT_{version}')
+    tokenizer = AutoTokenizer.from_pretrained(f'StyrbjornKall/ecoCAIT_{version}')
     return tokenizer
 
 
@@ -95,10 +95,10 @@ def print_predict_page():
                         unsafe_allow_html=True,
                             )
                     
-                    fishbait = fishbAIT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
-                    fishbait.load_fine_tuned_model()
+                    ecocait = ecoCAIT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
+                    ecocait.load_fine_tuned_model()
                     
-                    results = fishbait.predict_toxicity(
+                    results = ecocait.predict_toxicity(
                         SMILES = data.SMILES.tolist(), 
                         exposure_duration=EXPOSURE_DURATION, 
                         endpoint=PREDICTION_ENDPOINT, 
@@ -134,10 +134,10 @@ def print_predict_page():
                 data['SMILES'] = [st.session_state.smile]
                 
                 with st.spinner(text = 'Inference in Progress...'):
-                    fishbait = fishbAIT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
-                    fishbait.load_fine_tuned_model()
+                    ecocait = ecoCAIT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
+                    ecocait.load_fine_tuned_model()
                     
-                    results = fishbait.predict_toxicity(
+                    results = ecocait.predict_toxicity(
                         SMILES = data.SMILES.tolist(), 
                         exposure_duration=EXPOSURE_DURATION, 
                         endpoint=PREDICTION_ENDPOINT, 

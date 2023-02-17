@@ -66,7 +66,7 @@ if menu_id == 'Home':
          """,
          unsafe_allow_html=True
      )
-    # url("https://www.devblog.no/sites/devblog.no/files/styles/800px_width/public/field/image/network.jpg?itok=yaHdzKIc");
+     
     with open("new-new-logo.svg", "rb") as image_file:
         image_data = image_file.read()
         img_64 = base64.b64encode(image_data).decode()
@@ -77,13 +77,6 @@ if menu_id == 'Home':
     <img src="data:image/svg+xml;base64,{img_64}" style="width:1200px; filter: brightness(30%);">
     </div>
     ''', unsafe_allow_html=True)
-
-    #<h1 style="font-family:Helvetica;color:black;font-size:600%;">
-    #fishbAIT
-    #</h1>
-    #<h1 style="font-family:Helvetica;color:black;font-size:300%;">
-    #USING DEEP LEARNING TO PREDICT CHEMICAL AQUATIC ECOTOXICITY
-    #</h1>
 
     col1, col2 = st.columns((2,3))
     with col1:
@@ -99,12 +92,10 @@ if menu_id == 'Home':
         st.markdown('''
         <div style="border-radius: 10px; background-color:rgba(255, 255, 255, .0); padding:10px;padding-top:200px; ">
         <span style="text-align:center;"><h2>
-        <span class="highlighted-text">Reimagined</span> ecotoxicity modelling 
+        <span class="highlighted-text">Improved</span> ecotoxicity modelling 
         </h2></span>
         <p style="font-size:130%;">
-        ecoCAIT is a novel <em>in silico</em> deep learning ecotoxicity model trained on a vast collection of experimental data to make highly accurate 
-        acute and chronic effect concentration predictions. The model outperforms traditional models in both accuracy and applicability, and is the largest 
-        ecotoxicity model to date in terms of model- and training data-complexity.
+        ecoCAIT is a novel in silico deep learning ecotoxicity model trained using a vast collection of experimental data. ecoCAIT performs highly accurate predictions of both acute and chronic effect concentration and outperforms traditional models in both accuracy and applicability. 
         </p>
         </div>''', unsafe_allow_html=True)
 
@@ -116,8 +107,7 @@ if menu_id == 'Home':
         <span class="highlighted-text">Diverse</span> endpoint prediction  
         </h2></span>
         <p style="font-size:130%;">
-        ecoCAIT can make predictions on fish, aquatic invertebrates and algae for various acute and chronic toxicity endpoints.
-        To date, it can predict effect concentrations for mortality, intoxication, growth, population, reproduction, morphology and development across any exposure duration.
+        ecoCAIT can make predictions for several different acute and chronic toxicity endpoints for both fish, aquatic invertebrates and algae. To date, it can predict effect concentrations for mortality, intoxication, growth, population, reproduction, morphology and development for exposure duration ranging between 1-30 days.
         </p>
         </div>''', unsafe_allow_html=True)
     with col2:
@@ -147,9 +137,7 @@ if menu_id == 'Home':
         One <span class="highlighted-text">continuous</span> space
         </h2></span>
         <p style="font-size:130%;">
-        Unlike traditional QSAR-models, ecoCAIT has one continuous chemical space which is built with ecotoxicity in mind. This space is used to determine
-        the ecotoxicity of a chemical by its chemical structure. Similar to how other language models associate semantically similar words with each other, ecoCAIT 
-        can determine the similarity within the SMILES "language" in order to make highly accurate predictions.
+        ecoCAIT uses a single continuous chemical space that is built with ecotoxicity in mind to determine the ecotoxicity of a chemical from its chemical structure. Similar to how modern language models associate semantically similar words to each other, ecoCAIT uses state-of-the-art deep learning transformers to determine the similarity within the SMILES "language", allowing it to make highly accurate predictions. 
         </p>
         </div>''', unsafe_allow_html=True)
 
