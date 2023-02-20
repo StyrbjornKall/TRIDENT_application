@@ -27,7 +27,9 @@ def print_contact_page():
 
 # Define email function
 def __send_email(name, affiliation, email, message, upload):
-    
+    # Set up SMTP server
+    smtp_server = "mail.your_isp.com"
+    smtp_port = 25
     # Set up message
     msg = MIMEMultipart()
     msg['From'] = email
