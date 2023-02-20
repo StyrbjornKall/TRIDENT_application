@@ -1,4 +1,7 @@
 import streamlit as st
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 def print_contact_page():
     col1, col2, col3 = st.columns([1,1,1])
@@ -16,3 +19,23 @@ def print_contact_page():
 
             # Every form must have a submit button.
             submitted = st.form_submit_button("Send")
+
+            if submitted:
+                __send_email(name, affiliation, email, message, upload)
+                st.success("Your message has been sent.")
+
+
+# Define email function
+def __send_email(name, affiliation, email, message, upload):
+    
+    # Set up message
+    msg = MIMEMultipart()
+    msg['From'] = email
+    msg['To'] = 'ecocaithelpdesk@gmail.com'
+    msg['Subject'] = 'TICKET: From ecoCAIT.streamlit.app contact form'
+    msg.attach(MIMEText(message, 'plain'))
+
+    # Set up SMTP server and send message
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.sendmail(email, 'ecocaithelpdesk@streamlit.com', msg.as_string())
+    server.quit()
