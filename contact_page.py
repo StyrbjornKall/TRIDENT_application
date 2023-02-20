@@ -58,7 +58,7 @@ def print_contact_page():
             
             </style>
 
-            <form enctype="multipart/form-data" action="https://formsubmit.co/ecocaithelpdesk@gmail.com" method="POST">
+            <form enctype="multipart/form-data" action="https://formsubmit.co/0f911ceea07dc330e455fa5f4bd6a721" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>

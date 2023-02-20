@@ -108,7 +108,7 @@ def print_predict_page():
                     placeholder.empty()
                     mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
                     try:
-                        img = Draw.MolsToGridImage(mols,legends=(results.SMILES.tolist()))
+                        img = Draw.MolsToGridImage(mols,legends=(results.SMILES.unique().tolist()))
                     except:
                         img = None
                     st.markdown('''Structure (generated using RDKit):\n''')
