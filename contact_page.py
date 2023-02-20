@@ -9,35 +9,83 @@ def print_contact_page():
         st.title('Contact')
         st.subheader('Send us an email')
         st.markdown('Please send us an email to report bugs, suggest improvements or if encountering SMILES yielding erroneous outputs.')
-        with st.form("my_form", clear_on_submit=True):
-            name = st.text_input('Name')
-            affiliation = st.text_input('Affiliation (Optional)')
-            email = st.text_input('email')
-            message = st.text_area('Message')
 
-            upload = st.file_uploader('Attach file')
+        contact_form = """
+            <style>
+            form {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: #f4f4f4;
+                padding: 20px;
+                border-radius: 5px;
+            }
 
-            # Every form must have a submit button.
-            submitted = st.form_submit_button("Send")
+            .form-group {
+                margin-bottom: 20px;
+            }
 
-            if submitted:
-                __send_email(name, affiliation, email, message, upload)
-                st.success("Your message has been sent.")
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
 
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+                box-sizing: border-box;
+            }
 
-# Define email function
-def __send_email(name, affiliation, email, message, upload):
-    # Set up SMTP server
-    smtp_server = "mail.your_isp.com"
-    smtp_port = 25
-    # Set up message
-    msg = MIMEMultipart()
-    msg['From'] = email
-    msg['To'] = 'ecocaithelpdesk@gmail.com'
-    msg['Subject'] = 'TICKET: From ecoCAIT.streamlit.app contact form'
-    msg.attach(MIMEText(message, 'plain'))
+            input[type="file"] {
+                margin-top: 10px;
+            }
 
-    # Set up SMTP server and send message
-    server = smtplib.SMTP(smtp_server, smtp_port)
-    server.sendmail(email, 'ecocaithelpdesk@streamlit.com', msg.as_string())
-    server.quit()
+            button[type="submit"] {
+                background-color: #F63366;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            
+            </style>
+
+            <form enctype="multipart/form-data" action="https://formsubmit.co/ecocaithelpdesk@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="issue">Issue description</label>
+                <textarea id="issue" name="issue" placeholder="Enter a brief description of your issue" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="attachment">Attachment (<5 MB)</label>
+                <input type="file" id="attachment" name="attachment" accept=".png, .jpeg, .csv, .txt">
+            </div>
+
+            <input type="hidden" name="_subject" value="Ticket from ecocait.streamlit.app">
+            <input type="hidden" name="_autoresponse" value="We have recieved your form. Please don't hesitate to contact us through ecocaithelpdesk@gmail.com if you have any further questions.">
+            <input type="hidden" name="_template" value="table">
+            
+            <div class="form-group">
+                <button type="submit">Send</button>
+            </div>
+            </form>
+            """
+        st.markdown(contact_form, unsafe_allow_html=True)
