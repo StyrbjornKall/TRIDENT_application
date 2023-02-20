@@ -255,3 +255,9 @@ def check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_EN
 
     return results 
 
+def check_valid_structure(smiles):
+    try:
+        valid = Chem.MolToSmiles(Chem.MolFromSmiles(smiles), canonical=True)
+        return None
+    except:
+        return 'Not chemically valid'

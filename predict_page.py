@@ -7,7 +7,7 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 import tokenizers
 from inference_utils.ecoCAIT_for_inference import ecoCAIT_for_inference
-from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical
+from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_structure
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
 effectordering = {
@@ -145,7 +145,7 @@ def print_predict_page():
                         return_cls_embeddings=True)
                 mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
                 try:
-                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES.tolist()))
+                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES.unique().tolist()))
                 except:
                     img = None
                 st.markdown('''Structure (generated using RDKit):\n''')
@@ -157,6 +157,7 @@ def print_predict_page():
 
         if results.empty == False:
             with col2:
+                results['Alert'] = results.SMILES.apply(lambda x: check_valid_structure(x))
                 st.success(f'Predicted effect concentration(s):')
                 st.write(results.head())
 
