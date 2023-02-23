@@ -1,3 +1,5 @@
+import streamlit as st
+
 import pandas as pd
 import pickle as pkl
 pd.options.mode.chained_assignment = None
@@ -174,12 +176,27 @@ class BuildInferenceDataLoaderAndDataset:
         sampler = SequentialSampler(self.dataset)
         self.dataloader = DataLoader(self.dataset, sampler=sampler, batch_size=self.bs, collate_fn=self.collator, num_workers=self.num_workers)
 
+@st.cache_data
+def __loadtrainingdf__():
+    df = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
+    return df
+
+@st.cache_data
+def __loadpredictionsdf__():
+    df = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
+    return df
+
+@st.cache_data
+def __loadCLSembeddings__(MODELTYPE, PREDICTION_SPECIES):
+    df = pd.read_pickle(f'./data/predictions/{MODELTYPE}_{PREDICTION_SPECIES}_CLS_embeddings.pkl.zip', compression='zip')
+    return df
+
 def check_training_data_from_scratch(df, model_type, species_group, endpoint, effect):
 
     endpoint_matches = []
     effect_matches = []
     
-    training_data = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
+    training_data = __loadtrainingdf__()
     training_data = training_data.drop_duplicates(subset=['SMILES_Canonical_RDKit','species_group','endpoint','effect'])
     #filter out species match to limit search
     training_data = training_data[training_data.species_group == species_group]
@@ -211,7 +228,7 @@ def check_training_data(df, model_type, species_group, endpoint, effect):
     endpoint_matches = []
     effect_matches = []
     
-    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions.pkl.zip', compression='zip')
+    all_preds = __loadpredictionsdf__()
     all_preds = all_preds[['SMILES_Canonical_RDKit',f'{model_type}_{species_group}_{endpoint}_{effect} endpoint match', f'{model_type}_{species_group}_{endpoint}_{effect} effect match']]
  
     for SMILES in df.SMILES_Canonical_RDKit.tolist():
@@ -232,15 +249,15 @@ def check_training_data(df, model_type, species_group, endpoint, effect):
     return df
 
 def check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT):
-    training_data = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
+    training_data = __loadtrainingdf__()
     if MODELTYPE == 'EC50EC10':
-        PREDICTION_ENDPOINT = ('EC50','EC10')
+        PREDICTION_ENDPOINT = 'EC50,EC10'
     # Get training set
-    training_data = training_data[(training_data.species_group == PREDICTION_SPECIES) & (training_data.endpoint.isin(list(tuple(PREDICTION_ENDPOINT))))]
+    training_data = training_data[(training_data.species_group == PREDICTION_SPECIES) & (training_data.endpoint.isin(PREDICTION_ENDPOINT.split(',')))]
     training_data = training_data.drop_duplicates(subset=['SMILES_Canonical_RDKit'])
     training_data = PreProcessDataForInference(training_data).GetCanonicalSMILES()
     
-    cls_df = pd.read_pickle(f'./data/predictions/{MODELTYPE}_{PREDICTION_SPECIES}_CLS_embeddings.pkl.zip', compression='zip')
+    cls_df = __loadCLSembeddings__(MODELTYPE, PREDICTION_SPECIES)
     training_data = training_data.merge(cls_df, on='SMILES_Canonical_RDKit')
     cls_training_data = np.asarray(training_data.CLS_embeddings.tolist(), dtype=np.float32)
     cls = np.asarray(results.CLS_embeddings.tolist(), dtype=np.float32)

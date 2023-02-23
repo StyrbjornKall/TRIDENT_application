@@ -1,12 +1,13 @@
+import streamlit as st
 import torch
 from transformers import AutoModel, AutoTokenizer
 import pandas as pd
 import numpy as np
+
 from inference_utils.model_utils import DNN_module, ecoCAIT
 from inference_utils.pytorch_data_utils import PreProcessDataForInference, BuildInferenceDataLoaderAndDataset
 from tqdm import tqdm
 from typing import List, TypeVar
-
 
 class ecoCAIT_for_inference:
     def __init__(self, model_version: str='EC50EC10_fish', path_to_model_weights=None, device=None):
@@ -69,6 +70,7 @@ class ecoCAIT_for_inference:
 
         self.ecoCAIT_model = ecoCAIT(self.roberta, self.dnn)
 
+
     def __loadcheckpoint__(self, dnn, version, path):
         try:
             if path != None:
@@ -84,7 +86,6 @@ class ecoCAIT_for_inference:
         dnn.load_state_dict(checkpoint_dnn)
         
         return dnn
-
 
     def predict_toxicity(self, SMILES, exposure_duration: int, endpoint: str, effect: str, return_cls_embeddings: bool=False):
         

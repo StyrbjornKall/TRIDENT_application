@@ -10,6 +10,8 @@ from plotly.subplots import make_subplots
 
 from sklearn.decomposition import PCA
 
+from inference_utils.pytorch_data_utils import __loadCLSembeddings__, __loadpredictionsdf__, __loadtrainingdf__
+
 def __formathover(df):
     formatted_hover = ''''''
     for col in df.columns:
@@ -18,8 +20,8 @@ def __formathover(df):
 
 def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions, inference_df=None):
 
-    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
-    cls_df = pd.read_pickle(f'./data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
+    all_preds = __loadpredictionsdf__()
+    cls_df = __loadCLSembeddings__(model_type, species_group)
     all_preds = all_preds.merge(cls_df, on='SMILES_Canonical_RDKit')
     embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float32)
     # If we want to plot predicted chemicals from streamlit prediction
@@ -28,9 +30,11 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
 
     pcomp = PCA(n_components=2)
     pcac = pcomp.fit_transform(embeddings)
-    all_preds['pc1'], all_preds['pc2'] = pcac[:len(all_preds),0], pcac[:len(all_preds),1]
+    projections = pd.DataFrame({'pc1': pcac[:len(all_preds),0], 'pc2': pcac[:len(all_preds),1]})
+    all_preds = pd.concat([all_preds, projections], axis=1)
     if inference_df is not None:
-        inference_df['pc1'], inference_df['pc2'] = pcac[len(all_preds):,0], pcac[len(all_preds):,1]
+        projections = pd.DataFrame({'pc1': pcac[len(all_preds):,0], 'pc2': pcac[len(all_preds):,1]})
+        inference_df = pd.concat([inference_df, projections], axis=1)
 
     # Get which SMILES are training
     train_effect_preds = all_preds[all_preds[f'{model_type}_{species_group}_{endpoint}_{effect} effect match'].astype(bool)]
@@ -136,8 +140,8 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
 
 
 def PlotUMAP_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions, inference_df=None, n_neighbors=15, min_dist=0.1):
-    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
-    cls_df = pd.read_pickle(f'./data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
+    all_preds = __loadpredictionsdf__()
+    cls_df = __loadCLSembeddings__(model_type, species_group)
     all_preds = all_preds.merge(cls_df, on='SMILES_Canonical_RDKit')
     embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float32)
     # If we want to plot predicted chemicals from streamlit prediction
@@ -149,12 +153,13 @@ def PlotUMAP_CLSProjection(model_type, endpoint, effect, species_group, show_all
                       n_components = 2,
                       low_memory = True,
                       min_dist = min_dist)
-    
     umapc = umap_model.fit_transform(embeddings)
-    all_preds['u1'], all_preds['u2'] = umapc[:len(all_preds),0], umapc[:len(all_preds),1]
 
+    projections = pd.DataFrame({'u1': umapc[:len(all_preds),0], 'u2': umapc[:len(all_preds),1]})
+    all_preds = pd.concat([all_preds, projections], axis=1)
     if inference_df is not None:
-        inference_df['u1'], inference_df['u2'] = umapc[len(all_preds):,0], umapc[len(all_preds):,1]
+        projections = pd.DataFrame({'u1': umapc[len(all_preds):,0], 'u2': umapc[len(all_preds):,1]})
+        inference_df = pd.concat([inference_df, projections], axis=1)
 
     # Get which SMILES are training
     train_effect_preds = all_preds[all_preds[f'{model_type}_{species_group}_{endpoint}_{effect} effect match'].astype(bool)]
@@ -260,8 +265,8 @@ def PlotUMAP_CLSProjection(model_type, endpoint, effect, species_group, show_all
 
 def PlotPaCMAP_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions, inference_df=None):
 
-    all_preds = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
-    cls_df = pd.read_pickle(f'./data/predictions/{model_type}_{species_group}_CLS_embeddings.pkl.zip', compression='zip')
+    all_preds = __loadpredictionsdf__()
+    cls_df = __loadCLSembeddings__(model_type, species_group)
     all_preds = all_preds.merge(cls_df, on='SMILES_Canonical_RDKit')
     embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float32)
     # If we want to plot predicted chemicals from streamlit prediction
@@ -270,9 +275,11 @@ def PlotPaCMAP_CLSProjection(model_type, endpoint, effect, species_group, show_a
 
     pcomp = pacmap.PaCMAP()
     pcac = pcomp.fit_transform(embeddings)
-    all_preds['pacmap1'], all_preds['pacmap2'] = pcac[:len(all_preds),0], pcac[:len(all_preds),1]
+    projections = pd.DataFrame({'pacmap1': pcac[:len(all_preds),0], 'pacmap2': pcac[:len(all_preds),1]})
+    all_preds = pd.concat([all_preds, projections], axis=1)
     if inference_df is not None:
-        inference_df['pacmap1'], inference_df['pacmap2'] = pcac[len(all_preds):,0], pcac[len(all_preds):,1]
+        projections = pd.DataFrame({'pacmap1': pcac[len(all_preds):,0], 'pacmap2': pcac[len(all_preds):,1]})
+        inference_df = pd.concat([inference_df, projections], axis=1)
 
     # Get which SMILES are training
     train_effect_preds = all_preds[all_preds[f'{model_type}_{species_group}_{endpoint}_{effect} effect match'].astype(bool)]

@@ -34,19 +34,6 @@ endpointordering = {
             'EC50EC10_fish': {'EC50':'EC50', 'EC10': 'EC10'} 
             }
 
-@st.cache(hash_funcs={
-    tokenizers.Tokenizer: lambda _: None, 
-    tokenizers.AddedToken: lambda _: None})
-def loadmodel(version):
-    ecocait = ecoCAIT_(model_version=version)
-    ecocait.load_fine_tuned_model()
-    return ecocait
-
-def loadtokenizer(version):
-    tokenizer = AutoTokenizer.from_pretrained(f'StyrbjornKall/ecoCAIT_{version}')
-    return tokenizer
-
-
 def print_predict_page():
     col1, col2 = st.columns([1,3])
     with col1:
