@@ -2,10 +2,9 @@ import streamlit as st
 import io
 import numpy as np
 import pandas as pd
-import torch
 from rdkit import Chem
 from rdkit.Chem import Draw
-import tokenizers
+from rdkit.Chem import PandasTools
 from inference_utils.ecoCAIT_for_inference import ecoCAIT_for_inference
 from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_structure
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
@@ -183,7 +182,11 @@ def print_predict_page():
                     This similarity score is a better way of understanding how the model places the chemical in terms of its toxicity as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
 
                     results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-                    
+
+                    # Add molecules to df
+                    PandasTools.AddMoleculeColumnToFrame(results, smilesCol='SMILES', molColName='Molecule')
+                    PandasTools.AddMoleculeColumnToFrame(results, smilesCol='most similar chemical', molColName='most similar chemical rendered')
+
                     st.write(results.head())
 
                     # Download results
