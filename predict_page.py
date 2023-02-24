@@ -182,11 +182,6 @@ def print_predict_page():
                     This similarity score is a better way of understanding how the model places the chemical in terms of its toxicity as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
 
                     results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-
-                    # Add molecules to df
-                    PandasTools.AddMoleculeColumnToFrame(results, smilesCol='SMILES', molColName='Molecule')
-                    PandasTools.AddMoleculeColumnToFrame(results, smilesCol='most similar chemical', molColName='most similar chemical rendered')
-
                     st.write(results.head())
 
                     # Download results
