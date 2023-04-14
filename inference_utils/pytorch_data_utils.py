@@ -176,17 +176,17 @@ class BuildInferenceDataLoaderAndDataset:
         sampler = SequentialSampler(self.dataset)
         self.dataloader = DataLoader(self.dataset, sampler=sampler, batch_size=self.bs, collate_fn=self.collator, num_workers=self.num_workers)
 
-@st.cache_data
+@st.cache_data(ttl=24*60*60)
 def __loadtrainingdf__():
     df = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
     return df
 
-@st.cache_data
+@st.cache_data(ttl=24*60*60)
 def __loadpredictionsdf__():
     df = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
     return df
 
-@st.cache_data
+@st.cache_data(ttl=24*60*60)
 def __loadCLSembeddings__(MODELTYPE, PREDICTION_SPECIES):
     df = pd.read_pickle(f'./data/predictions/{MODELTYPE}_{PREDICTION_SPECIES}_CLS_embeddings.pkl.zip', compression='zip')
     return df
