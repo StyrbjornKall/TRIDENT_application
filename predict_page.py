@@ -70,6 +70,7 @@ def print_predict_page():
                     data=pd.read_csv(file_up, sep='\t', names=['SMILES']) #Read our data dataset
                 elif file_up.name.endswith('xlsx'):
                     data=pd.read_excel(file_up)
+                st.write('Showing first 5 rows:\n')
                 st.write(data.head())
 
             if st.button("Predict"):
@@ -92,12 +93,12 @@ def print_predict_page():
                         return_cls_embeddings=True)
                     
                     placeholder.empty()
-                    mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
+                    mols = [Chem.MolFromSmiles(smiles) for smiles in results.head().SMILES.unique().tolist()]
                     try:
-                        img = Draw.MolsToGridImage(mols,legends=(results.SMILES.unique().tolist()))
+                        img = Draw.MolsToGridImage(mols,legends=(results.head().SMILES.unique().tolist()))
                     except:
                         img = None
-                    st.markdown('''Structure (generated using RDKit):\n''')
+                    st.markdown('''Showing first 5 structures (generated using RDKit):\n''')
                     if img is not None:
                         st.image(img)
                     else:

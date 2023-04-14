@@ -11,3 +11,4 @@ scikit-learn
 plotly
 umap-learn
 pacmap
+stqdm

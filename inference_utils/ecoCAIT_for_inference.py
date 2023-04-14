@@ -1,4 +1,5 @@
 import streamlit as st
+from stqdm import stqdm
 import torch
 from transformers import AutoModel, AutoTokenizer
 import pandas as pd
@@ -116,7 +117,7 @@ class ecoCAIT_for_inference:
         self.ecoCAIT_model.eval()
         preds = []
         cls_embeddings = []
-        for _, batch in enumerate(tqdm(loader)):
+        for i, batch in enumerate(stqdm(loader)):
             with torch.no_grad():
                 pred, cls = self.ecoCAIT_model(*batch.values())
                 preds.append(pred.numpy().astype(np.float32))
