@@ -10,6 +10,14 @@ from inference_utils.pytorch_data_utils import PreProcessDataForInference, Build
 from tqdm import tqdm
 from typing import List, TypeVar
 
+#@st.cache_resource
+#def load_automodel(model_version):
+#    return AutoModel.from_pretrained(f'StyrbjornKall/{model_version}', use_auth_token='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')
+
+@st.cache_resource
+def load_autotokenizer():
+    return AutoTokenizer.from_pretrained(f'StyrbjornKall/EC50EC10_fish', use_auth_token='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')
+
 class ecoCAIT_for_inference:
     def __init__(self, model_version: str='EC50EC10_fish', path_to_model_weights=None, device=None):
 
@@ -62,8 +70,9 @@ class ecoCAIT_for_inference:
             'EC50EC10_fish': 9
         }
     
+        #self.roberta = load_automodel(self.model_version)
         self.roberta = AutoModel.from_pretrained(f'StyrbjornKall/{self.model_version}', use_auth_token='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')
-        self.tokenizer = AutoTokenizer.from_pretrained(f'StyrbjornKall/{self.model_version}', use_auth_token='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')
+        self.tokenizer = load_autotokenizer()
 
         dnn = DNN_module(one_hot_enc_len=onehotencodinglengths[self.model_version], n_hidden_layers=3, layer_sizes=[700,500,300], dropout=0.2)
         
