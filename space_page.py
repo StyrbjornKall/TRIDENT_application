@@ -2,7 +2,7 @@ import streamlit as st
 import io
 import pandas as pd
 import numpy as np
-
+from custom_download_button import download_button
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection, PlotPaCMAP_CLSProjection
 
 
@@ -71,9 +71,5 @@ def print_space_page():
             fig.write_html(buffer, include_plotlyjs='cdn')
             html_bytes = buffer.getvalue().encode()
 
-            st.download_button(
-                        label='Lagging? --> Download HTML',
-                        data=html_bytes,
-                        file_name='interactive_CLS_projection.html',
-                        mime='text/html'
-                    )
+            download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
+            st.markdown(download_button_str, unsafe_allow_html=True)

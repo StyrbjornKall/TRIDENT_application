@@ -5,7 +5,8 @@ import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
 from rdkit.Chem import PandasTools
-from inference_utils.ecoCAIT_for_inference import ecoCAIT_for_inference
+from custom_download_button import download_button
+from inference_utils.TRIDENT_for_inference import TRIDENT_for_inference
 from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_structure
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
@@ -34,6 +35,7 @@ endpointordering = {
             }
 
 def print_predict_page():
+    
     col1, col2 = st.columns([1,3])
     with col1:
         st.markdown('## Prediction metrics')
@@ -51,7 +53,7 @@ def print_predict_page():
         results = pd.DataFrame()
 
     with col2:
-        st.markdown('# Make prediction')
+        st.markdown('# Predict chemical ecotoxicity')
         if st.session_state.batch:
             file_up = st.file_uploader("Batch entry prediction. Upload list of SMILES:", type=["csv", 'txt','xlsx'], help='''
             .txt: file should be tab delimited\n
@@ -65,11 +67,11 @@ def print_predict_page():
 
             if file_up:
                 if file_up.name.endswith('csv'):
-                    data=pd.read_csv(file_up, sep=',') #Read our data dataset
+                    data=pd.read_csv(file_up, sep=',', names=['SMILES']) #Read our data dataset
                 elif file_up.name.endswith('txt'):
                     data=pd.read_csv(file_up, sep='\t', names=['SMILES']) #Read our data dataset
                 elif file_up.name.endswith('xlsx'):
-                    data=pd.read_excel(file_up)
+                    data=pd.read_excel(file_up, header=None, names=['SMILES'])
                 st.markdown('**Showing first 5 rows:**\n')
                 st.write(data.head())
 
@@ -77,15 +79,15 @@ def print_predict_page():
                 with st.spinner(text = 'Inference in Progress...'):
                     
                     placeholder = st.empty()
-                    placeholder.write(
-                        '<img width=100 src="http://static.skaip.org/img/emoticons/180x180/f6fcff/fish.gif" style="margin-left: 5px; brightness(1.1);">',
-                        unsafe_allow_html=True,
-                            )
+                    #placeholder.write(
+                    #    '<img width=100 src="http://static.skaip.org/img/emoticons/180x180/f6fcff/fish.gif" style="margin-left: 5px; brightness(1.1);">',
+                    #    unsafe_allow_html=True,
+                    #        )
                     
-                    ecocait = ecoCAIT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
-                    ecocait.load_fine_tuned_model()
+                    TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
+                    TRIDENT.load_fine_tuned_model()
                     
-                    results = ecocait.predict_toxicity(
+                    results = TRIDENT.predict_toxicity(
                         SMILES = data.SMILES.tolist(), 
                         exposure_duration=EXPOSURE_DURATION, 
                         endpoint=PREDICTION_ENDPOINT, 
@@ -121,10 +123,10 @@ def print_predict_page():
                 data['SMILES'] = [st.session_state.smile]
                 
                 with st.spinner(text = 'Inference in Progress...'):
-                    ecocait = ecoCAIT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
-                    ecocait.load_fine_tuned_model()
+                    TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
+                    TRIDENT.load_fine_tuned_model()
                     
-                    results = ecocait.predict_toxicity(
+                    results = TRIDENT.predict_toxicity(
                         SMILES = data.SMILES.tolist(), 
                         exposure_duration=EXPOSURE_DURATION, 
                         endpoint=PREDICTION_ENDPOINT, 
@@ -145,18 +147,13 @@ def print_predict_page():
         if results.empty == False:
             with col2:
                 results['Alert'] = results.SMILES.apply(lambda x: check_valid_structure(x))
+                results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 st.success(f'Predicted effect concentration(s):')
                 st.write(results.head())
 
-                csv = results.to_csv().encode('utf-8')
-
-                st.download_button(
-                    label="Download results as CSV",
-                    data=csv,
-                    file_name='ecoCAIT_prediction_results.csv',
-                    mime='text/csv',
-                    on_click=None
-                )
+                download_button_str = download_button(results, 'TRIDENT_prediction_results.csv', 'Download results', pickle_it=False)
+                st.markdown(download_button_str, unsafe_allow_html=True)
 
             with col2:
                 st.markdown('# Results analysis')
@@ -172,44 +169,42 @@ def print_predict_page():
                     
                     Note this does not include exact exposure duration matches since most of the trainable parameters are found in the transformer architecture which only uses the SMILES.''')
                     
-                    results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-                    st.write(results.head())
+                    st.write(results[['SMILES','predictions log10(mg/L)','endpoint match', 'effect match']].head())
 
                     # Closest chemical in training set
                     st.markdown('''
                     ## Closest chemical in training set
-                    To better understand the toxicity prediction, the predicted chemical's closest resemblence in terms of chemical structure can be determined
+                    To better understand the toxicity prediction, the predicted chemical's closest resemblance in terms of chemical structure can be determined
                     by calculating the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set.
                     This similarity score is a better way of understanding how the model places the chemical in terms of its toxicity as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
 
-                    results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-                    st.write(results.head())
-
-                    # Download results
-                    st.download_button(
-                        label="Download results as CSV",
-                        data=results.to_csv().encode('utf-8'),
-                        file_name='ecoCAIT_prediction_results.csv',
-                        mime='text/csv',
-                        on_click=None
-                    )
+                    st.write(results[['SMILES','predictions log10(mg/L)','most similar chemical','cosine similarity']].head())
 
                     # Space location
                     st.markdown('''
                     ## CLS-embedding projection (PCA)
                     ''')
 
-                    fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=results)
+                    fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=results.drop_duplicates(subset=['SMILES_Canonical_RDKit']))
                     st.plotly_chart(fig, use_container_width=True, theme='streamlit')
                     
                     buffer = io.StringIO()
                     fig.write_html(buffer, include_plotlyjs='cdn')
                     html_bytes = buffer.getvalue().encode()
 
-                    st.download_button(
-                        label='Lagging? --> Download HTML',
-                        data=html_bytes,
-                        file_name='interactive_CLS_projection.html',
-                        mime='text/html'
-                    )
+                    download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
+                    st.markdown(download_button_str, unsafe_allow_html=True)
 
+                    
+    # Add padding element at the bottom of the app
+        st.markdown(
+            """
+            <style>
+            .footer {
+                height: 300px; /* Change this to adjust the height of the padding element */
+            }
+            </style>
+            <div class="footer"></div>
+            """,
+            unsafe_allow_html=True
+        )

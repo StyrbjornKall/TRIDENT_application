@@ -79,8 +79,8 @@ def print_contact_page():
                 <input type="file" id="attachment" name="attachment" accept=".png, .jpeg, .csv, .txt">
             </div>
 
-            <input type="hidden" name="_subject" value="Ticket from ecocait.streamlit.app">
-            <input type="hidden" name="_autoresponse" value="We have recieved your form. Please don't hesitate to contact us through ecocaithelpdesk@gmail.com if you have any further questions.">
+            <input type="hidden" name="_subject" value="Ticket from TRIDENT web app">
+            <input type="hidden" name="_autoresponse" value="We have recieved your form. Please don't hesitate to contact us through tridenthelpdesk@gmail.com if you have any further questions.">
             <input type="hidden" name="_template" value="table">
             
             <div class="form-group">
