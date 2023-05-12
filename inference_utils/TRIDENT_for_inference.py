@@ -5,20 +5,24 @@ from transformers import AutoModel, AutoTokenizer
 import pandas as pd
 import numpy as np
 
-from inference_utils.model_utils import DNN_module, ecoCAIT
+from inference_utils.model_utils import DNN_module, TRIDENT
 from inference_utils.pytorch_data_utils import PreProcessDataForInference, BuildInferenceDataLoaderAndDataset
 from tqdm import tqdm
 from typing import List, TypeVar
 
-@st.cache_resource(max_entries=1, ttl=3600)
+@st.cache_resource(max_entries=3, ttl=3600)
 def load_automodel(model_version):
-    return AutoModel.from_pretrained(f'StyrbjornKall/{model_version}', use_auth_token='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')
+    print('Loading model... \n')
+    model = AutoModel.from_pretrained(f'StyrbjornKall/{model_version}')
+    return model
 
 @st.cache_resource(ttl=24*60*60)
 def load_autotokenizer():
-    return AutoTokenizer.from_pretrained(f'StyrbjornKall/EC50EC10_fish', use_auth_token='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')
+    print('Loading tokenizer... \n')
+    return AutoTokenizer.from_pretrained(f'StyrbjornKall/EC50EC10_fish')
+    #return AutoTokenizer.from_pretrained(f'./models/SMILES_BPE_tokenizer')
 
-class ecoCAIT_for_inference:
+class TRIDENT_for_inference:
     def __init__(self, model_version: str='EC50EC10_fish', path_to_model_weights=None, device=None):
 
         self.model_version = model_version
@@ -77,19 +81,20 @@ class ecoCAIT_for_inference:
         
         self.dnn = self.__loadcheckpoint__(dnn, self.model_version, self.path_to_model_weights)
 
-        self.ecoCAIT_model = ecoCAIT(self.roberta, self.dnn)
+        self.TRIDENT_model = TRIDENT(self.roberta, self.dnn)
 
 
     def __loadcheckpoint__(self, dnn, version, path):
+        print('Loading DNN... \n')
         try:
             if path != None:
                 checkpoint_dnn = torch.load(f'{path}final_model_{version}_dnn_saved_weights.pt', map_location=self.device)
             else:
-                checkpoint_dnn = torch.load(f'./ecoCAIT/final_model_{version}_dnn_saved_weights.pt', map_location=self.device)
+                checkpoint_dnn = torch.load(f'./TRIDENT/final_model_{version}_dnn_saved_weights.pt', map_location=self.device)
         except:
             raise FileNotFoundError(
                 f'''Tried to load DNN module from path 
-                ./ecoCAIT/final_model_{version}_dnn_saved_weights.pt
+                ./TRIDENT/final_model_{version}_dnn_saved_weights.pt
                 but could not find file. Please specify the full path to the saved model.''')
 
         dnn.load_state_dict(checkpoint_dnn)
@@ -122,12 +127,12 @@ class ecoCAIT_for_inference:
             variables=['SMILES_Canonical_RDKit', 'exposure_duration log10(h)', 'OneHotEnc_concatenated'], 
             tokenizer = self.tokenizer).dataloader
 
-        self.ecoCAIT_model.eval()
+        self.TRIDENT_model.eval()
         preds = []
         cls_embeddings = []
         for i, batch in enumerate(stqdm(loader)):
             with torch.no_grad():
-                pred, cls = self.ecoCAIT_model(*batch.values())
+                pred, cls = self.TRIDENT_model(*batch.values())
                 preds.append(pred.numpy().astype(np.float32))
                 cls_embeddings.append(cls.numpy().astype(np.float32))
 
@@ -144,19 +149,19 @@ class ecoCAIT_for_inference:
     def __check_allowed_prediction__(self, endpoint, effect):
 
         if endpoint not in self.list_of_endpoints:
-            raise RuntimeError(f'''You are trying to predict a `{endpoint}` endpoint with ecoCAIT version {self.model_version}. 
-            This will not work. Reload a correct version of ecoCAIT (i.e. `EC50`, `EC10` or `EC50EC10`) or specify correct endpoint.
+            raise RuntimeError(f'''You are trying to predict a `{endpoint}` endpoint with TRIDENT version {self.model_version}. 
+            This will not work. Reload a correct version of TRIDENT (i.e. `EC50`, `EC10` or `EC50EC10`) or specify correct endpoint.
             For additional information call: __help__''')
         
         if effect not in self.list_of_effects:
-            raise RuntimeError(f'''You are trying to predict a `{effect}` effect with ecoCAIT version {self.model_version}. 
-            This will not work. Reload a correct version of ecoCAIT (i.e. `EC50`, `EC10` or `EC50EC10`) or specify correct effect.
+            raise RuntimeError(f'''You are trying to predict a `{effect}` effect with TRIDENT version {self.model_version}. 
+            This will not work. Reload a correct version of TRIDENT (i.e. `EC50`, `EC10` or `EC50EC10`) or specify correct effect.
             For additional information call: __help__''')
 
     
     def __help__(self):
         print('''
-        This is a python class used to load and use the fine-tuned deep-learning model `ecoCAIT` for environmental toxicity predictions in fish algae and aquatic invertebrates.
+        This is a python class used to load and use the fine-tuned deep-learning model `TRIDENT` for environmental toxicity predictions in fish algae and aquatic invertebrates.
         The models have been trained on a large corpus of SMILES (chemical representations) on data collected from various sources.
 
         Currently there are nine models available for use. The models are divided by toxicity endpoint and by species group. The models are the following:
