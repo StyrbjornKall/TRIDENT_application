@@ -10,6 +10,8 @@ from inference_utils.TRIDENT_for_inference import TRIDENT_for_inference
 from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_structure
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
+example_mols = ['O=P(O)(O)O', 'Clc1ccc(C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl)cc1', 'Cc1ccccc1Cl','C=CC(=O)OCC','ClC(Cl)C(Cl)(Cl)Cl','O=C(O)CNCP(=O)(O)O','CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC','CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl']
+
 effectordering = {
             'EC50_algae': {'POP':'POP'},
             'EC10_algae': {'POP':'POP'},
