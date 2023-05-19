@@ -8,7 +8,9 @@ This repository contains code for the TRIDENT web application available through 
 See also: [TRIDENT](https://github.com/StyrbjornKall/TRIDENT)
 
 ## How to Use
-If you wish to run this streamlit application locally, either clone this repo or fetch the Docker image available in Docker hub  To replicate the study, refer to the documentation under the `development` section.
+Please refer to our hosted web application: [TRIDENT - predicting chemical ecotoxicity using AI](https://trident.serve.scilifelab.se/).
+
+If you do wish to run this streamlit application locally, either clone this repo or fetch the Docker image available in Docker hub  To replicate the study, refer to the documentation under the `development` section.
 
 Clone this repository:
 ```bash 
