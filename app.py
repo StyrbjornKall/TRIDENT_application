@@ -67,7 +67,7 @@ if menu_id == 'Home':
          unsafe_allow_html=True
      )
      
-    with open("new-new-logo.svg", "rb") as image_file:
+    with open("trident-logo.svg", "rb") as image_file:
         image_data = image_file.read()
         img_64 = base64.b64encode(image_data).decode()
     
