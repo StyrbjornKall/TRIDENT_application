@@ -37,7 +37,11 @@ endpointordering = {
             }
 
 def print_predict_page():
-    
+    if 'prediction_button' in st.session_state and st.session_state.prediction_button == True:
+        st.session_state.running = True
+    else:
+        st.session_state.running = False
+
     col1, col2 = st.columns([1,3])
     with col1:
         st.markdown('## Prediction metrics')
@@ -77,7 +81,7 @@ def print_predict_page():
                 st.markdown('**Showing first 5 rows:**\n')
                 st.write(data.head())
 
-            if st.button("Predict"):
+            if st.button('Predict', disabled=st.session_state.running, key='prediction_button'):
                 with st.spinner(text = 'Inference in Progress...'):
                     
                     placeholder = st.empty()
@@ -197,7 +201,6 @@ def print_predict_page():
                     download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
                     st.markdown(download_button_str, unsafe_allow_html=True)
 
-                    
     # Add padding element at the bottom of the app
         st.markdown(
             """
