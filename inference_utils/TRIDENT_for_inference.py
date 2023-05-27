@@ -131,7 +131,7 @@ class TRIDENT_for_inference:
         self.TRIDENT_model.eval()
         preds = []
         cls_embeddings = []
-        for i, batch in enumerate(stqdm(loader)):
+        for i, batch in enumerate(loader):#stqdm(loader)):
             with torch.no_grad():
                 pred, cls = self.TRIDENT_model(*batch.values())
                 preds.append(pred.numpy().astype(np.float32))
