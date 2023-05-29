@@ -9,7 +9,7 @@ from custom_download_button import download_button
 from inference_utils.TRIDENT_for_inference import TRIDENT_for_inference
 from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_structure
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
-#https://discuss.streamlit.io/t/disable-button-during-on-click-function-evalution/25022
+
 example_mols = ['O=P(O)(O)O', 'Clc1ccc(C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl)cc1', 'Cc1ccccc1Cl','C=CC(=O)OCC','ClC(Cl)C(Cl)(Cl)Cl','O=C(O)CNCP(=O)(O)O','CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC','CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl']
 
 effectordering = {
@@ -48,7 +48,6 @@ def print_predict_page():
         st.session_state.batch_input = False
 
     col1, col2 = st.columns([1,3])
-    #prediction_form = st.form('PredictionForm')
     col1.markdown('## Prediction metrics')
     col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch", value=st.session_state.batch_input)
     species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
@@ -87,31 +86,24 @@ def print_predict_page():
                 st.write(data.head())
 
             if st.button("Predict"):
-                #with st.spinner(text = 'Inference in Progress...'):
+                with st.spinner(text = 'Inference in Progress...'):
                     
-                placeholder = st.empty()
-                #placeholder.write(
-                #    '<img width=100 src="http://static.skaip.org/img/emoticons/180x180/f6fcff/fish.gif" style="margin-left: 5px; brightness(1.1);">',
-                #    unsafe_allow_html=True,
-                #        )
+                    TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
+                    TRIDENT.load_fine_tuned_model()
                 
-                TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
-                TRIDENT.load_fine_tuned_model()
-                
-                results = TRIDENT.predict_toxicity(
-                    SMILES = data.SMILES.tolist(), 
-                    exposure_duration=EXPOSURE_DURATION, 
-                    endpoint=PREDICTION_ENDPOINT, 
-                    effect=PREDICTION_EFFECT,
-                    return_cls_embeddings=True)
-                
-                placeholder.empty()
-                mols = [Chem.MolFromSmiles(smiles) for smiles in results.head().SMILES.unique().tolist()]
+                    results = TRIDENT.predict_toxicity(
+                        SMILES = data.SMILES.tolist(), 
+                        exposure_duration=EXPOSURE_DURATION, 
+                        endpoint=PREDICTION_ENDPOINT, 
+                        effect=PREDICTION_EFFECT,
+                        return_cls_embeddings=True)
+                    
+                mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES.unique().tolist()]
                 try:
-                    img = Draw.MolsToGridImage(mols,legends=(results.head().SMILES.unique().tolist()))
+                    img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES.unique().tolist()))
                 except:
                     img = None
-                st.markdown('''**Showing first 5 structures (generated using RDKit):**\n''')
+                st.markdown('''**Showing first 6 structures (generated using RDKit):**\n''')
                 if img is not None:
                     st.image(img)
                 else:
@@ -133,16 +125,15 @@ def print_predict_page():
                 data = pd.DataFrame()
                 data['SMILES'] = [st.session_state.smile]
                 
-                #with st.spinner(text = 'Inference in Progress...'):
-                TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
-                TRIDENT.load_fine_tuned_model()
-                
-                results = TRIDENT.predict_toxicity(
-                    SMILES = data.SMILES.tolist(), 
-                    exposure_duration=EXPOSURE_DURATION, 
-                    endpoint=PREDICTION_ENDPOINT, 
-                    effect=PREDICTION_EFFECT,
-                    return_cls_embeddings=True)
+                with st.spinner(text = 'Inference in Progress...'):
+                    TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
+                    TRIDENT.load_fine_tuned_model()
+                    results = TRIDENT.predict_toxicity(
+                        SMILES = data.SMILES.tolist(), 
+                        exposure_duration=EXPOSURE_DURATION, 
+                        endpoint=PREDICTION_ENDPOINT, 
+                        effect=PREDICTION_EFFECT,
+                        return_cls_embeddings=True)
                 mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
                 try:
                     img = Draw.MolsToGridImage(mols,legends=(results.SMILES.unique().tolist()))

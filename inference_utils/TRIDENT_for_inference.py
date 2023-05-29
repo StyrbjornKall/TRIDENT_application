@@ -60,6 +60,8 @@ class TRIDENT_for_inference:
         self.list_of_effects = effectordering[self.model_version]
         self.list_of_endpoints = endpointordering[self.model_version]
 
+        self.text_placeholder = st.empty()
+
     def load_fine_tuned_model(self):
 
         onehotencodinglengths = {
@@ -73,6 +75,9 @@ class TRIDENT_for_inference:
             'EC10_fish': 7,
             'EC50EC10_fish': 9
         }
+
+        self.text_placeholder = st.empty()
+        self.text_placeholder.write('Loading model...')
     
         self.roberta = load_automodel(self.model_version)
         self.tokenizer = load_autotokenizer()
@@ -82,6 +87,8 @@ class TRIDENT_for_inference:
         self.dnn = self.__loadcheckpoint__(dnn, self.model_version, self.path_to_model_weights)
 
         self.TRIDENT_model = TRIDENT(self.roberta, self.dnn)
+
+        self.text_placeholder.empty()
 
 
     def __loadcheckpoint__(self, dnn, version, path):
@@ -131,12 +138,16 @@ class TRIDENT_for_inference:
         self.TRIDENT_model.eval()
         preds = []
         cls_embeddings = []
-        for i, batch in enumerate(loader):#stqdm(loader)):
+        n_batches = len(loader)
+        progress_bar = st.empty()
+        progress_bar.progress(0, text=f'Predicted: 0/{len(processed_data)} SMILES')
+        for i, batch in enumerate(loader):
             with torch.no_grad():
                 pred, cls = self.TRIDENT_model(*batch.values())
                 preds.append(pred.numpy().astype(np.float32))
                 cls_embeddings.append(cls.numpy().astype(np.float32))
-
+                progress_bar.progress(int(100*(i+1)/n_batches), text=f'Predicted: {(i+1)*len(pred)}/{len(processed_data)} SMILES')
+        progress_bar.empty()
         preds = np.concatenate(preds, axis=0)
         cls_embeddings = np.concatenate(cls_embeddings, axis=0).tolist()
         SMILES['predictions log10(mg/L)'] = preds
