@@ -37,22 +37,30 @@ endpointordering = {
             }
 
 def print_predict_page():
-    
+    if 'prediction_button' in st.session_state and st.session_state.prediction_button == True:
+        st.session_state.running = True
+    else:
+        st.session_state.running = False
+
+    if 'batch' in st.session_state and st.session_state.batch == True:
+        st.session_state.batch_input = True
+    else:
+        st.session_state.batch_input = False
+
     col1, col2 = st.columns([1,3])
-    with col1:
-        st.markdown('## Prediction metrics')
-        input_type = st.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch")
-        species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
-        model_type = {'Combined model (best performance)': 'EC50EC10', 'EC50 model': 'EC50','EC10 model': 'EC10'}
-        
-        PREDICTION_SPECIES = species_group[st.radio("Select Species group", tuple(species_group.keys()), on_change=None, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
-        MODELTYPE = model_type[st.radio("Select Model type", tuple(model_type), on_change=None, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
-        endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
-        effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
-        PREDICTION_ENDPOINT = endpoints[st.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
-        PREDICTION_EFFECT = effects[st.radio("Select Effect ",tuple(effects.keys()), on_change=None, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
-        
-        results = pd.DataFrame()
+    col1.markdown('## Prediction metrics')
+    col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch", value=st.session_state.batch_input)
+    species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
+    model_type = {'Combined model (best performance)': 'EC50EC10', 'EC50 model': 'EC50','EC10 model': 'EC10'}
+    
+    PREDICTION_SPECIES = species_group[col1.radio("Select Species group", tuple(species_group.keys()), on_change=None, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
+    MODELTYPE = model_type[col1.radio("Select Model type", tuple(model_type), on_change=None, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
+    endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
+    effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
+    PREDICTION_ENDPOINT = endpoints[col1.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
+    PREDICTION_EFFECT = effects[col1.radio("Select Effect ",tuple(effects.keys()), on_change=None, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
+    
+    results = pd.DataFrame()
 
     with col2:
         st.markdown('# Predict chemical ecotoxicity')
@@ -80,15 +88,9 @@ def print_predict_page():
             if st.button("Predict"):
                 with st.spinner(text = 'Inference in Progress...'):
                     
-                    placeholder = st.empty()
-                    #placeholder.write(
-                    #    '<img width=100 src="http://static.skaip.org/img/emoticons/180x180/f6fcff/fish.gif" style="margin-left: 5px; brightness(1.1);">',
-                    #    unsafe_allow_html=True,
-                    #        )
-                    
                     TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
                     TRIDENT.load_fine_tuned_model()
-                    
+                
                     results = TRIDENT.predict_toxicity(
                         SMILES = data.SMILES.tolist(), 
                         exposure_duration=EXPOSURE_DURATION, 
@@ -96,17 +98,16 @@ def print_predict_page():
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
                     
-                    placeholder.empty()
-                    mols = [Chem.MolFromSmiles(smiles) for smiles in results.head().SMILES.unique().tolist()]
-                    try:
-                        img = Draw.MolsToGridImage(mols,legends=(results.head().SMILES.unique().tolist()))
-                    except:
-                        img = None
-                    st.markdown('''**Showing first 5 structures (generated using RDKit):**\n''')
-                    if img is not None:
-                        st.image(img)
-                    else:
-                        st.markdown('⚠️ **Not chemically valid**')
+                mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES.unique().tolist()]
+                try:
+                    img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES.unique().tolist()))
+                except:
+                    img = None
+                st.markdown('''**Showing first 6 structures (generated using RDKit):**\n''')
+                if img is not None:
+                    st.image(img)
+                else:
+                    st.markdown('⚠️ **Not chemically valid**')
                     
 
         elif ~st.session_state.batch:        
@@ -127,7 +128,6 @@ def print_predict_page():
                 with st.spinner(text = 'Inference in Progress...'):
                     TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
                     TRIDENT.load_fine_tuned_model()
-                    
                     results = TRIDENT.predict_toxicity(
                         SMILES = data.SMILES.tolist(), 
                         exposure_duration=EXPOSURE_DURATION, 
@@ -187,7 +187,9 @@ def print_predict_page():
                     ## CLS-embedding projection (PCA)
                     ''')
 
-                    fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=results.drop_duplicates(subset=['SMILES_Canonical_RDKit']))
+                    plot_results = (results.drop_duplicates(subset=['SMILES_Canonical_RDKit']) if len(results.drop_duplicates(subset=['SMILES_Canonical_RDKit'])) < 50 else results.drop_duplicates(subset=['SMILES_Canonical_RDKit']).iloc[:50])
+
+                    fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=plot_results)
                     st.plotly_chart(fig, use_container_width=True, theme='streamlit')
                     
                     buffer = io.StringIO()

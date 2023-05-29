@@ -18,10 +18,10 @@ with open('styles.css')as f:
 
 
 menu_data = [
-    {'icon': "📊", 'label':"Use TRIDENT"},
-    {'icon': "📎", 'label':'Publication'},
+    {'icon': "📈", 'label':"Use TRIDENT"},
+    {'icon': "🖇️", 'label':'Publication'},
     {'icon': "📄", 'label':"Documentation"},#no tooltip message
-    {'icon':"🌌",'label':"Explore the chemical space"},
+    {'icon': "🌌",'label':"Explore the chemical space"},
     {'icon': "✉️",'label':"Contact"},
 ]
 
