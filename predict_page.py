@@ -1,6 +1,7 @@
 import streamlit as st
 import io
 import numpy as np
+import random
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
@@ -11,6 +12,13 @@ from inference_utils.pytorch_data_utils import check_training_data, check_closes
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
 example_mols = ['O=P(O)(O)O', 'Clc1ccc(C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl)cc1', 'Cc1ccccc1Cl','C=CC(=O)OCC','ClC(Cl)C(Cl)(Cl)Cl','O=C(O)CNCP(=O)(O)O','CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC','CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl']
+def get_example_mol():
+    st.session_state.example_mol = example_mols[random.randint(0,len(example_mols)-1)]
+get_example_mol()
+def get_example_batch():
+    st.session_state.example_batch = pd.DataFrame(example_mols, columns=['SMILES'])
+def delete_example_batch():
+    st.session_state.example_batch = pd.DataFrame()
 
 effectordering = {
             'EC50_algae': {'POP':'POP'},
@@ -37,19 +45,23 @@ endpointordering = {
             }
 
 def print_predict_page():
+    if 'current_batch' not in st.session_state:
+        st.session_state.current_batch = pd.DataFrame()
+    if 'example_mol' not in st.session_state:
+        st.session_state.example_mol = 'C1=CC=CC=C1'
     if 'prediction_button' in st.session_state and st.session_state.prediction_button == True:
         st.session_state.running = True
     else:
         st.session_state.running = False
-
     if 'batch' in st.session_state and st.session_state.batch == True:
         st.session_state.batch_input = True
     else:
         st.session_state.batch_input = False
+    data = pd.DataFrame()
 
     col1, col2 = st.columns([1,3])
     col1.markdown('## Prediction metrics')
-    col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch", value=st.session_state.batch_input)
+    col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch")
     species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
     model_type = {'Combined model (best performance)': 'EC50EC10', 'EC50 model': 'EC50','EC10 model': 'EC10'}
     
@@ -65,23 +77,42 @@ def print_predict_page():
     with col2:
         st.markdown('# Predict chemical ecotoxicity')
         if st.session_state.batch:
-            file_up = st.file_uploader("Batch entry prediction. Upload list of SMILES:", type=["csv", 'txt','xlsx'], help='''
-            .txt: file should be tab delimited\n
-            .csv: file should be comma delimited\n
-            .xlsx: file should be in excel format
-            ''')
+            subcol1, subcol2 = st.columns([3,1])
+            print(1, st.session_state.current_batch.empty)      
+            with subcol1:
+                file_up = st.file_uploader("Batch entry prediction. Upload list of SMILES:", type=["csv", 'txt','xlsx'], help='''
+                    .txt: file should be tab delimited\n
+                    .csv: file should be comma delimited\n
+                    .xlsx: file should be in excel format
+                    ''')
+
+                if file_up:
+                    if file_up.name.endswith('csv'):
+                        st.session_state.current_batch=pd.read_csv(file_up, sep=',', names=['SMILES']) #Read our data dataset
+                    elif file_up.name.endswith('txt'):
+                        st.session_state.current_batch=pd.read_csv(file_up, sep='\t', names=['SMILES']) #Read our data dataset
+                    elif file_up.name.endswith('xlsx'):
+                        st.session_state.current_batch=pd.read_excel(file_up, header=None, names=['SMILES']) 
+                    
+                
+                #if not st.session_state.current_batch.empty:
+                #    print(2, st.session_state.current_batch.empty)   
+                #    data=st.session_state.current_batch
+                #    st.session_state.current_batch = pd.DataFrame()
+                
+
+            with subcol2:
+                st.markdown('<pre><div style="padding: 26px;"> </div></pre>', unsafe_allow_html=True) 
+                if st.button('Generate example'):#, on_click=get_example_batch())
+                    st.session_state.current_batch = pd.DataFrame(example_mols, columns=['SMILES'])
+
+            data = st.session_state.current_batch
 
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
                 min_value=24, max_value=720, step=24)
-
-            if file_up:
-                if file_up.name.endswith('csv'):
-                    data=pd.read_csv(file_up, sep=',', names=['SMILES']) #Read our data dataset
-                elif file_up.name.endswith('txt'):
-                    data=pd.read_csv(file_up, sep='\t', names=['SMILES']) #Read our data dataset
-                elif file_up.name.endswith('xlsx'):
-                    data=pd.read_excel(file_up, header=None, names=['SMILES'])
+            
+            if not data.empty:
                 st.markdown('**Showing first 5 rows:**\n')
                 st.write(data.head())
 
@@ -110,12 +141,17 @@ def print_predict_page():
                     st.markdown('⚠️ **Not chemically valid**')
                     
 
-        elif ~st.session_state.batch:        
-            st.text_input(
-            "Single entry prediction. Input SMILES below:",
-            "C1=CC=CC=C1",
-            key="smile",
-            )
+        elif ~st.session_state.batch:
+            subcol1, subcol2 = st.columns([3,1])        
+            with subcol1:
+                st.text_input(
+                "Single entry prediction. Input SMILES below:",
+                st.session_state.example_mol,
+                key="smile",
+                )
+            with subcol2:
+                st.markdown('<pre><div style="padding: 16px;"> </div></pre>', unsafe_allow_html=True) 
+                st.button('Generate example', on_click=get_example_mol())
             
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
