@@ -58,7 +58,7 @@ def print_contact_page():
             
             </style>
 
-            <form enctype="multipart/form-data" action="https://formsubmit.co/0f911ceea07dc330e455fa5f4bd6a721" method="POST">
+            <form enctype="multipart/form-data" action="https://formsubmit.co/kall.styrbjorn@gmail.com" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -89,3 +89,24 @@ def print_contact_page():
             </form>
             """
         st.markdown(contact_form, unsafe_allow_html=True)
+    
+    author_text = '''<div style="display: flex; justify-content: space-between; padding-top: 60px">
+    <div style="flex-basis: 33.33%; text-align: center;">
+        <h3>Mikael Gustavsson</h3>
+        <p><small>Department of Economics, University of Gothenburg<br>Gothenburg, Sweden<br>
+        mikael.gustavsson@chalmers.se</small></p>
+    </div>
+    <div style="flex-basis: 33.33%; text-align: center;">
+        <h3>Styrbjörn Käll</h3>
+        <p><small>Department of Mathematical Sciences, Chalmers University of Technology<br>Gothenburg, Sweden<br>
+        kall.styrbjorn@gmail.com</small></p>
+    </div>
+    <div style="flex-basis: 33.33%; text-align: center;">
+        <h3>Erik Kristiansson</h3>
+        <p><small>Department of Mathematical Sciences, Chalmers University of Technology<br>Gothenburg, Sweden<br>
+        erik.kristiansson@chalmers.se</small></p>
+    </div>
+</div>
+'''
+
+    st.markdown(author_text, unsafe_allow_html=True)
