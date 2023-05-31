@@ -63,7 +63,7 @@ def print_predict_page():
     col1.markdown('## Prediction metrics')
     col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch")
     species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
-    model_type = {'Combined model (best performance)': 'EC50EC10', 'EC50 model': 'EC50','EC10 model': 'EC10'}
+    model_type = {'Combined model (best performance)': 'EC50EC10'}
     
     PREDICTION_SPECIES = species_group[col1.radio("Select Species group", tuple(species_group.keys()), on_change=None, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
     MODELTYPE = model_type[col1.radio("Select Model type", tuple(model_type), on_change=None, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
@@ -94,16 +94,9 @@ def print_predict_page():
                     elif file_up.name.endswith('xlsx'):
                         st.session_state.current_batch=pd.read_excel(file_up, header=None, names=['SMILES']) 
                     
-                
-                #if not st.session_state.current_batch.empty:
-                #    print(2, st.session_state.current_batch.empty)   
-                #    data=st.session_state.current_batch
-                #    st.session_state.current_batch = pd.DataFrame()
-                
-
             with subcol2:
                 st.markdown('<pre><div style="padding: 26px;"> </div></pre>', unsafe_allow_html=True) 
-                if st.button('Generate example'):#, on_click=get_example_batch())
+                if st.button('Generate example'):
                     st.session_state.current_batch = pd.DataFrame(example_mols, columns=['SMILES'])
 
             data = st.session_state.current_batch
