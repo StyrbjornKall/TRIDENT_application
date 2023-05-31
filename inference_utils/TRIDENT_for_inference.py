@@ -76,9 +76,6 @@ class TRIDENT_for_inference:
             'EC50EC10_fish': 9
         }
 
-        self.text_placeholder = st.empty()
-        self.text_placeholder.write('Loading model...')
-    
         self.roberta = load_automodel(self.model_version)
         self.tokenizer = load_autotokenizer()
 
