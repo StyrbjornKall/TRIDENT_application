@@ -80,7 +80,7 @@ def print_predict_page():
             subcol1, subcol2 = st.columns([3,1])
             print(1, st.session_state.current_batch.empty)      
             with subcol1:
-                file_up = st.file_uploader("Batch entry prediction. Upload list of SMILES:", type=["csv", 'txt','xlsx'], help='''
+                file_up = st.file_uploader("Batch entry prediction. Ensure that isomeric information is provided in the SMILES to get the best possible performance. Upload list of SMILES:", type=["csv", 'txt','xlsx'], help='''
                     .txt: file should be tab delimited\n
                     .csv: file should be comma delimited\n
                     .xlsx: file should be in excel format
@@ -122,9 +122,9 @@ def print_predict_page():
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
                     
-                mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES.unique().tolist()]
+                mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES_Canonical_RDKit.unique().tolist()]
                 try:
-                    img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES.unique().tolist()))
+                    img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES_Canonical_RDKit.unique().tolist()))
                 except:
                     img = None
                 st.markdown('''**Showing first 6 structures (generated using RDKit):**\n''')
@@ -138,7 +138,7 @@ def print_predict_page():
             subcol1, subcol2 = st.columns([3,1])        
             with subcol1:
                 st.text_input(
-                "Single entry prediction. Input SMILES below:",
+                "Single entry prediction. Ensure that isomeric information is provided in the SMILES to get the best possible performance. Input SMILES below:",
                 st.session_state.example_mol,
                 key="smile",
                 )
@@ -163,9 +163,10 @@ def print_predict_page():
                         endpoint=PREDICTION_ENDPOINT, 
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
-                mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES.unique().tolist()]
+                    
+                mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES_Canonical_RDKit.unique().tolist()]
                 try:
-                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES.unique().tolist()))
+                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES_Canonical_RDKit.unique().tolist()))
                 except:
                     img = None
                 st.markdown('''Structure (generated using RDKit):\n''')
@@ -177,7 +178,7 @@ def print_predict_page():
 
         if results.empty == False:
             with col2:
-                results['Alert'] = results.SMILES.apply(lambda x: check_valid_structure(x))
+                results['Structural Alert'] = results.SMILES.apply(lambda x: check_valid_structure(x))
                 results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 st.success(f'Predicted effect concentration(s):')
@@ -189,6 +190,12 @@ def print_predict_page():
             with col2:
                 st.markdown('# Results analysis')
                 with st.expander("Expand results analysis"):
+                    st.markdown('''
+                    ## Chemical alerts
+                    If RDKit asserts any SMILES with an error, most often SMILES parsing errors or valence errors, the prediction is associated with an `Structural Alert` which we simply call "Not chemically valid". In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, we recommend to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
+                    For example, the `|` character always produce parsing errors, but the structure is still valid. 
+                    ''')
+
                     st.markdown('''
                     ## Training data alerts
                     If the chemical is inside the training data of the model, a 1 is present in the respective training column. A chemical 
