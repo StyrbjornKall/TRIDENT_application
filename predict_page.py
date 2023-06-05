@@ -13,12 +13,12 @@ from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSP
 
 example_mols = ['O=P(O)(O)O', 'Clc1ccc(C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl)cc1', 'Cc1ccccc1Cl','C=CC(=O)OCC','ClC(Cl)C(Cl)(Cl)Cl','O=C(O)CNCP(=O)(O)O','CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC','CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl']
 def get_example_mol():
-    st.session_state.example_mol = example_mols[random.randint(0,len(example_mols)-1)]
-get_example_mol()
-def get_example_batch():
-    st.session_state.example_batch = pd.DataFrame(example_mols, columns=['SMILES'])
-def delete_example_batch():
-    st.session_state.example_batch = pd.DataFrame()
+    current_example_mol = st.session_state.example_mol
+    while True:
+        next_example_mol = example_mols[random.randint(0,len(example_mols)-1)]
+        if current_example_mol != next_example_mol:
+            break
+    st.session_state.example_mol = next_example_mol
 
 # effectordering = {
 #             'EC50_algae': {'POP':'POP'},
@@ -66,18 +66,12 @@ effectordering = {
             }
 
 def print_predict_page():
-    if 'current_batch' not in st.session_state:
-        st.session_state.current_batch = pd.DataFrame()
     if 'example_mol' not in st.session_state:
         st.session_state.example_mol = 'C1=CC=CC=C1'
-    if 'prediction_button' in st.session_state and st.session_state.prediction_button == True:
-        st.session_state.running = True
-    else:
-        st.session_state.running = False
-    if 'batch' in st.session_state and st.session_state.batch == True:
-        st.session_state.batch_input = True
-    else:
-        st.session_state.batch_input = False
+    if 'current_batch' not in st.session_state:
+        st.session_state.current_batch = pd.DataFrame()
+
+    # Page begins here    
     data = pd.DataFrame()
 
     col1, col2 = st.columns([1,3])
@@ -99,7 +93,6 @@ def print_predict_page():
         st.markdown('# Predict chemical ecotoxicity')
         if st.session_state.batch:
             subcol1, subcol2 = st.columns([3,1])
-            print(1, st.session_state.current_batch.empty)      
             with subcol1:
                 file_up = st.file_uploader("Batch entry prediction. Ensure that isomeric information is provided in the SMILES to get the best possible performance. Upload list of SMILES:", type=["csv", 'txt','xlsx'], help='''
                     .txt: file should be tab delimited\n
@@ -158,14 +151,19 @@ def print_predict_page():
         elif ~st.session_state.batch:
             subcol1, subcol2 = st.columns([3,1])        
             with subcol1:
-                st.text_input(
+                text_input_holder = st.empty()
+                single_input_smiles = text_input_holder.text_input(
                 "Single entry prediction. Ensure that isomeric information is provided in the SMILES to get the best possible performance. Input SMILES below:",
                 st.session_state.example_mol,
-                key="smile",
                 )
             with subcol2:
-                st.markdown('<pre><div style="padding: 16px;"> </div></pre>', unsafe_allow_html=True) 
-                st.button('Generate example', on_click=get_example_mol())
+                st.markdown('<pre><div style="padding: 16px;"> </div></pre>', unsafe_allow_html=True)
+                if st.button('Generate example'):
+                    get_example_mol()
+                    single_input_smiles = text_input_holder.text_input(
+                    "Single entry prediction. Ensure that isomeric information is provided in the SMILES to get the best possible performance. Input SMILES below:",
+                    st.session_state.example_mol
+                    )
             
             EXPOSURE_DURATION = st.slider(
                 'Select exposure duration (e.g. 96 h)',
@@ -173,7 +171,7 @@ def print_predict_page():
 
             if st.button("Predict"):
                 data = pd.DataFrame()
-                data['SMILES'] = [st.session_state.smile]
+                data['SMILES'] = [single_input_smiles]
                 
                 with st.spinner(text = 'Inference in Progress...'):
                     TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
