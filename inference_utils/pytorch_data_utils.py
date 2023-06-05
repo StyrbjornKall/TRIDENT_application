@@ -113,8 +113,7 @@ class PreProcessDataForInference():
     def __CanonicalizeRDKit(self, smiles):
         try:
             mol = Chem.MolFromSmiles(smiles)
-            if mol is not None:
-                return Chem.MolToSmiles(mol, canonical=True)
+            return Chem.MolToSmiles(mol, canonical=True)
         except Exception as E:
             print(f'{smiles} is not valid')
             return smiles
