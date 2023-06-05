@@ -109,7 +109,7 @@ def print_predict_page():
                         st.session_state.current_batch=pd.read_excel(file_up, header=None, names=['SMILES']) 
                     
             with subcol2:
-                st.markdown('<pre><div style="padding: 26px;"> </div></pre>', unsafe_allow_html=True) 
+                st.markdown('<pre><div style="padding: 36px;"> </div></pre>', unsafe_allow_html=True) 
                 if st.button('Generate example'):
                     st.session_state.current_batch = pd.DataFrame(example_mols, columns=['SMILES'])
 
@@ -157,7 +157,7 @@ def print_predict_page():
                 st.session_state.example_mol,
                 )
             with subcol2:
-                st.markdown('<pre><div style="padding: 16px;"> </div></pre>', unsafe_allow_html=True)
+                st.markdown('<pre><div style="padding: 27px;"> </div></pre>', unsafe_allow_html=True)
                 if st.button('Generate example'):
                     get_example_mol()
                     single_input_smiles = text_input_holder.text_input(
