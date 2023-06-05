@@ -94,7 +94,7 @@ def print_contact_page():
     <div style="flex-basis: 33.33%; text-align: center;">
         <h3>Mikael Gustavsson</h3>
         <p><small>Department of Economics, University of Gothenburg<br>Gothenburg, Sweden<br>
-        mikael.gustavsson@chalmers.se</small></p>
+        mikael.gustavsson@economics.gu.se</small></p>
     </div>
     <div style="flex-basis: 33.33%; text-align: center;">
         <h3>Styrbjörn Käll</h3>
