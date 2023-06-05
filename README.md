@@ -16,3 +16,22 @@ Clone this repository:
 ```bash 
 git clone https://github.com/StyrbjornKall/TRIDENT_application
 ```
+
+## Build Docker Container
+This repo is designed to become a Docker container. Follow instructions:
+
+Build container:
+```docker
+docker build -t streamlit-app-trident-serve-v1 .
+```
+
+Run container:
+```docker
+docker run -p 8501:8501 streamlit-app-trident-serve-v1
+```
+
+Rename container for push:
+```docker
+docker tag streamlit-app-trident-v1 styrbjornk/streamlit-app-trident-v1
+```
+
