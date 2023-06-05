@@ -20,28 +20,49 @@ def get_example_batch():
 def delete_example_batch():
     st.session_state.example_batch = pd.DataFrame()
 
-effectordering = {
-            'EC50_algae': {'POP':'POP'},
-            'EC10_algae': {'POP':'POP'},
-            'EC50EC10_algae': {'POP':'POP'}, 
-            'EC50_invertebrates': {'MOR':'MOR','ITX':'ITX'},
-            'EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
-            'EC50EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
-            'EC50_fish': {'MOR':'MOR'},
-            'EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} ,
-            'EC50EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} 
-            }
+# effectordering = {
+#             'EC50_algae': {'POP':'POP'},
+#             'EC10_algae': {'POP':'POP'},
+#             'EC50EC10_algae': {'POP':'POP'}, 
+#             'EC50_invertebrates': {'MOR':'MOR','ITX':'ITX'},
+#             'EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
+#             'EC50EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
+#             'EC50_fish': {'MOR':'MOR'},
+#             'EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} ,
+#             'EC50EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} 
+#             }
+
+# endpointordering = {
+#             'EC50_algae': {'EC50':'EC50'},
+#             'EC10_algae': {'EC10':'EC10'},
+#             'EC50EC10_algae': {'EC50':'EC50', 'EC10': 'EC10'}, 
+#             'EC50_invertebrates': {'EC50':'EC50'},
+#             'EC10_invertebrates': {'EC10':'EC10'},
+#             'EC50EC10_invertebrates': {'EC50':'EC50', 'EC10': 'EC10'},
+#             'EC50_fish': {'EC50':'EC50'},
+#             'EC10_fish': {'EC10':'EC10'},
+#             'EC50EC10_fish': {'EC50':'EC50', 'EC10': 'EC10'} 
+#             }
+
 
 endpointordering = {
-            'EC50_algae': {'EC50':'EC50'},
-            'EC10_algae': {'EC10':'EC10'},
             'EC50EC10_algae': {'EC50':'EC50', 'EC10': 'EC10'}, 
-            'EC50_invertebrates': {'EC50':'EC50'},
-            'EC10_invertebrates': {'EC10':'EC10'},
             'EC50EC10_invertebrates': {'EC50':'EC50', 'EC10': 'EC10'},
-            'EC50_fish': {'EC50':'EC50'},
-            'EC10_fish': {'EC10':'EC10'},
             'EC50EC10_fish': {'EC50':'EC50', 'EC10': 'EC10'} 
+            }
+effectordering = {
+            'EC50EC10_algae': 
+            {'EC50': {'POP':'POP'},
+             'EC10': {'POP': 'POP'}
+            },
+            'EC50EC10_invertebrates':
+            {'EC50': {'MOR':'MOR','ITX':'ITX', 'POP': 'POP'},
+             'EC10': {'MOR':'MOR','ITX':'ITX', 'REP': 'REP', 'POP': 'POP'}
+            },
+            'EC50EC10_fish':
+            {'EC50': {'MOR':'MOR'},
+             'EC10': {'MOR':'MOR','GRO': 'GRO'}
+            }
             }
 
 def print_predict_page():
@@ -68,8 +89,8 @@ def print_predict_page():
     PREDICTION_SPECIES = species_group[col1.radio("Select Species group", tuple(species_group.keys()), on_change=None, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
     MODELTYPE = model_type[col1.radio("Select Model type", tuple(model_type), on_change=None, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
     endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
-    effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
     PREDICTION_ENDPOINT = endpoints[col1.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
+    effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}'][PREDICTION_ENDPOINT]
     PREDICTION_EFFECT = effects[col1.radio("Select Effect ",tuple(effects.keys()), on_change=None, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
     
     results = pd.DataFrame()
@@ -195,6 +216,8 @@ def print_predict_page():
                     If RDKit asserts any SMILES with an error, most often SMILES parsing errors or valence errors, the prediction is associated with an `Structural Alert` which we simply call "Not chemically valid". In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, we recommend to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
                     For example, the `|` character always produce parsing errors, but the structure is still valid. 
                     ''')
+
+                    st.write(results[['SMILES','predictions log10(mg/L)','Structural Alert']].head())
 
                     st.markdown('''
                     ## Training data alerts
