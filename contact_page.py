@@ -58,7 +58,7 @@ def print_contact_page():
             
             </style>
 
-            <form enctype="multipart/form-data" action="https://formsubmit.co/kall.styrbjorn@gmail.com" method="POST">
+            <form enctype="multipart/form-data" action="https://formsubmit.co/bccb49e3b706b5f42a3b64f6fb55a437" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -80,7 +80,7 @@ def print_contact_page():
             </div>
 
             <input type="hidden" name="_subject" value="Ticket from TRIDENT web app">
-            <input type="hidden" name="_autoresponse" value="We have recieved your form. Please don't hesitate to contact us through tridenthelpdesk@gmail.com if you have any further questions.">
+            <input type="hidden" name="_autoresponse" value="We have recieved your form. Please don't hesitate to contact us if you have any further questions.">
             <input type="hidden" name="_template" value="table">
             
             <div class="form-group">
