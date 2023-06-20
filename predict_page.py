@@ -8,7 +8,7 @@ from rdkit.Chem import Draw
 from rdkit.Chem import PandasTools
 from custom_download_button import download_button
 from inference_utils.TRIDENT_for_inference import TRIDENT_for_inference
-from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_structure
+from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_smiles, check_valid_chemistry
 from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
 example_mols = ['O=P(O)(O)O', 'Clc1ccc(C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl)cc1', 'Cc1ccccc1Cl','C=CC(=O)OCC','ClC(Cl)C(Cl)(Cl)Cl','O=C(O)CNCP(=O)(O)O','CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC','CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl']
@@ -135,7 +135,7 @@ def print_predict_page():
                         endpoint=PREDICTION_ENDPOINT, 
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
-                    
+                   
                 mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES_Canonical_RDKit.unique().tolist()]
                 try:
                     img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES_Canonical_RDKit.unique().tolist()))
@@ -197,9 +197,11 @@ def print_predict_page():
 
         if results.empty == False:
             with col2:
-                results['Structural Alert'] = results.SMILES.apply(lambda x: check_valid_structure(x))
+                results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
+                results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
                 results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'cosine similarity']] = None
                 st.success(f'Predicted effect concentration(s):')
                 st.write(results.head())
 
@@ -211,11 +213,13 @@ def print_predict_page():
                 with st.expander("Expand results analysis"):
                     st.markdown('''
                     ## Chemical alerts
-                    If RDKit asserts any SMILES with an error, most often SMILES parsing errors or valence errors, the prediction is associated with an `Structural Alert` which we simply call "Not chemically valid". In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, we recommend to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
-                    For example, the `|` character always produce parsing errors, but the structure is still valid. 
+                    If RDKit asserts any SMILES with an error feedback is provided as either an "SMILES Alert" or an "Chemical Alert". Most often the errors are SMILES parsing errors ("SMILES Alerts") or valence errors ("Chemical Alerts"). In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, we recommend to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
+                    For example, the `|` character always produce parsing errors, but the structure is still valid when checked in PubChem. 
+
+                    To ensure adequate predictions, we do not provide predictions for SMILES with the "SMILES Alert" flag. 
                     ''')
 
-                    st.write(results[['SMILES','predictions log10(mg/L)','Structural Alert']].head())
+                    st.write(results[['SMILES','predictions log10(mg/L)','SMILES Alert', 'Chemical Alert']].head())
 
                     st.markdown('''
                     ## Training data alerts
@@ -244,17 +248,21 @@ def print_predict_page():
                     ## CLS-embedding projection (PCA)
                     ''')
 
-                    plot_results = (results.drop_duplicates(subset=['SMILES_Canonical_RDKit']) if len(results.drop_duplicates(subset=['SMILES_Canonical_RDKit'])) < 50 else results.drop_duplicates(subset=['SMILES_Canonical_RDKit']).iloc[:50])
+                    plot_results = results[results['SMILES Alert'].isna()]
+                    plot_results = (plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']) if len(plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit'])) < 50 else plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']).iloc[:50])
 
-                    fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=plot_results)
-                    st.plotly_chart(fig, use_container_width=True, theme='streamlit')
-                    
-                    buffer = io.StringIO()
-                    fig.write_html(buffer, include_plotlyjs='cdn')
-                    html_bytes = buffer.getvalue().encode()
+                    if plot_results.empty == False:
+                        fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=plot_results)
+                        st.plotly_chart(fig, use_container_width=True, theme='streamlit')
+                        
+                        buffer = io.StringIO()
+                        fig.write_html(buffer, include_plotlyjs='cdn')
+                        html_bytes = buffer.getvalue().encode()
 
-                    download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
-                    st.markdown(download_button_str, unsafe_allow_html=True)
+                        download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
+                        st.markdown(download_button_str, unsafe_allow_html=True)
+                    else:
+                        st.write('No valid SMILES to plot.')
 
                     
     # Add padding element at the bottom of the app

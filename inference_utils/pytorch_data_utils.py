@@ -111,8 +111,8 @@ class PreProcessDataForInference():
 
     ## Convenience functions
     def __CanonicalizeRDKit(self, smiles):
+        mol = Chem.MolFromSmiles(smiles)
         try:
-            mol = Chem.MolFromSmiles(smiles)
             return Chem.MolToSmiles(mol, canonical=True)
         except Exception as E:
             print(f'{smiles} is not valid')
@@ -274,9 +274,20 @@ def check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_EN
 
     return results 
 
-def check_valid_structure(smiles):
+def check_valid_smiles(smiles):
+    mol = Chem.MolFromSmiles(smiles, sanitize=False)
+    if mol is not None:
+        # Syntactically valid
+        return None
+    else:
+        return 'SMILES not valid'
+
+def check_valid_chemistry(smiles): 
     try:
-        mol = Chem.MolToSmiles(Chem.MolFromSmiles(smiles), canonical=True)
+        mol = Chem.MolFromSmiles(smiles, sanitize=False)  
+        Chem.SanitizeMol(mol)
+        # Chemically valid
         return None
     except:
+        # Chemically invalid
         return 'Not chemically valid'
