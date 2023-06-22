@@ -136,9 +136,9 @@ def print_predict_page():
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
                    
-                mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES_Canonical_RDKit.unique().tolist()]
+                mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES_Canonical_RDKit.tolist()]
                 try:
-                    img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES_Canonical_RDKit.unique().tolist()))
+                    img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES_Canonical_RDKit.tolist()))
                 except:
                     img = None
                 st.markdown('''**Showing first 6 structures (generated using RDKit):**\n''')
