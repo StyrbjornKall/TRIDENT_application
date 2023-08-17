@@ -32,6 +32,6 @@ docker run -p 8501:8501 streamlit-app-trident-serve-v1
 
 Rename container for push:
 ```docker
-docker tag streamlit-app-trident-v1 styrbjornk/streamlit-app-trident-v1
+docker tag streamlit-app-trident-serve-v1 styrbjornk/streamlit-app-trident-serve-v1
 ```
 
