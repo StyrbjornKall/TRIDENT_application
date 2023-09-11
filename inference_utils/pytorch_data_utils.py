@@ -180,7 +180,7 @@ class BuildInferenceDataLoaderAndDataset:
 
 @st.cache_data(ttl=24*60*60)
 def __loadtrainingdf__():
-    df = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
+    df = pd.read_pickle('./data/Preprocessed_complete_data.pkl.zip', compression='zip')
     return df
 
 @st.cache_data(ttl=24*60*60)
