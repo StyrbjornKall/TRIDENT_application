@@ -135,6 +135,9 @@ def print_predict_page():
                         endpoint=PREDICTION_ENDPOINT, 
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
+                    
+                results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
+                results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
                    
                 mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES_Canonical_RDKit.tolist()]
                 try:
@@ -183,13 +186,16 @@ def print_predict_page():
                         effect=PREDICTION_EFFECT,
                         return_cls_embeddings=True)
                     
+                results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
+                results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
+                    
                 mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES_Canonical_RDKit.unique().tolist()]
                 try:
                     img = Draw.MolsToGridImage(mols,legends=(results.SMILES_Canonical_RDKit.unique().tolist()))
                 except:
                     img = None
                 st.markdown('''Structure (generated using RDKit):\n''')
-                if img is not None:
+                if (img is not None) and ('*' not in single_input_smiles):
                     st.image(img)
                 else:
                     st.markdown('⚠️ Not chemically valid')
@@ -197,8 +203,6 @@ def print_predict_page():
 
         if results.empty == False:
             with col2:
-                results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
-                results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
                 results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'cosine similarity']] = None
@@ -213,10 +217,10 @@ def print_predict_page():
                 with st.expander("Expand results analysis"):
                     st.markdown('''
                     ## Chemical alerts
-                    If RDKit asserts any SMILES with an error feedback is provided as either an "SMILES Alert" or an "Chemical Alert". Most often the errors are SMILES parsing errors ("SMILES Alerts") or valence errors ("Chemical Alerts"). In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, we recommend to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
-                    For example, the `|` character always produce parsing errors, but the structure is still valid when checked in PubChem. 
+                    If RDKit asserts any SMILES with an error feedback is provided as either an "SMILES Alert" or an "Chemical Alert". Most often the errors are SMILES parsing errors ("SMILES Alerts") or valence errors ("Chemical Alerts"). In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, the recommendation is to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
+                    For example, the `|` character always produce parsing errors, but the structure is still valid when checked in PubChem. `*`-symbols are also set as invalid since no polymers were included in the training.
 
-                    To ensure adequate predictions, we do not provide predictions for SMILES with the "SMILES Alert" flag. 
+                    To ensure adequate predictions, predictions for SMILES with the "SMILES Alert" flag are not provided. 
                     ''')
 
                     st.write(results[['SMILES','predictions log10(mg/L)','SMILES Alert', 'Chemical Alert']].head())
@@ -237,15 +241,16 @@ def print_predict_page():
                     # Closest chemical in training set
                     st.markdown('''
                     ## Closest chemical in training set
-                    To better understand the toxicity prediction, the predicted chemical's closest resemblance in terms of chemical structure can be determined
-                    by calculating the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set.
-                    This similarity score is a better way of understanding how the model places the chemical in terms of its toxicity as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
+                    To better understand the toxicity prediction, the predicted chemical's closest resemblance in terms of chemical structure with regards to its toxicity is determined
+                    the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set. Low similarity usually indicates a weaker predction. High similarity may be interpreted as [1,0.3), intermediate [0.3,0.2) and low similarity [0.2,-1].
+                    This score is more reliable way of understanding how the model places the chemical in terms of its toxicity, as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
 
                     st.write(results[['SMILES','predictions log10(mg/L)','most similar chemical','cosine similarity']].head())
 
                     # Space location
                     st.markdown('''
                     ## CLS-embedding projection (PCA)
+                    The CLS-embeddings from the model may be projected onto a 2D plane using PCA to visualize the training data. The predicted chemicals are present as squares. 
                     ''')
 
                     plot_results = results[results['SMILES Alert'].isna()]
