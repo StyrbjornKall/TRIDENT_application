@@ -15,6 +15,8 @@ from inference_utils.pytorch_data_utils import __loadCLSembeddings__, __loadpred
 def __formathover(df):
     formatted_hover = ''''''
     for col in df.columns:
+        if 'L1Error' in col: 
+            df[col] = df[col].round(3)
         formatted_hover += (col + ':<br>' + df[col].astype(str) + '<br>')
     return formatted_hover
 
@@ -23,10 +25,10 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
     all_preds = __loadpredictionsdf__()
     cls_df = __loadCLSembeddings__(model_type, species_group)
     all_preds = all_preds.merge(cls_df, on='SMILES_Canonical_RDKit')
-    embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float32)
+    embeddings = np.array(all_preds.CLS_embeddings.tolist()).astype(np.float16)
     # If we want to plot predicted chemicals from streamlit prediction
     if inference_df is not None:
-        embeddings = np.concatenate((embeddings, inference_df.CLS_embeddings.tolist()), axis=0).astype(np.float32)
+        embeddings = np.concatenate((embeddings, inference_df.CLS_embeddings.tolist()), axis=0).astype(np.float16)
 
     pcomp = PCA(n_components=2)
     pcac = pcomp.fit_transform(embeddings)
@@ -47,14 +49,14 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
 
     if show_all_predictions:
         hover = __formathover(remaining_preds[['SMILES_Canonical_RDKit', f'{model_type}_{species_group} L1Error']])
-        fig.add_trace(go.Scatter(x=remaining_preds.pc1, y=remaining_preds.pc2, 
+        fig.add_trace(go.Scatter(x=remaining_preds.pc1.astype(np.float16), y=remaining_preds.pc2.astype(np.float16), 
                         mode='markers',
                         text=hover,
                         name='Not in training data',
                         marker=dict(colorscale='turbo_r',
                                     cmax=4,
                                     cmin=-4,
-                                    color=remaining_preds[f'{model_type}_{species_group}_{endpoint}_{effect} predictions log10(mg/L)'],
+                                    color=remaining_preds[f'{model_type}_{species_group}_{endpoint}_{effect} predictions log10(mg/L)'].round(3),
                                     size=5,
                                     opacity=0.7,
                                     colorbar=dict(
@@ -66,14 +68,14 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
                         row=1, col=1)
 
     hover = __formathover(train_endpoint_preds[['SMILES_Canonical_RDKit', f'{model_type}_{species_group} L1Error']])
-    fig.add_trace(go.Scatter(x=train_endpoint_preds.pc1, y=train_endpoint_preds.pc2, 
+    fig.add_trace(go.Scatter(x=train_endpoint_preds.pc1.astype(np.float16), y=train_endpoint_preds.pc2.astype(np.float16), 
                     mode='markers',
                     text=hover,
                     name='Training data: In Species group (with Endpoint match)',
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=train_endpoint_preds[f'{model_type}_{species_group}_{endpoint}_{effect} predictions log10(mg/L)'],
+                                color=train_endpoint_preds[f'{model_type}_{species_group}_{endpoint}_{effect} predictions log10(mg/L)'].round(3),
                                 size=5,
                                 opacity=0.7,
                                 line=dict(width=1.2,
@@ -87,14 +89,14 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
                     row=1, col=1)
     
     hover = __formathover(train_effect_preds[['SMILES_Canonical_RDKit', f'{model_type}_{species_group} L1Error']])
-    fig.add_trace(go.Scatter(x=train_effect_preds.pc1, y=train_effect_preds.pc2, 
+    fig.add_trace(go.Scatter(x=train_effect_preds.pc1.astype(np.float16), y=train_effect_preds.pc2.astype(np.float16), 
                     mode='markers',
                     text=hover,
                     name='Training data: In Species group with Effect match (with Endpoint match)',
                     marker=dict(colorscale='turbo_r',
                                 cmax=4,
                                 cmin=-4,
-                                color=train_effect_preds[f'{model_type}_{species_group}_{endpoint}_{effect} predictions log10(mg/L)'],
+                                color=train_effect_preds[f'{model_type}_{species_group}_{endpoint}_{effect} predictions log10(mg/L)'].round(3),
                                 size=5,
                                 opacity=0.7,
                                 line=dict(width=1.2,
@@ -110,7 +112,7 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
     # Plot inferenced SMILES
     if inference_df is not None:
         hover = (inference_df['SMILES_Canonical_RDKit'])
-        fig.add_trace(go.Scatter(x=inference_df.pc1, y=inference_df.pc2, 
+        fig.add_trace(go.Scatter(x=inference_df.pc1.astype(np.float16), y=inference_df.pc2.astype(np.float16), 
                         mode='markers',
                         text=hover,
                         name='Predicted SMILES',
