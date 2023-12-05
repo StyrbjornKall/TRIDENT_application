@@ -16,7 +16,7 @@ def print_doc_page():
     TRIDENT is a deep learning model for ecotoxicity predictions. It is based on a transformer language model (ChemBERTa ~83M paramters) and a deep neural network (~1M parameters). The transformer encodes a chemical structure from its SMILES into a continuous vector of length 768, called the CLS-embedding. The CLS-embedding together with information on toxicity endpoint, effect and exposure duration is used as input in the deep neural network that finally predicts the effect concentration as a log10 concentration (log10 mg/L).
 
     <div style="text-align:center;width:50%;margin: 0 auto;">
-    <img src="data:image/svg+xml;base64,{img_64}""><br>
+    <img src="data:image/svg+xml;base64,{img_64}" style="max-width: 100%;"><br>
     <small><b>Model architecture | </b> The model uses a pre-trained 6-encoder layer RoBERTa transformer (ChemBERTa) to interpret the SMILES into an embedding vector of dimension 768 (E[CLS]), representing the molecular structure with regard to its toxicity. The embedding vector is then amended with information on exposure duration, toxicological effect, and endpoint and used as input to a deep neural network. The network then predicts the associated toxicity in the form of an effect concentration (EC50 and EC10).</small>
     </div>
     

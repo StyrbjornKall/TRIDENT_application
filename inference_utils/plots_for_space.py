@@ -121,6 +121,7 @@ def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_
                                     cmin=-4,
                                     color=inference_df['predictions log10(mg/L)'],
                                     size=9,
+                                    symbol='square',
                                     line=dict(width=2,
                                             color='black'),
                                     colorbar=dict(
