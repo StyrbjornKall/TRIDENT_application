@@ -205,7 +205,7 @@ def print_predict_page():
             with col2:
                 results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-                results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'cosine similarity']] = None
+                results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
                 st.success(f'Predicted effect concentration(s):')
                 st.write(results.head())
 
@@ -240,12 +240,14 @@ def print_predict_page():
 
                     # Closest chemical in training set
                     st.markdown('''
-                    ## Closest chemical in training set
-                    To better understand the toxicity prediction, the predicted chemical's closest resemblance in terms of chemical structure with regards to its toxicity is determined
-                    the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set. Low similarity usually indicates a weaker predction. High similarity may be interpreted as [1,0.3), intermediate [0.3,0.2) and low similarity [0.2,-1].
+                    ## Chemical similarity to the training set
+                    To better understand the toxicity prediction, the predicted chemical's closest resemblance in terms of chemical structure with regards to its toxicity is determined together with the mean similarity to the training dataset. 
+                    This is calculated as the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set. Low similarity usually indicates a weaker prediction. 
+                                
+                    High similarity may be interpreted as a `mean cosine similarity` of [1,0.3), intermediate [0.3,0.2) and low similarity [0.2,-1].
                     This score is more reliable way of understanding how the model places the chemical in terms of its toxicity, as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
 
-                    st.write(results[['SMILES','predictions log10(mg/L)','most similar chemical','cosine similarity']].head())
+                    st.write(results[['SMILES','predictions log10(mg/L)','most similar chemical','max cosine similarity','mean cosine similarity']].head())
 
                     # Space location
                     st.markdown('''

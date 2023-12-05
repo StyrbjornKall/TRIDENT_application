@@ -17,7 +17,7 @@ def __formathover(df):
     for col in df.columns:
         if 'L1Error' in col: 
             df[col] = df[col].round(3)
-        formatted_hover += (col + ':<br>' + df[col].astype(str) + '<br>')
+        formatted_hover += (col + ':' + df[col].astype(str) + '<br>')
     return formatted_hover
 
 def PlotPCA_CLSProjection(model_type, endpoint, effect, species_group, show_all_predictions, inference_df=None):

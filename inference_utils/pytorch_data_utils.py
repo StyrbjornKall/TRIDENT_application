@@ -263,10 +263,11 @@ def check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_EN
         cls = cls.reshape(1,-1)
 
     cossim = cosine_similarity(cls_training_data, cls)
-    idx = np.argmax(cossim, axis=0)
-    similarity_score = np.diag(cossim[idx])
-    results['most similar chemical'] = training_data.SMILES_Canonical_RDKit.iloc[idx].tolist()
-    results['cosine similarity'] = similarity_score
+    idx_closest = np.argmax(cossim, axis=0)
+    similarity_score_closest = np.diag(cossim[idx_closest])
+    results['most similar chemical'] = training_data.SMILES_Canonical_RDKit.iloc[idx_closest].tolist()
+    results['max cosine similarity'] = similarity_score_closest
+    results['mean cosine similarity'] = np.mean(cossim, axis=0)
 
     return results 
 
