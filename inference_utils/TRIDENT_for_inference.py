@@ -82,7 +82,7 @@ class TRIDENT_for_inference:
         
         self.dnn = self.__loadcheckpoint__(dnn, self.model_version, self.path_to_model_weights)
 
-        self.TRIDENT_model = TRIDENT(self.roberta, self.dnn)
+        self.TRIDENT_model = TRIDENT(self.roberta, self.dnn).to(self.device)
 
         self.text_placeholder.empty()
 
@@ -132,7 +132,7 @@ class TRIDENT_for_inference:
             tokenizer = self.tokenizer).dataloader
 
         self.TRIDENT_model.eval()
-        self.TRIDENT_model.to(self.device)
+        self.TRIDENT_model
         preds = []
         cls_embeddings = []
         n_batches = len(loader)
@@ -140,7 +140,7 @@ class TRIDENT_for_inference:
         progress_bar.progress(0, text=f'Predicted: 0/{len(processed_data)} SMILES')
         for i, batch in enumerate(loader):
             with torch.no_grad():
-                pred, cls = self.TRIDENT_model(*batch.values().to(self.device))
+                pred, cls = self.TRIDENT_model(*batch.to(self.device).values())
                 preds.append(pred.cpu().numpy().astype(np.float32))
                 cls_embeddings.append(cls.cpu().numpy().astype(np.float32))
                 progress_bar.progress(int(100*(i+1)/n_batches), text=f'Predicted: {(i+1)*len(pred)}/{len(processed_data)} SMILES')
