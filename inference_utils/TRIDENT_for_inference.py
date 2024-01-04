@@ -20,7 +20,6 @@ def load_automodel(model_version):
 def load_autotokenizer():
     print('Loading tokenizer... \n')
     return AutoTokenizer.from_pretrained(f'StyrbjornKall/EC50EC10_fish')
-    #return AutoTokenizer.from_pretrained(f'./models/SMILES_BPE_tokenizer')
 
 class TRIDENT_for_inference:
     def __init__(self, model_version: str='EC50EC10_fish', path_to_model_weights=None, device=None):
@@ -133,6 +132,7 @@ class TRIDENT_for_inference:
             tokenizer = self.tokenizer).dataloader
 
         self.TRIDENT_model.eval()
+        self.TRIDENT_model.to(self.device)
         preds = []
         cls_embeddings = []
         n_batches = len(loader)
@@ -140,9 +140,9 @@ class TRIDENT_for_inference:
         progress_bar.progress(0, text=f'Predicted: 0/{len(processed_data)} SMILES')
         for i, batch in enumerate(loader):
             with torch.no_grad():
-                pred, cls = self.TRIDENT_model(*batch.values())
-                preds.append(pred.numpy().astype(np.float32))
-                cls_embeddings.append(cls.numpy().astype(np.float32))
+                pred, cls = self.TRIDENT_model(*batch.values().to(self.device))
+                preds.append(pred.cpu().numpy().astype(np.float32))
+                cls_embeddings.append(cls.cpu().numpy().astype(np.float32))
                 progress_bar.progress(int(100*(i+1)/n_batches), text=f'Predicted: {(i+1)*len(pred)}/{len(processed_data)} SMILES')
         progress_bar.empty()
         preds = np.concatenate(preds, axis=0)
