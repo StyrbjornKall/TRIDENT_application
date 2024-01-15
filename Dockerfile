@@ -1,11 +1,33 @@
 FROM python:3.10-slim
-WORKDIR /app
-COPY requirements.txt .
-COPY packages.txt .
-RUN apt update && apt install -y libsm6 libxext6
-RUN apt-get update && apt-get install -y libxrender-dev
-RUN python -m pip install --no-cache-dir -r requirements.txt
-COPY . .
+
+# Create user name and home directory variables. 
+# The variables are later used as $USER and $HOME. 
+ENV USER=tridentapp
+ENV HOME=/home/$USER
+# Add user to system
+RUN useradd -m -u 1000 $USER
+
+# Set working directory (this is where the code should go)
+WORKDIR $HOME/app
+
+# Update system and install dependencies.
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    build-essential \
+    software-properties-common
+    
+COPY requirements.txt $HOME/app/requirements.txt
+COPY packages.txt $HOME/app/packages.txt
+COPY start-script.sh $HOME/app/start-script.sh
+COPY . $HOME/app/
+
+RUN apt update && apt install -y libsm6 libxext6 \
+    && apt-get update && apt-get install -y libxrender-dev \
+    && python -m pip install --no-cache-dir -r requirements.txt \
+    && chmod +x start-script.sh \ 
+    && chown -R $USER:$USER $HOME \
+    && rm -rf /var/lib/apt/lists/*
+
+USER $USER
 EXPOSE 8501
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-ENTRYPOINT ["streamlit", "run", "app.py", "--server.fileWatcherType=none"]
+
+ENTRYPOINT ["./start-script.sh"]
