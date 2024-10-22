@@ -9,6 +9,9 @@ import space_page
 import hydralit_components as hc
 import base64
 from PIL import Image
+from increment_user_stats import increment_user_stats
+
+increment_user_stats()
 
 st.set_page_config(layout="wide", page_title='TRIDENT - predicting chemical ecotoxicity using AI', page_icon="🔱")
 
@@ -19,7 +22,7 @@ with open('styles.css')as f:
 
 menu_data = [
     {'icon': "📈", 'label':"Use TRIDENT"},
-    {'icon': "🖇️", 'label':'Publication'},
+    {'icon': "📰", 'label':'Publications'},
     {'icon': "📄", 'label':"Documentation"},#no tooltip message
     {'icon': "🌌",'label':"Explore the chemical space"},
     {'icon': "✉️",'label':"Contact"},
@@ -35,20 +38,6 @@ menu_id = hc.nav_bar(
     sticky_nav=True, #at the top or not
     sticky_mode='pinned', #jumpy or not-jumpy, but sticky or pinned
 )
-
-footer = '''<style>
-footer{visibility:visible;}
-footer:after{
-    content:'Copyright @ 2023: Styrbjörn Käll';
-    display:block;
-    position:relative;
-    color:tomato;
-    padding:5px;
-    top:3px;
-}
-</style>'''
-st.markdown(footer, unsafe_allow_html=True)
-
 
 ### APP #############################
 
@@ -154,8 +143,25 @@ if menu_id == 'Documentation':
 if menu_id == 'Contact':
     contact_page.print_contact_page()
 
-if menu_id == 'Publication':
+if menu_id == 'Publications':
     publications_page.print_publications_page()
 
 if menu_id == 'Explore the chemical space':
     space_page.print_space_page()
+
+footer = '''
+<style>
+footer {
+    visibility: visible;
+}
+footer:after {
+    content: 'Copyright @ 2024: Styrbjörn Käll';
+    display: block;
+    position: relative;
+    color: tomato;
+    padding: 5px;
+    top: 3px;
+}
+</style>
+'''
+st.markdown(footer, unsafe_allow_html=True)

@@ -27,6 +27,10 @@ RUN apt update && apt install -y libsm6 libxext6 \
     && chown -R $USER:$USER $HOME \
     && rm -rf /var/lib/apt/lists/*
 
+# Convert windows line endings to unix style, happens if start-script generated on windows
+RUN apt-get update && apt-get install -y dos2unix \
+    && dos2unix $HOME/app/start-script.sh
+
 USER $USER
 EXPOSE 8501
 

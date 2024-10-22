@@ -94,12 +94,12 @@ def print_contact_page():
     <div style="flex-basis: 33.33%; text-align: center;">
         <h3>Mikael Gustavsson</h3>
         <p><small>Department of Economics, University of Gothenburg<br>Gothenburg, Sweden<br>
-        mikael.gustavsson@economics.gu.se</small></p>
+        mikael.gustavsson@bioenv.gu.se</small></p>
     </div>
     <div style="flex-basis: 33.33%; text-align: center;">
         <h3>Styrbjörn Käll</h3>
         <p><small>Department of Mathematical Sciences, Chalmers University of Technology<br>Gothenburg, Sweden<br>
-        kall.styrbjorn@gmail.com</small></p>
+        skall@chalmers.se</small></p>
     </div>
     <div style="flex-basis: 33.33%; text-align: center;">
         <h3>Erik Kristiansson</h3>
