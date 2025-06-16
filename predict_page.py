@@ -76,16 +76,26 @@ def print_predict_page():
 
     col1, col2 = st.columns([1,3])
     col1.markdown('## Prediction metrics')
-    col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch")
+    col1.checkbox("Predict all", key="predict_all", on_change=None, value=False, help="Currently is only supported in batch mode.")
+    col1.checkbox('Return CLS embeddings', key='return_cls_embeddings', on_change=None, value=False, help="The model represents the chemical as a high dimensional vector (CLS embedding). This can be useful for clustering or further analysis.")
+
+    # Disable metric selection if "Predict all" is checked
+    predict_all_toggled = st.session_state.get("predict_all", False)
+
+    # If Predict all is toggled, force batch upload to be True and disabled
+    if predict_all_toggled:
+        st.session_state.batch = True
+
+    col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch", disabled=predict_all_toggled, value=st.session_state.get("batch", False))
     species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
     model_type = {'Combined model (best performance)': 'EC50EC10'}
     
-    PREDICTION_SPECIES = species_group[col1.radio("Select Species group", tuple(species_group.keys()), on_change=None, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
-    MODELTYPE = model_type[col1.radio("Select Model type", tuple(model_type), on_change=None, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
+    PREDICTION_SPECIES = species_group[col1.radio("Select Species group", tuple(species_group.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
+    MODELTYPE = model_type[col1.radio("Select Model type", tuple(model_type), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
     endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
-    PREDICTION_ENDPOINT = endpoints[col1.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
+    PREDICTION_ENDPOINT = endpoints[col1.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
     effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}'][PREDICTION_ENDPOINT]
-    PREDICTION_EFFECT = effects[col1.radio("Select Effect ",tuple(effects.keys()), on_change=None, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
+    PREDICTION_EFFECT = effects[col1.radio("Select Effect ",tuple(effects.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
     
     results = pd.DataFrame()
 
@@ -122,26 +132,9 @@ def print_predict_page():
             if not data.empty:
                 st.markdown('**Showing first 5 rows:**\n')
                 st.write(data.head())
-
-            if st.button("Predict"):
-                with st.spinner(text = 'Inference in Progress...'):
-                    
-                    TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
-                    TRIDENT.load_fine_tuned_model()
-                
-                    results = TRIDENT.predict_toxicity(
-                        SMILES = data.SMILES.tolist(), 
-                        exposure_duration=EXPOSURE_DURATION, 
-                        endpoint=PREDICTION_ENDPOINT, 
-                        effect=PREDICTION_EFFECT,
-                        return_cls_embeddings=True)
-                    
-                results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
-                results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
-                   
-                mols = [Chem.MolFromSmiles(smiles) for smiles in results.iloc[:6].SMILES_Canonical_RDKit.tolist()]
+                mols = [Chem.MolFromSmiles(smiles) for smiles in data.iloc[:6].SMILES.tolist()]
                 try:
-                    img = Draw.MolsToGridImage(mols,legends=(results.iloc[:6].SMILES_Canonical_RDKit.tolist()))
+                    img = Draw.MolsToGridImage(mols, legends=(data.iloc[:6].SMILES.tolist()))
                 except:
                     img = None
                 st.markdown('''**Showing first 6 structures (generated using RDKit):**\n''')
@@ -149,7 +142,62 @@ def print_predict_page():
                     st.image(img)
                 else:
                     st.markdown('⚠️ **Not chemically valid**')
+
+            if st.button("Predict"):
+                with st.spinner(text = 'Inference in Progress...'):
+
+                    if predict_all_toggled:
+                        # Write warning that notifies the user that this may take a while
+                        st.warning("Predicting all combinations of model, species group, endpoint, and effect. This may take a while depending on the number of SMILES provided and the number of combinations. Please be patient...")
+
+                        # Predict all logic
+                        all_results = []
+
+                        # Initialize progress bar
+                        progress = st.progress(0, text="Processing species groups...")
+                        for species_idx, PREDICTION_SPECIES in enumerate(species_group.values()):
+                            
+                            TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
+                            TRIDENT.load_fine_tuned_model()
+                            endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
+
+                            for endpoint_idx, PREDICTION_ENDPOINT in enumerate(endpoints.values()):
+                                effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}'][PREDICTION_ENDPOINT]
+
+                                for PREDICTION_EFFECT in effects.keys():
+                                    total_steps = len(species_group) * len(endpoints) * len(effects)
+                                    current_step = species_idx * len(endpoints) * len(effects) + endpoint_idx * len(effects) + list(effects.keys()).index(PREDICTION_EFFECT) + 1
+                                    progress.progress(current_step / total_steps, text=f"Processing: {PREDICTION_SPECIES} | {PREDICTION_ENDPOINT}")
+                                    results = TRIDENT.predict_toxicity(
+                                        SMILES=data.SMILES.tolist(),
+                                        exposure_duration=EXPOSURE_DURATION,
+                                        endpoint=PREDICTION_ENDPOINT,
+                                        effect=PREDICTION_EFFECT,
+                                        return_cls_embeddings=True
+                                    )
+                                    results['Species group'] = PREDICTION_SPECIES
+                                    results['Endpoint'] = PREDICTION_ENDPOINT
+                                    results['Effect'] = PREDICTION_EFFECT
+                                    all_results.append(results)
+
+                        # Concatenate all results
+                        results = pd.concat(all_results, ignore_index=True, axis=0)
+                        progress.progress(total_steps/total_steps, text=f"Processing: Done!")
                     
+                    else:
+                        TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
+                        TRIDENT.load_fine_tuned_model()
+                    
+                        results = TRIDENT.predict_toxicity(
+                            SMILES = data.SMILES.tolist(), 
+                            exposure_duration=EXPOSURE_DURATION, 
+                            endpoint=PREDICTION_ENDPOINT, 
+                            effect=PREDICTION_EFFECT,
+                            return_cls_embeddings=True
+                            )
+                    
+                results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
+                results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
 
         elif ~st.session_state.batch:
             subcol1, subcol2 = st.columns([3,1])        
@@ -184,7 +232,8 @@ def print_predict_page():
                         exposure_duration=EXPOSURE_DURATION, 
                         endpoint=PREDICTION_ENDPOINT, 
                         effect=PREDICTION_EFFECT,
-                        return_cls_embeddings=True)
+                        return_cls_embeddings=True
+                        )
                     
                 results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
                 results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
@@ -206,70 +255,75 @@ def print_predict_page():
                 results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
+                if not st.session_state.return_cls_embeddings:
+                    results.drop(columns=['CLS_embeddings'], inplace=True)
+                
                 st.success(f'Predicted effect concentration(s):')
                 st.write(results.head())
 
                 download_button_str = download_button(results, 'TRIDENT_prediction_results.csv', 'Download results', pickle_it=False)
                 st.markdown(download_button_str, unsafe_allow_html=True)
 
-            with col2:
-                st.markdown('# Results analysis')
-                with st.expander("Expand results analysis"):
-                    st.markdown('''
-                    ## Chemical alerts
-                    If RDKit asserts any SMILES with an error feedback is provided as either an "SMILES Alert" or an "Chemical Alert". Most often the errors are SMILES parsing errors ("SMILES Alerts") or valence errors ("Chemical Alerts"). In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, the recommendation is to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
-                    For example, the `|` character always produce parsing errors, but the structure is still valid when checked in PubChem. `*`-symbols are also set as invalid since no polymers were included in the training.
+            # Only show Results analysis if Predict all is NOT checked
+            if not predict_all_toggled:
+                with col2:
+                    st.markdown('# Results analysis')
+                    with st.expander("Expand results analysis"):
+                        st.markdown('''
+                        ## Chemical alerts
+                        If RDKit asserts any SMILES with an error feedback is provided as either an "SMILES Alert" or an "Chemical Alert". Most often the errors are SMILES parsing errors ("SMILES Alerts") or valence errors ("Chemical Alerts"). In some cases, RDKit cannot handle the provided SMILES but the structure is still valid when for example run through PubChem. In those cases, the recommendation is to first run the SMILES through e.g. PubChem and retrieve a canonical SMILES from there. 
+                        For example, the `|` character always produce parsing errors, but the structure is still valid when checked in PubChem. `*`-symbols are also set as invalid since no polymers were included in the training.
 
-                    To ensure adequate predictions, predictions for SMILES with the "SMILES Alert" flag are not provided. 
-                    ''')
+                        To ensure adequate predictions, predictions for SMILES with the "SMILES Alert" flag are not provided. 
+                        ''')
 
-                    st.write(results[['SMILES','predictions log10(mg/L)','SMILES Alert', 'Chemical Alert']].head())
+                        st.write(results[['SMILES','predictions log10(mg/L)','SMILES Alert', 'Chemical Alert']].head())
 
-                    st.markdown('''
-                    ## Training data alerts
-                    If the chemical is inside the training data of the model, a 1 is present in the respective training column. A chemical 
-                    can be inside the training data in two ways.
-                    1. As an **endpoint-match**, i.e. when the chosen model was developed for this species group, experimental data for this chemical was present for the chosen endpoint.
-                    2. As an exact **effect-match**, i.e. when the chosen model was developed for this combination of species and endpoint, experimental data for the chosen effect was present.
-                    
-                    A match is denoted **1**.
-                    
-                    Note this does not include exact exposure duration matches since most of the trainable parameters are found in the transformer architecture which only uses the SMILES.''')
-                    
-                    st.write(results[['SMILES','predictions log10(mg/L)','endpoint match', 'effect match']].head())
-
-                    # Closest chemical in training set
-                    st.markdown('''
-                    ## Chemical similarity to the training set
-                    To better understand the toxicity prediction, the predicted chemical's closest resemblance in terms of chemical structure with regards to its toxicity is determined together with the mean similarity to the training dataset. 
-                    This is calculated as the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set. Low similarity usually indicates a weaker prediction. 
-                                
-                    High similarity may be interpreted as a `mean cosine similarity` of [1,0.3), intermediate [0.3,0.2) and low similarity [0.2,-1].
-                    This score is more reliable way of understanding how the model places the chemical in terms of its toxicity, as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
-
-                    st.write(results[['SMILES','predictions log10(mg/L)','most similar chemical','max cosine similarity','mean cosine similarity']].head())
-
-                    # Space location
-                    st.markdown('''
-                    ## CLS-embedding projection (PCA)
-                    The CLS-embeddings from the model may be projected onto a 2D plane using PCA to visualize the training data. The predicted chemicals are present as squares. 
-                    ''')
-
-                    plot_results = results[results['SMILES Alert'].isna()]
-                    plot_results = (plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']) if len(plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit'])) < 50 else plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']).iloc[:50])
-
-                    if plot_results.empty == False:
-                        fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=plot_results)
-                        st.plotly_chart(fig, use_container_width=True, theme='streamlit')
+                        st.markdown('''
+                        ## Training data alerts
+                        If the chemical is inside the training data of the model, a 1 is present in the respective training column. A chemical 
+                        can be inside the training data in two ways.
+                        1. As an **endpoint-match**, i.e. when the chosen model was developed for this species group, experimental data for this chemical was present for the chosen endpoint.
+                        2. As an exact **effect-match**, i.e. when the chosen model was developed for this combination of species and endpoint, experimental data for the chosen effect was present.
                         
-                        buffer = io.StringIO()
-                        fig.write_html(buffer, include_plotlyjs='cdn')
-                        html_bytes = buffer.getvalue().encode()
+                        A match is denoted **1**.
+                        
+                        Note this does not include exact exposure duration matches since most of the trainable parameters are found in the transformer architecture which only uses the SMILES.''')
+                        
+                        st.write(results[['SMILES','predictions log10(mg/L)','endpoint match', 'effect match']].head())
 
-                        download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
-                        st.markdown(download_button_str, unsafe_allow_html=True)
-                    else:
-                        st.write('No valid SMILES to plot.')
+                        # Closest chemical in training set
+                        st.markdown('''
+                        ## Chemical similarity to the training set
+                        To better understand the toxicity prediction, the predicted chemical's closest resemblance in terms of chemical structure with regards to its toxicity is determined together with the mean similarity to the training dataset. 
+                        This is calculated as the cosine similarity of the CLS-embedding for the predicted chemical and all chemicals in the training set. Low similarity usually indicates a weaker prediction. 
+                                    
+                        High similarity may be interpreted as a `mean cosine similarity` of [1,0.3), intermediate [0.3,0.2) and low similarity [0.2,-1].
+                        This score is more reliable way of understanding how the model places the chemical in terms of its toxicity, as compared to e.g., fingerprints, since the embedding is derived from the model itself.''')
+
+                        st.write(results[['SMILES','predictions log10(mg/L)','most similar chemical','max cosine similarity','mean cosine similarity']].head())
+
+                        # Space location
+                        st.markdown('''
+                        ## CLS-embedding projection (PCA)
+                        The CLS-embeddings from the model may be projected onto a 2D plane using PCA to visualize the training data. The predicted chemicals are present as squares. 
+                        ''')
+
+                        plot_results = results[results['SMILES Alert'].isna()]
+                        plot_results = (plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']) if len(plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit'])) < 50 else plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']).iloc[:50])
+
+                        if plot_results.empty == False:
+                            fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=plot_results)
+                            st.plotly_chart(fig, use_container_width=True, theme='streamlit')
+                            
+                            buffer = io.StringIO()
+                            fig.write_html(buffer, include_plotlyjs='cdn')
+                            html_bytes = buffer.getvalue().encode()
+
+                            download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
+                            st.markdown(download_button_str, unsafe_allow_html=True)
+                        else:
+                            st.write('No valid SMILES to plot.')
 
                     
     # Add padding element at the bottom of the app
