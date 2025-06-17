@@ -1,0 +1,43 @@
+name: Build Docker Container
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_name:
+        description: 'Docker image name (e.g. my-image:latest)'
+        required: true
+        default: 'streamlit-app-trident-serve-v4.2'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ github.event.inputs.image_name }} .
+
+      - name: Save Docker image to tar file
+        run: |
+          docker save ${{ github.event.inputs.image_name }} -o image.tar
+
+      - name: Upload Docker image as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.inputs.image_name }}-docker-image
+          path: image.tar
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.image_name }}
+          name: ${{ github.event.inputs.image_name }}
+          files: image.tar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
