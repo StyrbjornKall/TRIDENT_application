@@ -38,6 +38,9 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.image_name }}
           name: ${{ github.event.inputs.image_name }}
-          files: image.tar
+          body: |
+            The Docker image was built by this workflow run.
+            You can download the image tarball from the workflow run's artifacts here:
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
