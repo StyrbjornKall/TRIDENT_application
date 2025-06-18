@@ -26,6 +26,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ${{ github.event.inputs.image_name }} .
+          docker image ls
 
       - name: Log in to Docker Hub
         if: ${{ github.event.inputs.dockerhub_repo != '' }}
@@ -37,8 +38,8 @@ jobs:
       - name: Tag and push Docker image to Docker Hub
         if: ${{ github.event.inputs.dockerhub_repo != '' }}
         run: |
-          docker tag ${{ github.event.inputs.image_name }} ${{ github.event.inputs.dockerhub_repo }}
-          docker push ${{ github.event.inputs.dockerhub_repo }}
+          docker tag ${{ github.event.inputs.image_name }} ${{ github.event.inputs.dockerhub_repo }}/${{ github.event.inputs.image_name }}
+          docker push ${{ github.event.inputs.dockerhub_repo }}/${{ github.event.inputs.image_name }}
 
       - name: Save Docker image to tar file
         run: |
