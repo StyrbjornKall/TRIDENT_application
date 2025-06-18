@@ -86,7 +86,8 @@ def print_predict_page():
     if predict_all_toggled:
         st.session_state.batch = True
 
-    col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch", disabled=predict_all_toggled, value=st.session_state.get("batch", False))
+    col1.checkbox("Batch upload (.csv, .txt, .xlsx)", key="batch", disabled=predict_all_toggled)
+    
     species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
     model_type = {'Combined model (best performance)': 'EC50EC10'}
     
@@ -178,6 +179,12 @@ def print_predict_page():
                                     results['Species group'] = PREDICTION_SPECIES
                                     results['Endpoint'] = PREDICTION_ENDPOINT
                                     results['Effect'] = PREDICTION_EFFECT
+                                    results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
+                                    results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
+                                    results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                                    results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                                    results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
+
                                     all_results.append(results)
 
                         # Concatenate all results
@@ -195,9 +202,12 @@ def print_predict_page():
                             effect=PREDICTION_EFFECT,
                             return_cls_embeddings=True
                             )
-                    
-                results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
-                results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
+                            
+                        results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
+                        results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
+                        results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                        results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                        results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
 
         elif ~st.session_state.batch:
             subcol1, subcol2 = st.columns([3,1])        
@@ -220,6 +230,17 @@ def print_predict_page():
                 'Select exposure duration (e.g. 96 h)',
                 min_value=24, max_value=720, step=24)
 
+            mols = [Chem.MolFromSmiles(single_input_smiles)]
+            try:
+                img = Draw.MolsToGridImage(mols,legends=([single_input_smiles]))
+            except:
+                img = None
+            st.markdown('''Structure (generated using RDKit):\n''')
+            if (img is not None) and ('*' not in single_input_smiles):
+                st.image(img)
+            else:
+                st.markdown('⚠️ Not chemically valid')
+
             if st.button("Predict"):
                 data = pd.DataFrame()
                 data['SMILES'] = [single_input_smiles]
@@ -237,31 +258,19 @@ def print_predict_page():
                     
                 results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
                 results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
-                    
-                mols = [Chem.MolFromSmiles(smiles) for smiles in results.SMILES_Canonical_RDKit.unique().tolist()]
-                try:
-                    img = Draw.MolsToGridImage(mols,legends=(results.SMILES_Canonical_RDKit.unique().tolist()))
-                except:
-                    img = None
-                st.markdown('''Structure (generated using RDKit):\n''')
-                if (img is not None) and ('*' not in single_input_smiles):
-                    st.image(img)
-                else:
-                    st.markdown('⚠️ Not chemically valid')
-                        
-
-        if results.empty == False:
-            with col2:
                 results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
                 results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
-                if not st.session_state.return_cls_embeddings:
-                    results.drop(columns=['CLS_embeddings'], inplace=True)
-                
+                        
+        if results.empty == False:
+            with col2:                
                 st.success(f'Predicted effect concentration(s):')
-                st.write(results.head())
+                st.write(results.drop(columns=['CLS_embeddings']).head())
 
-                download_button_str = download_button(results, 'TRIDENT_prediction_results.csv', 'Download results', pickle_it=False)
+                if st.session_state.return_cls_embeddings:
+                    download_button_str = download_button(results, 'TRIDENT_prediction_results.csv', 'Download results', pickle_it=False)
+                else:
+                    download_button_str = download_button(results.drop(columns=['CLS_embeddings']), 'TRIDENT_prediction_results.csv', 'Download results', pickle_it=False)
                 st.markdown(download_button_str, unsafe_allow_html=True)
 
             # Only show Results analysis if Predict all is NOT checked
