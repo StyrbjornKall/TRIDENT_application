@@ -180,7 +180,7 @@ class BuildInferenceDataLoaderAndDataset:
 
 @st.cache_data(ttl=24*60*60)
 def __loadtrainingdf__(MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT):
-    df = pd.read_pickle('./data/Preprocessed_complete_data.pkl.zip', compression='zip')
+    df = pd.read_pickle('./data/trident1/Preprocessed_complete_data.pkl.zip', compression='zip')
     if MODELTYPE == 'EC50EC10':
         PREDICTION_ENDPOINT = 'EC50,EC10'
     # Get training set
@@ -191,12 +191,12 @@ def __loadtrainingdf__(MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT):
 
 @st.cache_data(ttl=24*60*60)
 def __loadpredictionsdf__():
-    df = pd.read_pickle(f'./data/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
+    df = pd.read_pickle(f'./data/trident1/predictions/combined_predictions_and_errors.pkl.zip', compression='zip')
     return df
 
 @st.cache_data(ttl=24*60*60)
 def __loadCLSembeddings__(MODELTYPE, PREDICTION_SPECIES):
-    df = pd.read_pickle(f'./data/predictions/{MODELTYPE}_{PREDICTION_SPECIES}_CLS_embeddings.pkl.zip', compression='zip')
+    df = pd.read_pickle(f'./data/trident1/predictions/{MODELTYPE}_{PREDICTION_SPECIES}_CLS_embeddings.pkl.zip', compression='zip')
     return df
 
 def check_training_data_from_scratch(df, model_type, species_group, endpoint, effect):

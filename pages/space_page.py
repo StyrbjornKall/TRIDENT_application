@@ -3,7 +3,7 @@ import io
 import pandas as pd
 import numpy as np
 from src.custom_download_button import download_button
-from src.inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection, PlotPaCMAP_CLSProjection
+from src.trident1.inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection, PlotPaCMAP_CLSProjection
 
 
 effectordering = {

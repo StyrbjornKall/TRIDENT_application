@@ -18,16 +18,16 @@ repo is **inference/serving only**.
   - `predict_page.py` — main prediction UI (single/batch SMILES input → model inference → results table/download)
   - `documentation_page.py`, `publications_page.py`, `contact_page.py`, `space_page.py` — static/content pages
 - `src/` is the core library used by the pages (imported as `from src.xxx import ...`):
-  - `src/inference_utils/TRIDENT_for_inference.py` — `TRIDENT_for_inference` class: loads the RoBERTa
+  - `src/trident1/inference_utils/TRIDENT_for_inference.py` — `TRIDENT_for_inference` class: loads the RoBERTa
     transformer + fine-tuned DNN head for a chosen `model_version` (e.g. `EC50EC10_fish`) from
     HuggingFace Hub (`StyrbjornKall/<model_version>`) and local DNN weights under `models/TRIDENT/`,
     then runs `predict_toxicity(...)`.
-  - `src/inference_utils/model_utils.py` — `DNN_module` (configurable MLP head) and `TRIDENT`
+  - `src/trident1/inference_utils/model_utils.py` — `DNN_module` (configurable MLP head) and `TRIDENT`
     (combines a HF transformer + `DNN_module`) `nn.Module` classes.
-  - `src/inference_utils/pytorch_data_utils.py` — SMILES preprocessing (canonicalization via RDKit),
+  - `src/trident1/inference_utils/pytorch_data_utils.py` — SMILES preprocessing (canonicalization via RDKit),
     one-hot encoding of endpoint/effect, PyTorch `Dataset`/`DataLoader` construction for inference,
     plus SMILES/chemistry validation helpers and training-data lookup helpers.
-  - `src/inference_utils/plots_for_space.py` — PCA/UMAP plotting of CLS embeddings for the "Explore
+  - `src/trident1/inference_utils/plots_for_space.py` — PCA/UMAP plotting of CLS embeddings for the "Explore
     the chemical space" page.
   - `src/custom_download_button.py` — misc UI helper (custom file download button).
 - `models/TRIDENT/*.pt` — pretrained DNN head weights per `model_version` (e.g.
@@ -49,13 +49,13 @@ Models are named `<ENDPOINT>_<SPECIES>`, e.g. `EC50_fish`, `EC10_invertebrates`,
 - `SPECIES` ∈ `{fish, invertebrates, algae}`.
 - Each model version has an allowed list of `effect` values (e.g. MOR, ITX, DVP, REP, MPH, GRO, POP)
   and `endpoint` values (EC50/EC10) — see `effectordering`/`endpointordering` dicts duplicated in both
-  `pages/predict_page.py` and `src/inference_utils/TRIDENT_for_inference.py`. **If you change the
+  `pages/predict_page.py` and `src/trident1/inference_utils/TRIDENT_for_inference.py`. **If you change the
   allowed effects/endpoints for a model, update both places.**
 - `predict_toxicity` requires `SMILES`, `exposure_duration` (hours, log10-transformed internally),
   `endpoint`, and `effect`; it raises `RuntimeError` if endpoint/effect isn't valid for the loaded model.
 
 ## Caching pattern
-`load_automodel` and `load_autotokenizer` in `src/inference_utils/TRIDENT_for_inference.py` use
+`load_automodel` and `load_autotokenizer` in `src/trident1/inference_utils/TRIDENT_for_inference.py` use
 `@st.cache_resource` — this is how the (large) transformer models avoid being reloaded on every
 Streamlit rerun. Keep this pattern when modifying model-loading code; don't bypass Streamlit's
 caching or the app will become very slow / re-download models per interaction.
@@ -79,7 +79,7 @@ caching or the app will become very slow / re-download models per interaction.
   the "Use TRIDENT" page (single prediction + batch upload with `data/smiles.txt` or generated
   example molecules).
 - Imports from the library code always go through the `src` package, e.g.
-  `from src.inference_utils.TRIDENT_for_inference import TRIDENT_for_inference` or
+  `from src.trident1.inference_utils.TRIDENT_for_inference import TRIDENT_for_inference` or
   `from src.custom_download_button import download_button` — do not import `inference_utils`
   or `custom_download_button` at top level, those old paths no longer exist.
 - `pages/` is a plain Python package (has `__init__.py`) of page modules with `print_*_page()`

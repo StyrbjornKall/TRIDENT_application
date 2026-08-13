@@ -5,8 +5,8 @@ from transformers import AutoModel, AutoTokenizer
 import pandas as pd
 import numpy as np
 
-from src.inference_utils.model_utils import DNN_module, TRIDENT
-from src.inference_utils.pytorch_data_utils import PreProcessDataForInference, BuildInferenceDataLoaderAndDataset
+from src.trident1.inference_utils.model_utils import DNN_module, TRIDENT
+from src.trident1.inference_utils.pytorch_data_utils import PreProcessDataForInference, BuildInferenceDataLoaderAndDataset
 from tqdm import tqdm
 from typing import List, TypeVar
 

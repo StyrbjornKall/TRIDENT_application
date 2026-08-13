@@ -10,7 +10,7 @@ from plotly.subplots import make_subplots
 
 from sklearn.decomposition import PCA
 
-from src.inference_utils.pytorch_data_utils import __loadCLSembeddings__, __loadpredictionsdf__, __loadtrainingdf__
+from src.trident1.inference_utils.pytorch_data_utils import __loadCLSembeddings__, __loadpredictionsdf__, __loadtrainingdf__
 
 def __formathover(df):
     formatted_hover = ''''''

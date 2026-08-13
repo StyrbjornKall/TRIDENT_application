@@ -2,7 +2,7 @@
 # # Find training data
 
 # %%
-from src.inference_utils.pytorch_data_utils import check_training_data
+from src.trident1.inference_utils.pytorch_data_utils import check_training_data
 import pandas as pd
 from tqdm.notebook import tqdm
 
@@ -64,7 +64,7 @@ for SPECIES in tqdm(species_groups):
         results.reset_index(drop=True, inplace=True)
         results['CLS_embeddings'] = results['CLS_embeddings'].apply(lambda x: np.asarray(x, dtype=np.float32))
         results = results[['SMILES_Canonical_RDKit','CLS_embeddings']]        
-        results.to_pickle(f'./data/predictions/{MODEL_VERSION}_CLS_embeddings.pkl.zip', compression='zip')
+        results.to_pickle(f'./data/trident1/predictions/{MODEL_VERSION}_CLS_embeddings.pkl.zip', compression='zip')
 
 # %% [markdown]
 # ## Get predictions
@@ -120,14 +120,14 @@ for col in combined_results.columns:
 combined_results.info(memory_usage='deep')
 
 # %%
-combined_results.to_pickle(f'./data/predictions/combined_predictions.pkl.zip', compression='zip')
+combined_results.to_pickle(f'./data/trident1/predictions/combined_predictions.pkl.zip', compression='zip')
 
 # %% [markdown]
 # ## Get training data matches
 
 # %%
-training_data = pd.read_pickle('./data/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
-all_preds = pd.read_pickle(f'./data/predictions/combined_predictions.pkl.zip', compression='zip')
+training_data = pd.read_pickle('./data/trident1/Preprocessed_complete_data_fixed_smiles_format.zip', compression='zip')
+all_preds = pd.read_pickle(f'./data/trident1/predictions/combined_predictions.pkl.zip', compression='zip')
 
 # %%
 all_preds
@@ -148,7 +148,7 @@ for model in models:
 all_preds
 
 # %%
-all_preds.to_pickle(f'./data/predictions/combined_predictions.pkl.zip', compression='zip')
+all_preds.to_pickle(f'./data/trident1/predictions/combined_predictions.pkl.zip', compression='zip')
 
 # %% [markdown]
 # ## Add errors from 10x10 CV
