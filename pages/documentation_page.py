@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 
-with open("final_model.svg", "rb") as image_file:
+with open("assets/final_model.svg", "rb") as image_file:
         image_data = image_file.read()
         img_64 = base64.b64encode(image_data).decode()
 

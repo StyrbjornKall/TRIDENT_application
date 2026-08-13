@@ -2,8 +2,8 @@ import streamlit as st
 import io
 import pandas as pd
 import numpy as np
-from custom_download_button import download_button
-from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection, PlotPaCMAP_CLSProjection
+from src.custom_download_button import download_button
+from src.inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection, PlotPaCMAP_CLSProjection
 
 
 effectordering = {

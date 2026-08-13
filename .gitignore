@@ -1,2 +1,3 @@
 TRIDENT_application/
 **__pycache__
+data/analytics_data.json

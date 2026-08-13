@@ -6,10 +6,10 @@ import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
 from rdkit.Chem import PandasTools
-from custom_download_button import download_button
-from inference_utils.TRIDENT_for_inference import TRIDENT_for_inference
-from inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_smiles, check_valid_chemistry
-from inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
+from src.custom_download_button import download_button
+from src.inference_utils.TRIDENT_for_inference import TRIDENT_for_inference
+from src.inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_smiles, check_valid_chemistry
+from src.inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
 example_mols = ['O=P(O)(O)O', 'Clc1ccc(C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl)cc1', 'Cc1ccccc1Cl','C=CC(=O)OCC','ClC(Cl)C(Cl)(Cl)Cl','O=C(O)CNCP(=O)(O)O','CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC','CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl']
 def get_example_mol():

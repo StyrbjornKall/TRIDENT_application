@@ -5,8 +5,8 @@ from transformers import AutoModel, AutoTokenizer
 import pandas as pd
 import numpy as np
 
-from inference_utils.model_utils import DNN_module, TRIDENT
-from inference_utils.pytorch_data_utils import PreProcessDataForInference, BuildInferenceDataLoaderAndDataset
+from src.inference_utils.model_utils import DNN_module, TRIDENT
+from src.inference_utils.pytorch_data_utils import PreProcessDataForInference, BuildInferenceDataLoaderAndDataset
 from tqdm import tqdm
 from typing import List, TypeVar
 
@@ -93,7 +93,7 @@ class TRIDENT_for_inference:
             if path != None:
                 checkpoint_dnn = torch.load(f'{path}final_model_{version}_dnn_saved_weights.pt', map_location=self.device)
             else:
-                path = f'./TRIDENT/final_model_{version}_dnn_saved_weights.pt'
+                path = f'./models/TRIDENT/final_model_{version}_dnn_saved_weights.pt'
                 checkpoint_dnn = torch.load(f'{path}', map_location=self.device)
         except Exception as E:
             raise E
