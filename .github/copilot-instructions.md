@@ -1,11 +1,17 @@
 # TRIDENT Application — AI Agent Instructions
 
 ## What this repo is
-A **Streamlit** web app that serves the TRIDENT deep-learning model for predicting acute/chronic
-chemical ecotoxicity (fish, aquatic invertebrates, algae) from SMILES strings. It is packaged as a
-Docker container and deployed at https://trident.serve.scilifelab.se/. There is a separate,
-related repo (https://github.com/StyrbjornKall/TRIDENT) that contains model training code — this
-repo is **inference/serving only**.
+A **Streamlit** web app that serves TRIDENT deep-learning models for predicting acute/chronic
+chemical ecotoxicity from SMILES strings. It is packaged as a Docker container and deployed at
+https://trident.serve.scilifelab.se/. There is a separate, related repo
+(https://github.com/StyrbjornKall/TRIDENT) that contains model training code — this repo is
+**inference/serving only**. The app now serves **two generations of the model side by side**:
+- **TRIDENT-1** (`pages/predict_page.py`, `src/trident1/`) — species-group-level model (fish,
+  aquatic invertebrates, algae) predicting EC50/EC10.
+- **TRIDENT-2** (`pages/trident2_page.py`, `src/trident2/`) — a newer, much broader multimodal
+  model: any NCBI-taxid species, simultaneous EC50/EC10/NOEC/LOEC prediction, plus effect,
+  administration route, organism lifestage, and concentration unit as explicit model inputs.
+  See the "TRIDENT-2 model concept" section below — do not confuse its conventions with TRIDENT-1's.
 
 ## Architecture & entry point
 - `app.py` is the Streamlit entry point. It builds a native multipage navigation using
@@ -29,12 +35,29 @@ repo is **inference/serving only**.
     plus SMILES/chemistry validation helpers and training-data lookup helpers.
   - `src/trident1/inference_utils/plots_for_space.py` — PCA/UMAP plotting of CLS embeddings for the "Explore
     the chemical space" page.
-  - `src/custom_download_button.py` — misc UI helper (custom file download button).
+  - `src/trident2/streamlit_inference.py` — the **only** TRIDENT-2 module written for this app (thin
+    Streamlit-facing wrapper). Everything else under `src/trident2/inference/` and
+    `src/trident2/utils/` is copied verbatim from a separate training/inference repo
+    (`trident2_inference`) and shared with its CLI entrypoint `src/trident2_quick_inference.py`
+    (that CLI is **not used by the app** — reference/context only, don't wire it in). Because those
+    files are copied wholesale, don't hand-edit them for app-specific needs; put
+    app-specific logic in `streamlit_inference.py` instead, and if the upstream repo publishes a
+    newer copy, a straight `cp -r` replace is expected to keep working with `streamlit_inference.py`
+    unchanged as long as the public function/constant names below don't change.
+  - `src/custom_download_button.py` — misc UI helper (custom file download button), shared by both
+    TRIDENT-1 and TRIDENT-2 pages.
 - `models/TRIDENT/*.pt` — pretrained DNN head weights per `model_version` (e.g.
   `final_model_EC50EC10_fish_dnn_saved_weights.pt`). The transformer backbone itself is downloaded
   from the HuggingFace Hub org `StyrbjornKall` at runtime (not stored in-repo).
+- `models/TRIDENT2/<run_id>_final_model_epoch_70_hf_trident2/` — **fully self-contained** HF model
+  directories (config + custom `modeling_trident2.py`/`configuration_trident2.py` + tokenizer +
+  `pytorch_model.bin`) for TRIDENT-2, loaded **locally/offline** via
+  `AutoModel.from_pretrained(path, trust_remote_code=True)` — no HuggingFace Hub download needed.
+  Two near-identical checkpoints exist (`ftmjjb51_...` and `sxno3jhi_...`); the app uses
+  `ftmjjb51_final_model_epoch_70_hf_trident2` (see `MODEL_PATH` in `streamlit_inference.py`).
 - `assets/` — SVG images/logos used across pages.
-- `data/` — sample SMILES/data files and a `predictions/` output folder.
+- `data/` — sample SMILES/data files and a `predictions/` output folder for TRIDENT-1;
+  `data/trident2/` holds TRIDENT-2's taxonomy/mapping data (see below).
 - Usage analytics are handled by `streamlit-analytics2`, wrapped around `pg.run()` in `app.py`. It
   tracks page views/widget interactions and persists to `data/analytics_data.json` (gitignored).
   View the dashboard by appending `?analytics=on` to the app URL; it's gated behind
@@ -54,14 +77,75 @@ Models are named `<ENDPOINT>_<SPECIES>`, e.g. `EC50_fish`, `EC10_invertebrates`,
 - `predict_toxicity` requires `SMILES`, `exposure_duration` (hours, log10-transformed internally),
   `endpoint`, and `effect`; it raises `RuntimeError` if endpoint/effect isn't valid for the loaded model.
 
+## TRIDENT-2 model concept (important domain knowledge — distinct from TRIDENT-1 above)
+- **No species-group model split**: one model predicts for *any* species (identified by NCBI
+  `taxid`, passed straight into the model, not tokenized) and returns **all four endpoints
+  simultaneously** (`EC50`, `EC10`, `NOEC`, `LOEC` — as log10(concentration), see below) — this is
+  why `pages/trident2_page.py` has no endpoint/species-group radio buttons, unlike TRIDENT-1.
+- Model inputs, each tokenized as an angle-bracket-wrapped special token (`<MOR>`, `<oral>`,
+  `<adult>`, etc.) concatenated with the SMILES — wrapping is done in
+  `generate_inference_metadata()` in `src/trident2/inference/preprocess_input.py`, not something
+  the app needs to reimplement:
+  - **Effect** — `VALID_EFFECTS` (10): MOR, BEH, CAR, REP, GRO, PHY, ITX, POP, DVP, MPH.
+  - **Administration route** — `VALID_ADMINISTRATION_ROUTES` (23 values, optional — `None` skips
+    the token entirely rather than tokenizing a placeholder).
+  - **Organism lifestage** — `VALID_ORGANISM_LIFESTAGES` (early, mid, adult; optional, same as above).
+  - All three constants (plus `validate_inference_effect`/`validate_administration_route`/
+    `validate_organism_lifestage`) live in `preprocess_input.py` — **import them, don't hard-code
+    duplicate lists** in page code (`streamlit_inference.py` re-exports `EFFECT_OPTIONS`,
+    `ADMINISTRATION_ROUTE_OPTIONS`, `ORGANISM_LIFESTAGE_OPTIONS`, prefixed with a `NOT_SPECIFIED`
+    sentinel for the two optional fields).
+- **Concentration unit** is one-hot encoded (`CONC_UNIT_ENCODING`, 14 values, e.g. `mg/l`, `ppm`,
+  `mg/kg`) and **duration** is a numeric feature: log10-transformed hours, with a **separate
+  missing-duration one-hot flag** (not a token) used when duration is unknown for a species. The
+  combined one-hot vector is **15-dim** (14 conc-unit + 1 duration-missing) — matches
+  `onehot_length: 15` / `with_duration_neuron: true` in the model's `config.json`. If this ever
+  changes, `CONC_UNIT_ENCODING`/`DURATION_MISSING_ENCODING` in `preprocess_input.py` and the model
+  config must stay in sync.
+- **Species metadata source of truth**: `data/trident2/taxid2commonname.json` (taxid → common name,
+  some values are `null` — handled by falling back to the latin name alone),
+  `data/trident2/taxid2sciname.json` (taxid → latin name), and
+  `data/trident2/taxa_assigned_units_effects_durations_2026-04-17.csv` (taxid →
+  `species_group_corrected` / `assigned_acute_effect` / `assigned_conc_unit` /
+  `assigned_acute_duration`, used both as the species-group filter and to pre-fill
+  effect/unit/duration defaults). `load_species_options()` in `streamlit_inference.py` only lists
+  species present in **all three** sources so every option has a usable label + defaults, and sorts
+  by **latin name** (so congeneric species are grouped together in the dropdown) — don't change
+  this sort key without checking the UX rationale in the page. The page also exposes a "Filter by
+  species group" dropdown (`ALL_SPECIES_GROUPS` sentinel + `species_group` column, sourced from
+  `species_group_corrected`) that narrows the species dropdown's options before selection.
+- The duration `st.slider` in `pages/trident2_page.py` auto-disables (and shows a warning caption)
+  whenever the selected species has no `assigned_acute_duration` in the mapping CSV — in that case
+  `duration_hours=None` is passed to `predict_toxicity()`, which relies on
+  `generate_inference_metadata()`'s missing-duration fallback (sentinel `1e-6` before log10) rather
+  than a user-supplied value.
+- `predict_toxicity()`'s output DataFrame also carries the full prediction context as columns —
+  `Species common name`, `Species latin name`, `NCBI taxid`, `Species group`, `Effect`,
+  `Administration route`, `Organism lifestage`, `Concentration unit`, `Duration (h)` — before the
+  endpoint columns; keep this column ordering (metadata → all log10 endpoints → all linear
+  endpoints) if extending the output.
+- Model output is assumed log10(concentration) in the *user-selected* unit (by analogy with
+  TRIDENT-1's `predictions log10(mg/L)` convention) — `predict_toxicity()` in
+  `streamlit_inference.py` back-transforms with `10**x` and emits both `"{endpoint} log10(unit)"`
+  and `"{endpoint} (unit)"` columns for all four endpoints, log10 columns first then linear columns.
+- No CLS-embedding, PCA/UMAP, or training-data-lookup features exist for TRIDENT-2 (unlike
+  TRIDENT-1's "Results analysis" section) — this was an explicit scope decision, don't re-add them
+  without being asked.
+
 ## Caching pattern
-`load_automodel` and `load_autotokenizer` in `src/trident1/inference_utils/TRIDENT_for_inference.py` use
-`@st.cache_resource` — this is how the (large) transformer models avoid being reloaded on every
-Streamlit rerun. Keep this pattern when modifying model-loading code; don't bypass Streamlit's
-caching or the app will become very slow / re-download models per interaction.
+`load_automodel` and `load_autotokenizer` in `src/trident1/inference_utils/TRIDENT_for_inference.py`,
+and `load_model_and_tokenizer`/`load_species_options` in `src/trident2/streamlit_inference.py`, all use
+`@st.cache_resource` (model/tokenizer) or `@st.cache_data` (species/taxonomy tables) — this is how the
+(large) transformer models and lookup tables avoid being reloaded on every Streamlit rerun. Keep this
+pattern when modifying model-loading code; don't bypass Streamlit's caching or the app will become
+very slow / re-load models per interaction.
 
 ## Running & building
-- Local run (no Docker): `pip install -r requirements.txt` then `streamlit run app.py`.
+- **Dependency management uses `uv`** (`uv.lock` is committed) — do **not** run bare `pip install`.
+  Add new deps to *both* `pyproject.toml`'s `[project.dependencies]` and `requirements.txt` (kept in
+  sync manually — `requirements.txt` is what the Docker image installs from), then run `uv sync` to
+  update the local `.venv`. Run the app with `uv run streamlit run app.py` (or activate `.venv`).
+- Local run (no Docker, without uv): `pip install -r requirements.txt` then `streamlit run app.py`.
 - Docker: `docker build -t streamlit-app-trident-serve-v1 .` then
   `docker run -p 8501:8501 streamlit-app-trident-serve-v1` (entrypoint is `start-script.sh`, which
   runs `streamlit run app.py --server.port=8501 --server.address=0.0.0.0`).
@@ -99,3 +183,14 @@ caching or the app will become very slow / re-download models per interaction.
   keys before adding new ones to avoid collisions.
 - RDKit is used for SMILES validation/canonicalization and structure rendering (`Draw.MolsToGridImage`);
   invalid SMILES should be handled gracefully (existing code wraps rendering in `try/except`).
+- TRIDENT-2's `src/trident2/inference/*` and `src/trident2/utils/*` modules depend on `loguru`
+  (added to `pyproject.toml`/`requirements.txt` for this reason) — don't remove it even though
+  TRIDENT-1 code doesn't use it.
+- TRIDENT-2 session state keys are prefixed `trident2_` (`trident2_batch`, `trident2_current_batch`,
+  `trident2_example_mol`) to avoid collisions with TRIDENT-1's unprefixed keys (`batch`,
+  `current_batch`, `example_mol`) in the same `st.session_state` — keep this prefix convention for
+  any new TRIDENT-2 session state.
+- `pages/trident2_page.py`'s batch mode only accepts a **SMILES-only** file (`.csv`/`.txt`/`.xlsx`,
+  one column) — unlike the CLI (`trident2_quick_inference.py`), it does **not** support uploading a
+  taxid column or per-row metadata; species/effect/route/lifestage/unit are chosen once via the
+  sidebar dropdowns and applied to the whole batch.

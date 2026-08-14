@@ -14,8 +14,8 @@ with open('styles.css')as f:
 pg = st.navigation(
     [
         st.Page(home_page.print_home_page, title="Home", icon="🔱", default=True),
-        st.Page(predict_page.print_predict_page, title="Use TRIDENT", icon="📈"),
-        st.Page(trident2_page.print_trident2_page, title="Use TRIDENT-2", icon="🧬"),
+        st.Page(predict_page.print_predict_page, title="Use TRIDENT-1", icon="🐟"),
+        st.Page(trident2_page.print_trident2_page, title="Use TRIDENT-2", icon="🌍"),
         st.Page(publications_page.print_publications_page, title="Publications", icon="📰"),
         st.Page(documentation_page.print_doc_page, title="Documentation", icon="📄"),
         st.Page(space_page.print_space_page, title="Explore the chemical space of TRIDENT-1", icon="🌌"),

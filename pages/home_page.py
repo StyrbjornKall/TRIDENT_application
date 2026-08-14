@@ -24,7 +24,7 @@ def print_home_page():
 
     st.markdown(f'''
     <div style="text-align:center;">
-    <img src="data:image/svg+xml;base64,{img_64}" style="width:1200px; filter: brightness(30%);">
+    <img src="data:image/svg+xml;base64,{img_64}" style="width:1400px;">
     </div>
     ''', unsafe_allow_html=True)
 
@@ -45,7 +45,7 @@ def print_home_page():
         <span class="highlighted-text">Improved</span> ecotoxicity modelling 
         </h2></span>
         <p style="font-size:130%;">
-        TRIDENT is a novel in silico deep learning ecotoxicity model trained using a vast collection of experimental data. TRIDENT performs highly accurate predictions of both acute and chronic effect concentration and outperforms traditional models in both accuracy and applicability. 
+        TRIDENT-1 is a novel in silico deep learning ecotoxicity model trained using a vast collection of experimental data. TRIDENT-1 performs highly accurate predictions of both acute and chronic effect concentration and outperforms traditional models in both accuracy and applicability. 
         </p>
         </div>''', unsafe_allow_html=True)
 
@@ -57,7 +57,7 @@ def print_home_page():
         <span class="highlighted-text">Diverse</span> endpoint prediction  
         </h2></span>
         <p style="font-size:130%;">
-        TRIDENT can make predictions for several different acute and chronic toxicity endpoints for both fish, aquatic invertebrates and algae. To date, it can predict effect concentrations for mortality, intoxication, growth, population, reproduction, morphology and development for exposure duration ranging between 1-30 days.
+        TRIDENT-1 can make predictions for several different acute and chronic toxicity endpoints for both fish, aquatic invertebrates and algae. To date, it can predict effect concentrations for mortality, intoxication, growth, population, reproduction, morphology and development for exposure duration ranging between 1-30 days.
         </p>
         </div>''', unsafe_allow_html=True)
     with col2:
@@ -87,6 +87,6 @@ def print_home_page():
         One <span class="highlighted-text">continuous</span> space
         </h2></span>
         <p style="font-size:130%;">
-        TRIDENT uses a single continuous chemical space that is built with ecotoxicity in mind to determine the ecotoxicity of a chemical from its chemical structure. Similar to how modern language models associate semantically similar words to each other, TRIDENT uses state-of-the-art deep learning transformers to determine the similarity within the SMILES "language", allowing it to make highly accurate predictions. 
+        TRIDENT-1 uses a single continuous chemical space that is built with ecotoxicity in mind to determine the ecotoxicity of a chemical from its chemical structure. Similar to how modern language models associate semantically similar words to each other, TRIDENT-1 uses state-of-the-art deep learning transformers to determine the similarity within the SMILES "language", allowing it to make highly accurate predictions. 
         </p>
         </div>''', unsafe_allow_html=True)

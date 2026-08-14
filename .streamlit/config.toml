@@ -1,6 +1,6 @@
 [theme]
-primaryColor="#27db63"
-backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#F0F2F6"
+primaryColor="#4188dd"
+backgroundColor="#f3f5f7"
+secondaryBackgroundColor="#fafcff"
 textColor="#262730"
-font="sans serif"
+font = "Inclusive Sans:https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap"
