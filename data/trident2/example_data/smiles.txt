@@ -1,0 +1,11 @@
+COC1Nc2ccccc2C(=O)N2CC(O)CC12
+C=C1C(O)C2OC3(CCC(C=CC(C)C4CC(C)=CC5(OC(CC(C)(O)C(=O)O)CCC5O)O4)O3)CCC2OC1C(O)CC(C)C1OC2(CCCCO2)CCC1C
+Nc1ccc2c3c(cccc13)CC2
+c1cc(NC2=NCCO2)c2c3c1CCC3CCC2
+c1cc2c3c(cccc3c1)CC2
+CC(C(=O)O)c1ccc2c3c(cccc13)C(c1ccccc1)C2
+O=C(O)Cc1ccc2c3c(cccc13)C(c1ccccc1)C2
+O=C1C(=O)c2cccc3cccc1c23
+N#CC(C#N)=c1c(=O)c2cccc3cccc1c32
+O=C1Cc2cccc3cccc1c23
+FC1(F)SC2c3cccc4cccc(c34)C2C1(F)F

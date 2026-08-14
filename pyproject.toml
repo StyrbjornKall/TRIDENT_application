@@ -17,6 +17,7 @@ dependencies = [
     "stqdm==0.0.5",
     "openpyxl==3.1.2",
     "streamlit-analytics2==0.8.7",
+    "loguru==0.7.2",
 ]
 
 [tool.uv]

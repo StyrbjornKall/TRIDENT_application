@@ -2,13 +2,32 @@ import streamlit as st
 import base64
 
 with open("assets/final_model.svg", "rb") as image_file:
-        image_data = image_file.read()
-        img_64 = base64.b64encode(image_data).decode()
+    image_data = image_file.read()
+    tri1_img_64 = base64.b64encode(image_data).decode()
+
+with open("assets/trident2_model.svg", "rb") as image_file:
+    image_data = image_file.read()
+    tri2_img_64 = base64.b64encode(image_data).decode()
 
 def print_doc_page():
     col1, col2, col3 = st.columns([1,2,1])
     with col2:
-        st.title('Documentation')
+        st.title('TRIDENT-2')
+        # TODO: Add a description of the model and its architecture, training data, and performance metrics. Include visualizations of the model architecture and training process.
+        st.markdown(f'''
+        For a detailed explanation of the model framework and model performance, please refer to the published paper (see Publications).
+
+        ## Model architecture
+        TRIDENT-2 is a deep learning model for toxicity prediction across thousands of eukaryotic species. 
+
+        <div style="text-align:center;width:100%;margin: 0 auto;">
+        <img src="data:image/svg+xml;base64,{tri2_img_64}" style="max-width: 100%;"><br>
+        <small><b>TRIDENT-2 model architecture | </b> In progress </small>
+        </div>
+
+        ''', unsafe_allow_html=True)
+
+        st.title('TRIDENT-1')
 
         st.markdown(f'''
         For a detailed explanation of the model framework and model performance compared to traditional QSARs, please refer to the published paper (see Publications).
@@ -17,8 +36,8 @@ def print_doc_page():
         TRIDENT is a deep learning model for ecotoxicity predictions. It is based on a transformer language model (ChemBERTa ~83M paramters) and a deep neural network (~1M parameters). The transformer encodes a chemical structure from its SMILES into a continuous vector of length 768, called the CLS-embedding. The CLS-embedding together with information on toxicity endpoint, effect and exposure duration is used as input in the deep neural network that finally predicts the effect concentration as a log10 concentration (log10 mg/L).
 
         <div style="text-align:center;width:100%;margin: 0 auto;">
-        <img src="data:image/svg+xml;base64,{img_64}" style="max-width: 100%;"><br>
-        <small><b>Model architecture | </b> The model uses a pre-trained 6-encoder layer RoBERTa transformer (ChemBERTa) to interpret the SMILES into an embedding vector of dimension 768 (E[CLS]), representing the molecular structure with regard to its toxicity. The embedding vector is then amended with information on exposure duration, toxicological effect, and endpoint and used as input to a deep neural network. The network then predicts the associated toxicity in the form of an effect concentration (EC50 and EC10).</small>
+        <img src="data:image/svg+xml;base64,{tri1_img_64}" style="max-width: 100%;"><br>
+        <small><b>TRIDENT-1 model architecture | </b> The model uses a pre-trained 6-encoder layer RoBERTa transformer (ChemBERTa) to interpret the SMILES into an embedding vector of dimension 768 (E[CLS]), representing the molecular structure with regard to its toxicity. The embedding vector is then amended with information on exposure duration, toxicological effect, and endpoint and used as input to a deep neural network. The network then predicts the associated toxicity in the form of an effect concentration (EC50 and EC10).</small>
         </div>
         
 
