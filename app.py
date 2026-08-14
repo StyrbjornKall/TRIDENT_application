@@ -6,8 +6,10 @@ from pages import home_page, predict_page, trident2_page, documentation_page, pu
 st.set_page_config(layout="wide", page_title='TRIDENT - predicting chemical ecotoxicity using AI', page_icon="🔱")
 
 #import styles
+primary_color = st.get_option("theme.primaryColor") or "#F63366"
 with open('styles.css')as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
+    css = f.read().replace("__PRIMARY_COLOR__", primary_color)
+    st.markdown(f"<style>{css}</style>", unsafe_allow_html = True)
 
 ### APP #############################
 
@@ -31,19 +33,5 @@ with streamlit_analytics.track(
 ):
     pg.run()
 
-footer = '''
-<style>
-footer {
-    visibility: visible;
-}
-footer:after {
-    content: 'Copyright @ 2024: Styrbjörn Käll';
-    display: block;
-    position: relative;
-    color: tomato;
-    padding: 5px;
-    top: 3px;
-}
-</style>
-'''
-st.markdown(footer, unsafe_allow_html=True)
+with st.bottom:
+    st.caption("© 2026 Styrbjörn Käll · All rights reserved", text_alignment="right")

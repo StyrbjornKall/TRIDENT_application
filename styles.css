@@ -1,3 +1,7 @@
 .highlighted-text {
-    color: #F63366;
+    color: __PRIMARY_COLOR__;
   }
+
+[data-testid="stBottom"] > div {
+    background-color: transparent;
+}

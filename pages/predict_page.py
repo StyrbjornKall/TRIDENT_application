@@ -6,6 +6,10 @@ import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
 from rdkit.Chem import PandasTools
+from rdkit.Chem.Draw import rdMolDraw2D
+
+_transparent_draw_options = rdMolDraw2D.MolDrawOptions()
+_transparent_draw_options.clearBackground = False
 from src.custom_download_button import download_button
 from src.trident1.inference_utils.TRIDENT_for_inference import TRIDENT_for_inference
 from src.trident1.inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_smiles, check_valid_chemistry
@@ -103,7 +107,7 @@ def print_predict_page():
     with col2:
         st.markdown('# Predict chemical ecotoxicity')
         if st.session_state.batch:
-            subcol1, subcol2 = st.columns([3,1])
+            subcol1, subcol2 = st.columns([3,1], vertical_alignment='bottom')
             with subcol1:
                 file_up = st.file_uploader("Batch entry prediction. Ensure that isomeric information is provided in the SMILES to get the best possible performance. Upload list of SMILES:", type=["csv", 'txt','xlsx'], help='''
                     .txt: file should be tab delimited\n
@@ -120,7 +124,6 @@ def print_predict_page():
                         st.session_state.current_batch=pd.read_excel(file_up, header=None, names=['SMILES']) 
                     
             with subcol2:
-                st.markdown('<pre><div style="padding: 36px;"> </div></pre>', unsafe_allow_html=True) 
                 if st.button('Generate example'):
                     st.session_state.current_batch = pd.DataFrame(example_mols, columns=['SMILES'])
 
@@ -135,7 +138,7 @@ def print_predict_page():
                 st.write(data.head())
                 mols = [Chem.MolFromSmiles(smiles) for smiles in data.iloc[:6].SMILES.tolist()]
                 try:
-                    img = Draw.MolsToGridImage(mols, legends=(data.iloc[:6].SMILES.tolist()))
+                    img = Draw.MolsToGridImage(mols, legends=(data.iloc[:6].SMILES.tolist()), drawOptions=_transparent_draw_options, returnPNG=True)
                 except:
                     img = None
                 st.markdown('''**Showing first 6 structures (generated using RDKit):**\n''')
@@ -210,7 +213,7 @@ def print_predict_page():
                         results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
 
         elif ~st.session_state.batch:
-            subcol1, subcol2 = st.columns([3,1])        
+            subcol1, subcol2 = st.columns([3,1], vertical_alignment='bottom')
             with subcol1:
                 text_input_holder = st.empty()
                 single_input_smiles = text_input_holder.text_input(
@@ -218,7 +221,6 @@ def print_predict_page():
                 st.session_state.example_mol,
                 )
             with subcol2:
-                st.markdown('<pre><div style="padding: 27px;"> </div></pre>', unsafe_allow_html=True)
                 if st.button('Generate example'):
                     get_example_mol()
                     single_input_smiles = text_input_holder.text_input(
@@ -232,7 +234,7 @@ def print_predict_page():
 
             mols = [Chem.MolFromSmiles(single_input_smiles)]
             try:
-                img = Draw.MolsToGridImage(mols,legends=([single_input_smiles]))
+                img = Draw.MolsToGridImage(mols,legends=([single_input_smiles]), drawOptions=_transparent_draw_options, returnPNG=True)
             except:
                 img = None
             st.markdown('''Structure (generated using RDKit):\n''')
