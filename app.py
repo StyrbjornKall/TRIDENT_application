@@ -3,26 +3,44 @@ import os
 import streamlit_analytics2 as streamlit_analytics
 from pages import home_page, predict_page, trident2_page, documentation_page, publications_page, contact_page, space_page
 
-st.set_page_config(layout="wide", page_title='TRIDENT - predicting chemical ecotoxicity using AI', page_icon="🔱")
+st.set_page_config(
+    layout="wide",
+    page_title="TRIDENT - chemical ecotoxicity prediction",
+    page_icon=":material/water_drop:",
+    menu_items={
+        "Get help": "mailto:styrbjorn.kall@gu.se",
+        "Report a bug": "mailto:styrbjorn.kall@gu.se",
+        "About": (
+            "# TRIDENT\n"
+            "Deep learning models for predicting chemical ecotoxicity endpoints from chemical "
+            "structure: TRIDENT-1 for standard aquatic test species, and TRIDENT-2 for any "
+            "species with an NCBI taxonomy identifier.\n\n"
+            "Developed at the University of Gothenburg."
+        ),
+    },
+)
 
-#import styles
-primary_color = st.get_option("theme.primaryColor") or "#F63366"
-with open('styles.css')as f:
-    css = f.read().replace("__PRIMARY_COLOR__", primary_color)
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html = True)
+# Import shared styles
+with open("styles.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 ### APP #############################
 
+predict_pg = st.Page(predict_page.print_predict_page, title="Use TRIDENT-1", icon=":material/set_meal:")
+trident2_pg = st.Page(trident2_page.print_trident2_page, title="Use TRIDENT-2", icon=":material/public:")
+publications_pg = st.Page(publications_page.print_publications_page, title="Publications", icon=":material/article:")
+docs_pg = st.Page(documentation_page.print_doc_page, title="Documentation", icon=":material/menu_book:")
+space_pg = st.Page(space_page.print_space_page, title="Explore the chemical space of TRIDENT-1", icon=":material/scatter_plot:")
+contact_pg = st.Page(contact_page.print_contact_page, title="Contact", icon=":material/mail:")
+home_pg = st.Page(
+    lambda: home_page.print_home_page(predict_pg, trident2_pg, docs_pg),
+    title="Home",
+    icon=":material/home:",
+    default=True,
+)
+
 pg = st.navigation(
-    [
-        st.Page(home_page.print_home_page, title="Home", icon="🔱", default=True),
-        st.Page(predict_page.print_predict_page, title="Use TRIDENT-1", icon="🐟"),
-        st.Page(trident2_page.print_trident2_page, title="Use TRIDENT-2", icon="🌍"),
-        st.Page(publications_page.print_publications_page, title="Publications", icon="📰"),
-        st.Page(documentation_page.print_doc_page, title="Documentation", icon="📄"),
-        st.Page(space_page.print_space_page, title="Explore the chemical space of TRIDENT-1", icon="🌌"),
-        st.Page(contact_page.print_contact_page, title="Contact", icon="✉️"),
-    ],
+    [home_pg, predict_pg, trident2_pg, publications_pg, docs_pg, space_pg, contact_pg],
     position="top",
 )
 
@@ -34,4 +52,9 @@ with streamlit_analytics.track(
     pg.run()
 
 with st.bottom:
-    st.caption("© 2026 Styrbjörn Käll · All rights reserved", text_alignment="right")
+    st.markdown(
+        '<div class="app-footer">'
+        '<span>© 2026 Styrbjörn Käll. All rights reserved.</span>'
+        '</div>',
+        unsafe_allow_html=True,
+    )

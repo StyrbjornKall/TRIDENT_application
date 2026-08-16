@@ -145,9 +145,11 @@ def print_predict_page():
                 if img is not None:
                     st.image(img)
                 else:
-                    st.markdown('⚠️ **Not chemically valid**')
+                    st.error("Not chemically valid", icon=":material/error:")
 
-            if st.button("Predict"):
+            with st.container(key="predict-btn-batch"):
+                predict_clicked = st.button("Predict")
+            if predict_clicked:
                 with st.spinner(text = 'Inference in Progress...'):
 
                     if predict_all_toggled:
@@ -241,9 +243,11 @@ def print_predict_page():
             if (img is not None) and ('*' not in single_input_smiles):
                 st.image(img)
             else:
-                st.markdown('⚠️ Not chemically valid')
+                st.error("Not chemically valid", icon=":material/error:")
 
-            if st.button("Predict"):
+            with st.container(key="predict-btn-single"):
+                predict_clicked = st.button("Predict")
+            if predict_clicked:
                 data = pd.DataFrame()
                 data['SMILES'] = [single_input_smiles]
                 
@@ -331,7 +335,7 @@ def print_predict_page():
                             fig.write_html(buffer, include_plotlyjs='cdn')
                             html_bytes = buffer.getvalue().encode()
 
-                            download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
+                            download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Download interactive HTML', pickle_it=False)
                             st.markdown(download_button_str, unsafe_allow_html=True)
                         else:
                             st.write('No valid SMILES to plot.')

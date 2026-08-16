@@ -60,25 +60,31 @@ def download_button(object_to_download, download_filename, button_text, pickle_i
     custom_css = f""" 
         <style>
             #{button_id} {{
-                background-color: rgb(202, 203, 204);
-                color: rgb(38, 39, 48);
-                padding: 0.25em 0.38em;
+                display: inline-block;
+                background-color: rgb(229, 233, 240);
+                color: rgb(59, 66, 82);
+                padding: 0.4em 0.9em;
                 position: relative;
                 text-decoration: none;
-                border-radius: 4px;
+                border-radius: 5px;
                 border-width: 1px;
                 border-style: solid;
-                border-color: rgb(230, 234, 241);
+                border-color: rgb(216, 222, 233);
                 border-image: initial;
+                font-weight: 500;
+                transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, color 0.15s ease;
             }} 
             #{button_id}:hover {{
-                border-color: rgb(246, 51, 102);
-                color: rgb(246, 51, 102);
+                border-color: rgb(94, 129, 172);
+                color: rgb(94, 129, 172);
+                transform: translateY(-1px);
+                box-shadow: 0 1px 3px rgba(46, 52, 64, 0.10);
             }}
             #{button_id}:active {{
                 box-shadow: none;
-                background-color: rgb(246, 51, 102);
+                background-color: rgb(94, 129, 172);
                 color: white;
+                transform: translateY(0);
                 }}
         </style> """
 

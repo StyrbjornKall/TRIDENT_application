@@ -15,9 +15,11 @@ def print_contact_page():
             form {
                 max-width: 600px;
                 margin: 0 auto;
-                background-color: #f4f4f4;
-                padding: 20px;
-                border-radius: 5px;
+                background-color: #FFFFFF;
+                padding: 24px;
+                border-radius: 0.4rem;
+                border: 1px solid var(--trident-border, #D8DEE9);
+                box-shadow: none;
             }
 
             .form-group {
@@ -27,7 +29,7 @@ def print_contact_page():
             label {
                 display: block;
                 margin-bottom: 5px;
-                font-weight: bold;
+                font-weight: 600;
             }
 
             input[type="text"],
@@ -35,10 +37,20 @@ def print_contact_page():
             textarea {
                 width: 100%;
                 padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
+                border: 1px solid #d8dee9;
+                border-radius: 0.35rem;
                 font-size: 16px;
+                font-family: inherit;
                 box-sizing: border-box;
+                transition: border-color 0.15s ease, box-shadow 0.15s ease;
+            }
+
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            textarea:focus {
+                outline: none;
+                border-color: var(--trident-primary, #5E81AC);
+                box-shadow: 0 0 0 3px color-mix(in srgb, var(--trident-primary, #5E81AC) 15%, transparent);
             }
 
             input[type="file"] {
@@ -46,14 +58,21 @@ def print_contact_page():
             }
 
             button[type="submit"] {
-                background-color: #F63366;
+                background-color: var(--trident-primary, #5E81AC);
                 color: #fff;
                 border: none;
-                border-radius: 5px;
-                padding: 10px 20px;
+                border-radius: 0.35rem;
+                padding: 10px 22px;
                 font-size: 16px;
+                font-weight: 600;
                 cursor: pointer;
-                transition: background-color 0.3s ease;
+                transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+            }
+
+            button[type="submit"]:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(16, 24, 40, 0.15);
+                opacity: 0.95;
             }
             
             </style>

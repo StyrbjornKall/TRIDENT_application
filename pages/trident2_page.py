@@ -109,7 +109,7 @@ def print_trident2_page():
         if not duration_available else None,
     )
     if not duration_available:
-        col1.caption("⚠️ Duration unavailable for this species — predicting with duration marked as unknown.")
+        col1.caption("Duration unavailable for this species — predicting with duration marked as unknown.")
 
     administration_route = None if administration_route_choice == NOT_SPECIFIED else administration_route_choice
     organism_lifestage = None if organism_lifestage_choice == NOT_SPECIFIED else organism_lifestage_choice
@@ -163,9 +163,11 @@ def print_trident2_page():
                 if img is not None:
                     st.image(img)
                 else:
-                    st.markdown('⚠️ **Not chemically valid**')
+                    st.error("Not chemically valid", icon=":material/error:")
 
-            if st.button("Predict", key='trident2_predict_batch'):
+            with st.container(key="predict-btn-t2-batch"):
+                predict_clicked = st.button("Predict", key='trident2_predict_batch')
+            if predict_clicked:
                 with st.spinner(text='Inference in Progress...'):
                     results = predict_toxicity(
                         smiles_list=data.SMILES.tolist(),
@@ -207,9 +209,11 @@ def print_trident2_page():
             if (img is not None) and ('*' not in single_input_smiles):
                 st.image(img)
             else:
-                st.markdown('⚠️ Not chemically valid')
+                st.error("Not chemically valid", icon=":material/error:")
 
-            if st.button("Predict", key='trident2_predict_single'):
+            with st.container(key="predict-btn-t2-single"):
+                predict_clicked = st.button("Predict", key='trident2_predict_single')
+            if predict_clicked:
                 with st.spinner(text='Inference in Progress...'):
                     results = predict_toxicity(
                         smiles_list=[single_input_smiles],

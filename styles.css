@@ -1,7 +1,556 @@
-.highlighted-text {
-    color: __PRIMARY_COLOR__;
-  }
+/* =========================================================================
+   TRIDENT — shared application styles
+   Modern, trustworthy look & feel: subtle motion, clear hierarchy, no emoji.
+   Uses Streamlit's theme CSS variables so it stays in sync with config.toml.
+   ========================================================================= */
 
+:root {
+  /* Nord Polar Night (headings, primary text, navigation) */
+  --trident-primary-dark: #2E3440;
+  --trident-secondary-dark: #434C5E;
+
+  /* Nord Frost (primary accent / interactive) */
+  --trident-primary: var(--primary-color, #5E81AC);
+  --trident-primary-light: #81A1C1;
+  --trident-accent-cyan: #88C0D0;
+  --trident-accent-teal: #8FBCBB;
+
+  /* Text */
+  --trident-ink: var(--text-color, #3B4252);
+  --trident-muted: #4C566A;
+
+  /* Nord Snow Storm (surfaces) */
+  --trident-border: var(--border-color, #D8DEE9);
+  --trident-surface: var(--secondary-background-color, #E5E9F0);
+  --trident-surface-pale: #E5E9F0;
+  --trident-page-bg: #ECEFF4;
+
+  --trident-shadow: none;
+  --trident-shadow-hover: 0 1px 3px rgba(46, 52, 64, 0.10);
+}
+
+/* ---------- global polish ---------- */
+
+.stApp {
+  background: var(--trident-page-bg);
+}
+
+/* Headings use Polar Night (deep, calm authority); body text uses the slate ink color set via theme.textColor */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--trident-primary-dark);
+}
+
+/* Top navigation bar: solid Polar Night, light text/icons for contrast */
+[data-testid="stHeader"] {
+  background: var(--trident-primary-dark);
+  border-bottom: 1px solid rgba(236, 239, 244, 0.12);
+}
+
+[data-testid="stTopNavLink"] {
+  transition: background-color 0.15s ease;
+  border-radius: 0.35rem;
+}
+
+[data-testid="stTopNavLink"] span,
+[data-testid="stTopNavLink"] p,
+[data-testid="stTopNavLink"] [data-testid="stIconMaterial"] {
+  color: #D8DEE9 !important;
+  transition: color 0.15s ease;
+}
+
+[data-testid="stTopNavLink"]:hover span,
+[data-testid="stTopNavLink"]:hover p,
+[data-testid="stTopNavLink"]:hover [data-testid="stIconMaterial"] {
+  color: var(--trident-accent-cyan) !important;
+}
+
+[data-testid="stTopNavLink"][aria-current="page"] {
+  background: rgba(236, 239, 244, 0.1);
+}
+
+[data-testid="stTopNavLink"][aria-current="page"] span,
+[data-testid="stTopNavLink"][aria-current="page"] p,
+[data-testid="stTopNavLink"][aria-current="page"] [data-testid="stIconMaterial"] {
+  color: #ECEFF4 !important;
+}
+
+[data-testid="stHeader"] button[kind="header"],
+[data-testid="stHeader"] button[kind="headerNoPadding"] {
+  color: #D8DEE9;
+}
+
+[data-testid="stHeader"] button[kind="header"]:hover,
+[data-testid="stHeader"] button[kind="headerNoPadding"]:hover {
+  color: var(--trident-accent-cyan);
+}
+
+/* Buttons: subtle lift, thin border emphasis over heavy shadow */
+.stButton > button,
+.stDownloadButton > button,
+.stLinkButton > a {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  box-shadow: none;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover,
+.stLinkButton > a:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--trident-shadow-hover);
+}
+
+/* Predict buttons (see st.container(key="predict-btn-...")) use Frost cyan for a consistent,
+   crisp call-to-action distinct from the primary CTA blue used elsewhere */
+div[class*="st-key-predict-btn"] button {
+  background: var(--trident-accent-cyan);
+  border-color: var(--trident-accent-cyan);
+  color: var(--trident-primary-dark);
+  font-weight: 600;
+}
+
+div[class*="st-key-predict-btn"] button:hover {
+  background: color-mix(in srgb, var(--trident-accent-cyan) 80%, var(--trident-primary-dark));
+  border-color: color-mix(in srgb, var(--trident-accent-cyan) 80%, var(--trident-primary-dark));
+  color: var(--trident-primary-dark);
+}
+
+div[class*="st-key-predict-btn"] button p {
+  color: var(--trident-primary-dark) !important;
+}
+
+.stButton > button:active,
+.stDownloadButton > button:active {
+  transform: translateY(0);
+}
+
+/* Cards, images, dataframes: soften and lift slightly on hover */
+[data-testid="stDataFrame"], [data-testid="stTable"] {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* Footer pinned via st.bottom: blur what's behind it, no color tint */
 [data-testid="stBottom"] > div {
-    background-color: transparent;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--trident-border);
+}
+
+/* Streamlit pads this container generously by default (~16px/56px); trim it down so the
+   footer bar is only as tall as the copyright text needs. */
+[data-testid="stBottomBlockContainer"] {
+  padding: 0.55rem 1.5rem !important;
+}
+
+.app-footer {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--trident-muted);
+  padding: 0;
+}
+
+/* =========================================================================
+   Home page building blocks
+   ========================================================================= */
+
+.tri-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+  gap: 1.1rem;
+}
+
+.tri-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--trident-primary);
+  background: color-mix(in srgb, var(--trident-primary) 10%, white);
+  border: 1px solid color-mix(in srgb, var(--trident-primary) 25%, white);
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.9rem;
+}
+
+.tri-hero h1 {
+  font-size: clamp(2.25rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 46rem;
+}
+
+.tri-hero .tri-accent {
+  color: var(--trident-primary);
+}
+
+.tri-hero p.tri-subtitle {
+  font-size: 1.15rem;
+  color: var(--trident-muted);
+  max-width: 42rem;
+  margin: 0;
+}
+
+.tri-cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* Trust strip */
+.tri-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2.4rem;
+  padding: 1.1rem 1rem;
+  margin: 1.5rem 0 0.5rem 0;
+  border-top: 1px solid var(--trident-border);
+  border-bottom: 1px solid var(--trident-border);
+}
+
+.tri-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--trident-muted);
+  white-space: nowrap;
+}
+
+.tri-trust-item .material-symbols-rounded,
+.tri-trust-item .tri-icon {
+  color: var(--trident-primary);
+  font-size: 1.15rem;
+}
+
+/* Stat row */
+.tri-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.tri-stat {
+  text-align: center;
+  padding: 1.1rem 0.5rem;
+  border-radius: 0.4rem;
+  background: #FFFFFF;
+  border: 1px solid var(--trident-border);
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.tri-stat:hover {
+  border-color: var(--trident-primary-light);
+  background: var(--trident-surface-pale);
+}
+
+.tri-stat .tri-stat-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--trident-primary-dark);
+  letter-spacing: -0.01em;
+}
+
+.tri-stat .tri-stat-label {
+  font-size: 0.82rem;
+  color: var(--trident-muted);
+  margin-top: 0.15rem;
+}
+
+/* Section headers */
+.tri-section-head {
+  text-align: center;
+  max-width: 42rem;
+  margin: 3rem auto 1.75rem auto;
+}
+
+.tri-section-head h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.tri-section-head p {
+  color: var(--trident-muted);
+  font-size: 1.02rem;
+  margin: 0;
+}
+
+/* Feature / model cards */
+.tri-card {
+  height: 100%;
+  padding: 1.6rem 1.5rem;
+  border-radius: 0.4rem;
+  background: #FFFFFF;
+  border: 1px solid var(--trident-border);
+  box-shadow: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.tri-card:hover {
+  border-color: var(--trident-primary-light);
+  background: var(--trident-surface-pale);
+}
+
+.tri-card .tri-card-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--trident-primary) 12%, white);
+  color: var(--trident-primary);
+  margin-bottom: 0.9rem;
+  font-size: 1.4rem;
+}
+
+.tri-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem 0;
+}
+
+.tri-card p {
+  font-size: 0.95rem;
+  color: var(--trident-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Feature cards built with st.container(key="tri-feature-N") */
+div[class*="st-key-tri-feature-"] {
+  height: 100%;
+  padding: 1.5rem 1.4rem 1.2rem 1.4rem;
+  border-radius: 0.4rem;
+  background: #FFFFFF;
+  border: 1px solid var(--trident-border);
+  box-shadow: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+div[class*="st-key-tri-feature-"]:hover {
+  border-color: var(--trident-primary-light);
+  background: var(--trident-surface-pale);
+}
+
+div[class*="st-key-tri-feature-"] span[role="img"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--trident-primary) 12%, white);
+  color: var(--trident-primary) !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 0.5rem;
+}
+
+div[class*="st-key-tri-feature-"] p {
+  font-size: 0.95rem;
+}
+
+/* Model spotlight panels (TRIDENT-1 / TRIDENT-2) */
+.tri-model-panel {
+  border-radius: 0.4rem;
+  border: 1px solid var(--trident-border);
+  border-left: 3px solid transparent;
+  padding: 2.1rem 2.2rem;
+  height: 100%;
+  transition: border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tri-model-panel:hover {
+  border-color: var(--trident-primary-light);
+}
+
+.tri-model-panel.tri-panel-1 {
+  background: var(--trident-surface);
+  border-left-color: var(--trident-primary);
+}
+
+.tri-model-panel.tri-panel-2 {
+  background: #FFFFFF;
+  border-left-color: var(--trident-accent-cyan);
+}
+
+.tri-model-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.tri-panel-1 .tri-model-tag {
+  color: var(--trident-primary);
+  background: color-mix(in srgb, var(--trident-primary) 14%, white);
+}
+
+.tri-panel-2 .tri-model-tag {
+  color: #4C7A8A;
+  background: color-mix(in srgb, var(--trident-accent-cyan) 20%, white);
+}
+
+.tri-model-panel h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.6rem 0;
+}
+
+.tri-model-panel p {
+  color: var(--trident-muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.tri-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tri-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--trident-ink);
+  background: var(--trident-surface);
+  border: 1px solid var(--trident-border);
+  border-radius: 0.25rem;
+  padding: 0.28rem 0.7rem;
+}
+
+/* Step / how-it-works */
+.tri-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.25rem 0;
+}
+
+.tri-step .tri-step-num {
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--trident-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.tri-step h4 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.tri-step p {
+  margin: 0;
+  color: var(--trident-muted);
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+
+/* Final CTA band */
+.tri-cta-band {
+  margin: 3rem 0 1.5rem 0;
+  padding: 2.4rem 2rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  background: var(--trident-primary-dark);
+  color: #ECEFF4;
+}
+
+.tri-cta-band h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  color: #ECEFF4;
+}
+
+.tri-cta-band p {
+  color: rgba(236, 239, 244, 0.78);
+  max-width: 38rem;
+  margin: 0 auto 1.3rem auto;
+}
+
+/* Utility */
+.tri-center { text-align: center; }
+.tri-muted { color: var(--trident-muted); }
+.highlighted-text { color: var(--trident-primary); }
+
+/* CTA page_links styled as buttons (see st.container(key="tri-btn-...")) */
+div[class*="st-key-tri-btn-primary"] a[data-testid="stPageLink-NavLink"] {
+  background: var(--trident-primary);
+  border-radius: 0.35rem;
+  padding: 0.7rem 1.1rem;
+  justify-content: center;
+  font-weight: 600;
+  border: 1px solid var(--trident-primary);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+div[class*="st-key-tri-btn-primary"] a[data-testid="stPageLink-NavLink"] span,
+div[class*="st-key-tri-btn-primary"] a[data-testid="stPageLink-NavLink"] p {
+  color: white !important;
+}
+
+div[class*="st-key-tri-btn-primary"] a[data-testid="stPageLink-NavLink"]:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--trident-shadow-hover);
+  background: var(--trident-primary-light);
+  border-color: var(--trident-primary-light);
+}
+
+div[class*="st-key-tri-btn-ghost"] a[data-testid="stPageLink-NavLink"] {
+  background: white;
+  border: 1px solid var(--trident-border);
+  border-radius: 0.35rem;
+  padding: 0.7rem 1.1rem;
+  justify-content: center;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+div[class*="st-key-tri-btn-ghost"] a[data-testid="stPageLink-NavLink"]:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--trident-shadow-hover);
+  border-color: var(--trident-primary);
+}
+
+div[class*="st-key-tri-btn-ghost"] a[data-testid="stPageLink-NavLink"]:hover span,
+div[class*="st-key-tri-btn-ghost"] a[data-testid="stPageLink-NavLink"]:hover p {
+  color: var(--trident-primary) !important;
+}
+
+@media (max-width: 768px) {
+  .tri-hero { padding: 2rem 0.5rem 1.5rem 0.5rem; }
+  .tri-model-panel { padding: 1.6rem 1.4rem; }
 }

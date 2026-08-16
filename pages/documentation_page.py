@@ -13,16 +13,26 @@ def print_doc_page():
     col1, col2, col3 = st.columns([1,2,1])
     with col2:
         st.title('TRIDENT-2')
-        # TODO: Add a description of the model and its architecture, training data, and performance metrics. Include visualizations of the model architecture and training process.
         st.markdown(f'''
-        For a detailed explanation of the model framework and model performance, please refer to the published paper (see Publications).
+        TRIDENT-2 is the second model generation in the TRIDENT family. Rather than being
+        restricted to a fixed set of standard test species, TRIDENT-2 accepts any species
+        identified by its NCBI taxonomy ID (`taxid`) as an explicit model input, alongside the
+        chemical structure, toxicity effect, administration route, organism lifestage, exposure
+        duration, and concentration unit. This allows a single model to predict toxicity for
+        organisms spanning Eukaryota — including fish, birds, insects, mollusks, plants, and
+        fungi — extending effect-concentration prediction beyond the standard test species used
+        in regulatory testing to a broader range of biodiversity.
 
         ## Model architecture
-        TRIDENT-2 is a deep learning model for toxicity prediction across thousands of eukaryotic species. 
+        TRIDENT-2 is a multimodal deep learning model. A transformer encoder reads the chemical
+        structure from its SMILES representation, while the species (via taxid), effect,
+        administration route, organism lifestage, and concentration unit are encoded as
+        additional model inputs. The model then simultaneously predicts four toxicity endpoints
+        — EC50, EC10, NOEC, and LOEC — as log10(concentration) in the user-selected unit.
 
         <div style="text-align:center;width:100%;margin: 0 auto;">
         <img src="data:image/svg+xml;base64,{tri2_img_64}" style="max-width: 100%;"><br>
-        <small><b>TRIDENT-2 model architecture | </b> In progress </small>
+        <small><b>TRIDENT-2 model architecture | </b> Chemical structure, species taxid, effect, administration route, organism lifestage, exposure duration, and concentration unit are combined and passed through the model to jointly predict EC50, EC10, NOEC, and LOEC.</small>
         </div>
 
         ''', unsafe_allow_html=True)

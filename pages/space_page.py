@@ -50,7 +50,8 @@ def print_space_page():
             MIN_DISTNACE = st.number_input('min distance')
             N_NEIGHBORS = st.number_input('n neighbors')
 
-        run_prediction = st.button('Predict')
+        with st.container(key="predict-btn-space"):
+            run_prediction = st.button('Predict')
     
     with col2:
         if run_prediction:
@@ -71,5 +72,5 @@ def print_space_page():
             fig.write_html(buffer, include_plotlyjs='cdn')
             html_bytes = buffer.getvalue().encode()
 
-            download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Lagging ➡ Download HTML', pickle_it=False)
+            download_button_str = download_button(html_bytes, 'interactive_CLS_projection.html', 'Download interactive HTML', pickle_it=False)
             st.markdown(download_button_str, unsafe_allow_html=True)
