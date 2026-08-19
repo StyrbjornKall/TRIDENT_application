@@ -356,7 +356,6 @@ div[class*="st-key-tri-feature-"] span[role="img"] {
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 0.35rem;
-  background: color-mix(in srgb, var(--trident-primary) 12%, white);
   color: var(--trident-primary) !important;
   font-size: 1.5rem !important;
   margin-bottom: 0.5rem;

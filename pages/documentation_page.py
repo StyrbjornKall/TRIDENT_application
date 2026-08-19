@@ -97,7 +97,13 @@ def print_doc_page():
 
         ## Code availability
         The code used to generate this webpage is available through: https://github.com/StyrbjornKall/TRIDENT_application
-        The code associated with model development and the publication "Transformers enable accurate prediction of acute and chronic chemical toxicity in aquatic organisms" us available through: https://github.com/StyrbjornKall/TRIDENT.
+
+        The code associated with the TRIDENT-1 model development and publication "Transformers enable accurate prediction of acute and chronic chemical toxicity in aquatic organisms" is available through: https://github.com/StyrbjornKall/TRIDENT.
+
+        The code associated with the TRIDENT-2 model development and publication "TRIDENT-2" is available through: https://github.com/StyrbjornKall/TRIDENT-2.
+
+        ## Citation
+        If you use TRIDENT-1 or TRIDENT-2 in your research, please cite the relevant publication under the Publications tab.
         ''', unsafe_allow_html=True)
 
 

@@ -63,7 +63,7 @@ def print_home_page(predict_pg, trident2_pg, docs_pg):
         with p1:
             st.markdown(
                 """
-                <div class="tri-model-panel tri-panel-1">
+                <div class="tri-model-panel tri-panel-2">
                     <span class="tri-model-tag">TRIDENT-1</span>
                     <h3>Aquatic ecotoxicity model</h3>
                     <p>

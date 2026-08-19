@@ -14,3 +14,5 @@ def print_publications_page():
         | Transformers enable accurate prediction of acute and chronic chemical toxicity in aquatic organisms            | Science Advances | https://doi.org/10.1126/sciadv.adk6669    |
 
         ''')
+
+        #TODO: Add TRIDENT-2 publication when available

@@ -38,7 +38,7 @@ VALID_ADMINISTRATION_ROUTES = {
     "renewal",
     "intraperitoneal",
     "environmental",
-    "flow_through",
+    "flow through",
     "spray",
     "intravenous",
     "food",
@@ -56,10 +56,11 @@ VALID_ADMINISTRATION_ROUTES = {
     "in_vitro",
     "injection",
     "parenteral",
+    "missing_administration_route",
 }
 
 # Supported --inference_organism_lifestage_categorized values
-VALID_ORGANISM_LIFESTAGES = {"early", "mid", "adult"}
+VALID_ORGANISM_LIFESTAGES = {"early", "mid", "adult", "missing_lifestage"}
 
 
 def _normalize_values(values) -> list:
@@ -313,12 +314,29 @@ def generate_inference_metadata(
 
     # Format optional metadata columns
     if "inference_administration_route_categorized" in df.columns:
+        if df["inference_administration_route_categorized"].isna().any():
+            missing_count = df["inference_administration_route_categorized"].isna().sum()
+            logger.info(
+                f"Filling {missing_count} missing administration routes with "
+                "missing_administration_route."
+            )
+            df["inference_administration_route_categorized"] = df[
+                "inference_administration_route_categorized"
+            ].fillna("missing_administration_route")
         df["inference_administration_route_categorized"] = [
             f"<{x}>" if not pd.isna(x) else None
             for x in df["inference_administration_route_categorized"]
         ]
 
     if "inference_organism_lifestage_categorized" in df.columns:
+        if df["inference_organism_lifestage_categorized"].isna().any():
+            missing_count = df["inference_organism_lifestage_categorized"].isna().sum()
+            logger.info(
+                f"Filling {missing_count} missing organism lifestages with missing_lifestage."
+            )
+            df["inference_organism_lifestage_categorized"] = df[
+                "inference_organism_lifestage_categorized"
+            ].fillna("missing_lifestage")
         df["inference_organism_lifestage_categorized"] = [
             f"<{x}>" if not pd.isna(x) else None
             for x in df["inference_organism_lifestage_categorized"]
