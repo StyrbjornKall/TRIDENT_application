@@ -15,6 +15,13 @@ from src.trident1.inference_utils.TRIDENT_for_inference import TRIDENT_for_infer
 from src.trident1.inference_utils.pytorch_data_utils import check_training_data, check_closest_chemical, check_valid_smiles, check_valid_chemistry
 from src.trident1.inference_utils.plots_for_space import PlotPCA_CLSProjection, PlotUMAP_CLSProjection
 
+
+DEFAULT_DURATION_PER_SPECIES_GROUP = {
+    'algae': 96,
+    'invertebrates': 48,
+    'fish': 96
+}
+
 example_mols = ['O=P(O)(O)O', 'Clc1ccc(C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl)cc1', 'Cc1ccccc1Cl','C=CC(=O)OCC','ClC(Cl)C(Cl)(Cl)Cl','O=C(O)CNCP(=O)(O)O','CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC','CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl']
 def get_example_mol():
     current_example_mol = st.session_state.example_mol
@@ -23,31 +30,6 @@ def get_example_mol():
         if current_example_mol != next_example_mol:
             break
     st.session_state.example_mol = next_example_mol
-
-# effectordering = {
-#             'EC50_algae': {'POP':'POP'},
-#             'EC10_algae': {'POP':'POP'},
-#             'EC50EC10_algae': {'POP':'POP'}, 
-#             'EC50_invertebrates': {'MOR':'MOR','ITX':'ITX'},
-#             'EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
-#             'EC50EC10_invertebrates': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP'} ,
-#             'EC50_fish': {'MOR':'MOR'},
-#             'EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} ,
-#             'EC50EC10_fish': {'MOR':'MOR','DVP':'DVP','ITX':'ITX', 'REP': 'REP', 'MPH': 'MPH', 'POP': 'POP','GRO': 'GRO'} 
-#             }
-
-# endpointordering = {
-#             'EC50_algae': {'EC50':'EC50'},
-#             'EC10_algae': {'EC10':'EC10'},
-#             'EC50EC10_algae': {'EC50':'EC50', 'EC10': 'EC10'}, 
-#             'EC50_invertebrates': {'EC50':'EC50'},
-#             'EC10_invertebrates': {'EC10':'EC10'},
-#             'EC50EC10_invertebrates': {'EC50':'EC50', 'EC10': 'EC10'},
-#             'EC50_fish': {'EC50':'EC50'},
-#             'EC10_fish': {'EC10':'EC10'},
-#             'EC50EC10_fish': {'EC50':'EC50', 'EC10': 'EC10'} 
-#             }
-
 
 endpointordering = {
             'EC50EC10_algae': {'EC50':'EC50', 'EC10': 'EC10'}, 
@@ -69,7 +51,7 @@ effectordering = {
             }
             }
 
-def print_predict_page():
+def print_trident1_predict_page():
     if 'example_mol' not in st.session_state:
         st.session_state.example_mol = 'C1=CC=CC=C1'
     if 'current_batch' not in st.session_state:
@@ -95,12 +77,17 @@ def print_predict_page():
     species_group = {'fish': 'fish', 'aquatic invertebrates': 'invertebrates', 'algae': 'algae'}
     model_type = {'Combined model (best performance)': 'EC50EC10'}
     
-    PREDICTION_SPECIES = species_group[col1.radio("Select Species group", tuple(species_group.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
-    MODELTYPE = model_type[col1.radio("Select Model type", tuple(model_type), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
-    endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
-    PREDICTION_ENDPOINT = endpoints[col1.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
-    effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}'][PREDICTION_ENDPOINT]
-    PREDICTION_EFFECT = effects[col1.radio("Select Effect ",tuple(effects.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
+    prediction_species = species_group[col1.radio("Select Species group", tuple(species_group.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use? \n Check the `Species groups` section under `Documentation`")]
+    model_type = model_type[col1.radio("Select Model type", tuple(model_type), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Models` section under `Documentation`")]
+    endpoints = endpointordering[f'{model_type}_{prediction_species}']
+    prediction_endpoint = endpoints[col1.radio("Select Endpoint ",tuple(endpoints.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Endpoints` section under `Documentation`")]
+    effects = effectordering[f'{model_type}_{prediction_species}'][prediction_endpoint]
+    prediction_effect = effects[col1.radio("Select Effect ",tuple(effects.keys()), on_change=None, disabled=predict_all_toggled, help="Don't know which to use?\n Check the `Effects` section under `Documentation`")]
+
+    exposure_duration = col1.slider(
+        'Select exposure duration (e.g. 96 h)',
+        min_value=24, max_value=720, step=24, value=DEFAULT_DURATION_PER_SPECIES_GROUP[prediction_species], disabled=predict_all_toggled
+    )
     
     results = pd.DataFrame()
 
@@ -128,10 +115,6 @@ def print_predict_page():
                     st.session_state.current_batch = pd.DataFrame(example_mols, columns=['SMILES'])
 
             data = st.session_state.current_batch
-
-            EXPOSURE_DURATION = st.slider(
-                'Select exposure duration (e.g. 96 h)',
-                min_value=24, max_value=720, step=24)
             
             if not data.empty:
                 st.markdown('**Showing first 5 rows:**\n')
@@ -161,57 +144,58 @@ def print_predict_page():
 
                         # Initialize progress bar
                         progress = st.progress(0, text="Processing species groups...")
-                        for species_idx, PREDICTION_SPECIES in enumerate(species_group.values()):
+                        for species_idx, prediction_species in enumerate(species_group.values()):
                             
-                            TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
+                            TRIDENT = TRIDENT_for_inference(model_version=f'{model_type}_{prediction_species}', device='cpu')
                             TRIDENT.load_fine_tuned_model()
-                            endpoints = endpointordering[f'{MODELTYPE}_{PREDICTION_SPECIES}']
+                            endpoints = endpointordering[f'{model_type}_{prediction_species}']
+                            exposure_duration = DEFAULT_DURATION_PER_SPECIES_GROUP[prediction_species]
 
-                            for endpoint_idx, PREDICTION_ENDPOINT in enumerate(endpoints.values()):
-                                effects = effectordering[f'{MODELTYPE}_{PREDICTION_SPECIES}'][PREDICTION_ENDPOINT]
+                            for endpoint_idx, prediction_endpoint in enumerate(endpoints.values()):
+                                effects = effectordering[f'{model_type}_{prediction_species}'][prediction_endpoint]
 
-                                for PREDICTION_EFFECT in effects.keys():
+                                for prediction_effect in effects.keys():
                                     total_steps = len(species_group) * len(endpoints) * len(effects)
-                                    current_step = species_idx * len(endpoints) * len(effects) + endpoint_idx * len(effects) + list(effects.keys()).index(PREDICTION_EFFECT) + 1
-                                    progress.progress(current_step / total_steps, text=f"Processing: {PREDICTION_SPECIES} | {PREDICTION_ENDPOINT}")
+                                    current_step = species_idx * len(endpoints) * len(effects) + endpoint_idx * len(effects) + list(effects.keys()).index(prediction_effect) + 1
+                                    progress.progress(current_step / total_steps, text=f"Processing: {prediction_species} | {prediction_endpoint}")
                                     results = TRIDENT.predict_toxicity(
                                         SMILES=data.SMILES.tolist(),
-                                        exposure_duration=EXPOSURE_DURATION,
-                                        endpoint=PREDICTION_ENDPOINT,
-                                        effect=PREDICTION_EFFECT,
+                                        exposure_duration=exposure_duration,
+                                        endpoint=prediction_endpoint,
+                                        effect=prediction_effect,
                                         return_cls_embeddings=True
                                     )
-                                    results['Species group'] = PREDICTION_SPECIES
-                                    results['Endpoint'] = PREDICTION_ENDPOINT
-                                    results['Effect'] = PREDICTION_EFFECT
+                                    results['Species group'] = prediction_species
+                                    results['Endpoint'] = prediction_endpoint
+                                    results['Effect'] = prediction_effect
                                     results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
                                     results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
-                                    results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-                                    results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                                    results = check_training_data(results, model_type, prediction_species, prediction_endpoint, prediction_effect)
+                                    results = check_closest_chemical(results, model_type, prediction_species, prediction_endpoint, prediction_effect)
                                     results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
 
                                     all_results.append(results)
 
                         # Concatenate all results
                         results = pd.concat(all_results, ignore_index=True, axis=0)
-                        progress.progress(total_steps/total_steps, text=f"Processing: Done!")
+                        progress.progress(total_steps/total_steps, text="Processing: Done!")
                     
                     else:
-                        TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}', device='cpu')
+                        TRIDENT = TRIDENT_for_inference(model_version=f'{model_type}_{prediction_species}', device='cpu')
                         TRIDENT.load_fine_tuned_model()
                     
                         results = TRIDENT.predict_toxicity(
                             SMILES = data.SMILES.tolist(), 
-                            exposure_duration=EXPOSURE_DURATION, 
-                            endpoint=PREDICTION_ENDPOINT, 
-                            effect=PREDICTION_EFFECT,
+                            exposure_duration=exposure_duration, 
+                            endpoint=prediction_endpoint, 
+                            effect=prediction_effect,
                             return_cls_embeddings=True
                             )
                             
                         results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
                         results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
-                        results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-                        results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                        results = check_training_data(results, model_type, prediction_species, prediction_endpoint, prediction_effect)
+                        results = check_closest_chemical(results, model_type, prediction_species, prediction_endpoint, prediction_effect)
                         results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
 
         elif ~st.session_state.batch:
@@ -230,10 +214,6 @@ def print_predict_page():
                     st.session_state.example_mol
                     )
             
-            EXPOSURE_DURATION = st.slider(
-                'Select exposure duration (e.g. 96 h)',
-                min_value=24, max_value=720, step=24)
-
             mols = [Chem.MolFromSmiles(single_input_smiles)]
             try:
                 img = Draw.MolsToGridImage(mols,legends=([single_input_smiles]), drawOptions=_transparent_draw_options, returnPNG=True)
@@ -252,25 +232,25 @@ def print_predict_page():
                 data['SMILES'] = [single_input_smiles]
                 
                 with st.spinner(text = 'Inference in Progress...'):
-                    TRIDENT = TRIDENT_for_inference(model_version=f'{MODELTYPE}_{PREDICTION_SPECIES}')
+                    TRIDENT = TRIDENT_for_inference(model_version=f'{model_type}_{prediction_species}')
                     TRIDENT.load_fine_tuned_model()
                     results = TRIDENT.predict_toxicity(
                         SMILES = data.SMILES.tolist(), 
-                        exposure_duration=EXPOSURE_DURATION, 
-                        endpoint=PREDICTION_ENDPOINT, 
-                        effect=PREDICTION_EFFECT,
+                        exposure_duration=exposure_duration, 
+                        endpoint=prediction_endpoint, 
+                        effect=prediction_effect,
                         return_cls_embeddings=True
                         )
                     
                 results['SMILES Alert'] = results.SMILES.apply(lambda x: check_valid_smiles(x))
                 results['Chemical Alert'] = results.SMILES.apply(lambda x: check_valid_chemistry(x))
-                results = check_training_data(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
-                results = check_closest_chemical(results, MODELTYPE, PREDICTION_SPECIES, PREDICTION_ENDPOINT, PREDICTION_EFFECT)
+                results = check_training_data(results, model_type, prediction_species, prediction_endpoint, prediction_effect)
+                results = check_closest_chemical(results, model_type, prediction_species, prediction_endpoint, prediction_effect)
                 results.loc[(results['SMILES Alert']=='SMILES not valid'), ['SMILES_Canonical_RDKit', 'predictions log10(mg/L)', 'predictions (mg/L)', 'CLS_embeddings', 'most similar chemical', 'max cosine similarity', 'mean cosine similarity']] = None
                         
         if results.empty == False:
             with col2:                
-                st.success(f'Predicted effect concentration(s):')
+                st.success('Predicted effect concentration(s):')
                 st.write(results.drop(columns=['CLS_embeddings']).head())
 
                 if st.session_state.return_cls_embeddings:
@@ -328,7 +308,7 @@ def print_predict_page():
                         plot_results = (plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']) if len(plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit'])) < 50 else plot_results.drop_duplicates(subset=['SMILES_Canonical_RDKit']).iloc[:50])
 
                         if plot_results.empty == False:
-                            fig = PlotPCA_CLSProjection(model_type=MODELTYPE, endpoint=PREDICTION_ENDPOINT, effect=PREDICTION_EFFECT, species_group=PREDICTION_SPECIES, show_all_predictions=False, inference_df=plot_results)
+                            fig = PlotPCA_CLSProjection(model_type=model_type, endpoint=prediction_endpoint, effect=prediction_effect, species_group=prediction_species, show_all_predictions=False, inference_df=plot_results)
                             st.plotly_chart(fig, use_container_width=True, theme='streamlit')
                             
                             buffer = io.StringIO()

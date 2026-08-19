@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import streamlit_analytics2 as streamlit_analytics
-from pages import home_page, predict_page, trident2_page, documentation_page, publications_page, contact_page, space_page
+from pages import home_page, trident1_page, trident2_page, documentation_page, publications_page, contact_page, space_page
 
 st.set_page_config(
     layout="wide",
@@ -26,8 +26,8 @@ with open("styles.css") as f:
 
 ### APP #############################
 
-predict_pg = st.Page(predict_page.print_predict_page, title="Use TRIDENT-1", icon=":material/set_meal:")
-trident2_pg = st.Page(trident2_page.print_trident2_page, title="Use TRIDENT-2", icon=":material/public:")
+predict_pg = st.Page(trident1_page.print_trident1_predict_page, title="Use TRIDENT-1", icon=":material/set_meal:")
+trident2_pg = st.Page(trident2_page.print_trident2_predict_page, title="Use TRIDENT-2", icon=":material/public:")
 publications_pg = st.Page(publications_page.print_publications_page, title="Publications", icon=":material/article:")
 docs_pg = st.Page(documentation_page.print_doc_page, title="Documentation", icon=":material/menu_book:")
 space_pg = st.Page(space_page.print_space_page, title="Explore the chemical space of TRIDENT-1", icon=":material/scatter_plot:")

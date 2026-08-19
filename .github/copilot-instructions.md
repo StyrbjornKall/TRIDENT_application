@@ -6,7 +6,7 @@ chemical ecotoxicity from SMILES strings. It is packaged as a Docker container a
 https://trident.serve.scilifelab.se/. There is a separate, related repo
 (https://github.com/StyrbjornKall/TRIDENT) that contains model training code — this repo is
 **inference/serving only**. The app now serves **two generations of the model side by side**:
-- **TRIDENT-1** (`pages/predict_page.py`, `src/trident1/`) — species-group-level model (fish,
+- **TRIDENT-1** (`pages/trident1_predict_page.py`, `src/trident1/`) — species-group-level model (fish,
   aquatic invertebrates, algae) predicting EC50/EC10.
 - **TRIDENT-2** (`pages/trident2_page.py`, `src/trident2/`) — a newer, much broader multimodal
   model: any NCBI-taxid species, simultaneous EC50/EC10/NOEC/LOEC prediction, plus effect,
@@ -21,7 +21,7 @@ https://trident.serve.scilifelab.se/. There is a separate, related repo
 - `pages/` contains one module per page, each exposing a `print_*_page()` function passed to
   `st.Page` in `app.py`:
   - `home_page.py` — landing page content (marketing sections, logo/graphics)
-  - `predict_page.py` — main prediction UI (single/batch SMILES input → model inference → results table/download)
+  - `trident1_predict_page.py` — main prediction UI (single/batch SMILES input → model inference → results table/download)
   - `documentation_page.py`, `publications_page.py`, `contact_page.py`, `space_page.py` — static/content pages
 - `src/` is the core library used by the pages (imported as `from src.xxx import ...`):
   - `src/trident1/inference_utils/TRIDENT_for_inference.py` — `TRIDENT_for_inference` class: loads the RoBERTa
@@ -72,7 +72,7 @@ Models are named `<ENDPOINT>_<SPECIES>`, e.g. `EC50_fish`, `EC10_invertebrates`,
 - `SPECIES` ∈ `{fish, invertebrates, algae}`.
 - Each model version has an allowed list of `effect` values (e.g. MOR, ITX, DVP, REP, MPH, GRO, POP)
   and `endpoint` values (EC50/EC10) — see `effectordering`/`endpointordering` dicts duplicated in both
-  `pages/predict_page.py` and `src/trident1/inference_utils/TRIDENT_for_inference.py`. **If you change the
+  `pages/trident1_predict_page.py` and `src/trident1/inference_utils/TRIDENT_for_inference.py`. **If you change the
   allowed effects/endpoints for a model, update both places.**
 - `predict_toxicity` requires `SMILES`, `exposure_duration` (hours, log10-transformed internally),
   `endpoint`, and `effect`; it raises `RuntimeError` if endpoint/effect isn't valid for the loaded model.
@@ -177,7 +177,7 @@ very slow / re-load models per interaction.
 - SMILES columns are normalized to `SMILES` (accepts `smiles`/`Smiles` input column names) — see
   `TRIDENT_for_inference.predict_toxicity`.
 - Batch file uploads support `.csv` (comma), `.txt` (tab), `.xlsx` — parsing logic lives in
-  `pages/predict_page.py`'s file-uploader branch; keep the three formats' handling consistent.
+  `pages/trident1_predict_page.py`'s file-uploader branch; keep the three formats' handling consistent.
 - Streamlit session state (`st.session_state`) is used heavily for batch data and UI toggles
   (`predict_all`, `batch`, `return_cls_embeddings`, `current_batch`, `example_mol`) — check existing
   keys before adding new ones to avoid collisions.

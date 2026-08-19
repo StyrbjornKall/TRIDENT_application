@@ -44,7 +44,7 @@ def _option_index(options: list, value, default: int = 0) -> int:
     return default
 
 
-def print_trident2_page():
+def print_trident2_predict_page():
     if 'trident2_example_mol' not in st.session_state:
         st.session_state.trident2_example_mol = 'C1=CC=CC=C1'
     if 'trident2_current_batch' not in st.session_state:
