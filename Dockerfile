@@ -14,22 +14,24 @@ WORKDIR $HOME/app
 RUN apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     software-properties-common
-    
-COPY requirements.txt $HOME/app/requirements.txt
+
+COPY pyproject.toml uv.lock $HOME/app/
 COPY packages.txt $HOME/app/packages.txt
-COPY start-script.sh $HOME/app/start-script.sh
-COPY . $HOME/app/
 
 RUN apt update && apt install -y libsm6 libxext6 \
     && apt-get update && apt-get install -y libxrender-dev \
-    && python -m pip install --no-cache-dir -r requirements.txt \
-    && chmod +x start-script.sh \ 
-    && chown -R $USER:$USER $HOME \
+    && python -m pip install --no-cache-dir uv \
+    && uv sync --frozen --no-dev \
     && rm -rf /var/lib/apt/lists/*
+
+COPY . $HOME/app/
 
 # Convert windows line endings to unix style, happens if start-script generated on windows
 RUN apt-get update && apt-get install -y dos2unix \
-    && dos2unix $HOME/app/start-script.sh
+    && dos2unix $HOME/app/start-script.sh \
+    && chmod +x $HOME/app/start-script.sh \
+    && chown -R $USER:$USER $HOME \
+    && rm -rf /var/lib/apt/lists/*
 
 USER $USER
 EXPOSE 8501

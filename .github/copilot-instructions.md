@@ -142,14 +142,12 @@ very slow / re-load models per interaction.
 
 ## Running & building
 - **Dependency management uses `uv`** (`uv.lock` is committed) — do **not** run bare `pip install`.
-  Add new deps to *both* `pyproject.toml`'s `[project.dependencies]` and `requirements.txt` (kept in
-  sync manually — `requirements.txt` is what the Docker image installs from), then run `uv sync` to
+  Add new deps to `pyproject.toml`'s `[project.dependencies]`, then run `uv sync` to
   update the local `.venv`. Run the app with `uv run streamlit run app.py` (or activate `.venv`).
-- Local run (no Docker, without uv): `pip install -r requirements.txt` then `streamlit run app.py`.
 - Docker: `docker build -t streamlit-app-trident-serve-v1 .` then
   `docker run -p 8501:8501 streamlit-app-trident-serve-v1` (entrypoint is `start-script.sh`, which
-  runs `streamlit run app.py --server.port=8501 --server.address=0.0.0.0`).
-- `packages.txt` lists apt packages needed (RDKit/Streamlit ecosystem deps); `requirements.txt`
+  runs `uv run streamlit run app.py --server.port=8501 --server.address=0.0.0.0`).
+- `packages.txt` lists apt packages needed (RDKit/Streamlit ecosystem deps); `pyproject.toml`
   pins Python deps (torch 2.1.2, streamlit 1.48.0, transformers 4.36.2, rdkit 2022.03.5, etc.) —
   keep versions in sync with what the pretrained model weights expect. Streamlit's native
   `st.navigation`/`st.Page` (top nav bar) requires a reasonably recent Streamlit; `hydralit_components`
@@ -184,7 +182,7 @@ very slow / re-load models per interaction.
 - RDKit is used for SMILES validation/canonicalization and structure rendering (`Draw.MolsToGridImage`);
   invalid SMILES should be handled gracefully (existing code wraps rendering in `try/except`).
 - TRIDENT-2's `src/trident2/inference/*` and `src/trident2/utils/*` modules depend on `loguru`
-  (added to `pyproject.toml`/`requirements.txt` for this reason) — don't remove it even though
+  (added to `pyproject.toml` for this reason) — don't remove it even though
   TRIDENT-1 code doesn't use it.
 - TRIDENT-2 session state keys are prefixed `trident2_` (`trident2_batch`, `trident2_current_batch`,
   `trident2_example_mol`) to avoid collisions with TRIDENT-1's unprefixed keys (`batch`,

@@ -2,3 +2,4 @@
 .gitignore
 .github
 preprocessing_for_training_data_query.ipynb
+.venv
