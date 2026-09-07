@@ -12,8 +12,7 @@ WORKDIR $HOME/app
 
 # Update system and install dependencies.
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    build-essential \
-    software-properties-common
+    build-essential
 
 COPY pyproject.toml uv.lock $HOME/app/
 COPY packages.txt $HOME/app/packages.txt
