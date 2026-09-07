@@ -28,7 +28,7 @@ from src.trident2.inference.torch_dataset import MultiModalCollator, MultiModalD
 from src.trident2.inference.torch_loaders import build_dataloader
 from src.trident2.utils.chem_utils import canonicalize_smiles, is_valid_smiles
 
-MODEL_PATH = "models/TRIDENT2/ftmjjb51_final_model_epoch_70_hf_trident2"
+MODEL_REPO_ID = "StyrbjornKall/TRIDENT_2"
 
 TAXID_TO_COMMONNAME_PATH = "data/trident2/taxid2commonname.json"
 TAXID_TO_SCINAME_PATH = "data/trident2/taxid2sciname.json"
@@ -47,9 +47,9 @@ ORGANISM_LIFESTAGE_OPTIONS = [NOT_SPECIFIED] + sorted(VALID_ORGANISM_LIFESTAGES)
 CONC_UNIT_OPTIONS = sorted(CONC_UNIT_ENCODING.keys())
 
 
-@st.cache_resource(show_spinner="Loading TRIDENT-2 model (this can take a moment)...")
+@st.cache_resource(show_spinner="Loading TRIDENT-2 model from Hugging Face (this can take a moment)...")
 def load_model_and_tokenizer():
-    model, tokenizer = build_model_and_tokenizer(model_name=MODEL_PATH, device="cpu")
+    model, tokenizer = build_model_and_tokenizer(model_name=MODEL_REPO_ID, device="cpu")
     model.eval()
     return model, tokenizer
 
