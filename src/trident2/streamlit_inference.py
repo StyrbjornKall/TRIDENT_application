@@ -33,6 +33,9 @@ MODEL_PATH = "models/TRIDENT2/ftmjjb51_final_model_epoch_70_hf_trident2"
 TAXID_TO_COMMONNAME_PATH = "data/trident2/taxid2commonname.json"
 TAXID_TO_SCINAME_PATH = "data/trident2/taxid2sciname.json"
 TAXA_MAPPING_CSV_PATH = "data/trident2/taxa_assigned_units_effects_durations_2026-04-17.csv"
+PERMITTED_ROUTE_LIFESTAGE_COMBINATIONS_PATH = (
+    "data/trident2/permitted_route_lifestage_combinations.json"
+)
 
 NOT_SPECIFIED = "Not specified"
 ALL_SPECIES_GROUPS = "All species groups"
@@ -51,15 +54,29 @@ def load_model_and_tokenizer():
     return model, tokenizer
 
 
+@st.cache_data(show_spinner="Loading permitted route/lifestage combinations...")
+def load_permitted_route_lifestage_combinations() -> dict[str, dict[str, list[str]]]:
+    """Load the species->lifestage->route allowlist built from >=5 observations.
+
+    The nested dictionary is created once from the preprocessed training data and
+    loaded at app startup so dropdowns only expose combinations supported by the
+    source dataset.
+    """
+    with open(PERMITTED_ROUTE_LIFESTAGE_COMBINATIONS_PATH) as f:
+        return json.load(f)
+
+
 @st.cache_data(show_spinner="Loading species list...")
 def load_species_options() -> pd.DataFrame:
     """Build the species selection table used by the page.
 
-    Only species present in both the name dictionaries and the taxa mapping
-    CSV are included, so every selectable species has a display label
-    ("common name (latin name)"), a eukaryotic species group (for filtering),
-    and default effect/conc_unit/duration values to pre-fill the form with.
+    Only species present in both the name dictionaries, the taxa mapping CSV, and
+    the >=5-observation route/lifestage allowlist are included, so every
+    selectable species has a display label, a eukaryotic species group, and
+    default effect/conc_unit/duration values to pre-fill the form with.
     """
+    permitted_combinations = load_permitted_route_lifestage_combinations()
+
     with open(TAXID_TO_COMMONNAME_PATH) as f:
         taxid2commonname: dict[str, str] = json.load(f)
     with open(TAXID_TO_SCINAME_PATH) as f:
@@ -74,6 +91,8 @@ def load_species_options() -> pd.DataFrame:
     rows = []
     for taxid, common_name in taxid2commonname.items():
         if taxid not in taxid2sciname or taxid not in mapping_df.index:
+            continue
+        if taxid not in permitted_combinations:
             continue
         latin_name = taxid2sciname[taxid]
         # A handful of entries have no recorded common name; fall back to the latin name alone.
@@ -93,6 +112,25 @@ def load_species_options() -> pd.DataFrame:
         )
 
     return pd.DataFrame(rows).sort_values("latin_name").reset_index(drop=True)
+
+
+def get_valid_lifestage_options_for_species(taxid: str) -> list[str]:
+    """Return organism lifestages valid for a species under the >=5 rule."""
+    allowed = load_permitted_route_lifestage_combinations().get(str(taxid), {})
+    return [NOT_SPECIFIED] + sorted(allowed.keys())
+
+
+def get_valid_route_options_for_species_and_lifestage(taxid: str, lifestage: Optional[str]) -> list[str]:
+    """Return administration routes valid for a species and selected lifestage."""
+    allowed = load_permitted_route_lifestage_combinations().get(str(taxid), {})
+    if not allowed:
+        return ADMINISTRATION_ROUTE_OPTIONS
+
+    if lifestage and lifestage != NOT_SPECIFIED:
+        routes = allowed.get(lifestage, [])
+    else:
+        routes = sorted({route for route_list in allowed.values() for route in route_list})
+    return [NOT_SPECIFIED] + sorted(routes)
 
 
 def predict_toxicity(

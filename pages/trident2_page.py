@@ -11,12 +11,12 @@ _transparent_draw_options.clearBackground = False
 
 from src.custom_download_button import download_button
 from src.trident2.streamlit_inference import (
-    ADMINISTRATION_ROUTE_OPTIONS,
     ALL_SPECIES_GROUPS,
     CONC_UNIT_OPTIONS,
     EFFECT_OPTIONS,
     NOT_SPECIFIED,
-    ORGANISM_LIFESTAGE_OPTIONS,
+    get_valid_lifestage_options_for_species,
+    get_valid_route_options_for_species_and_lifestage,
     load_species_options,
     predict_toxicity,
 )
@@ -81,14 +81,20 @@ def print_trident2_predict_page():
         index=_option_index(EFFECT_OPTIONS, species_row['default_effect']),
         help="Defaults to the standard effect recorded for this species; change if needed.",
     )
-    administration_route_choice = col1.selectbox(
-        "Select administration route",
-        ADMINISTRATION_ROUTE_OPTIONS,
-        index=0,
-    )
+
+    valid_lifestage_options = get_valid_lifestage_options_for_species(taxid)
     organism_lifestage_choice = col1.selectbox(
         "Select organism lifestage",
-        ORGANISM_LIFESTAGE_OPTIONS,
+        valid_lifestage_options,
+        index=0,
+    )
+    valid_route_options = get_valid_route_options_for_species_and_lifestage(
+        taxid,
+        organism_lifestage_choice,
+    )
+    administration_route_choice = col1.selectbox(
+        "Select administration route",
+        valid_route_options,
         index=0,
     )
     conc_unit = col1.selectbox(

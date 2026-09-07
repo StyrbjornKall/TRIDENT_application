@@ -1,0 +1,12775 @@
+{
+  "10036": {
+    "adult": [
+      "gavage",
+      "intravenous"
+    ],
+    "early": [
+      "gavage",
+      "intravenous"
+    ],
+    "mid": [
+      "oral"
+    ]
+  },
+  "10041": {
+    "adult": [
+      "gavage",
+      "oral"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "10042": {
+    "adult": [
+      "food"
+    ]
+  },
+  "10058": {
+    "adult": [
+      "gavage",
+      "oral"
+    ]
+  },
+  "10085": {
+    "adult": [
+      "oral"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "10090": {
+    "adult": [
+      "food",
+      "gavage",
+      "intramuscular",
+      "intraperitoneal",
+      "intravenous",
+      "oral",
+      "subcutaneous"
+    ],
+    "early": [
+      "culture_media",
+      "food",
+      "gavage",
+      "intramuscular",
+      "intraperitoneal",
+      "oral",
+      "subcutaneous",
+      "topical"
+    ],
+    "mid": [
+      "food",
+      "gavage",
+      "intraperitoneal",
+      "oral",
+      "subcutaneous"
+    ]
+  },
+  "1009826": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "10116": {
+    "adult": [
+      "dermal",
+      "food",
+      "gavage",
+      "injection",
+      "intraperitoneal",
+      "intravenous",
+      "oral",
+      "subcutaneous",
+      "topical"
+    ],
+    "early": [
+      "culture_media",
+      "dermal",
+      "food",
+      "gavage",
+      "injection",
+      "intraperitoneal",
+      "oral",
+      "subcutaneous"
+    ],
+    "mid": [
+      "food",
+      "gavage",
+      "injection",
+      "intraperitoneal",
+      "oral",
+      "subcutaneous"
+    ]
+  },
+  "101162": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "10117": {
+    "adult": [
+      "food"
+    ]
+  },
+  "101337": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "10141": {
+    "adult": [
+      "food",
+      "gavage"
+    ]
+  },
+  "101423": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "101470": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "101896": {
+    "mid": [
+      "static"
+    ]
+  },
+  "10194": {
+    "adult": [
+      "static"
+    ]
+  },
+  "10195": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "10212": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1032692": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "103373": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "103435": {
+    "early": [
+      "static"
+    ]
+  },
+  "103831": {
+    "early": [
+      "spray"
+    ]
+  },
+  "104072": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "104075": {
+    "mid": [
+      "static"
+    ]
+  },
+  "1041454": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "1042268": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "104385": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "104630": {
+    "early": [
+      "static"
+    ]
+  },
+  "104685": {
+    "early": [
+      "static"
+    ]
+  },
+  "104688": {
+    "adult": [
+      "food"
+    ]
+  },
+  "104777": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "105023": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "1050851": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1050922": {
+    "adult": [
+      "food"
+    ]
+  },
+  "1053340": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "1053343": {
+    "early": [
+      "spray"
+    ]
+  },
+  "105361": {
+    "early": [
+      "static"
+    ]
+  },
+  "105385": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "105481": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "1056713": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "105762": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "106492": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "106804": {
+    "adult": [
+      "static"
+    ]
+  },
+  "106916": {
+    "adult": [
+      "food"
+    ]
+  },
+  "1070779": {
+    "early": [
+      "static"
+    ]
+  },
+  "1072027": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "107243": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "107322": {
+    "early": [
+      "static"
+    ]
+  },
+  "107451": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "107922": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1079993": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1080442": {
+    "early": [
+      "static"
+    ]
+  },
+  "1080762": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "108123": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "108216": {
+    "early": [
+      "soaking",
+      "spray"
+    ]
+  },
+  "108380": {
+    "early": [
+      "spray"
+    ]
+  },
+  "108385": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "108634": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "108640": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "108727": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "108729": {
+    "adult": [
+      "environmental",
+      "food"
+    ]
+  },
+  "108931": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental",
+      "soaking"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "109233": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "environmental",
+      "renewal",
+      "static"
+    ]
+  },
+  "109274": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1095303": {
+    "early": [
+      "static"
+    ]
+  },
+  "109671": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "109996": {
+    "early": [
+      "spray"
+    ]
+  },
+  "110031": {
+    "adult": [
+      "static"
+    ]
+  },
+  "110072": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "110108": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "110441": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "1104532": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "110620": {
+    "mid": [
+      "food"
+    ]
+  },
+  "1107376": {
+    "early": [
+      "spray"
+    ]
+  },
+  "1107662": {
+    "early": [
+      "static"
+    ]
+  },
+  "110810": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "110875": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "111067": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "flow_through"
+    ]
+  },
+  "1111475": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "111217": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "1112820": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1114729": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "111839": {
+    "adult": [
+      "gavage"
+    ],
+    "early": [
+      "gavage"
+    ]
+  },
+  "1118718": {
+    "early": [
+      "inhalation"
+    ]
+  },
+  "112057": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "112068": {
+    "early": [
+      "static"
+    ]
+  },
+  "112145": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "112526": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "1125508": {
+    "early": [
+      "static"
+    ]
+  },
+  "1131516": {
+    "mid": [
+      "static"
+    ]
+  },
+  "113495": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "113505": {
+    "early": [
+      "static"
+    ]
+  },
+  "113544": {
+    "mid": [
+      "static"
+    ]
+  },
+  "114056": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "114198": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "114924": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1150979": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "115357": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "environmental",
+      "food",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "soaking",
+      "spray"
+    ]
+  },
+  "1155070": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "environmental",
+      "renewal"
+    ]
+  },
+  "115608": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "115703": {
+    "adult": [
+      "gavage"
+    ]
+  },
+  "115984": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "116143": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "1162628": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1163512": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "1165749": {
+    "early": [
+      "static"
+    ]
+  },
+  "1168641": {
+    "early": [
+      "static"
+    ]
+  },
+  "116934": {
+    "early": [
+      "static"
+    ]
+  },
+  "1169710": {
+    "mid": [
+      "static"
+    ]
+  },
+  "117530": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "117539": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "117815": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "117982": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "1182301": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "118841": {
+    "adult": [
+      "environmental",
+      "food",
+      "gavage"
+    ]
+  },
+  "1191542": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "1192031": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "soaking"
+    ]
+  },
+  "119750": {
+    "early": [
+      "static"
+    ]
+  },
+  "1199090": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "120202": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "120843": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "120844": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "120869": {
+    "early": [
+      "static"
+    ]
+  },
+  "120870": {
+    "early": [
+      "static"
+    ]
+  },
+  "120878": {
+    "early": [
+      "static"
+    ]
+  },
+  "120995": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1211424": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "121148": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1213214": {
+    "mid": [
+      "static"
+    ]
+  },
+  "121769": {
+    "early": [
+      "direct_application",
+      "granular",
+      "spray"
+    ]
+  },
+  "121801": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "121810": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "121811": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1218281": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "121839": {
+    "early": [
+      "spray"
+    ]
+  },
+  "121845": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "1220391": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1221126": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1223348": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "1223490": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "122368": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "122378": {
+    "early": [
+      "static"
+    ]
+  },
+  "122849": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray",
+      "topical"
+    ]
+  },
+  "122862": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "122865": {
+    "adult": [
+      "inhalation"
+    ]
+  },
+  "122892": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1231953": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental",
+      "food"
+    ]
+  },
+  "1232801": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1234273": {
+    "mid": [
+      "food",
+      "renewal"
+    ]
+  },
+  "123683": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "1239313": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1240730": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "124289": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "124290": {
+    "early": [
+      "food"
+    ]
+  },
+  "124300": {
+    "mid": [
+      "static"
+    ]
+  },
+  "1247422": {
+    "early": [
+      "static"
+    ]
+  },
+  "124760": {
+    "early": [
+      "spray"
+    ]
+  },
+  "124761": {
+    "early": [
+      "spray"
+    ]
+  },
+  "124763": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "inhalation",
+      "spray"
+    ]
+  },
+  "1249915": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1255123": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "126163": {
+    "mid": [
+      "static"
+    ]
+  },
+  "1265834": {
+    "early": [
+      "flow_through"
+    ]
+  },
+  "126592": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1267246": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "126735": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "127405": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "soaking"
+    ],
+    "mid": [
+      "soaking"
+    ]
+  },
+  "127406": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "127839": {
+    "mid": [
+      "static"
+    ]
+  },
+  "1279096": {
+    "early": [
+      "static"
+    ]
+  },
+  "128015": {
+    "adult": [
+      "food"
+    ]
+  },
+  "128738": {
+    "early": [
+      "spray"
+    ]
+  },
+  "1288830": {
+    "early": [
+      "environmental",
+      "food",
+      "spray"
+    ]
+  },
+  "129027": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "129554": {
+    "early": [
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental",
+      "food"
+    ]
+  },
+  "129788": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "13013": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "1302381": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "13029": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "13037": {
+    "adult": [
+      "food"
+    ],
+    "early": [
+      "dermal",
+      "food"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "13040": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1304431": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "1310277": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "13106": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "131216": {
+    "early": [
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "13123": {
+    "early": [
+      "topical"
+    ]
+  },
+  "13163": {
+    "adult": [
+      "soaking"
+    ]
+  },
+  "13164": {
+    "adult": [
+      "environmental",
+      "soaking"
+    ]
+  },
+  "13191": {
+    "adult": [
+      "environmental",
+      "topical"
+    ],
+    "early": [
+      "environmental",
+      "soaking"
+    ]
+  },
+  "132113": {
+    "adult": [
+      "food",
+      "spray"
+    ]
+  },
+  "1321764": {
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "13225": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "1325124": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "13260": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "132616": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "13262": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "13274": {
+    "early": [
+      "environmental",
+      "granular",
+      "spray"
+    ]
+  },
+  "1328066": {
+    "early": [
+      "static"
+    ]
+  },
+  "133124": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "133901": {
+    "adult": [
+      "environmental",
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "spray",
+      "topical"
+    ]
+  },
+  "134406": {
+    "early": [
+      "food",
+      "soaking"
+    ]
+  },
+  "13489": {
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "134901": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "1351856": {
+    "early": [
+      "static"
+    ]
+  },
+  "1351859": {
+    "early": [
+      "static"
+    ]
+  },
+  "135921": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "136140": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "136168": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "136180": {
+    "adult": [
+      "food",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "13632": {
+    "early": [
+      "food"
+    ]
+  },
+  "13686": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "13696": {
+    "early": [
+      "spray"
+    ]
+  },
+  "137042": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1372994": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "137520": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1375357": {
+    "early": [
+      "spray"
+    ]
+  },
+  "1378283": {
+    "mid": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "1381948": {
+    "early": [
+      "static"
+    ]
+  },
+  "138568": {
+    "early": [
+      "static"
+    ]
+  },
+  "1387114": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ],
+    "mid": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "139036": {
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "inhalation"
+    ]
+  },
+  "139456": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "139595": {
+    "adult": [
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "139723": {
+    "early": [
+      "static"
+    ]
+  },
+  "1397809": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "139973": {
+    "early": [
+      "food"
+    ]
+  },
+  "1400848": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "1400849": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1405156": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "140564": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "1412110": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "141264": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "141292": {
+    "early": [
+      "spray"
+    ]
+  },
+  "141395": {
+    "mid": [
+      "static"
+    ]
+  },
+  "141911": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "141976": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "1431903": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "143294": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "143297": {
+    "mid": [
+      "static"
+    ]
+  },
+  "143350": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "143450": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "143526": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "143527": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "143606": {
+    "adult": [
+      "flow_through",
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1437087": {
+    "early": [
+      "static"
+    ]
+  },
+  "1437190": {
+    "adult": [
+      "food"
+    ]
+  },
+  "143766": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "143948": {
+    "adult": [
+      "soaking"
+    ]
+  },
+  "143995": {
+    "adult": [
+      "environmental",
+      "food",
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "144406": {
+    "adult": [
+      "spray",
+      "topical"
+    ]
+  },
+  "1447767": {
+    "early": [
+      "spray"
+    ]
+  },
+  "1450415": {
+    "adult": [
+      "static"
+    ]
+  },
+  "145282": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "145453": {
+    "early": [
+      "food"
+    ]
+  },
+  "145535": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "145607": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "145610": {
+    "adult": [
+      "food",
+      "spray"
+    ],
+    "early": [
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "145622": {
+    "adult": [
+      "environmental",
+      "food",
+      "topical"
+    ]
+  },
+  "145636": {
+    "adult": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "145637": {
+    "adult": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "145753": {
+    "early": [
+      "inhalation"
+    ]
+  },
+  "146095": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "146672": {
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "146774": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ],
+    "early": [
+      "inhalation"
+    ],
+    "mid": [
+      "inhalation"
+    ]
+  },
+  "146833": {
+    "adult": [
+      "environmental",
+      "oral"
+    ]
+  },
+  "1468586": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "146864": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1469664": {
+    "adult": [
+      "static"
+    ]
+  },
+  "147208": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "1475061": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "147949": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "148305": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "1485930": {
+    "mid": [
+      "flow_through",
+      "food",
+      "static"
+    ]
+  },
+  "1488712": {
+    "early": [
+      "food",
+      "spray"
+    ]
+  },
+  "149378": {
+    "early": [
+      "spray"
+    ]
+  },
+  "150266": {
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "150425": {
+    "mid": [
+      "static"
+    ]
+  },
+  "150844": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1511177": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "1511197": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "1514967": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "152158": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1522098": {
+    "early": [
+      "static"
+    ]
+  },
+  "152231": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "1522908": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1532565": {
+    "adult": [
+      "static"
+    ]
+  },
+  "153373": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "15371": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "1540031": {
+    "early": [
+      "static"
+    ]
+  },
+  "1541163": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "1541990": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "1542160": {
+    "early": [
+      "static"
+    ]
+  },
+  "1545103": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1545171": {
+    "adult": [
+      "static"
+    ]
+  },
+  "154827": {
+    "early": [
+      "food",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "155062": {
+    "early": [
+      "static"
+    ]
+  },
+  "1553678": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "1562716": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1563983": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "156871": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "1569679": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "1569972": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "157728": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "157791": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ]
+  },
+  "157846": {
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "157888": {
+    "mid": [
+      "static"
+    ]
+  },
+  "158098": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "158143": {
+    "early": [
+      "culture_media",
+      "spray"
+    ]
+  },
+  "1582038": {
+    "early": [
+      "static"
+    ]
+  },
+  "158387": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "158441": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ],
+    "early": [
+      "direct_application",
+      "food"
+    ],
+    "mid": [
+      "direct_application",
+      "environmental",
+      "food",
+      "static"
+    ]
+  },
+  "158622": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "158623": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "1590998": {
+    "mid": [
+      "static"
+    ]
+  },
+  "1593259": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "1594321": {
+    "early": [
+      "static"
+    ]
+  },
+  "15957": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "159666": {
+    "early": [
+      "spray"
+    ]
+  },
+  "159668": {
+    "early": [
+      "spray"
+    ]
+  },
+  "159718": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "159736": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "159907": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "160329": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "160496": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "160497": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "160499": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "160547": {
+    "early": [
+      "spray"
+    ]
+  },
+  "160577": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "granular",
+      "spray"
+    ]
+  },
+  "160764": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "161091": {
+    "early": [
+      "soaking"
+    ],
+    "mid": [
+      "soaking"
+    ]
+  },
+  "161232": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "161583": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "161924": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "161934": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "granular"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "162147": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "162300": {
+    "mid": [
+      "food"
+    ]
+  },
+  "162425": {
+    "early": [
+      "culture_media",
+      "environmental"
+    ]
+  },
+  "162946": {
+    "mid": [
+      "topical"
+    ]
+  },
+  "162947": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "162998": {
+    "early": [
+      "static"
+    ]
+  },
+  "163131": {
+    "mid": [
+      "static"
+    ]
+  },
+  "163159": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "163476": {
+    "adult": [
+      "static"
+    ]
+  },
+  "1635299": {
+    "mid": [
+      "soaking",
+      "spray"
+    ]
+  },
+  "163994": {
+    "mid": [
+      "static"
+    ]
+  },
+  "16430": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "164412": {
+    "early": [
+      "static"
+    ]
+  },
+  "165005": {
+    "adult": [
+      "static"
+    ]
+  },
+  "165561": {
+    "adult": [
+      "soaking"
+    ]
+  },
+  "1663027": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "166423": {
+    "adult": [
+      "food"
+    ]
+  },
+  "166433": {
+    "adult": [
+      "environmental",
+      "food"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "166899": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1671608": {
+    "early": [
+      "static"
+    ]
+  },
+  "167422": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "167952": {
+    "early": [
+      "static"
+    ]
+  },
+  "168377": {
+    "mid": [
+      "static"
+    ]
+  },
+  "168631": {
+    "early": [
+      "dermal",
+      "topical"
+    ]
+  },
+  "168636": {
+    "adult": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ],
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "1686743": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "168854": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "1690043": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "1690317": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "169117": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "169422": {
+    "early": [
+      "static"
+    ]
+  },
+  "169885": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "169957": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "170203": {
+    "adult": [
+      "static"
+    ]
+  },
+  "170843": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "170859": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "1709596": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "1709623": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "172269": {
+    "early": [
+      "static"
+    ]
+  },
+  "172518": {
+    "mid": [
+      "static"
+    ]
+  },
+  "1732093": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "173342": {
+    "mid": [
+      "static"
+    ]
+  },
+  "1735009": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "173849": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "174391": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "174394": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "174628": {
+    "adult": [
+      "food"
+    ]
+  },
+  "174822": {
+    "early": [
+      "spray"
+    ]
+  },
+  "1751540": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "175860": {
+    "adult": [
+      "static"
+    ]
+  },
+  "176275": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "176616": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "176853": {
+    "early": [
+      "static"
+    ]
+  },
+  "177238": {
+    "early": [
+      "static"
+    ]
+  },
+  "1774277": {
+    "early": [
+      "spray"
+    ]
+  },
+  "177579": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "177646": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "177674": {
+    "early": [
+      "static"
+    ]
+  },
+  "177864": {
+    "early": [
+      "static"
+    ]
+  },
+  "177865": {
+    "early": [
+      "static"
+    ]
+  },
+  "177868": {
+    "early": [
+      "static"
+    ]
+  },
+  "178295": {
+    "early": [
+      "static"
+    ]
+  },
+  "178296": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "178897": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "1804063": {
+    "adult": [
+      "food",
+      "static"
+    ]
+  },
+  "1804801": {
+    "early": [
+      "spray"
+    ]
+  },
+  "180536": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "1805595": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "1813784": {
+    "early": [
+      "food"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "183420": {
+    "mid": [
+      "static"
+    ]
+  },
+  "185002": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "185872": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "direct_application"
+    ]
+  },
+  "185878": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "topical"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "1859699": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "187695": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "1882547": {
+    "early": [
+      "static"
+    ]
+  },
+  "1882722": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "188700": {
+    "early": [
+      "static"
+    ]
+  },
+  "1887501": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "1888032": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "189513": {
+    "adult": [
+      "environmental",
+      "topical"
+    ],
+    "early": [
+      "dermal",
+      "environmental",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "dermal"
+    ]
+  },
+  "189838": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "189839": {
+    "early": [
+      "flow_through"
+    ]
+  },
+  "190274": {
+    "early": [
+      "static"
+    ]
+  },
+  "190276": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "190277": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "190476": {
+    "early": [
+      "spray"
+    ]
+  },
+  "1904894": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1906129": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "191316": {
+    "adult": [
+      "soaking"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "191375": {
+    "adult": [
+      "static"
+    ]
+  },
+  "191633": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "1917096": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "191797": {
+    "adult": [
+      "static"
+    ]
+  },
+  "192188": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "food",
+      "spray"
+    ]
+  },
+  "192191": {
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "192200": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "192225": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "192464": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "1926989": {
+    "adult": [
+      "food"
+    ]
+  },
+  "192880": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "193294": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1934733": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "193532": {
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "193551": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "193553": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "1940826": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "1941199": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "194198": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "195581": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "195883": {
+    "adult": [
+      "dermal"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "1961152": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "196277": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "196494": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "196661": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "196756": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "197147": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "197151": {
+    "early": [
+      "static"
+    ]
+  },
+  "197152": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "197159": {
+    "mid": [
+      "environmental",
+      "static"
+    ]
+  },
+  "197206": {
+    "mid": [
+      "static"
+    ]
+  },
+  "197464": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "1981044": {
+    "adult": [
+      "environmental",
+      "oral"
+    ],
+    "early": [
+      "environmental",
+      "soaking"
+    ],
+    "mid": [
+      "spray",
+      "topical"
+    ]
+  },
+  "198433": {
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "198959": {
+    "adult": [
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "199020": {
+    "early": [
+      "spray"
+    ]
+  },
+  "199487": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "199954": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "200664": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "200915": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "200917": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ],
+    "mid": [
+      "inhalation"
+    ]
+  },
+  "2012609": {
+    "adult": [
+      "static"
+    ]
+  },
+  "201691": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "202397": {
+    "mid": [
+      "static"
+    ]
+  },
+  "2030897": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "203478": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "20410": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "2045262": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "204562": {
+    "early": [
+      "static"
+    ]
+  },
+  "204566": {
+    "early": [
+      "static"
+    ]
+  },
+  "204738": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "204747": {
+    "adult": [
+      "intraperitoneal"
+    ]
+  },
+  "2047957": {
+    "adult": [
+      "static"
+    ]
+  },
+  "2051961": {
+    "adult": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "2052682": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "205354": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "2056173": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "2058190": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "2058208": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "2071565": {
+    "early": [
+      "granular"
+    ]
+  },
+  "207648": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "2078957": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "2083708": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "208440": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "208481": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "208511": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "209240": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "2093675": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "209404": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "209534": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "2126138": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "212653": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "213326": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "214012": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "214178": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "214337": {
+    "early": [
+      "spray"
+    ]
+  },
+  "214486": {
+    "mid": [
+      "food"
+    ]
+  },
+  "214987": {
+    "early": [
+      "static"
+    ]
+  },
+  "215716": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "216284": {
+    "mid": [
+      "soaking"
+    ]
+  },
+  "216359": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "216479": {
+    "early": [
+      "granular"
+    ]
+  },
+  "216498": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "217165": {
+    "adult": [
+      "static"
+    ]
+  },
+  "217247": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "217443": {
+    "adult": [
+      "environmental",
+      "food"
+    ],
+    "mid": [
+      "environmental",
+      "soaking",
+      "topical"
+    ]
+  },
+  "218363": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "2184723": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "218685": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "21880": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "219389": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "219461": {
+    "mid": [
+      "static"
+    ]
+  },
+  "219470": {
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "219545": {
+    "mid": [
+      "static"
+    ]
+  },
+  "219752": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "220131": {
+    "early": [
+      "static"
+    ]
+  },
+  "2202326": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "221654": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "2217910": {
+    "adult": [
+      "static"
+    ]
+  },
+  "223226": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "223649": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "223650": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "223651": {
+    "adult": [
+      "static"
+    ]
+  },
+  "223858": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "223989": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "223992": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "223995": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "224703": {
+    "early": [
+      "flow_through"
+    ]
+  },
+  "224708": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "225281": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "228244": {
+    "early": [
+      "spray"
+    ]
+  },
+  "228297": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "228917": {
+    "early": [
+      "static"
+    ]
+  },
+  "228919": {
+    "early": [
+      "static"
+    ]
+  },
+  "229543": {
+    "early": [
+      "granular",
+      "spray"
+    ]
+  },
+  "230351": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "230391": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "230730": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "23216": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "232998": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "236346": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "236405": {
+    "adult": [
+      "static"
+    ]
+  },
+  "236412": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "236543": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "236552": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "236553": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "236558": {
+    "mid": [
+      "static"
+    ]
+  },
+  "236578": {
+    "mid": [
+      "static"
+    ]
+  },
+  "236790": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "236792": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "236805": {
+    "mid": [
+      "food"
+    ]
+  },
+  "2382476": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "238741": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "238744": {
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "238860": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "239368": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "240154": {
+    "adult": [
+      "static"
+    ]
+  },
+  "240653": {
+    "adult": [
+      "static"
+    ]
+  },
+  "240818": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "243065": {
+    "mid": [
+      "food"
+    ]
+  },
+  "2448451": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "244977": {
+    "mid": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "245074": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "245077": {
+    "early": [
+      "static"
+    ]
+  },
+  "245081": {
+    "adult": [
+      "static"
+    ]
+  },
+  "245772": {
+    "adult": [
+      "static"
+    ]
+  },
+  "245858": {
+    "adult": [
+      "food"
+    ]
+  },
+  "246995": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "247138": {
+    "adult": [
+      "environmental",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "2479706": {
+    "adult": [
+      "environmental",
+      "food"
+    ]
+  },
+  "248183": {
+    "mid": [
+      "static"
+    ]
+  },
+  "248215": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "248223": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "248245": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "248454": {
+    "adult": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "248952": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "2493710": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "249400": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "249562": {
+    "early": [
+      "spray"
+    ]
+  },
+  "2510713": {
+    "adult": [
+      "static"
+    ]
+  },
+  "251759": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "252541": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "2529398": {
+    "mid": [
+      "static"
+    ]
+  },
+  "254095": {
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "254766": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "2555439": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "topical"
+    ]
+  },
+  "2555790": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "256425": {
+    "adult": [
+      "static"
+    ]
+  },
+  "257035": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "257042": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "2596854": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "2598068": {
+    "early": [
+      "food"
+    ]
+  },
+  "2598218": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "260305": {
+    "early": [
+      "topical"
+    ],
+    "mid": [
+      "topical"
+    ]
+  },
+  "260537": {
+    "adult": [
+      "static"
+    ]
+  },
+  "261235": {
+    "early": [
+      "static"
+    ]
+  },
+  "262334": {
+    "early": [
+      "static"
+    ]
+  },
+  "263416": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "264913": {
+    "early": [
+      "food"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "265212": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "2652724": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "2656751": {
+    "early": [
+      "static"
+    ]
+  },
+  "269057": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "270329": {
+    "mid": [
+      "static"
+    ]
+  },
+  "270614": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "food",
+      "topical"
+    ]
+  },
+  "2706822": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "270798": {
+    "adult": [
+      "static"
+    ]
+  },
+  "270884": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "2709325": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "271031": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "271217": {
+    "early": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "2715850": {
+    "early": [
+      "static"
+    ]
+  },
+  "2720869": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "272192": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "272197": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "272444": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "soaking"
+    ]
+  },
+  "2727930": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "272819": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "2735389": {
+    "mid": [
+      "static"
+    ]
+  },
+  "273679": {
+    "mid": [
+      "static"
+    ]
+  },
+  "273752": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "27381": {
+    "early": [
+      "spray"
+    ]
+  },
+  "273961": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "27403": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "27404": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "27405": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "27406": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "27411": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "2741915": {
+    "early": [
+      "spray"
+    ]
+  },
+  "2742159": {
+    "mid": [
+      "static"
+    ]
+  },
+  "2742821": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "27439": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "27441": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "27457": {
+    "adult": [
+      "food"
+    ]
+  },
+  "274641": {
+    "mid": [
+      "static"
+    ]
+  },
+  "2748947": {
+    "adult": [
+      "static"
+    ]
+  },
+  "27541": {
+    "early": [
+      "topical"
+    ]
+  },
+  "27543": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "27545": {
+    "early": [
+      "topical"
+    ]
+  },
+  "2755240": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "27695": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "27704": {
+    "adult": [
+      "static"
+    ]
+  },
+  "27706": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "27717": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "27751": {
+    "mid": [
+      "food"
+    ]
+  },
+  "2776930": {
+    "mid": [
+      "static"
+    ]
+  },
+  "27849": {
+    "early": [
+      "static"
+    ]
+  },
+  "2788": {
+    "early": [
+      "static"
+    ]
+  },
+  "279420": {
+    "early": [
+      "static"
+    ]
+  },
+  "279632": {
+    "adult": [
+      "environmental",
+      "topical"
+    ],
+    "early": [
+      "environmental",
+      "food",
+      "topical"
+    ],
+    "mid": [
+      "topical"
+    ]
+  },
+  "279927": {
+    "mid": [
+      "gavage"
+    ]
+  },
+  "280005": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "280158": {
+    "adult": [
+      "static"
+    ]
+  },
+  "280216": {
+    "adult": [
+      "static"
+    ]
+  },
+  "280219": {
+    "mid": [
+      "static"
+    ]
+  },
+  "281258": {
+    "adult": [
+      "static"
+    ]
+  },
+  "2822231": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "2823525": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "283035": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "static"
+    ]
+  },
+  "283036": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "283210": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "283747": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "283763": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "28479": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "28588": {
+    "adult": [
+      "food"
+    ]
+  },
+  "2860243": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "286459": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "286468": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "2867085": {
+    "adult": [
+      "static"
+    ]
+  },
+  "286770": {
+    "adult": [
+      "static"
+    ]
+  },
+  "28743": {
+    "adult": [
+      "flow_through"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "28745": {
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "28796": {
+    "adult": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "28800": {
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "288158": {
+    "adult": [
+      "spray",
+      "topical"
+    ]
+  },
+  "28829": {
+    "mid": [
+      "static"
+    ]
+  },
+  "288547": {
+    "mid": [
+      "static"
+    ]
+  },
+  "288802": {
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "288848": {
+    "early": [
+      "static"
+    ]
+  },
+  "28909": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "29001": {
+    "early": [
+      "culture_media",
+      "soaking"
+    ]
+  },
+  "29019": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "29031": {
+    "adult": [
+      "oral"
+    ]
+  },
+  "29044": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "29052": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "29057": {
+    "early": [
+      "environmental",
+      "food",
+      "granular",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "29058": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "dermal",
+      "environmental",
+      "food",
+      "spray",
+      "topical"
+    ]
+  },
+  "290746": {
+    "early": [
+      "culture_media",
+      "direct_application"
+    ]
+  },
+  "2907871": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "291242": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "291251": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "29144": {
+    "mid": [
+      "static"
+    ]
+  },
+  "29154": {
+    "early": [
+      "static"
+    ]
+  },
+  "29158": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "29159": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "292457": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "2925006": {
+    "early": [
+      "static"
+    ]
+  },
+  "2927596": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "2932687": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "293655": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "293677": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "293750": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "294125": {
+    "adult": [
+      "static"
+    ]
+  },
+  "294128": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "environmental",
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "295656": {
+    "adult": [
+      "inhalation"
+    ]
+  },
+  "295660": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ],
+    "early": [
+      "inhalation"
+    ]
+  },
+  "29667": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "29674": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "297365": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "29760": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "culture_media",
+      "direct_application"
+    ]
+  },
+  "297830": {
+    "early": [
+      "spray"
+    ]
+  },
+  "297831": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "2982281": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "29850": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "29960": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "29965": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "30069": {
+    "adult": [
+      "environmental",
+      "topical"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "30075": {
+    "early": [
+      "topical"
+    ]
+  },
+  "30076": {
+    "mid": [
+      "topical"
+    ]
+  },
+  "30083": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "30085": {
+    "early": [
+      "food"
+    ]
+  },
+  "30097": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "3018558": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "301905": {
+    "mid": [
+      "static"
+    ]
+  },
+  "301916": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "301928": {
+    "mid": [
+      "static"
+    ]
+  },
+  "30195": {
+    "adult": [
+      "dermal",
+      "food",
+      "oral",
+      "topical"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "302032": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "302033": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "302047": {
+    "mid": [
+      "food"
+    ]
+  },
+  "302185": {
+    "early": [
+      "static"
+    ]
+  },
+  "302197": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "3023782": {
+    "early": [
+      "static"
+    ]
+  },
+  "302712": {
+    "adult": [
+      "static"
+    ]
+  },
+  "30317": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "30325": {
+    "mid": [
+      "static"
+    ]
+  },
+  "30326": {
+    "mid": [
+      "static"
+    ]
+  },
+  "30328": {
+    "mid": [
+      "environmental",
+      "spray",
+      "static"
+    ]
+  },
+  "30331": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "30335": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "30338": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "30342": {
+    "early": [
+      "food",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "30343": {
+    "early": [
+      "flow_through",
+      "food",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "303441": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "3038204": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "304456": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "304461": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "304503": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "304850": {
+    "adult": [
+      "static"
+    ]
+  },
+  "3054": {
+    "early": [
+      "static"
+    ]
+  },
+  "3055": {
+    "early": [
+      "static"
+    ]
+  },
+  "3059449": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "306176": {
+    "adult": [
+      "flow_through"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "306179": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "307031": {
+    "adult": [
+      "static"
+    ]
+  },
+  "3073": {
+    "early": [
+      "static"
+    ]
+  },
+  "30732": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "307492": {
+    "adult": [
+      "soaking"
+    ]
+  },
+  "307507": {
+    "mid": [
+      "static"
+    ]
+  },
+  "30751": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "307890": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "30804": {
+    "mid": [
+      "static"
+    ]
+  },
+  "308442": {
+    "early": [
+      "topical"
+    ]
+  },
+  "308528": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "308863": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "3090714": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "30962": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "309624": {
+    "mid": [
+      "static"
+    ]
+  },
+  "31009": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3103794": {
+    "early": [
+      "spray"
+    ]
+  },
+  "310391": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "soaking"
+    ]
+  },
+  "310513": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "310653": {
+    "early": [
+      "environmental",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "310899": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "310915": {
+    "mid": [
+      "static"
+    ]
+  },
+  "311206": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "3116": {
+    "early": [
+      "static"
+    ]
+  },
+  "31199": {
+    "mid": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "31206": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "31207": {
+    "early": [
+      "static"
+    ]
+  },
+  "31208": {
+    "early": [
+      "static"
+    ]
+  },
+  "31243": {
+    "early": [
+      "direct_application",
+      "granular",
+      "static"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "313441": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "315576": {
+    "early": [
+      "environmental",
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "315579": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "315597": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "315606": {
+    "adult": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "315707": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "315709": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "315725": {
+    "mid": [
+      "static"
+    ]
+  },
+  "317300": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "317352": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "317373": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "318334": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "318394": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "318479": {
+    "early": [
+      "static"
+    ]
+  },
+  "31907": {
+    "early": [
+      "static"
+    ]
+  },
+  "3197072": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "319798": {
+    "early": [
+      "spray"
+    ]
+  },
+  "320027": {
+    "early": [
+      "spray"
+    ]
+  },
+  "320797": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "320956": {
+    "early": [
+      "static"
+    ]
+  },
+  "320987": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "32109": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "321859": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "321861": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "32201": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "32260": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "32264": {
+    "adult": [
+      "environmental",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "32278": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "323757": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "32389": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "32397": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "32398": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "32400": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "32421": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "324906": {
+    "adult": [
+      "static"
+    ]
+  },
+  "326568": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "326718": {
+    "mid": [
+      "static"
+    ]
+  },
+  "327393": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "328410": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "328808": {
+    "adult": [
+      "oral"
+    ]
+  },
+  "329032": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "329099": {
+    "early": [
+      "static"
+    ]
+  },
+  "329103": {
+    "early": [
+      "static"
+    ]
+  },
+  "329105": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "329908": {
+    "early": [
+      "static"
+    ]
+  },
+  "330902": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "330961": {
+    "mid": [
+      "soaking"
+    ]
+  },
+  "33125": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "33132": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "332058": {
+    "early": [
+      "static"
+    ]
+  },
+  "3329": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "3330": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3332": {
+    "early": [
+      "spray"
+    ]
+  },
+  "3334": {
+    "early": [
+      "spray"
+    ]
+  },
+  "3335": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3339": {
+    "early": [
+      "spray"
+    ]
+  },
+  "33396": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "33397": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "33414": {
+    "early": [
+      "food",
+      "spray"
+    ]
+  },
+  "334867": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "334871": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "33519": {
+    "early": [
+      "flow_through"
+    ]
+  },
+  "3352": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "inhalation",
+      "spray"
+    ]
+  },
+  "3352038": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "33528": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "3353": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3357": {
+    "early": [
+      "spray"
+    ]
+  },
+  "335999": {
+    "early": [
+      "spray"
+    ]
+  },
+  "336003": {
+    "early": [
+      "static"
+    ]
+  },
+  "336569": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "336574": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "336824": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "337539": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "338208": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "338212": {
+    "mid": [
+      "static"
+    ]
+  },
+  "3398": {
+    "early": [
+      "direct_application"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "340528": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "340578": {
+    "early": [
+      "spray"
+    ]
+  },
+  "342759": {
+    "mid": [
+      "static"
+    ]
+  },
+  "343691": {
+    "early": [
+      "food"
+    ]
+  },
+  "34373": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "344395": {
+    "adult": [
+      "static"
+    ]
+  },
+  "34508": {
+    "mid": [
+      "culture_media",
+      "environmental"
+    ]
+  },
+  "345740": {
+    "early": [
+      "static"
+    ]
+  },
+  "34589": {
+    "adult": [
+      "static"
+    ]
+  },
+  "34621": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "34631": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "34638": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "soaking",
+      "spray"
+    ]
+  },
+  "346861": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "346985": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "347735": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "inhalation"
+    ],
+    "mid": [
+      "inhalation"
+    ]
+  },
+  "34774": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "34787": {
+    "adult": [
+      "injection"
+    ]
+  },
+  "34814": {
+    "early": [
+      "static"
+    ]
+  },
+  "34815": {
+    "mid": [
+      "static"
+    ]
+  },
+  "34816": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "348533": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "34903": {
+    "adult": [
+      "subcutaneous"
+    ]
+  },
+  "350085": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "35046": {
+    "mid": [
+      "static"
+    ]
+  },
+  "3508": {
+    "early": [
+      "granular"
+    ]
+  },
+  "35122": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "351485": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "352921": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "35523": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "35525": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "35527": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "35528": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "3554": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "355514": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "355520": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "355587": {
+    "adult": [
+      "environmental",
+      "food"
+    ]
+  },
+  "3559": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3562": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "35628": {
+    "early": [
+      "spray"
+    ]
+  },
+  "35632": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "3564": {
+    "early": [
+      "spray"
+    ]
+  },
+  "3565": {
+    "early": [
+      "spray"
+    ]
+  },
+  "35669": {
+    "mid": [
+      "intraperitoneal"
+    ]
+  },
+  "35889": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "3589": {
+    "early": [
+      "spray"
+    ]
+  },
+  "35922": {
+    "early": [
+      "spray"
+    ]
+  },
+  "35935": {
+    "early": [
+      "spray"
+    ]
+  },
+  "35938": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "360686": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "36094": {
+    "mid": [
+      "food"
+    ]
+  },
+  "36095": {
+    "early": [
+      "static"
+    ]
+  },
+  "36100": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "36166": {
+    "adult": [
+      "food"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "36167": {
+    "early": [
+      "static"
+    ]
+  },
+  "3617": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "36185": {
+    "adult": [
+      "intraperitoneal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "362321": {
+    "mid": [
+      "static"
+    ]
+  },
+  "3631": {
+    "early": [
+      "direct_application",
+      "inhalation",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "3633": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "3634": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "3635": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "364765": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3656": {
+    "early": [
+      "culture_media",
+      "inhalation"
+    ]
+  },
+  "3659": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "36599": {
+    "early": [
+      "spray"
+    ]
+  },
+  "3663": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "366481": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "366923": {
+    "early": [
+      "static"
+    ]
+  },
+  "36756": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "36757": {
+    "adult": [
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "spray",
+      "topical"
+    ]
+  },
+  "36940": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "369450": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "36953": {
+    "adult": [
+      "dermal"
+    ]
+  },
+  "36956": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "36975": {
+    "adult": [
+      "dermal"
+    ]
+  },
+  "36987": {
+    "early": [
+      "food"
+    ]
+  },
+  "3700": {
+    "early": [
+      "spray"
+    ]
+  },
+  "37003": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "3702": {
+    "early": [
+      "culture_media",
+      "environmental",
+      "spray"
+    ]
+  },
+  "37039": {
+    "mid": [
+      "food"
+    ]
+  },
+  "3705": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "3707": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ]
+  },
+  "3708": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "370844": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3711": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "3712": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "371471": {
+    "adult": [
+      "static"
+    ]
+  },
+  "371472": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3722": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "3726": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "static"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "37273": {
+    "adult": [
+      "flow_through",
+      "renewal"
+    ],
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3728": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "37338": {
+    "early": [
+      "static"
+    ]
+  },
+  "37341": {
+    "early": [
+      "static"
+    ]
+  },
+  "373818": {
+    "early": [
+      "spray"
+    ]
+  },
+  "373850": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "3746": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "375433": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "3755": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "37627": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "37643": {
+    "early": [
+      "static"
+    ]
+  },
+  "376833": {
+    "adult": [
+      "static"
+    ]
+  },
+  "37722": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "378119": {
+    "adult": [
+      "static"
+    ]
+  },
+  "378425": {
+    "mid": [
+      "static"
+    ]
+  },
+  "37862": {
+    "mid": [
+      "environmental",
+      "static"
+    ]
+  },
+  "37863": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "381125": {
+    "adult": [
+      "environmental",
+      "food",
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "381606": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "381655": {
+    "mid": [
+      "static"
+    ]
+  },
+  "3818": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking",
+      "spray"
+    ]
+  },
+  "382087": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3821": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "382394": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "3827": {
+    "early": [
+      "direct_application",
+      "soaking",
+      "spray"
+    ]
+  },
+  "3832": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3846": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3847": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "granular",
+      "inhalation",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "384774": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "38527": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3856": {
+    "early": [
+      "spray"
+    ]
+  },
+  "38577": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "3864": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ]
+  },
+  "38695": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3870": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "3871": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "38721": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "38727": {
+    "early": [
+      "culture_media",
+      "direct_application"
+    ]
+  },
+  "3873": {
+    "early": [
+      "spray"
+    ]
+  },
+  "38742": {
+    "early": [
+      "static"
+    ]
+  },
+  "38762": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "3879": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking",
+      "spray"
+    ]
+  },
+  "3880": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3885": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "38869": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "38873": {
+    "early": [
+      "spray"
+    ]
+  },
+  "3888": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "389103": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "389349": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "38941": {
+    "early": [
+      "static"
+    ]
+  },
+  "38942": {
+    "early": [
+      "spray"
+    ]
+  },
+  "3899": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "3900": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "3906": {
+    "early": [
+      "soaking",
+      "spray"
+    ]
+  },
+  "3908": {
+    "early": [
+      "spray"
+    ]
+  },
+  "390823": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "390825": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3913": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "3915": {
+    "early": [
+      "direct_application",
+      "soaking"
+    ]
+  },
+  "3917": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking"
+    ]
+  },
+  "391764": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "391769": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "391814": {
+    "early": [
+      "static"
+    ]
+  },
+  "391818": {
+    "early": [
+      "static"
+    ]
+  },
+  "39274": {
+    "early": [
+      "static"
+    ]
+  },
+  "392764": {
+    "mid": [
+      "static"
+    ]
+  },
+  "3929": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "39305": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "3932": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "393602": {
+    "early": [
+      "static"
+    ]
+  },
+  "39374": {
+    "early": [
+      "static"
+    ]
+  },
+  "39414": {
+    "early": [
+      "spray"
+    ]
+  },
+  "39636": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "39638": {
+    "adult": [
+      "food",
+      "gavage",
+      "oral"
+    ],
+    "mid": [
+      "gavage"
+    ]
+  },
+  "396692": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "397411": {
+    "early": [
+      "topical"
+    ]
+  },
+  "39785": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "397978": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "398979": {
+    "adult": [
+      "static"
+    ]
+  },
+  "399051": {
+    "adult": [
+      "static"
+    ]
+  },
+  "3993": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "399978": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "4006": {
+    "early": [
+      "direct_application"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "40079": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "food",
+      "injection",
+      "topical"
+    ],
+    "mid": [
+      "inhalation"
+    ]
+  },
+  "40178": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "4024": {
+    "early": [
+      "granular"
+    ]
+  },
+  "4026": {
+    "early": [
+      "spray"
+    ]
+  },
+  "4039": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "4047": {
+    "early": [
+      "spray"
+    ]
+  },
+  "40584": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "4072": {
+    "early": [
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "4081": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "408244": {
+    "early": [
+      "topical"
+    ]
+  },
+  "408254": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "soaking"
+    ]
+  },
+  "408256": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "40916": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "40932": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "4097": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "4100": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "41006": {
+    "mid": [
+      "static"
+    ]
+  },
+  "4101": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "410350": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "41043": {
+    "early": [
+      "food"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "41102": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "41112": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ],
+    "early": [
+      "inhalation"
+    ]
+  },
+  "4113": {
+    "early": [
+      "soaking",
+      "spray"
+    ]
+  },
+  "41138": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "41139": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "dermal",
+      "environmental",
+      "spray"
+    ]
+  },
+  "4119": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "4120": {
+    "early": [
+      "culture_media",
+      "granular"
+    ]
+  },
+  "4121": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4123": {
+    "early": [
+      "inhalation"
+    ]
+  },
+  "412987": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "41427": {
+    "early": [
+      "static"
+    ]
+  },
+  "41496": {
+    "early": [
+      "spray"
+    ]
+  },
+  "415615": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "416405": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "41694": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "41812": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "41813": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "4182": {
+    "early": [
+      "direct_application",
+      "soaking",
+      "spray"
+    ]
+  },
+  "420087": {
+    "adult": [
+      "granular"
+    ]
+  },
+  "420098": {
+    "early": [
+      "spray"
+    ]
+  },
+  "42064": {
+    "early": [
+      "direct_application",
+      "inhalation",
+      "spray"
+    ]
+  },
+  "42101": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "4212": {
+    "early": [
+      "granular",
+      "spray"
+    ]
+  },
+  "42163": {
+    "adult": [
+      "gavage"
+    ]
+  },
+  "42192": {
+    "early": [
+      "static"
+    ]
+  },
+  "42229": {
+    "early": [
+      "spray"
+    ]
+  },
+  "4232": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "42346": {
+    "early": [
+      "gavage",
+      "intraperitoneal",
+      "intravenous",
+      "subcutaneous"
+    ]
+  },
+  "423526": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4236": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "soaking"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "42415": {
+    "adult": [
+      "gavage"
+    ]
+  },
+  "42429": {
+    "early": [
+      "static"
+    ]
+  },
+  "42496": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "425256": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "42526": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "42528": {
+    "mid": [
+      "static"
+    ]
+  },
+  "42663": {
+    "mid": [
+      "static"
+    ]
+  },
+  "42736": {
+    "adult": [
+      "static"
+    ]
+  },
+  "428051": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4283": {
+    "early": [
+      "granular"
+    ]
+  },
+  "42846": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "42853": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "428934": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "429032": {
+    "adult": [
+      "static"
+    ]
+  },
+  "429310": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "43114": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "43115": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "43178": {
+    "early": [
+      "spray"
+    ]
+  },
+  "43258": {
+    "adult": [
+      "food"
+    ]
+  },
+  "433272": {
+    "early": [
+      "inhalation"
+    ]
+  },
+  "433885": {
+    "early": [
+      "spray"
+    ]
+  },
+  "43391": {
+    "adult": [
+      "food"
+    ]
+  },
+  "43461": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "437488": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "43810": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4400": {
+    "early": [
+      "direct_application",
+      "granular",
+      "spray"
+    ]
+  },
+  "4403": {
+    "early": [
+      "spray"
+    ]
+  },
+  "440573": {
+    "mid": [
+      "static"
+    ]
+  },
+  "441937": {
+    "early": [
+      "spray"
+    ]
+  },
+  "441951": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "443748": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "443752": {
+    "mid": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "44414": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "444603": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "4447": {
+    "early": [
+      "direct_application"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "44581": {
+    "adult": [
+      "static"
+    ]
+  },
+  "446220": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "446412": {
+    "adult": [
+      "flow_through"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "447619": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "4479": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "44945": {
+    "mid": [
+      "static"
+    ]
+  },
+  "449510": {
+    "early": [
+      "spray"
+    ]
+  },
+  "4496": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "4498": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "44987": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "4499": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "4509": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "4511": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "4513": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "45130": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "451738": {
+    "mid": [
+      "static"
+    ]
+  },
+  "4520": {
+    "early": [
+      "direct_application",
+      "spray",
+      "topical"
+    ]
+  },
+  "4521": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "4522": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "452571": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "45264": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "452646": {
+    "adult": [
+      "food"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "4527": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "4530": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "soaking",
+      "spray",
+      "static"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "453069": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4540": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "4543": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ]
+  },
+  "45438": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "4545": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "45464": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "455045": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "455475": {
+    "early": [
+      "spray"
+    ]
+  },
+  "4555": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4556": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "4557": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "4558": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking",
+      "spray",
+      "static"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "4564": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "inhalation",
+      "spray"
+    ]
+  },
+  "4565": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "inhalation",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "4567": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "457492": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "4577": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "459054": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "4593": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "459345": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "45948": {
+    "adult": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "45949": {
+    "adult": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "45954": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "459863": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "4604": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "4606": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "4608": {
+    "early": [
+      "spray"
+    ]
+  },
+  "46112": {
+    "early": [
+      "spray"
+    ]
+  },
+  "46147": {
+    "early": [
+      "inhalation",
+      "spray"
+    ]
+  },
+  "46209": {
+    "early": [
+      "static"
+    ]
+  },
+  "46212": {
+    "early": [
+      "static"
+    ]
+  },
+  "46216": {
+    "early": [
+      "static"
+    ]
+  },
+  "46260": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "462889": {
+    "early": [
+      "static"
+    ]
+  },
+  "464023": {
+    "early": [
+      "direct_application",
+      "soaking"
+    ]
+  },
+  "464319": {
+    "mid": [
+      "static"
+    ]
+  },
+  "465218": {
+    "early": [
+      "direct_application",
+      "granular"
+    ]
+  },
+  "46731": {
+    "early": [
+      "static"
+    ]
+  },
+  "4679": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "46835": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "46955": {
+    "early": [
+      "static"
+    ]
+  },
+  "469930": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "47065": {
+    "early": [
+      "spray"
+    ]
+  },
+  "47082": {
+    "early": [
+      "spray"
+    ]
+  },
+  "47247": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4733": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "473952": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "4744": {
+    "early": [
+      "spray"
+    ]
+  },
+  "474922": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "47528": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "47553": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "47559": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "47561": {
+    "mid": [
+      "static"
+    ]
+  },
+  "47562": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "47766": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "47767": {
+    "early": [
+      "spray"
+    ]
+  },
+  "478982": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "480707": {
+    "early": [
+      "spray"
+    ]
+  },
+  "481309": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "topical"
+    ]
+  },
+  "481685": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "481883": {
+    "mid": [
+      "food"
+    ]
+  },
+  "48192": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "48193": {
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "48194": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "483260": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "48416": {
+    "adult": [
+      "flow_through"
+    ],
+    "early": [
+      "flow_through"
+    ]
+  },
+  "484165": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "484869": {
+    "adult": [
+      "dermal",
+      "environmental"
+    ]
+  },
+  "48668": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "48699": {
+    "adult": [
+      "static"
+    ]
+  },
+  "48709": {
+    "adult": [
+      "food"
+    ]
+  },
+  "48732": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "4875": {
+    "early": [
+      "culture_media",
+      "spray"
+    ]
+  },
+  "487934": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "48849": {
+    "adult": [
+      "gavage",
+      "oral"
+    ]
+  },
+  "49012": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "491138": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "49353": {
+    "adult": [
+      "direct_application",
+      "static"
+    ]
+  },
+  "49684": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "49747": {
+    "early": [
+      "spray"
+    ]
+  },
+  "49801": {
+    "early": [
+      "granular"
+    ]
+  },
+  "498392": {
+    "early": [
+      "static"
+    ]
+  },
+  "49927": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "499895": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "50023": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "50024": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "50031": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "500706": {
+    "early": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "50385": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "50387": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "50389": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "50429": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "50443": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "50463": {
+    "early": [
+      "granular"
+    ]
+  },
+  "50557": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "direct_application",
+      "spray",
+      "static"
+    ]
+  },
+  "50579": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "5059": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "50616": {
+    "adult": [
+      "static"
+    ]
+  },
+  "50650": {
+    "adult": [
+      "environmental",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "5067": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "5076": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "50794": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "50959": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "51024": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "51029": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "51074": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "51138": {
+    "mid": [
+      "static"
+    ]
+  },
+  "511894": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "5121": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "512215": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "51240": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "51293": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "51294": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "51331": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "515277": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "51531": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "51544": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "51550": {
+    "mid": [
+      "static"
+    ]
+  },
+  "51564": {
+    "early": [
+      "food"
+    ]
+  },
+  "51631": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "51655": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental",
+      "food",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "51937": {
+    "mid": [
+      "topical"
+    ]
+  },
+  "519494": {
+    "adult": [
+      "dermal"
+    ]
+  },
+  "52065": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "52066": {
+    "mid": [
+      "environmental",
+      "static"
+    ]
+  },
+  "52067": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "52111": {
+    "early": [
+      "static"
+    ]
+  },
+  "52153": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "522486": {
+    "early": [
+      "static"
+    ]
+  },
+  "52273": {
+    "early": [
+      "static"
+    ]
+  },
+  "52299": {
+    "early": [
+      "spray"
+    ]
+  },
+  "52375": {
+    "mid": [
+      "static"
+    ]
+  },
+  "52383": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "52395": {
+    "mid": [
+      "static"
+    ]
+  },
+  "52396": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "environmental",
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "52398": {
+    "mid": [
+      "static"
+    ]
+  },
+  "52401": {
+    "mid": [
+      "static"
+    ]
+  },
+  "52462": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "52638": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "52639": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "52641": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "52709": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "527149": {
+    "mid": [
+      "static"
+    ]
+  },
+  "527150": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "527158": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "52904": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "5296": {
+    "early": [
+      "spray"
+    ]
+  },
+  "5297": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "53306": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "53323": {
+    "adult": [
+      "injection",
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "5341": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "53479": {
+    "early": [
+      "static"
+    ]
+  },
+  "53591": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "53593": {
+    "adult": [
+      "environmental",
+      "spray",
+      "topical"
+    ]
+  },
+  "535939": {
+    "mid": [
+      "static"
+    ]
+  },
+  "53598": {
+    "adult": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "soaking",
+      "spray"
+    ]
+  },
+  "53883": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "53942": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "53944": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "542820": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "54319": {
+    "mid": [
+      "static"
+    ]
+  },
+  "54333": {
+    "mid": [
+      "static"
+    ]
+  },
+  "54337": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "543384": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "54343": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "544596": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "544679": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "54556": {
+    "early": [
+      "static"
+    ]
+  },
+  "545764": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "5467": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "547414": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "54874": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "54921": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "54968": {
+    "early": [
+      "static"
+    ]
+  },
+  "54969": {
+    "early": [
+      "static"
+    ]
+  },
+  "55057": {
+    "early": [
+      "food",
+      "topical"
+    ]
+  },
+  "55062": {
+    "early": [
+      "spray"
+    ]
+  },
+  "5507": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "551854": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "551873": {
+    "adult": [
+      "flow_through"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "552016": {
+    "mid": [
+      "static"
+    ]
+  },
+  "5530": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "553009": {
+    "early": [
+      "static"
+    ]
+  },
+  "55455": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "55501": {
+    "early": [
+      "static"
+    ]
+  },
+  "55624": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "55679": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "55710": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "55810": {
+    "adult": [
+      "static"
+    ]
+  },
+  "55837": {
+    "adult": [
+      "static"
+    ]
+  },
+  "558756": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "55891": {
+    "adult": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "55893": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "55902": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "559131": {
+    "adult": [
+      "environmental",
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "55967": {
+    "early": [
+      "static"
+    ]
+  },
+  "5599": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "55999": {
+    "early": [
+      "static"
+    ]
+  },
+  "560254": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "56350": {
+    "adult": [
+      "food",
+      "gavage"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "56364": {
+    "early": [
+      "granular",
+      "spray",
+      "topical"
+    ]
+  },
+  "565004": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "565146": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "565426": {
+    "early": [
+      "spray"
+    ]
+  },
+  "567237": {
+    "mid": [
+      "topical"
+    ]
+  },
+  "569589": {
+    "early": [
+      "static"
+    ]
+  },
+  "57062": {
+    "adult": [
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "57393": {
+    "adult": [
+      "gavage",
+      "intravenous"
+    ]
+  },
+  "574208": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ]
+  },
+  "57577": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "578101": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "578590": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "58000": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "5807": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "58323": {
+    "adult": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "58519": {
+    "adult": [
+      "environmental",
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "586671": {
+    "adult": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "58744": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "58824": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "inhalation"
+    ]
+  },
+  "591390": {
+    "early": [
+      "inhalation"
+    ]
+  },
+  "591392": {
+    "early": [
+      "inhalation"
+    ],
+    "mid": [
+      "inhalation"
+    ]
+  },
+  "591433": {
+    "adult": [
+      "culture_media"
+    ]
+  },
+  "59161": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "59188": {
+    "early": [
+      "static"
+    ]
+  },
+  "59234": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "59291": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "59292": {
+    "early": [
+      "granular"
+    ]
+  },
+  "5931": {
+    "mid": [
+      "static"
+    ]
+  },
+  "59512": {
+    "early": [
+      "static"
+    ]
+  },
+  "595358": {
+    "adult": [
+      "static"
+    ]
+  },
+  "59560": {
+    "early": [
+      "static"
+    ]
+  },
+  "59636": {
+    "early": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "597192": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "597212": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "59729": {
+    "mid": [
+      "gavage",
+      "oral"
+    ]
+  },
+  "59818": {
+    "adult": [
+      "environmental",
+      "food"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "59837": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "59861": {
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "59899": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "603647": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "604281": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "food",
+      "static"
+    ]
+  },
+  "60768": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "6082": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "6083": {
+    "adult": [
+      "static"
+    ]
+  },
+  "6087": {
+    "adult": [
+      "static"
+    ]
+  },
+  "6088": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "61186": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "61289": {
+    "early": [
+      "food"
+    ]
+  },
+  "6145": {
+    "mid": [
+      "static"
+    ]
+  },
+  "6161": {
+    "adult": [
+      "static"
+    ]
+  },
+  "6162": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "61662": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "6183": {
+    "adult": [
+      "culture_media"
+    ],
+    "early": [
+      "culture_media"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6192": {
+    "early": [
+      "culture_media",
+      "static"
+    ]
+  },
+  "61968": {
+    "mid": [
+      "static"
+    ]
+  },
+  "61971": {
+    "mid": [
+      "static"
+    ]
+  },
+  "62307": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "6233": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "6234": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "6239": {
+    "adult": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "inhalation",
+      "static"
+    ],
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "static"
+    ],
+    "mid": [
+      "culture_media",
+      "environmental"
+    ]
+  },
+  "6253": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "62625": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "6289": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "630228": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "6303": {
+    "early": [
+      "direct_application"
+    ],
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "6304": {
+    "mid": [
+      "static"
+    ]
+  },
+  "6306": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ],
+    "mid": [
+      "direct_application",
+      "environmental",
+      "granular",
+      "soaking"
+    ]
+  },
+  "632107": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "63229": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "633097": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "6340": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "63410": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "634721": {
+    "adult": [
+      "static"
+    ]
+  },
+  "63577": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "6359": {
+    "early": [
+      "static"
+    ]
+  },
+  "63632": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "6385": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "6386": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "6389": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "6390": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "6395": {
+    "early": [
+      "static"
+    ]
+  },
+  "6396": {
+    "adult": [
+      "culture_media",
+      "dermal",
+      "direct_application",
+      "environmental",
+      "food",
+      "soaking",
+      "spray"
+    ],
+    "mid": [
+      "direct_application",
+      "environmental",
+      "topical"
+    ]
+  },
+  "6398": {
+    "adult": [
+      "culture_media",
+      "dermal",
+      "direct_application",
+      "environmental"
+    ],
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "641303": {
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "64152": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "64391": {
+    "adult": [
+      "environmental",
+      "topical"
+    ],
+    "early": [
+      "inhalation"
+    ]
+  },
+  "64459": {
+    "early": [
+      "food",
+      "spray"
+    ]
+  },
+  "64466": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "64467": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "64468": {
+    "mid": [
+      "static"
+    ]
+  },
+  "6447": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "644998": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "645129": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "645159": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "6454": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "64549": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "646288": {
+    "early": [
+      "static"
+    ]
+  },
+  "646526": {
+    "early": [
+      "static"
+    ]
+  },
+  "64696": {
+    "adult": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "64697": {
+    "adult": [
+      "environmental",
+      "food"
+    ],
+    "mid": [
+      "direct_application",
+      "environmental",
+      "food"
+    ]
+  },
+  "647170": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "6478": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6484": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "64865": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "64901": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "64902": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "65032": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "65038": {
+    "mid": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "6522": {
+    "early": [
+      "static"
+    ]
+  },
+  "6523": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "6526": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "6529": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "6535": {
+    "adult": [
+      "dermal",
+      "spray"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "direct_application",
+      "food"
+    ]
+  },
+  "65426": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "65462": {
+    "early": [
+      "soaking"
+    ]
+  },
+  "6549": {
+    "early": [
+      "static"
+    ]
+  },
+  "6550": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6551": {
+    "early": [
+      "static"
+    ]
+  },
+  "6562": {
+    "early": [
+      "static"
+    ]
+  },
+  "6565": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "6569": {
+    "early": [
+      "static"
+    ]
+  },
+  "6584": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6596": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "65970": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "66018": {
+    "early": [
+      "spray"
+    ]
+  },
+  "6604": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "6610": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "661413": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "662949": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "6657": {
+    "adult": [
+      "direct_application",
+      "environmental",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6660": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "6661": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "6669": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "66718": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "66827": {
+    "early": [
+      "static"
+    ]
+  },
+  "6687": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "6689": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "6690": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "669471": {
+    "early": [
+      "static"
+    ]
+  },
+  "6696": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "6697": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6700": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "670103": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6706": {
+    "adult": [
+      "gavage",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "gavage"
+    ]
+  },
+  "6707": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "6720": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6723": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6726": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "6728": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "67541": {
+    "mid": [
+      "static"
+    ]
+  },
+  "6756": {
+    "early": [
+      "flow_through"
+    ]
+  },
+  "6759": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6761": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "676265": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "6763": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "6772": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "67771": {
+    "adult": [
+      "food"
+    ]
+  },
+  "680683": {
+    "early": [
+      "food"
+    ]
+  },
+  "681221": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "6821": {
+    "adult": [
+      "static"
+    ]
+  },
+  "6830": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "6831": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "6832": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "6833": {
+    "early": [
+      "static"
+    ]
+  },
+  "6837": {
+    "early": [
+      "static"
+    ]
+  },
+  "683832": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "68449": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "68464": {
+    "mid": [
+      "static"
+    ]
+  },
+  "684779": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "6850": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "689085": {
+    "early": [
+      "spray"
+    ]
+  },
+  "689088": {
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "689277": {
+    "early": [
+      "environmental",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "69004": {
+    "early": [
+      "static"
+    ]
+  },
+  "69079": {
+    "adult": [
+      "food",
+      "oral",
+      "subcutaneous"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "690915": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "69132": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "69134": {
+    "adult": [
+      "static"
+    ]
+  },
+  "69196": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "69236": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "69293": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "69334": {
+    "early": [
+      "static"
+    ]
+  },
+  "6943": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "6954": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "6956": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "6961": {
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "696734": {
+    "adult": [
+      "dermal",
+      "environmental"
+    ]
+  },
+  "69681": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "6973": {
+    "adult": [
+      "food",
+      "topical"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "69819": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "69820": {
+    "early": [
+      "culture_media",
+      "environmental",
+      "food",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "699199": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "69944": {
+    "early": [
+      "static"
+    ]
+  },
+  "700594": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "7010": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "70226": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "702717": {
+    "early": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "70285": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7029": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "703264": {
+    "early": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "703271": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "703272": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "7038": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "704012": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "70418": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "7044": {
+    "adult": [
+      "spray",
+      "topical"
+    ]
+  },
+  "7046": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ]
+  },
+  "7047": {
+    "adult": [
+      "environmental",
+      "food",
+      "inhalation",
+      "topical"
+    ]
+  },
+  "7048": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ]
+  },
+  "70548": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7064": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "direct_application",
+      "granular",
+      "spray",
+      "topical"
+    ]
+  },
+  "7070": {
+    "adult": [
+      "environmental",
+      "food",
+      "inhalation",
+      "spray"
+    ],
+    "early": [
+      "environmental",
+      "food",
+      "inhalation",
+      "spray"
+    ],
+    "mid": [
+      "inhalation"
+    ]
+  },
+  "7071": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ]
+  },
+  "70783": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7084": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "7088": {
+    "early": [
+      "spray"
+    ]
+  },
+  "7091": {
+    "early": [
+      "environmental",
+      "food",
+      "spray",
+      "subcutaneous",
+      "topical"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "7097": {
+    "early": [
+      "spray"
+    ]
+  },
+  "7099": {
+    "early": [
+      "spray"
+    ]
+  },
+  "7100": {
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "7101": {
+    "early": [
+      "spray"
+    ]
+  },
+  "7102": {
+    "early": [
+      "environmental",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "710223": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "7107": {
+    "early": [
+      "environmental",
+      "food",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "culture_media",
+      "food",
+      "soaking"
+    ]
+  },
+  "7108": {
+    "early": [
+      "environmental",
+      "food",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "7109": {
+    "early": [
+      "environmental",
+      "food",
+      "soaking",
+      "topical"
+    ],
+    "mid": [
+      "topical"
+    ]
+  },
+  "7111": {
+    "early": [
+      "dermal",
+      "environmental",
+      "food",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "7113": {
+    "adult": [
+      "food"
+    ],
+    "early": [
+      "environmental",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "7116": {
+    "early": [
+      "environmental",
+      "food",
+      "spray",
+      "topical"
+    ]
+  },
+  "7130": {
+    "early": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "7137": {
+    "early": [
+      "food"
+    ]
+  },
+  "71412": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "71413": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "714357": {
+    "early": [
+      "spray"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "7147": {
+    "early": [
+      "static"
+    ]
+  },
+  "7149": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "environmental",
+      "static"
+    ]
+  },
+  "7150": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7153": {
+    "early": [
+      "environmental",
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "7156": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "7157": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7158": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "7159": {
+    "adult": [
+      "environmental",
+      "oral",
+      "topical"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7160": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7163": {
+    "early": [
+      "static"
+    ]
+  },
+  "71631": {
+    "early": [
+      "direct_application",
+      "spray"
+    ]
+  },
+  "71633": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "7164": {
+    "early": [
+      "static"
+    ]
+  },
+  "7165": {
+    "adult": [
+      "environmental",
+      "topical"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "71654": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "7166": {
+    "early": [
+      "static"
+    ]
+  },
+  "7167": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7170": {
+    "early": [
+      "static"
+    ]
+  },
+  "7173": {
+    "early": [
+      "static"
+    ]
+  },
+  "7174": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7175": {
+    "adult": [
+      "dermal",
+      "environmental"
+    ],
+    "early": [
+      "environmental",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7176": {
+    "adult": [
+      "direct_application",
+      "environmental",
+      "oral",
+      "static",
+      "topical"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "71769": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "7177": {
+    "adult": [
+      "oral",
+      "static"
+    ],
+    "early": [
+      "environmental",
+      "static"
+    ]
+  },
+  "7178": {
+    "early": [
+      "static"
+    ]
+  },
+  "7192": {
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "72036": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "720635": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "72115": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "7213": {
+    "adult": [
+      "food"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "72267": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "7227": {
+    "adult": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "food",
+      "inhalation",
+      "topical"
+    ],
+    "early": [
+      "direct_application",
+      "food",
+      "inhalation"
+    ],
+    "mid": [
+      "injection"
+    ]
+  },
+  "72366": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "72446": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "72529": {
+    "early": [
+      "static"
+    ]
+  },
+  "72917": {
+    "early": [
+      "granular",
+      "spray"
+    ]
+  },
+  "73152": {
+    "early": [
+      "granular"
+    ]
+  },
+  "732107": {
+    "adult": [
+      "static"
+    ]
+  },
+  "73391": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "7370": {
+    "adult": [
+      "environmental",
+      "food",
+      "topical"
+    ],
+    "early": [
+      "culture_media",
+      "environmental"
+    ],
+    "mid": [
+      "food",
+      "topical"
+    ]
+  },
+  "7375": {
+    "early": [
+      "environmental",
+      "food",
+      "soaking"
+    ]
+  },
+  "73824": {
+    "early": [
+      "granular"
+    ]
+  },
+  "7385": {
+    "early": [
+      "food"
+    ]
+  },
+  "7386": {
+    "mid": [
+      "food"
+    ]
+  },
+  "7403": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "74081": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "74131": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7415": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "7421": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "7425": {
+    "adult": [
+      "environmental",
+      "food"
+    ]
+  },
+  "743457": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "74491": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7459": {
+    "adult": [
+      "oral"
+    ]
+  },
+  "7460": {
+    "adult": [
+      "dermal",
+      "environmental",
+      "food",
+      "oral",
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "environmental",
+      "food",
+      "topical"
+    ],
+    "mid": [
+      "environmental",
+      "food",
+      "topical"
+    ]
+  },
+  "7461": {
+    "adult": [
+      "environmental",
+      "food",
+      "topical"
+    ],
+    "early": [
+      "food"
+    ]
+  },
+  "7463": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "74736": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "74873": {
+    "early": [
+      "static"
+    ]
+  },
+  "7490": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "7493": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking"
+    ],
+    "mid": [
+      "direct_application",
+      "soaking"
+    ]
+  },
+  "74940": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "intraperitoneal",
+      "renewal",
+      "static"
+    ]
+  },
+  "749842": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "75126": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "75141": {
+    "early": [
+      "spray"
+    ]
+  },
+  "7515": {
+    "adult": [
+      "food",
+      "spray"
+    ]
+  },
+  "75329": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "75356": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7539": {
+    "adult": [
+      "topical"
+    ],
+    "early": [
+      "direct_application",
+      "environmental",
+      "food",
+      "spray",
+      "topical"
+    ]
+  },
+  "756066": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "75727": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "75745": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "75842": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "75917": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "soaking"
+    ]
+  },
+  "759386": {
+    "adult": [
+      "static"
+    ]
+  },
+  "759916": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "7601": {
+    "adult": [
+      "static"
+    ]
+  },
+  "7602": {
+    "early": [
+      "static"
+    ]
+  },
+  "76029": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "76042": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "76055": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "761588": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "76276": {
+    "early": [
+      "granular",
+      "spray"
+    ]
+  },
+  "76340": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7635": {
+    "early": [
+      "static"
+    ]
+  },
+  "7640": {
+    "early": [
+      "static"
+    ]
+  },
+  "76405": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "7641": {
+    "adult": [
+      "flow_through"
+    ],
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "764486": {
+    "adult": [
+      "environmental",
+      "static"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "7653": {
+    "early": [
+      "static"
+    ]
+  },
+  "7654": {
+    "early": [
+      "static"
+    ]
+  },
+  "7656": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "76593": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7660": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "7666": {
+    "early": [
+      "static"
+    ]
+  },
+  "7667": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "static"
+    ]
+  },
+  "7668": {
+    "early": [
+      "static"
+    ]
+  },
+  "767023": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7671": {
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7673": {
+    "early": [
+      "static"
+    ]
+  },
+  "767460": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "76800": {
+    "early": [
+      "food"
+    ]
+  },
+  "768085": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "768087": {
+    "adult": [
+      "static"
+    ]
+  },
+  "76823": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "77170": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "7719": {
+    "early": [
+      "static"
+    ]
+  },
+  "77301": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "77302": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "77504": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "7757": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "77651": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "77652": {
+    "adult": [
+      "static"
+    ]
+  },
+  "77663": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "77671": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "77707": {
+    "mid": [
+      "static"
+    ]
+  },
+  "77744": {
+    "mid": [
+      "static"
+    ]
+  },
+  "77745": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "77756": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "77855": {
+    "adult": [
+      "direct_application",
+      "food"
+    ],
+    "early": [
+      "spray"
+    ],
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "78482": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "78523": {
+    "mid": [
+      "static"
+    ]
+  },
+  "78534": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "soaking",
+      "spray"
+    ]
+  },
+  "7898": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "79015": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7903": {
+    "mid": [
+      "static"
+    ]
+  },
+  "7904": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "static"
+    ]
+  },
+  "7906": {
+    "early": [
+      "static"
+    ]
+  },
+  "7908": {
+    "mid": [
+      "food"
+    ]
+  },
+  "7910": {
+    "mid": [
+      "static"
+    ]
+  },
+  "7936": {
+    "adult": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "intraperitoneal",
+      "renewal"
+    ]
+  },
+  "7937": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "7938": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "79468": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "7954": {
+    "early": [
+      "static"
+    ]
+  },
+  "7955": {
+    "adult": [
+      "flow_through",
+      "food",
+      "injection",
+      "intraperitoneal",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "injection",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "7957": {
+    "adult": [
+      "flow_through",
+      "intraperitoneal",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "7959": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "7962": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "79674": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "79684": {
+    "adult": [
+      "intraperitoneal",
+      "oral"
+    ]
+  },
+  "7971": {
+    "adult": [
+      "intraperitoneal"
+    ],
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "7984": {
+    "early": [
+      "static"
+    ]
+  },
+  "79855": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "7998": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "8010": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8017": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8018": {
+    "mid": [
+      "static"
+    ]
+  },
+  "8019": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "injection",
+      "renewal",
+      "static"
+    ]
+  },
+  "8020": {
+    "mid": [
+      "food",
+      "renewal"
+    ]
+  },
+  "8022": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "intraperitoneal",
+      "renewal",
+      "static"
+    ]
+  },
+  "8023": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "80249": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "8030": {
+    "adult": [
+      "flow_through",
+      "food"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "intraperitoneal",
+      "renewal",
+      "static"
+    ]
+  },
+  "8032": {
+    "adult": [
+      "flow_through"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8033": {
+    "early": [
+      "static"
+    ]
+  },
+  "8037": {
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "8038": {
+    "adult": [
+      "flow_through"
+    ],
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8040": {
+    "adult": [
+      "intraperitoneal"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8049": {
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "80765": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "8078": {
+    "adult": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8080": {
+    "mid": [
+      "static"
+    ]
+  },
+  "8081": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8083": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "80836": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8084": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8090": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "81087": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "8126": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "8127": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8128": {
+    "adult": [
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "8130": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8139": {
+    "early": [
+      "food"
+    ]
+  },
+  "81473": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "81577": {
+    "mid": [
+      "static"
+    ]
+  },
+  "8167": {
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8168": {
+    "mid": [
+      "static"
+    ]
+  },
+  "81692": {
+    "adult": [
+      "culture_media"
+    ],
+    "early": [
+      "culture_media",
+      "soaking"
+    ],
+    "mid": [
+      "culture_media"
+    ]
+  },
+  "8175": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food"
+    ]
+  },
+  "8182": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "8187": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "82133": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "82204": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "82299": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "8255": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8260": {
+    "mid": [
+      "intraperitoneal"
+    ]
+  },
+  "82600": {
+    "adult": [
+      "environmental",
+      "topical"
+    ],
+    "early": [
+      "environmental",
+      "food"
+    ],
+    "mid": [
+      "environmental",
+      "food"
+    ]
+  },
+  "8265": {
+    "early": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "82742": {
+    "adult": [
+      "soaking"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "82763": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "8284": {
+    "early": [
+      "static"
+    ]
+  },
+  "8295": {
+    "early": [
+      "static"
+    ]
+  },
+  "8304": {
+    "early": [
+      "static"
+    ]
+  },
+  "8305": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "8316": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "8323": {
+    "adult": [
+      "renewal"
+    ]
+  },
+  "8342": {
+    "mid": [
+      "static"
+    ]
+  },
+  "8345": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "8346": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "8351": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8353": {
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8355": {
+    "adult": [
+      "food",
+      "renewal"
+    ],
+    "early": [
+      "flow_through",
+      "injection",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "intraperitoneal",
+      "renewal",
+      "static"
+    ]
+  },
+  "8364": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal"
+    ]
+  },
+  "83647": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "soaking"
+    ],
+    "mid": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "8370": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "8384": {
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8386": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "8389": {
+    "early": [
+      "food",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8400": {
+    "adult": [
+      "gavage"
+    ],
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "8403": {
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8404": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8406": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8407": {
+    "early": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8409": {
+    "adult": [
+      "environmental",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "8422": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "8429": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "84382": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "84383": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "84385": {
+    "adult": [
+      "environmental",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "early": [
+      "spray"
+    ]
+  },
+  "84387": {
+    "adult": [
+      "direct_application",
+      "environmental",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "8443": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "84645": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "8475": {
+    "mid": [
+      "food"
+    ]
+  },
+  "84836": {
+    "adult": [
+      "gavage"
+    ]
+  },
+  "8519": {
+    "adult": [
+      "dermal",
+      "gavage"
+    ]
+  },
+  "85549": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "85679": {
+    "early": [
+      "spray"
+    ]
+  },
+  "857043": {
+    "early": [
+      "granular"
+    ]
+  },
+  "86019": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "86242": {
+    "early": [
+      "flow_through",
+      "renewal"
+    ],
+    "mid": [
+      "renewal"
+    ]
+  },
+  "864849": {
+    "early": [
+      "spray"
+    ]
+  },
+  "865980": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "866043": {
+    "adult": [
+      "culture_media"
+    ]
+  },
+  "866555": {
+    "adult": [
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "866890": {
+    "adult": [
+      "dermal",
+      "environmental"
+    ]
+  },
+  "869070": {
+    "early": [
+      "static"
+    ]
+  },
+  "869071": {
+    "early": [
+      "static"
+    ]
+  },
+  "86928": {
+    "mid": [
+      "food"
+    ]
+  },
+  "86971": {
+    "adult": [
+      "environmental",
+      "spray"
+    ]
+  },
+  "87148": {
+    "adult": [
+      "renewal"
+    ],
+    "early": [
+      "renewal"
+    ]
+  },
+  "87157": {
+    "early": [
+      "static"
+    ]
+  },
+  "871685": {
+    "early": [
+      "topical"
+    ]
+  },
+  "87719": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "87723": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "879789": {
+    "early": [
+      "static"
+    ]
+  },
+  "88015": {
+    "adult": [
+      "flow_through",
+      "static"
+    ],
+    "early": [
+      "renewal",
+      "static"
+    ]
+  },
+  "880429": {
+    "adult": [
+      "static"
+    ],
+    "early": [
+      "renewal"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "88053": {
+    "mid": [
+      "static"
+    ]
+  },
+  "881461": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "881570": {
+    "adult": [
+      "soaking"
+    ]
+  },
+  "881685": {
+    "adult": [
+      "static"
+    ]
+  },
+  "881783": {
+    "mid": [
+      "static"
+    ]
+  },
+  "8839": {
+    "adult": [
+      "environmental",
+      "food",
+      "intramuscular",
+      "oral"
+    ],
+    "early": [
+      "soaking"
+    ],
+    "mid": [
+      "food",
+      "gavage",
+      "oral",
+      "spray"
+    ]
+  },
+  "8853": {
+    "adult": [
+      "spray"
+    ]
+  },
+  "885371": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "88556": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "891922": {
+    "early": [
+      "static"
+    ]
+  },
+  "891940": {
+    "early": [
+      "static"
+    ]
+  },
+  "8932": {
+    "adult": [
+      "gavage",
+      "intramuscular",
+      "oral"
+    ],
+    "mid": [
+      "gavage"
+    ]
+  },
+  "89337": {
+    "early": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through"
+    ]
+  },
+  "89380": {
+    "adult": [
+      "static"
+    ]
+  },
+  "89462": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "89555": {
+    "mid": [
+      "static"
+    ]
+  },
+  "89647": {
+    "early": [
+      "spray"
+    ]
+  },
+  "89674": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "89804": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "89805": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "89830": {
+    "mid": [
+      "environmental",
+      "renewal"
+    ]
+  },
+  "9014": {
+    "adult": [
+      "environmental",
+      "food",
+      "gavage",
+      "oral"
+    ],
+    "mid": [
+      "food",
+      "gavage",
+      "oral"
+    ]
+  },
+  "9030": {
+    "adult": [
+      "intraperitoneal"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "9031": {
+    "adult": [
+      "food",
+      "gavage",
+      "intraperitoneal",
+      "oral"
+    ],
+    "early": [
+      "inhalation",
+      "injection",
+      "soaking",
+      "spray",
+      "topical"
+    ],
+    "mid": [
+      "environmental",
+      "food",
+      "gavage",
+      "inhalation",
+      "oral"
+    ]
+  },
+  "90397": {
+    "early": [
+      "direct_application",
+      "environmental",
+      "spray"
+    ]
+  },
+  "9054": {
+    "adult": [
+      "oral"
+    ],
+    "early": [
+      "injection"
+    ],
+    "mid": [
+      "food",
+      "spray"
+    ]
+  },
+  "90735": {
+    "adult": [
+      "intramuscular"
+    ]
+  },
+  "9079": {
+    "adult": [
+      "food"
+    ]
+  },
+  "9091": {
+    "adult": [
+      "food",
+      "gavage"
+    ],
+    "mid": [
+      "food",
+      "intraperitoneal"
+    ]
+  },
+  "909296": {
+    "adult": [
+      "environmental",
+      "spray",
+      "topical"
+    ]
+  },
+  "90986": {
+    "mid": [
+      "environmental"
+    ]
+  },
+  "90988": {
+    "adult": [
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "early": [
+      "environmental",
+      "flow_through",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "flow_through",
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "9102": {
+    "mid": [
+      "food",
+      "oral"
+    ]
+  },
+  "9103": {
+    "mid": [
+      "food"
+    ]
+  },
+  "910319": {
+    "mid": [
+      "static"
+    ]
+  },
+  "910942": {
+    "early": [
+      "flow_through"
+    ]
+  },
+  "911025": {
+    "early": [
+      "static"
+    ]
+  },
+  "912347": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "9134": {
+    "adult": [
+      "gavage"
+    ]
+  },
+  "913645": {
+    "adult": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "9157": {
+    "mid": [
+      "food"
+    ]
+  },
+  "91582": {
+    "early": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "9172": {
+    "adult": [
+      "environmental",
+      "oral"
+    ],
+    "mid": [
+      "gavage"
+    ]
+  },
+  "92426": {
+    "adult": [
+      "topical"
+    ]
+  },
+  "92439": {
+    "mid": [
+      "food"
+    ]
+  },
+  "92473": {
+    "mid": [
+      "direct_application"
+    ]
+  },
+  "92524": {
+    "adult": [
+      "static"
+    ],
+    "mid": [
+      "static"
+    ]
+  },
+  "92525": {
+    "adult": [
+      "food",
+      "renewal",
+      "static"
+    ],
+    "mid": [
+      "food",
+      "renewal",
+      "static"
+    ]
+  },
+  "92692": {
+    "adult": [
+      "environmental",
+      "inhalation"
+    ],
+    "early": [
+      "inhalation"
+    ]
+  },
+  "928200": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "92960": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "92986": {
+    "adult": [
+      "direct_application"
+    ]
+  },
+  "93006": {
+    "adult": [
+      "food"
+    ]
+  },
+  "9301": {
+    "mid": [
+      "gavage"
+    ]
+  },
+  "93036": {
+    "adult": [
+      "spray"
+    ],
+    "early": [
+      "inhalation",
+      "spray"
+    ]
+  },
+  "93129": {
+    "early": [
+      "soaking"
+    ],
+    "mid": [
+      "inhalation",
+      "soaking"
+    ]
+  },
+  "9315": {
+    "early": [
+      "intramuscular"
+    ]
+  },
+  "932767": {
+    "adult": [
+      "flow_through"
+    ],
+    "mid": [
+      "flow_through",
+      "static"
+    ]
+  },
+  "93385": {
+    "early": [
+      "direct_application",
+      "environmental"
+    ]
+  },
+  "933992": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "93612": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "93621": {
+    "adult": [
+      "renewal",
+      "static"
+    ]
+  },
+  "937811": {
+    "adult": [
+      "environmental"
+    ],
+    "early": [
+      "environmental"
+    ]
+  },
+  "937812": {
+    "early": [
+      "spray"
+    ]
+  },
+  "9387": {
+    "mid": [
+      "spray"
+    ]
+  },
+  "93886": {
+    "early": [
+      "spray"
+    ]
+  },
+  "93890": {
+    "early": [
+      "direct_application"
+    ]
+  },
+  "93934": {
+    "adult": [
+      "food",
+      "gavage",
+      "oral"
+    ],
+    "early": [
+      "injection",
+      "soaking",
+      "topical"
+    ],
+    "mid": [
+      "food",
+      "gavage",
+      "intramuscular",
+      "oral",
+      "subcutaneous"
+    ]
+  },
+  "94232": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "94328": {
+    "early": [
+      "environmental"
+    ]
+  },
+  "945940": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "94630": {
+    "early": [
+      "static"
+    ]
+  },
+  "94826": {
+    "early": [
+      "static"
+    ]
+  },
+  "94943": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "94993": {
+    "mid": [
+      "static"
+    ]
+  },
+  "95145": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "95602": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "95972": {
+    "early": [
+      "spray"
+    ]
+  },
+  "9615": {
+    "adult": [
+      "gavage"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "96236": {
+    "adult": [
+      "static"
+    ]
+  },
+  "96448": {
+    "adult": [
+      "static"
+    ]
+  },
+  "9654": {
+    "adult": [
+      "food"
+    ]
+  },
+  "96644": {
+    "adult": [
+      "culture_media"
+    ]
+  },
+  "96647": {
+    "mid": [
+      "static"
+    ]
+  },
+  "9685": {
+    "adult": [
+      "intravenous"
+    ],
+    "early": [
+      "oral"
+    ]
+  },
+  "96870": {
+    "adult": [
+      "environmental"
+    ],
+    "mid": [
+      "environmental"
+    ]
+  },
+  "96881": {
+    "mid": [
+      "food"
+    ]
+  },
+  "96890": {
+    "mid": [
+      "static"
+    ]
+  },
+  "96903": {
+    "adult": [
+      "static"
+    ]
+  },
+  "96914": {
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "96915": {
+    "adult": [
+      "renewal"
+    ],
+    "mid": [
+      "renewal",
+      "static"
+    ]
+  },
+  "96919": {
+    "mid": [
+      "flow_through",
+      "renewal",
+      "static"
+    ]
+  },
+  "96936": {
+    "mid": [
+      "static"
+    ]
+  },
+  "96937": {
+    "mid": [
+      "static"
+    ]
+  },
+  "97006": {
+    "early": [
+      "spray"
+    ]
+  },
+  "97162": {
+    "early": [
+      "flow_through"
+    ]
+  },
+  "98082": {
+    "adult": [
+      "flow_through"
+    ]
+  },
+  "981778": {
+    "mid": [
+      "static"
+    ]
+  },
+  "9822": {
+    "early": [
+      "culture_media"
+    ]
+  },
+  "9823": {
+    "early": [
+      "culture_media",
+      "direct_application",
+      "food"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "983579": {
+    "early": [
+      "static"
+    ]
+  },
+  "989809": {
+    "early": [
+      "environmental",
+      "topical"
+    ]
+  },
+  "991043": {
+    "early": [
+      "renewal"
+    ]
+  },
+  "9913": {
+    "adult": [
+      "food"
+    ],
+    "early": [
+      "culture_media"
+    ],
+    "mid": [
+      "food",
+      "intramuscular"
+    ]
+  },
+  "99200": {
+    "adult": [
+      "environmental"
+    ]
+  },
+  "99210": {
+    "adult": [
+      "environmental",
+      "spray"
+    ],
+    "early": [
+      "spray"
+    ],
+    "mid": [
+      "spray"
+    ]
+  },
+  "99391": {
+    "early": [
+      "static"
+    ]
+  },
+  "9940": {
+    "adult": [
+      "food",
+      "gavage",
+      "intramuscular"
+    ],
+    "early": [
+      "culture_media",
+      "food",
+      "intravenous"
+    ],
+    "mid": [
+      "food"
+    ]
+  },
+  "996475": {
+    "mid": [
+      "renewal"
+    ]
+  },
+  "998446": {
+    "mid": [
+      "static"
+    ]
+  },
+  "9986": {
+    "adult": [
+      "dermal",
+      "food",
+      "gavage",
+      "oral"
+    ],
+    "early": [
+      "culture_media",
+      "direct_application",
+      "gavage"
+    ],
+    "mid": [
+      "food"
+    ]
+  }
+}
