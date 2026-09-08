@@ -1,6 +1,4 @@
 import streamlit as st
-import os
-import streamlit_analytics2 as streamlit_analytics
 from pages import home_page, trident1_page, trident2_page, documentation_page, publications_page, contact_page, space_page
 
 st.set_page_config(
@@ -44,12 +42,7 @@ pg = st.navigation(
     position="top",
 )
 
-with streamlit_analytics.track(
-    unsafe_password=os.environ.get("ANALYTICS_PASSWORD", "tridentanalytics"),
-    save_to_json="data/analytics_data.json",
-    load_from_json="data/analytics_data.json",
-):
-    pg.run()
+pg.run()
 
 with st.bottom:
     st.markdown(
