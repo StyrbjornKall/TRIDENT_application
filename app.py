@@ -1,5 +1,6 @@
 import streamlit as st
 from pages import home_page, trident1_page, trident2_page, documentation_page, publications_page, contact_page, space_page
+from src.analytics import log_page_view
 
 st.set_page_config(
     layout="wide",
@@ -42,6 +43,7 @@ pg = st.navigation(
     position="top",
 )
 
+log_page_view(pg.title)
 pg.run()
 
 with st.bottom:
