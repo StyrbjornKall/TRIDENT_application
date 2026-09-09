@@ -105,21 +105,23 @@ def print_trident2_predict_page():
     )
 
     duration_available = pd.notna(species_row['default_duration'])
-    default_duration = int(species_row['default_duration']) if duration_available else 96
-    duration_hours = col1.slider(
+    default_duration = int(species_row['default_duration']) if duration_available else None
+
+    duration_options = [None] + list(range(24, 2161, 24))
+    duration_choice = col1.select_slider(
         "Select exposure duration (hours)",
-        min_value=1, max_value=2160, value=default_duration,
-        disabled=not duration_available,
-        help="No standard exposure duration is available for this species; "
-             "the model will use its 'duration unknown' flag instead."
-        if not duration_available else None,
+        options=duration_options,
+        value=default_duration,
+        format_func=lambda h: "unknown" if h is None else str(h),
+        help="Defaults to the standard duration recorded for this species, or 'unknown' "
+             "if none is available; change if needed.",
     )
     if not duration_available:
-        col1.caption("Duration unavailable for this species — predicting with duration marked as unknown.")
+        col1.caption("No standard duration available for this species — defaulting to 'unknown'.")
 
     administration_route = None if administration_route_choice == NOT_SPECIFIED else administration_route_choice
     organism_lifestage = None if organism_lifestage_choice == NOT_SPECIFIED else organism_lifestage_choice
-    duration_for_model = duration_hours if duration_available else None
+    duration_for_model = duration_choice
 
     results = pd.DataFrame()
 
