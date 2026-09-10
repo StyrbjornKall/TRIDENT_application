@@ -105,7 +105,12 @@ def print_trident2_predict_page():
     )
 
     duration_available = pd.notna(species_row['default_duration'])
-    default_duration = int(species_row['default_duration']) if duration_available else None
+    default_duration = None
+    if duration_available:
+        raw_duration = int(species_row['default_duration'])
+        remainder = raw_duration % 24
+        rounded_duration = raw_duration - remainder + (24 if remainder >= 12 else 0)
+        default_duration = max(24, min(2160, rounded_duration))
 
     duration_options = [None] + list(range(24, 2161, 24))
     duration_choice = col1.select_slider(
