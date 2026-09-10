@@ -14,7 +14,7 @@ If you do wish to run this streamlit application locally, either clone this repo
 
 Clone this repository:
 ```bash 
-git clone https://github.com/StyrbjornKall/TRIDENT_application
+git clone https://github.com/StyrbjornKall/TRIDENT_application 
 ```
 
 ## Build Docker Container
