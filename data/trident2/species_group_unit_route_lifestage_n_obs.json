@@ -1,0 +1,4423 @@
+{
+  "algae": {
+    "%": {
+      "Not specified": {
+        "Not specified": 8
+      },
+      "environmental": {
+        "Not specified": 5
+      },
+      "flow_through": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 67,
+        "early": 1
+      }
+    },
+    "kg/m2": {
+      "environmental": {
+        "Not specified": 45
+      },
+      "granular": {
+        "Not specified": 1
+      },
+      "spray": {
+        "Not specified": 3
+      },
+      "static": {
+        "early": 1
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 3
+      }
+    },
+    "mg/kg bw": {
+      "direct_application": {
+        "adult": 20
+      }
+    },
+    "mg/kg soil": {
+      "direct_application": {
+        "Not specified": 5,
+        "adult": 8
+      },
+      "environmental": {
+        "Not specified": 9
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 16217,
+        "early": 28
+      },
+      "culture_media": {
+        "Not specified": 34
+      },
+      "environmental": {
+        "Not specified": 36
+      },
+      "flow_through": {
+        "Not specified": 223
+      },
+      "renewal": {
+        "Not specified": 384,
+        "adult": 23,
+        "early": 22,
+        "mid": 32
+      },
+      "spray": {
+        "Not specified": 11,
+        "early": 1
+      },
+      "static": {
+        "Not specified": 13157,
+        "adult": 4,
+        "early": 183,
+        "mid": 5
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 283,
+        "mid": 8
+      },
+      "direct_application": {
+        "Not specified": 4
+      },
+      "environmental": {
+        "Not specified": 1
+      },
+      "flow_through": {
+        "Not specified": 5
+      },
+      "food": {
+        "Not specified": 2
+      },
+      "renewal": {
+        "early": 18
+      },
+      "spray": {
+        "Not specified": 8
+      },
+      "static": {
+        "Not specified": 1871,
+        "early": 4
+      },
+      "topical": {
+        "Not specified": 1
+      }
+    }
+  },
+  "amphibians": {
+    "%": {
+      "Not specified": {
+        "Not specified": 5,
+        "early": 9
+      },
+      "flow_through": {
+        "early": 1
+      },
+      "renewal": {
+        "Not specified": 1,
+        "early": 123,
+        "mid": 14
+      },
+      "soaking": {
+        "Not specified": 3,
+        "mid": 2
+      },
+      "static": {
+        "Not specified": 1,
+        "early": 15,
+        "mid": 21
+      }
+    },
+    "kg/m2": {
+      "direct_application": {
+        "adult": 2
+      },
+      "environmental": {
+        "Not specified": 14,
+        "adult": 9,
+        "mid": 18
+      },
+      "spray": {
+        "Not specified": 6,
+        "adult": 2,
+        "mid": 12
+      },
+      "static": {
+        "Not specified": 1,
+        "mid": 1
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 4,
+        "adult": 22
+      },
+      "flow_through": {
+        "mid": 2
+      },
+      "food": {
+        "Not specified": 1
+      },
+      "injection": {
+        "Not specified": 3
+      },
+      "intramuscular": {
+        "Not specified": 1
+      },
+      "intraperitoneal": {
+        "Not specified": 12,
+        "early": 3
+      },
+      "intravenous": {
+        "Not specified": 6
+      },
+      "oral": {
+        "Not specified": 18
+      },
+      "parenteral": {
+        "Not specified": 26
+      },
+      "subcutaneous": {
+        "Not specified": 45
+      }
+    },
+    "mg/kg bw": {
+      "gavage": {
+        "adult": 6
+      },
+      "injection": {
+        "adult": 1
+      },
+      "intraperitoneal": {
+        "adult": 1
+      },
+      "oral": {
+        "Not specified": 10
+      }
+    },
+    "mg/kg bw/d": {
+      "injection": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg diet": {
+      "food": {
+        "adult": 9,
+        "early": 55,
+        "mid": 61
+      }
+    },
+    "mg/kg soil": {
+      "direct_application": {
+        "adult": 7
+      },
+      "environmental": {
+        "adult": 2,
+        "mid": 2
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 426,
+        "adult": 2,
+        "early": 388,
+        "mid": 240
+      },
+      "culture_media": {
+        "Not specified": 1,
+        "early": 4
+      },
+      "environmental": {
+        "Not specified": 48,
+        "adult": 57,
+        "early": 3,
+        "mid": 7
+      },
+      "flow_through": {
+        "Not specified": 37,
+        "adult": 2,
+        "early": 180,
+        "mid": 139
+      },
+      "in_vitro": {
+        "Not specified": 167
+      },
+      "inhalation": {
+        "Not specified": 2
+      },
+      "injection": {
+        "early": 7,
+        "mid": 3
+      },
+      "intraperitoneal": {
+        "adult": 3
+      },
+      "renewal": {
+        "Not specified": 220,
+        "adult": 91,
+        "early": 2334,
+        "mid": 2009
+      },
+      "soaking": {
+        "adult": 2
+      },
+      "spray": {
+        "mid": 9
+      },
+      "static": {
+        "Not specified": 316,
+        "adult": 20,
+        "early": 1147,
+        "mid": 1158
+      },
+      "topical": {
+        "Not specified": 1
+      }
+    },
+    "mg/org": {
+      "intraperitoneal": {
+        "mid": 46
+      }
+    },
+    "mg/org/d": {
+      "gavage": {
+        "adult": 5
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 12,
+        "adult": 8,
+        "early": 2,
+        "mid": 73
+      },
+      "environmental": {
+        "Not specified": 5,
+        "mid": 1
+      },
+      "flow_through": {
+        "Not specified": 1,
+        "mid": 8
+      },
+      "injection": {
+        "Not specified": 4
+      },
+      "renewal": {
+        "Not specified": 7,
+        "adult": 17,
+        "early": 152,
+        "mid": 142
+      },
+      "soaking": {
+        "adult": 2
+      },
+      "static": {
+        "Not specified": 27,
+        "early": 54,
+        "mid": 115
+      }
+    }
+  },
+  "birds": {
+    "%": {
+      "Not specified": {
+        "adult": 4,
+        "early": 14,
+        "mid": 1
+      },
+      "dermal": {
+        "Not specified": 13
+      },
+      "environmental": {
+        "Not specified": 2,
+        "adult": 9,
+        "early": 1,
+        "mid": 7
+      },
+      "food": {
+        "Not specified": 108,
+        "adult": 1,
+        "mid": 83
+      },
+      "gavage": {
+        "Not specified": 7
+      },
+      "inhalation": {
+        "Not specified": 4,
+        "adult": 2,
+        "mid": 10
+      },
+      "injection": {
+        "early": 43
+      },
+      "intramuscular": {
+        "adult": 1
+      },
+      "intravenous": {
+        "adult": 5
+      },
+      "oral": {
+        "Not specified": 37,
+        "adult": 16,
+        "mid": 10
+      },
+      "soaking": {
+        "early": 19
+      },
+      "spray": {
+        "adult": 3,
+        "mid": 1
+      },
+      "topical": {
+        "Not specified": 2,
+        "early": 6
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 20
+      },
+      "environmental": {
+        "Not specified": 33,
+        "adult": 20,
+        "mid": 1
+      },
+      "food": {
+        "Not specified": 10
+      },
+      "granular": {
+        "Not specified": 3
+      },
+      "oral": {
+        "Not specified": 1
+      },
+      "soaking": {
+        "early": 2
+      },
+      "spray": {
+        "Not specified": 118,
+        "adult": 24,
+        "early": 20,
+        "mid": 51
+      },
+      "topical": {
+        "early": 29
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 47,
+        "early": 3
+      },
+      "dermal": {
+        "Not specified": 31
+      },
+      "food": {
+        "Not specified": 268,
+        "adult": 33,
+        "mid": 79
+      },
+      "gavage": {
+        "Not specified": 69,
+        "adult": 32,
+        "early": 2,
+        "mid": 60
+      },
+      "injection": {
+        "adult": 1,
+        "early": 52
+      },
+      "intramuscular": {
+        "Not specified": 19
+      },
+      "intraperitoneal": {
+        "Not specified": 40,
+        "adult": 3,
+        "mid": 4
+      },
+      "intravenous": {
+        "Not specified": 52,
+        "adult": 4
+      },
+      "oral": {
+        "Not specified": 1165,
+        "adult": 20,
+        "mid": 3
+      },
+      "parenteral": {
+        "Not specified": 7
+      },
+      "subcutaneous": {
+        "Not specified": 9
+      },
+      "topical": {
+        "Not specified": 4
+      }
+    },
+    "mg/kg bw": {
+      "Not specified": {
+        "Not specified": 17
+      },
+      "dermal": {
+        "Not specified": 5
+      },
+      "direct_application": {
+        "Not specified": 1
+      },
+      "food": {
+        "Not specified": 35,
+        "adult": 4,
+        "mid": 30
+      },
+      "gavage": {
+        "Not specified": 153,
+        "adult": 78,
+        "mid": 72
+      },
+      "injection": {
+        "Not specified": 11,
+        "early": 15
+      },
+      "intramuscular": {
+        "Not specified": 12,
+        "adult": 34,
+        "mid": 9
+      },
+      "intraperitoneal": {
+        "Not specified": 5,
+        "adult": 11,
+        "mid": 101
+      },
+      "intravenous": {
+        "Not specified": 1,
+        "mid": 1
+      },
+      "oral": {
+        "Not specified": 326,
+        "adult": 39,
+        "mid": 2
+      },
+      "subcutaneous": {
+        "mid": 2
+      }
+    },
+    "mg/kg bw/d": {
+      "Not specified": {
+        "Not specified": 7,
+        "mid": 2
+      },
+      "food": {
+        "Not specified": 105,
+        "adult": 56,
+        "mid": 67
+      },
+      "gavage": {
+        "Not specified": 95,
+        "adult": 5,
+        "mid": 70
+      },
+      "injection": {
+        "mid": 1
+      },
+      "intramuscular": {
+        "adult": 5
+      },
+      "oral": {
+        "Not specified": 24,
+        "adult": 12
+      },
+      "subcutaneous": {
+        "adult": 1,
+        "mid": 7
+      }
+    },
+    "mg/kg diet": {
+      "Not specified": {
+        "Not specified": 3
+      },
+      "food": {
+        "Not specified": 211,
+        "adult": 86,
+        "mid": 120
+      },
+      "gavage": {
+        "Not specified": 1,
+        "adult": 2
+      },
+      "oral": {
+        "Not specified": 14,
+        "mid": 3
+      }
+    },
+    "mg/kg org": {
+      "food": {
+        "Not specified": 16,
+        "mid": 10
+      },
+      "gavage": {
+        "adult": 6,
+        "mid": 1
+      },
+      "injection": {
+        "early": 6
+      },
+      "oral": {
+        "Not specified": 988,
+        "adult": 75,
+        "mid": 19
+      },
+      "spray": {
+        "Not specified": 1
+      },
+      "topical": {
+        "Not specified": 1
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 8,
+        "adult": 3,
+        "early": 35
+      },
+      "culture_media": {
+        "early": 1
+      },
+      "direct_application": {
+        "early": 2
+      },
+      "environmental": {
+        "early": 1
+      },
+      "food": {
+        "Not specified": 1,
+        "mid": 2
+      },
+      "in_vitro": {
+        "Not specified": 30
+      },
+      "inhalation": {
+        "Not specified": 1
+      },
+      "injection": {
+        "early": 15
+      },
+      "intramuscular": {
+        "adult": 1
+      },
+      "intravenous": {
+        "adult": 5
+      },
+      "oral": {
+        "Not specified": 13,
+        "adult": 6,
+        "mid": 31
+      },
+      "soaking": {
+        "early": 9
+      },
+      "spray": {
+        "Not specified": 1,
+        "adult": 2
+      }
+    },
+    "mg/org": {
+      "Not specified": {
+        "early": 47
+      },
+      "food": {
+        "Not specified": 3,
+        "adult": 1
+      },
+      "gavage": {
+        "Not specified": 4
+      },
+      "injection": {
+        "adult": 1,
+        "early": 7
+      },
+      "intramuscular": {
+        "Not specified": 1
+      },
+      "intraperitoneal": {
+        "adult": 2
+      },
+      "oral": {
+        "adult": 19
+      }
+    },
+    "mg/org/d": {
+      "food": {
+        "Not specified": 16,
+        "adult": 1
+      },
+      "gavage": {
+        "mid": 8
+      },
+      "injection": {
+        "early": 1
+      },
+      "oral": {
+        "Not specified": 12
+      }
+    },
+    "ml/kg bw": {
+      "oral": {
+        "Not specified": 1
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "early": 22
+      },
+      "culture_media": {
+        "early": 1
+      },
+      "food": {
+        "Not specified": 3539,
+        "adult": 260,
+        "mid": 789
+      },
+      "gavage": {
+        "Not specified": 8,
+        "adult": 1,
+        "mid": 2
+      },
+      "in_vitro": {
+        "Not specified": 1
+      },
+      "inhalation": {
+        "Not specified": 2,
+        "early": 17
+      },
+      "oral": {
+        "Not specified": 106,
+        "adult": 17,
+        "mid": 41
+      },
+      "spray": {
+        "Not specified": 14,
+        "early": 4
+      },
+      "static": {
+        "Not specified": 2
+      },
+      "subcutaneous": {
+        "mid": 1
+      },
+      "topical": {
+        "Not specified": 2
+      }
+    }
+  },
+  "cnidarians and bryozoans": {
+    "%": {
+      "static": {
+        "Not specified": 13
+      }
+    },
+    "kg/m2": {
+      "static": {
+        "early": 9
+      }
+    },
+    "mg/kg diet": {
+      "food": {
+        "Not specified": 1
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 198,
+        "adult": 3,
+        "early": 28
+      },
+      "environmental": {
+        "Not specified": 12
+      },
+      "flow_through": {
+        "Not specified": 16,
+        "adult": 4
+      },
+      "renewal": {
+        "Not specified": 152,
+        "adult": 134,
+        "early": 52,
+        "mid": 8
+      },
+      "spray": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 309,
+        "adult": 34,
+        "early": 199,
+        "mid": 17
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 2
+      },
+      "culture_media": {
+        "Not specified": 3
+      },
+      "flow_through": {
+        "Not specified": 2
+      },
+      "renewal": {
+        "early": 10
+      },
+      "static": {
+        "Not specified": 5,
+        "early": 15
+      }
+    }
+  },
+  "crustaceans": {
+    "%": {
+      "Not specified": {
+        "Not specified": 44,
+        "early": 10,
+        "mid": 4
+      },
+      "food": {
+        "Not specified": 1
+      },
+      "injection": {
+        "adult": 1
+      },
+      "renewal": {
+        "Not specified": 7,
+        "adult": 3,
+        "early": 12,
+        "mid": 17
+      },
+      "spray": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 21,
+        "adult": 4,
+        "early": 55,
+        "mid": 19
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 57
+      },
+      "direct_application": {
+        "Not specified": 7,
+        "adult": 8
+      },
+      "environmental": {
+        "Not specified": 10,
+        "adult": 2
+      },
+      "food": {
+        "Not specified": 1
+      },
+      "granular": {
+        "Not specified": 7
+      },
+      "spray": {
+        "Not specified": 4,
+        "adult": 2
+      },
+      "static": {
+        "Not specified": 127,
+        "adult": 4,
+        "early": 36
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 848,
+        "adult": 6
+      },
+      "direct_application": {
+        "Not specified": 1
+      },
+      "environmental": {
+        "Not specified": 1,
+        "adult": 20
+      },
+      "flow_through": {
+        "Not specified": 4
+      },
+      "food": {
+        "Not specified": 22,
+        "adult": 8,
+        "mid": 24
+      },
+      "injection": {
+        "Not specified": 10,
+        "adult": 5
+      },
+      "renewal": {
+        "Not specified": 1,
+        "early": 6
+      },
+      "spray": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 8,
+        "mid": 4
+      }
+    },
+    "mg/kg bw": {
+      "Not specified": {
+        "Not specified": 2
+      },
+      "environmental": {
+        "Not specified": 12
+      },
+      "food": {
+        "mid": 1
+      },
+      "gavage": {
+        "adult": 12,
+        "mid": 10
+      }
+    },
+    "mg/kg bw/d": {
+      "food": {
+        "mid": 1
+      },
+      "injection": {
+        "adult": 2
+      },
+      "static": {
+        "early": 1
+      }
+    },
+    "mg/kg diet": {
+      "Not specified": {
+        "adult": 1,
+        "mid": 1
+      },
+      "food": {
+        "Not specified": 22,
+        "adult": 21,
+        "mid": 18
+      },
+      "oral": {
+        "adult": 2
+      }
+    },
+    "mg/kg org": {
+      "static": {
+        "Not specified": 1,
+        "adult": 2
+      }
+    },
+    "mg/kg soil": {
+      "direct_application": {
+        "Not specified": 5,
+        "adult": 1,
+        "mid": 15
+      },
+      "environmental": {
+        "Not specified": 8,
+        "adult": 40,
+        "mid": 27
+      },
+      "spray": {
+        "Not specified": 6
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 18228,
+        "adult": 440,
+        "early": 517,
+        "mid": 1291
+      },
+      "environmental": {
+        "Not specified": 178,
+        "adult": 30,
+        "early": 37,
+        "mid": 42
+      },
+      "flow_through": {
+        "Not specified": 1416,
+        "adult": 438,
+        "early": 166,
+        "mid": 725
+      },
+      "food": {
+        "Not specified": 16,
+        "adult": 11,
+        "mid": 13
+      },
+      "in_vitro": {
+        "Not specified": 19
+      },
+      "injection": {
+        "mid": 3
+      },
+      "oral": {
+        "Not specified": 1
+      },
+      "renewal": {
+        "Not specified": 4906,
+        "adult": 1467,
+        "early": 1457,
+        "mid": 6689
+      },
+      "spray": {
+        "Not specified": 21
+      },
+      "static": {
+        "Not specified": 9346,
+        "adult": 2467,
+        "early": 2380,
+        "mid": 6779
+      }
+    },
+    "mg/org": {
+      "static": {
+        "Not specified": 5,
+        "adult": 2,
+        "mid": 1
+      },
+      "topical": {
+        "adult": 1
+      }
+    },
+    "mg/org/d": {
+      "food": {
+        "Not specified": 9,
+        "mid": 2
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 329,
+        "adult": 18,
+        "early": 44,
+        "mid": 35
+      },
+      "environmental": {
+        "Not specified": 16,
+        "adult": 3
+      },
+      "flow_through": {
+        "Not specified": 1551,
+        "adult": 12,
+        "mid": 82
+      },
+      "food": {
+        "Not specified": 1
+      },
+      "renewal": {
+        "Not specified": 494,
+        "adult": 42,
+        "early": 74,
+        "mid": 176
+      },
+      "static": {
+        "Not specified": 2306,
+        "adult": 487,
+        "early": 138,
+        "mid": 232
+      },
+      "topical": {
+        "Not specified": 4
+      }
+    }
+  },
+  "cyanobacteria": {
+    "%": {
+      "Not specified": {
+        "Not specified": 1
+      },
+      "culture_media": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 1
+      }
+    },
+    "kg/m2": {
+      "static": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg soil": {
+      "environmental": {
+        "Not specified": 2
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 991
+      },
+      "culture_media": {
+        "Not specified": 5
+      },
+      "direct_application": {
+        "Not specified": 5
+      },
+      "environmental": {
+        "Not specified": 14
+      },
+      "flow_through": {
+        "Not specified": 1
+      },
+      "renewal": {
+        "Not specified": 56
+      },
+      "static": {
+        "Not specified": 1586,
+        "early": 15
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 44
+      },
+      "direct_application": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 488
+      }
+    }
+  },
+  "echinoderms": {
+    "%": {
+      "static": {
+        "early": 7,
+        "mid": 18
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 184,
+        "adult": 4,
+        "early": 167
+      },
+      "environmental": {
+        "adult": 4
+      },
+      "flow_through": {
+        "Not specified": 15,
+        "adult": 13,
+        "early": 42
+      },
+      "renewal": {
+        "Not specified": 30,
+        "adult": 24,
+        "early": 32,
+        "mid": 2
+      },
+      "static": {
+        "Not specified": 81,
+        "adult": 19,
+        "early": 988,
+        "mid": 3
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 1
+      },
+      "static": {
+        "early": 10
+      }
+    }
+  },
+  "fish": {
+    "%": {
+      "Not specified": {
+        "Not specified": 13,
+        "adult": 5,
+        "early": 43,
+        "mid": 1
+      },
+      "flow_through": {
+        "Not specified": 2,
+        "adult": 25,
+        "early": 10,
+        "mid": 9
+      },
+      "food": {
+        "Not specified": 15,
+        "adult": 3,
+        "mid": 13
+      },
+      "in_vitro": {
+        "Not specified": 25
+      },
+      "injection": {
+        "adult": 4
+      },
+      "intramuscular": {
+        "adult": 1
+      },
+      "intraperitoneal": {
+        "Not specified": 3,
+        "adult": 2,
+        "mid": 6
+      },
+      "oral": {
+        "mid": 4
+      },
+      "renewal": {
+        "Not specified": 11,
+        "adult": 48,
+        "early": 76,
+        "mid": 13
+      },
+      "static": {
+        "Not specified": 72,
+        "adult": 5,
+        "early": 175,
+        "mid": 9
+      },
+      "subcutaneous": {
+        "mid": 2
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "early": 5
+      },
+      "environmental": {
+        "Not specified": 3
+      },
+      "static": {
+        "Not specified": 22,
+        "mid": 22
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 4
+      },
+      "flow_through": {
+        "Not specified": 1,
+        "adult": 1
+      },
+      "food": {
+        "Not specified": 83,
+        "adult": 5,
+        "mid": 45
+      },
+      "gavage": {
+        "Not specified": 2
+      },
+      "injection": {
+        "Not specified": 4,
+        "adult": 8,
+        "early": 4
+      },
+      "intramuscular": {
+        "Not specified": 23,
+        "early": 2,
+        "mid": 1
+      },
+      "intraperitoneal": {
+        "Not specified": 80,
+        "adult": 86,
+        "early": 4,
+        "mid": 18
+      },
+      "intravenous": {
+        "Not specified": 6,
+        "adult": 2
+      },
+      "renewal": {
+        "mid": 1
+      },
+      "static": {
+        "Not specified": 14,
+        "mid": 11
+      },
+      "subcutaneous": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg bw": {
+      "Not specified": {
+        "Not specified": 25,
+        "adult": 1
+      },
+      "food": {
+        "Not specified": 20,
+        "adult": 6,
+        "mid": 18
+      },
+      "gavage": {
+        "Not specified": 11,
+        "adult": 2,
+        "mid": 2
+      },
+      "injection": {
+        "Not specified": 1,
+        "mid": 2
+      },
+      "intramuscular": {
+        "Not specified": 5,
+        "adult": 8,
+        "mid": 2
+      },
+      "intraperitoneal": {
+        "Not specified": 157,
+        "adult": 106,
+        "mid": 49
+      },
+      "intravenous": {
+        "Not specified": 1
+      },
+      "oral": {
+        "Not specified": 16
+      },
+      "renewal": {
+        "mid": 3
+      }
+    },
+    "mg/kg bw/d": {
+      "food": {
+        "Not specified": 32,
+        "mid": 81
+      },
+      "intraperitoneal": {
+        "Not specified": 5
+      }
+    },
+    "mg/kg diet": {
+      "food": {
+        "Not specified": 190,
+        "adult": 70,
+        "early": 35,
+        "mid": 490
+      }
+    },
+    "mg/kg org": {
+      "intraperitoneal": {
+        "mid": 5
+      },
+      "oral": {
+        "Not specified": 9
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 16603,
+        "adult": 329,
+        "early": 1510,
+        "mid": 1085
+      },
+      "direct_application": {
+        "Not specified": 3
+      },
+      "environmental": {
+        "Not specified": 42,
+        "adult": 8,
+        "early": 42,
+        "mid": 4
+      },
+      "flow_through": {
+        "Not specified": 6719,
+        "adult": 1176,
+        "early": 3779,
+        "mid": 3880
+      },
+      "food": {
+        "Not specified": 6,
+        "mid": 6
+      },
+      "gavage": {
+        "Not specified": 1
+      },
+      "in_vitro": {
+        "Not specified": 216
+      },
+      "injection": {
+        "Not specified": 2,
+        "adult": 6,
+        "mid": 12
+      },
+      "intraperitoneal": {
+        "Not specified": 15,
+        "adult": 7
+      },
+      "intravenous": {
+        "Not specified": 9
+      },
+      "renewal": {
+        "Not specified": 3999,
+        "adult": 1666,
+        "early": 7317,
+        "mid": 2469
+      },
+      "spray": {
+        "Not specified": 7,
+        "early": 1,
+        "mid": 5
+      },
+      "static": {
+        "Not specified": 18055,
+        "adult": 774,
+        "early": 5074,
+        "mid": 6719
+      }
+    },
+    "mg/org": {
+      "Not specified": {
+        "Not specified": 14,
+        "early": 4
+      },
+      "flow_through": {
+        "Not specified": 2
+      },
+      "food": {
+        "Not specified": 2
+      },
+      "gavage": {
+        "mid": 1
+      },
+      "injection": {
+        "adult": 2,
+        "early": 4
+      },
+      "intraperitoneal": {
+        "adult": 4
+      }
+    },
+    "mg/org/d": {
+      "food": {
+        "Not specified": 13,
+        "early": 4,
+        "mid": 7
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 775,
+        "adult": 16,
+        "early": 57,
+        "mid": 235
+      },
+      "environmental": {
+        "Not specified": 4
+      },
+      "flow_through": {
+        "Not specified": 2312,
+        "adult": 39,
+        "early": 118,
+        "mid": 243
+      },
+      "food": {
+        "Not specified": 9,
+        "adult": 2,
+        "mid": 18
+      },
+      "in_vitro": {
+        "Not specified": 7
+      },
+      "intraperitoneal": {
+        "adult": 1
+      },
+      "renewal": {
+        "Not specified": 484,
+        "adult": 111,
+        "early": 246,
+        "mid": 289
+      },
+      "static": {
+        "Not specified": 4944,
+        "adult": 332,
+        "early": 624,
+        "mid": 1192
+      }
+    }
+  },
+  "fungi": {
+    "%": {
+      "Not specified": {
+        "Not specified": 18,
+        "early": 2
+      },
+      "culture_media": {
+        "Not specified": 121,
+        "early": 24
+      },
+      "direct_application": {
+        "Not specified": 127,
+        "early": 8,
+        "mid": 3
+      },
+      "environmental": {
+        "Not specified": 192,
+        "early": 6
+      },
+      "food": {
+        "early": 17
+      },
+      "inhalation": {
+        "Not specified": 41
+      },
+      "soaking": {
+        "Not specified": 34,
+        "mid": 2
+      },
+      "spray": {
+        "Not specified": 186,
+        "early": 1
+      },
+      "static": {
+        "early": 4
+      },
+      "topical": {
+        "Not specified": 2
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 45,
+        "early": 1
+      },
+      "culture_media": {
+        "Not specified": 161,
+        "early": 47
+      },
+      "direct_application": {
+        "Not specified": 199,
+        "early": 82
+      },
+      "environmental": {
+        "Not specified": 599,
+        "early": 55
+      },
+      "granular": {
+        "Not specified": 86,
+        "early": 2
+      },
+      "inhalation": {
+        "Not specified": 113,
+        "early": 1
+      },
+      "spray": {
+        "Not specified": 1668,
+        "early": 50
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 3,
+        "early": 1
+      },
+      "culture_media": {
+        "Not specified": 30,
+        "early": 2
+      },
+      "direct_application": {
+        "Not specified": 37,
+        "early": 1
+      },
+      "environmental": {
+        "Not specified": 109,
+        "early": 10
+      },
+      "soaking": {
+        "Not specified": 3
+      },
+      "spray": {
+        "Not specified": 4
+      }
+    },
+    "mg/kg soil": {
+      "culture_media": {
+        "Not specified": 2
+      },
+      "direct_application": {
+        "Not specified": 187,
+        "early": 45
+      },
+      "environmental": {
+        "Not specified": 97,
+        "early": 13
+      },
+      "spray": {
+        "Not specified": 3
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 156,
+        "early": 57
+      },
+      "culture_media": {
+        "Not specified": 1821,
+        "early": 168
+      },
+      "direct_application": {
+        "Not specified": 467,
+        "early": 8,
+        "mid": 4
+      },
+      "environmental": {
+        "Not specified": 381,
+        "early": 116
+      },
+      "flow_through": {
+        "Not specified": 8,
+        "mid": 1
+      },
+      "in_vitro": {
+        "Not specified": 2
+      },
+      "inhalation": {
+        "Not specified": 24
+      },
+      "renewal": {
+        "Not specified": 62,
+        "early": 5
+      },
+      "soaking": {
+        "Not specified": 69,
+        "early": 23,
+        "mid": 2
+      },
+      "spray": {
+        "Not specified": 385,
+        "early": 40
+      },
+      "static": {
+        "Not specified": 186,
+        "early": 25
+      },
+      "topical": {
+        "Not specified": 1
+      }
+    },
+    "mg/org": {
+      "spray": {
+        "Not specified": 3
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 7
+      },
+      "culture_media": {
+        "Not specified": 670,
+        "early": 197
+      },
+      "direct_application": {
+        "Not specified": 149,
+        "early": 4
+      },
+      "environmental": {
+        "Not specified": 126,
+        "early": 41
+      },
+      "inhalation": {
+        "Not specified": 22
+      },
+      "soaking": {
+        "Not specified": 44,
+        "early": 2
+      },
+      "spray": {
+        "Not specified": 97,
+        "early": 4
+      },
+      "static": {
+        "early": 6
+      }
+    }
+  },
+  "insects": {
+    "%": {
+      "Not specified": {
+        "Not specified": 33,
+        "adult": 45,
+        "early": 24,
+        "mid": 20
+      },
+      "culture_media": {
+        "Not specified": 1,
+        "early": 7
+      },
+      "dermal": {
+        "Not specified": 9,
+        "adult": 3,
+        "early": 6
+      },
+      "direct_application": {
+        "Not specified": 20,
+        "adult": 55,
+        "early": 29,
+        "mid": 28
+      },
+      "environmental": {
+        "Not specified": 728,
+        "adult": 703,
+        "early": 234,
+        "mid": 66
+      },
+      "food": {
+        "Not specified": 94,
+        "adult": 64,
+        "early": 270,
+        "mid": 45
+      },
+      "granular": {
+        "Not specified": 16
+      },
+      "in_vitro": {
+        "Not specified": 3
+      },
+      "inhalation": {
+        "Not specified": 4,
+        "adult": 19,
+        "early": 3,
+        "mid": 4
+      },
+      "injection": {
+        "Not specified": 1
+      },
+      "oral": {
+        "Not specified": 36,
+        "adult": 6
+      },
+      "soaking": {
+        "Not specified": 44,
+        "adult": 45,
+        "early": 30,
+        "mid": 2
+      },
+      "spray": {
+        "Not specified": 924,
+        "adult": 167,
+        "early": 150,
+        "mid": 41
+      },
+      "static": {
+        "early": 53
+      },
+      "topical": {
+        "Not specified": 44,
+        "adult": 15,
+        "early": 23,
+        "mid": 10
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 184,
+        "adult": 49,
+        "early": 30,
+        "mid": 26
+      },
+      "dermal": {
+        "Not specified": 1,
+        "adult": 25,
+        "early": 3
+      },
+      "direct_application": {
+        "Not specified": 311,
+        "adult": 49,
+        "early": 131,
+        "mid": 3
+      },
+      "environmental": {
+        "Not specified": 2432,
+        "adult": 1818,
+        "early": 520,
+        "mid": 229
+      },
+      "food": {
+        "Not specified": 91,
+        "adult": 7,
+        "early": 23,
+        "mid": 7
+      },
+      "granular": {
+        "Not specified": 1282,
+        "adult": 8,
+        "early": 61,
+        "mid": 1
+      },
+      "inhalation": {
+        "Not specified": 9
+      },
+      "oral": {
+        "Not specified": 2,
+        "adult": 12,
+        "early": 3
+      },
+      "soaking": {
+        "Not specified": 3,
+        "adult": 16,
+        "early": 47,
+        "mid": 5
+      },
+      "spray": {
+        "Not specified": 11810,
+        "adult": 794,
+        "early": 1276,
+        "mid": 232
+      },
+      "static": {
+        "Not specified": 146,
+        "adult": 27,
+        "early": 252,
+        "mid": 255
+      },
+      "topical": {
+        "Not specified": 11,
+        "adult": 31,
+        "early": 41,
+        "mid": 8
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 674,
+        "adult": 1,
+        "early": 24,
+        "mid": 25
+      },
+      "culture_media": {
+        "Not specified": 5,
+        "adult": 2
+      },
+      "dermal": {
+        "Not specified": 1,
+        "adult": 24
+      },
+      "direct_application": {
+        "Not specified": 33,
+        "adult": 1,
+        "mid": 280
+      },
+      "environmental": {
+        "Not specified": 209,
+        "adult": 116,
+        "early": 44,
+        "mid": 25
+      },
+      "flow_through": {
+        "Not specified": 2
+      },
+      "food": {
+        "Not specified": 3,
+        "adult": 6,
+        "early": 56,
+        "mid": 5
+      },
+      "injection": {
+        "Not specified": 2,
+        "adult": 1
+      },
+      "oral": {
+        "adult": 2
+      },
+      "soaking": {
+        "Not specified": 4,
+        "adult": 3,
+        "early": 2
+      },
+      "spray": {
+        "Not specified": 7,
+        "adult": 16,
+        "early": 1
+      },
+      "static": {
+        "Not specified": 4,
+        "early": 13,
+        "mid": 1
+      },
+      "topical": {
+        "Not specified": 55,
+        "adult": 102,
+        "early": 364,
+        "mid": 5
+      }
+    },
+    "mg/kg bw": {
+      "Not specified": {
+        "Not specified": 29,
+        "early": 15,
+        "mid": 13
+      },
+      "dermal": {
+        "adult": 22
+      },
+      "direct_application": {
+        "Not specified": 126,
+        "adult": 31,
+        "mid": 35
+      },
+      "environmental": {
+        "Not specified": 41,
+        "adult": 14,
+        "early": 1
+      },
+      "food": {
+        "Not specified": 22,
+        "early": 14,
+        "mid": 1
+      },
+      "injection": {
+        "early": 1
+      },
+      "spray": {
+        "Not specified": 36,
+        "early": 15
+      },
+      "topical": {
+        "Not specified": 121,
+        "adult": 209,
+        "early": 268,
+        "mid": 4
+      }
+    },
+    "mg/kg diet": {
+      "environmental": {
+        "early": 8
+      },
+      "food": {
+        "Not specified": 143,
+        "adult": 473,
+        "early": 1058,
+        "mid": 95
+      },
+      "oral": {
+        "Not specified": 1,
+        "adult": 6,
+        "early": 4
+      }
+    },
+    "mg/kg org": {
+      "Not specified": {
+        "adult": 2,
+        "early": 6
+      },
+      "renewal": {
+        "Not specified": 2
+      },
+      "static": {
+        "Not specified": 5,
+        "early": 4
+      },
+      "topical": {
+        "adult": 2
+      }
+    },
+    "mg/kg soil": {
+      "Not specified": {
+        "adult": 1
+      },
+      "direct_application": {
+        "Not specified": 183,
+        "adult": 233,
+        "early": 14,
+        "mid": 441
+      },
+      "environmental": {
+        "Not specified": 198,
+        "adult": 159,
+        "early": 21,
+        "mid": 73
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 1100,
+        "adult": 183,
+        "early": 722,
+        "mid": 244
+      },
+      "culture_media": {
+        "Not specified": 5,
+        "adult": 12,
+        "early": 12,
+        "mid": 21
+      },
+      "dermal": {
+        "Not specified": 6,
+        "adult": 67,
+        "early": 27
+      },
+      "direct_application": {
+        "Not specified": 51,
+        "adult": 50,
+        "early": 54,
+        "mid": 41
+      },
+      "environmental": {
+        "Not specified": 1006,
+        "adult": 2385,
+        "early": 2347,
+        "mid": 518
+      },
+      "flow_through": {
+        "Not specified": 339,
+        "adult": 9,
+        "early": 331,
+        "mid": 242
+      },
+      "food": {
+        "Not specified": 259,
+        "adult": 353,
+        "early": 538,
+        "mid": 153
+      },
+      "granular": {
+        "Not specified": 1
+      },
+      "in_vitro": {
+        "Not specified": 110
+      },
+      "inhalation": {
+        "Not specified": 42,
+        "adult": 582,
+        "early": 279,
+        "mid": 116
+      },
+      "injection": {
+        "adult": 1,
+        "early": 1,
+        "mid": 21
+      },
+      "oral": {
+        "Not specified": 14,
+        "adult": 111,
+        "early": 3,
+        "mid": 1
+      },
+      "renewal": {
+        "Not specified": 373,
+        "adult": 26,
+        "early": 897,
+        "mid": 237
+      },
+      "soaking": {
+        "Not specified": 88,
+        "adult": 212,
+        "early": 513,
+        "mid": 156
+      },
+      "spray": {
+        "Not specified": 1086,
+        "adult": 663,
+        "early": 567,
+        "mid": 245
+      },
+      "static": {
+        "Not specified": 1852,
+        "adult": 187,
+        "early": 5402,
+        "mid": 962
+      },
+      "topical": {
+        "Not specified": 13,
+        "adult": 173,
+        "early": 125,
+        "mid": 24
+      }
+    },
+    "mg/org": {
+      "Not specified": {
+        "Not specified": 2,
+        "adult": 29,
+        "early": 5
+      },
+      "dermal": {
+        "Not specified": 134,
+        "adult": 566,
+        "early": 79
+      },
+      "direct_application": {
+        "Not specified": 43,
+        "adult": 2,
+        "early": 1,
+        "mid": 18
+      },
+      "environmental": {
+        "Not specified": 12,
+        "adult": 22,
+        "early": 86,
+        "mid": 34
+      },
+      "food": {
+        "Not specified": 551,
+        "adult": 476,
+        "early": 168
+      },
+      "gavage": {
+        "Not specified": 4,
+        "adult": 2
+      },
+      "inhalation": {
+        "adult": 2
+      },
+      "injection": {
+        "Not specified": 15,
+        "adult": 7,
+        "early": 14,
+        "mid": 2
+      },
+      "oral": {
+        "Not specified": 28,
+        "adult": 1
+      },
+      "soaking": {
+        "adult": 1,
+        "early": 2
+      },
+      "spray": {
+        "Not specified": 73,
+        "adult": 15
+      },
+      "subcutaneous": {
+        "early": 13
+      },
+      "topical": {
+        "Not specified": 288,
+        "adult": 671,
+        "early": 847,
+        "mid": 157
+      }
+    },
+    "mg/org/d": {
+      "Not specified": {
+        "Not specified": 3
+      },
+      "food": {
+        "Not specified": 12,
+        "adult": 189,
+        "early": 678,
+        "mid": 1
+      },
+      "oral": {
+        "adult": 17
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 54,
+        "adult": 25,
+        "early": 346,
+        "mid": 469
+      },
+      "culture_media": {
+        "adult": 55,
+        "early": 32,
+        "mid": 34
+      },
+      "dermal": {
+        "Not specified": 16,
+        "adult": 2,
+        "early": 8,
+        "mid": 15
+      },
+      "direct_application": {
+        "Not specified": 24,
+        "adult": 47,
+        "early": 123,
+        "mid": 4
+      },
+      "environmental": {
+        "Not specified": 353,
+        "adult": 828,
+        "early": 795,
+        "mid": 147
+      },
+      "flow_through": {
+        "Not specified": 7,
+        "early": 4,
+        "mid": 6
+      },
+      "food": {
+        "Not specified": 365,
+        "adult": 407,
+        "early": 348,
+        "mid": 88
+      },
+      "inhalation": {
+        "Not specified": 4,
+        "adult": 58,
+        "early": 7
+      },
+      "oral": {
+        "Not specified": 19,
+        "adult": 4,
+        "mid": 3
+      },
+      "renewal": {
+        "Not specified": 7,
+        "adult": 3,
+        "early": 31,
+        "mid": 8
+      },
+      "soaking": {
+        "Not specified": 27,
+        "adult": 58,
+        "early": 83,
+        "mid": 42
+      },
+      "spray": {
+        "Not specified": 816,
+        "adult": 420,
+        "early": 166,
+        "mid": 108
+      },
+      "static": {
+        "Not specified": 64,
+        "adult": 39,
+        "early": 1541,
+        "mid": 224
+      },
+      "topical": {
+        "Not specified": 5,
+        "adult": 155,
+        "early": 69
+      }
+    }
+  },
+  "mollusks": {
+    "%": {
+      "Not specified": {
+        "Not specified": 29,
+        "mid": 2
+      },
+      "direct_application": {
+        "Not specified": 2,
+        "adult": 16,
+        "early": 1
+      },
+      "environmental": {
+        "Not specified": 14,
+        "adult": 30
+      },
+      "food": {
+        "Not specified": 8,
+        "adult": 156,
+        "mid": 84
+      },
+      "in_vitro": {
+        "Not specified": 4
+      },
+      "injection": {
+        "adult": 1
+      },
+      "renewal": {
+        "Not specified": 5,
+        "adult": 11
+      },
+      "spray": {
+        "adult": 13
+      },
+      "static": {
+        "Not specified": 11,
+        "early": 20,
+        "mid": 3
+      },
+      "topical": {
+        "adult": 2
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 21
+      },
+      "culture_media": {
+        "early": 2
+      },
+      "direct_application": {
+        "Not specified": 2,
+        "adult": 8,
+        "mid": 4
+      },
+      "environmental": {
+        "Not specified": 22,
+        "adult": 8,
+        "early": 19
+      },
+      "granular": {
+        "Not specified": 22
+      },
+      "inhalation": {
+        "Not specified": 1
+      },
+      "spray": {
+        "Not specified": 57,
+        "adult": 99,
+        "early": 93,
+        "mid": 4
+      },
+      "static": {
+        "Not specified": 10
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 22,
+        "early": 4,
+        "mid": 4
+      },
+      "environmental": {
+        "Not specified": 9
+      },
+      "food": {
+        "Not specified": 44,
+        "mid": 5
+      },
+      "injection": {
+        "Not specified": 2
+      },
+      "renewal": {
+        "Not specified": 4,
+        "adult": 2
+      },
+      "static": {
+        "Not specified": 3
+      }
+    },
+    "mg/kg bw": {
+      "food": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg diet": {
+      "food": {
+        "Not specified": 34,
+        "adult": 12,
+        "mid": 11
+      }
+    },
+    "mg/kg org": {
+      "flow_through": {
+        "mid": 1
+      }
+    },
+    "mg/kg soil": {
+      "Not specified": {
+        "mid": 7
+      },
+      "culture_media": {
+        "mid": 3
+      },
+      "direct_application": {
+        "mid": 15
+      },
+      "environmental": {
+        "early": 5
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 2197,
+        "adult": 163,
+        "early": 221,
+        "mid": 145
+      },
+      "culture_media": {
+        "adult": 4
+      },
+      "environmental": {
+        "Not specified": 36,
+        "adult": 16,
+        "early": 92,
+        "mid": 26
+      },
+      "flow_through": {
+        "Not specified": 401,
+        "adult": 159,
+        "early": 18,
+        "mid": 223
+      },
+      "food": {
+        "Not specified": 3
+      },
+      "in_vitro": {
+        "Not specified": 73
+      },
+      "injection": {
+        "adult": 1
+      },
+      "intramuscular": {
+        "Not specified": 24
+      },
+      "renewal": {
+        "Not specified": 1512,
+        "adult": 550,
+        "early": 295,
+        "mid": 646
+      },
+      "soaking": {
+        "Not specified": 3,
+        "early": 2
+      },
+      "spray": {
+        "Not specified": 5
+      },
+      "static": {
+        "Not specified": 1605,
+        "adult": 512,
+        "early": 1510,
+        "mid": 858
+      }
+    },
+    "mg/org": {
+      "Not specified": {
+        "adult": 5
+      },
+      "dermal": {
+        "adult": 6
+      },
+      "direct_application": {
+        "Not specified": 3
+      },
+      "injection": {
+        "Not specified": 6
+      },
+      "intramuscular": {
+        "Not specified": 6
+      },
+      "static": {
+        "Not specified": 2,
+        "adult": 2
+      },
+      "topical": {
+        "Not specified": 9,
+        "adult": 13
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 95,
+        "adult": 31,
+        "early": 14,
+        "mid": 5
+      },
+      "direct_application": {
+        "Not specified": 5,
+        "adult": 16
+      },
+      "environmental": {
+        "Not specified": 1,
+        "early": 2
+      },
+      "flow_through": {
+        "Not specified": 78,
+        "adult": 2,
+        "early": 18,
+        "mid": 441
+      },
+      "food": {
+        "Not specified": 1,
+        "adult": 4
+      },
+      "renewal": {
+        "Not specified": 251,
+        "adult": 32,
+        "early": 39,
+        "mid": 72
+      },
+      "spray": {
+        "early": 2
+      },
+      "static": {
+        "Not specified": 235,
+        "adult": 111,
+        "early": 191,
+        "mid": 110
+      }
+    }
+  },
+  "other mammals": {
+    "%": {
+      "Not specified": {
+        "Not specified": 3,
+        "adult": 16
+      },
+      "culture_media": {
+        "early": 11
+      },
+      "dermal": {
+        "Not specified": 11
+      },
+      "direct_application": {
+        "Not specified": 1,
+        "early": 6
+      },
+      "environmental": {
+        "Not specified": 7,
+        "early": 2
+      },
+      "food": {
+        "Not specified": 10,
+        "early": 1,
+        "mid": 9
+      },
+      "gavage": {
+        "adult": 1
+      },
+      "injection": {
+        "adult": 1
+      },
+      "intravenous": {
+        "mid": 2
+      },
+      "spray": {
+        "Not specified": 8,
+        "early": 2
+      },
+      "subcutaneous": {
+        "early": 2
+      },
+      "topical": {
+        "adult": 2
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 1
+      },
+      "environmental": {
+        "Not specified": 12
+      },
+      "food": {
+        "Not specified": 9,
+        "mid": 2
+      },
+      "spray": {
+        "Not specified": 11,
+        "adult": 2,
+        "mid": 5
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 145
+      },
+      "dermal": {
+        "Not specified": 867,
+        "adult": 4
+      },
+      "direct_application": {
+        "Not specified": 2
+      },
+      "food": {
+        "Not specified": 62,
+        "adult": 7,
+        "mid": 18
+      },
+      "gavage": {
+        "Not specified": 18,
+        "adult": 3,
+        "early": 54,
+        "mid": 3
+      },
+      "inhalation": {
+        "Not specified": 3
+      },
+      "injection": {
+        "Not specified": 6
+      },
+      "intramuscular": {
+        "Not specified": 91,
+        "adult": 1
+      },
+      "intraperitoneal": {
+        "Not specified": 250,
+        "adult": 3,
+        "early": 42
+      },
+      "intravenous": {
+        "Not specified": 1736,
+        "adult": 14,
+        "early": 17,
+        "mid": 3
+      },
+      "oral": {
+        "Not specified": 1647,
+        "adult": 1
+      },
+      "parenteral": {
+        "Not specified": 31
+      },
+      "subcutaneous": {
+        "Not specified": 278,
+        "early": 35,
+        "mid": 2
+      },
+      "topical": {
+        "Not specified": 3
+      }
+    },
+    "mg/kg bw": {
+      "Not specified": {
+        "Not specified": 21,
+        "adult": 2
+      },
+      "dermal": {
+        "Not specified": 812,
+        "adult": 1
+      },
+      "food": {
+        "Not specified": 17,
+        "adult": 12,
+        "mid": 9
+      },
+      "gavage": {
+        "Not specified": 123,
+        "adult": 17,
+        "early": 16,
+        "mid": 8
+      },
+      "intramuscular": {
+        "adult": 13,
+        "mid": 3
+      },
+      "intraperitoneal": {
+        "Not specified": 10
+      },
+      "intravenous": {
+        "Not specified": 10
+      },
+      "oral": {
+        "Not specified": 115,
+        "adult": 4,
+        "early": 8,
+        "mid": 6
+      },
+      "spray": {
+        "adult": 1
+      },
+      "subcutaneous": {
+        "Not specified": 6
+      }
+    },
+    "mg/kg bw/d": {
+      "Not specified": {
+        "Not specified": 21,
+        "early": 12
+      },
+      "dermal": {
+        "Not specified": 3,
+        "adult": 6
+      },
+      "food": {
+        "Not specified": 88,
+        "adult": 85,
+        "early": 3,
+        "mid": 39
+      },
+      "gavage": {
+        "Not specified": 158,
+        "adult": 23,
+        "early": 71,
+        "mid": 3
+      },
+      "intraperitoneal": {
+        "Not specified": 1
+      },
+      "intravenous": {
+        "Not specified": 2
+      },
+      "oral": {
+        "Not specified": 83,
+        "adult": 4
+      },
+      "subcutaneous": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg diet": {
+      "food": {
+        "Not specified": 31,
+        "adult": 11,
+        "early": 1,
+        "mid": 50
+      }
+    },
+    "mg/kg org": {
+      "oral": {
+        "Not specified": 1
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 4,
+        "adult": 1
+      },
+      "culture_media": {
+        "adult": 4,
+        "early": 80
+      },
+      "direct_application": {
+        "early": 10
+      },
+      "food": {
+        "Not specified": 2
+      },
+      "gavage": {
+        "Not specified": 39,
+        "adult": 1,
+        "early": 39
+      },
+      "in_vitro": {
+        "Not specified": 9
+      },
+      "inhalation": {
+        "Not specified": 245
+      },
+      "injection": {
+        "Not specified": 1
+      },
+      "intramuscular": {
+        "Not specified": 1,
+        "early": 6
+      },
+      "intravenous": {
+        "Not specified": 1
+      },
+      "subcutaneous": {
+        "early": 2
+      }
+    },
+    "mg/l air": {
+      "Not specified": {
+        "Not specified": 3
+      },
+      "inhalation": {
+        "Not specified": 25
+      }
+    },
+    "mg/org": {
+      "food": {
+        "Not specified": 1,
+        "mid": 1
+      },
+      "injection": {
+        "Not specified": 3
+      },
+      "intramuscular": {
+        "Not specified": 5
+      },
+      "oral": {
+        "Not specified": 3
+      },
+      "subcutaneous": {
+        "mid": 2
+      }
+    },
+    "mg/org/d": {
+      "food": {
+        "Not specified": 3,
+        "adult": 1,
+        "mid": 1
+      },
+      "gavage": {
+        "adult": 2
+      },
+      "intramuscular": {
+        "mid": 2
+      },
+      "oral": {
+        "mid": 1
+      }
+    },
+    "ml/kg bw": {
+      "Not specified": {
+        "Not specified": 1
+      },
+      "dermal": {
+        "Not specified": 225
+      },
+      "gavage": {
+        "Not specified": 1
+      },
+      "oral": {
+        "Not specified": 2
+      }
+    },
+    "ppm": {
+      "drinking": {
+        "Not specified": 2
+      },
+      "food": {
+        "Not specified": 222,
+        "adult": 118,
+        "early": 40,
+        "mid": 116
+      },
+      "inhalation": {
+        "Not specified": 130
+      },
+      "oral": {
+        "Not specified": 2,
+        "adult": 1
+      }
+    }
+  },
+  "plants": {
+    "%": {
+      "Not specified": {
+        "Not specified": 31,
+        "early": 32
+      },
+      "culture_media": {
+        "Not specified": 19,
+        "early": 16
+      },
+      "direct_application": {
+        "Not specified": 36,
+        "early": 317,
+        "mid": 2
+      },
+      "environmental": {
+        "Not specified": 40,
+        "early": 58
+      },
+      "in_vitro": {
+        "Not specified": 3
+      },
+      "inhalation": {
+        "Not specified": 1
+      },
+      "injection": {
+        "Not specified": 10
+      },
+      "renewal": {
+        "Not specified": 1
+      },
+      "soaking": {
+        "Not specified": 46,
+        "early": 142
+      },
+      "spray": {
+        "Not specified": 625,
+        "adult": 15,
+        "early": 20
+      },
+      "static": {
+        "Not specified": 8
+      },
+      "topical": {
+        "Not specified": 9,
+        "adult": 8,
+        "early": 35
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 371,
+        "early": 77
+      },
+      "culture_media": {
+        "Not specified": 6,
+        "early": 6
+      },
+      "direct_application": {
+        "Not specified": 1476,
+        "adult": 1,
+        "early": 765
+      },
+      "environmental": {
+        "Not specified": 4505,
+        "early": 863,
+        "mid": 8
+      },
+      "food": {
+        "Not specified": 2
+      },
+      "granular": {
+        "Not specified": 1695,
+        "early": 458
+      },
+      "inhalation": {
+        "Not specified": 321,
+        "adult": 4,
+        "early": 143
+      },
+      "injection": {
+        "Not specified": 8
+      },
+      "renewal": {
+        "Not specified": 3
+      },
+      "soaking": {
+        "Not specified": 3,
+        "early": 6
+      },
+      "spray": {
+        "Not specified": 18375,
+        "adult": 94,
+        "early": 1619,
+        "mid": 1878
+      },
+      "static": {
+        "Not specified": 308,
+        "adult": 8,
+        "early": 7
+      },
+      "topical": {
+        "Not specified": 1,
+        "early": 13
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 20,
+        "early": 44
+      },
+      "culture_media": {
+        "Not specified": 9,
+        "early": 7
+      },
+      "direct_application": {
+        "Not specified": 113,
+        "early": 656
+      },
+      "environmental": {
+        "Not specified": 595,
+        "early": 164
+      },
+      "granular": {
+        "Not specified": 4
+      },
+      "injection": {
+        "Not specified": 1
+      },
+      "soaking": {
+        "Not specified": 3,
+        "early": 118
+      },
+      "spray": {
+        "Not specified": 7,
+        "early": 14
+      },
+      "topical": {
+        "early": 27
+      }
+    },
+    "mg/kg bw": {
+      "direct_application": {
+        "Not specified": 2,
+        "early": 2
+      },
+      "environmental": {
+        "early": 17
+      },
+      "topical": {
+        "adult": 8
+      }
+    },
+    "mg/kg org": {
+      "environmental": {
+        "Not specified": 6
+      },
+      "spray": {
+        "mid": 1
+      }
+    },
+    "mg/kg soil": {
+      "Not specified": {
+        "Not specified": 26,
+        "early": 74
+      },
+      "culture_media": {
+        "Not specified": 12,
+        "early": 16
+      },
+      "direct_application": {
+        "Not specified": 162,
+        "early": 1425
+      },
+      "environmental": {
+        "Not specified": 259,
+        "early": 394
+      },
+      "spray": {
+        "Not specified": 18,
+        "early": 19
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 2815,
+        "adult": 18,
+        "early": 201,
+        "mid": 13
+      },
+      "culture_media": {
+        "Not specified": 1195,
+        "adult": 4,
+        "early": 344,
+        "mid": 6
+      },
+      "direct_application": {
+        "Not specified": 959,
+        "adult": 7,
+        "early": 997,
+        "mid": 25
+      },
+      "environmental": {
+        "Not specified": 732,
+        "early": 830
+      },
+      "flow_through": {
+        "Not specified": 153
+      },
+      "in_vitro": {
+        "Not specified": 184
+      },
+      "inhalation": {
+        "Not specified": 163,
+        "early": 54
+      },
+      "injection": {
+        "Not specified": 2
+      },
+      "renewal": {
+        "Not specified": 1477,
+        "adult": 7,
+        "early": 9,
+        "mid": 8
+      },
+      "soaking": {
+        "Not specified": 280,
+        "early": 361
+      },
+      "spray": {
+        "Not specified": 1050,
+        "adult": 21,
+        "early": 35,
+        "mid": 6
+      },
+      "static": {
+        "Not specified": 4296,
+        "adult": 25,
+        "early": 89,
+        "mid": 41
+      },
+      "topical": {
+        "Not specified": 42
+      }
+    },
+    "mg/org": {
+      "Not specified": {
+        "Not specified": 18
+      },
+      "direct_application": {
+        "Not specified": 41
+      },
+      "environmental": {
+        "Not specified": 7
+      },
+      "injection": {
+        "Not specified": 2
+      },
+      "renewal": {
+        "Not specified": 20
+      },
+      "spray": {
+        "Not specified": 56
+      },
+      "topical": {
+        "Not specified": 3
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 211,
+        "early": 9
+      },
+      "culture_media": {
+        "Not specified": 116,
+        "early": 21,
+        "mid": 6
+      },
+      "direct_application": {
+        "Not specified": 278,
+        "early": 346
+      },
+      "environmental": {
+        "Not specified": 184,
+        "early": 279,
+        "mid": 1
+      },
+      "flow_through": {
+        "Not specified": 5
+      },
+      "granular": {
+        "Not specified": 4
+      },
+      "in_vitro": {
+        "Not specified": 7
+      },
+      "inhalation": {
+        "Not specified": 160,
+        "early": 5
+      },
+      "injection": {
+        "Not specified": 8
+      },
+      "renewal": {
+        "Not specified": 11,
+        "mid": 1
+      },
+      "soaking": {
+        "Not specified": 80,
+        "early": 55
+      },
+      "spray": {
+        "Not specified": 547,
+        "adult": 5,
+        "early": 58,
+        "mid": 16
+      },
+      "static": {
+        "Not specified": 513,
+        "early": 3
+      },
+      "topical": {
+        "Not specified": 5
+      }
+    }
+  },
+  "protozoans": {
+    "%": {
+      "Not specified": {
+        "Not specified": 3
+      },
+      "culture_media": {
+        "Not specified": 2
+      },
+      "environmental": {
+        "Not specified": 3
+      },
+      "flow_through": {
+        "Not specified": 23
+      },
+      "renewal": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 8
+      }
+    },
+    "kg/m2": {
+      "direct_application": {
+        "Not specified": 7
+      },
+      "environmental": {
+        "Not specified": 2
+      },
+      "granular": {
+        "Not specified": 7
+      },
+      "spray": {
+        "Not specified": 6
+      }
+    },
+    "mg/kg": {
+      "direct_application": {
+        "early": 4
+      },
+      "environmental": {
+        "early": 3
+      }
+    },
+    "mg/kg soil": {
+      "direct_application": {
+        "Not specified": 3
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 512,
+        "early": 1
+      },
+      "culture_media": {
+        "Not specified": 329,
+        "early": 76
+      },
+      "direct_application": {
+        "Not specified": 22
+      },
+      "environmental": {
+        "Not specified": 9,
+        "early": 2
+      },
+      "in_vitro": {
+        "Not specified": 2
+      },
+      "renewal": {
+        "Not specified": 63
+      },
+      "static": {
+        "Not specified": 2277,
+        "early": 3,
+        "mid": 22
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 121
+      },
+      "culture_media": {
+        "Not specified": 7
+      },
+      "renewal": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 46
+      }
+    }
+  },
+  "reptiles": {
+    "%": {
+      "intramuscular": {
+        "Not specified": 1
+      },
+      "oral": {
+        "adult": 2
+      },
+      "spray": {
+        "Not specified": 20
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "adult": 2
+      },
+      "environmental": {
+        "Not specified": 5,
+        "early": 1
+      },
+      "spray": {
+        "Not specified": 7
+      }
+    },
+    "mg/kg": {
+      "food": {
+        "Not specified": 2,
+        "mid": 4
+      },
+      "gavage": {
+        "Not specified": 2,
+        "adult": 2
+      },
+      "intramuscular": {
+        "Not specified": 38
+      },
+      "intraperitoneal": {
+        "mid": 3
+      },
+      "subcutaneous": {
+        "adult": 15
+      }
+    },
+    "mg/kg bw": {
+      "dermal": {
+        "adult": 5
+      },
+      "food": {
+        "Not specified": 2,
+        "adult": 9,
+        "mid": 5
+      },
+      "gavage": {
+        "Not specified": 8,
+        "adult": 20,
+        "mid": 3
+      },
+      "intraperitoneal": {
+        "Not specified": 4,
+        "adult": 7
+      },
+      "oral": {
+        "adult": 3
+      }
+    },
+    "mg/kg bw/d": {
+      "Not specified": {
+        "Not specified": 2
+      },
+      "food": {
+        "adult": 3,
+        "mid": 6
+      },
+      "gavage": {
+        "adult": 20
+      }
+    },
+    "mg/kg diet": {
+      "food": {
+        "Not specified": 1,
+        "adult": 3,
+        "mid": 10
+      }
+    },
+    "mg/kg soil": {
+      "environmental": {
+        "adult": 15
+      }
+    },
+    "mg/l": {
+      "direct_application": {
+        "early": 10,
+        "mid": 8
+      },
+      "environmental": {
+        "early": 2
+      },
+      "intravenous": {
+        "Not specified": 1
+      },
+      "spray": {
+        "adult": 3,
+        "early": 5
+      },
+      "static": {
+        "mid": 6
+      }
+    },
+    "mg/org": {
+      "intraperitoneal": {
+        "adult": 4
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "early": 6
+      },
+      "food": {
+        "adult": 4,
+        "mid": 3
+      }
+    }
+  },
+  "rodents": {
+    "%": {
+      "Not specified": {
+        "Not specified": 53,
+        "adult": 12,
+        "early": 1
+      },
+      "culture_media": {
+        "early": 8
+      },
+      "dermal": {
+        "Not specified": 112,
+        "early": 2
+      },
+      "drinking": {
+        "Not specified": 18
+      },
+      "environmental": {
+        "Not specified": 1
+      },
+      "food": {
+        "Not specified": 412,
+        "adult": 51,
+        "early": 102,
+        "mid": 37
+      },
+      "gavage": {
+        "Not specified": 7,
+        "adult": 3,
+        "early": 40,
+        "mid": 7
+      },
+      "inhalation": {
+        "Not specified": 13
+      },
+      "injection": {
+        "Not specified": 2
+      },
+      "intraperitoneal": {
+        "early": 5
+      },
+      "oral": {
+        "Not specified": 120,
+        "adult": 67,
+        "early": 57,
+        "mid": 4
+      },
+      "soaking": {
+        "Not specified": 1,
+        "adult": 2,
+        "early": 1
+      },
+      "subcutaneous": {
+        "mid": 1
+      },
+      "topical": {
+        "Not specified": 82,
+        "adult": 1,
+        "early": 1
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 7
+      },
+      "direct_application": {
+        "Not specified": 6
+      },
+      "environmental": {
+        "Not specified": 30,
+        "adult": 3
+      },
+      "food": {
+        "Not specified": 63
+      },
+      "granular": {
+        "Not specified": 3
+      },
+      "spray": {
+        "Not specified": 107,
+        "adult": 14,
+        "mid": 7
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 2971,
+        "adult": 1,
+        "early": 2,
+        "mid": 7
+      },
+      "culture_media": {
+        "early": 6
+      },
+      "dermal": {
+        "Not specified": 758,
+        "mid": 2
+      },
+      "food": {
+        "Not specified": 256,
+        "adult": 30,
+        "early": 13,
+        "mid": 22
+      },
+      "gavage": {
+        "Not specified": 942,
+        "adult": 217,
+        "early": 276,
+        "mid": 142
+      },
+      "inhalation": {
+        "Not specified": 18
+      },
+      "injection": {
+        "Not specified": 24,
+        "adult": 1,
+        "early": 8,
+        "mid": 9
+      },
+      "intramuscular": {
+        "Not specified": 923
+      },
+      "intraperitoneal": {
+        "Not specified": 41311,
+        "adult": 252,
+        "early": 61,
+        "mid": 39
+      },
+      "intravenous": {
+        "Not specified": 22741,
+        "adult": 15,
+        "early": 22,
+        "mid": 1
+      },
+      "oral": {
+        "Not specified": 31445,
+        "adult": 6,
+        "mid": 10
+      },
+      "parenteral": {
+        "Not specified": 395
+      },
+      "subcutaneous": {
+        "Not specified": 9651,
+        "adult": 44,
+        "early": 20,
+        "mid": 60
+      },
+      "topical": {
+        "Not specified": 15,
+        "adult": 13
+      }
+    },
+    "mg/kg bw": {
+      "Not specified": {
+        "Not specified": 308,
+        "adult": 8,
+        "early": 14,
+        "mid": 2
+      },
+      "dermal": {
+        "Not specified": 311,
+        "adult": 3,
+        "early": 11
+      },
+      "drinking": {
+        "Not specified": 21
+      },
+      "food": {
+        "Not specified": 223,
+        "adult": 73,
+        "early": 400,
+        "mid": 8
+      },
+      "gavage": {
+        "Not specified": 7124,
+        "adult": 431,
+        "early": 501,
+        "mid": 94
+      },
+      "injection": {
+        "Not specified": 4,
+        "adult": 2
+      },
+      "intramuscular": {
+        "Not specified": 8,
+        "adult": 7,
+        "early": 12
+      },
+      "intraperitoneal": {
+        "Not specified": 790,
+        "adult": 106,
+        "early": 132,
+        "mid": 11
+      },
+      "intravenous": {
+        "Not specified": 203,
+        "adult": 3
+      },
+      "oral": {
+        "Not specified": 2438,
+        "adult": 8
+      },
+      "subcutaneous": {
+        "Not specified": 189,
+        "adult": 167,
+        "mid": 2
+      },
+      "topical": {
+        "Not specified": 1,
+        "adult": 4
+      }
+    },
+    "mg/kg bw/d": {
+      "Not specified": {
+        "Not specified": 185,
+        "adult": 8,
+        "early": 59
+      },
+      "dermal": {
+        "Not specified": 157,
+        "adult": 4
+      },
+      "drinking": {
+        "Not specified": 496
+      },
+      "food": {
+        "Not specified": 2328,
+        "adult": 78,
+        "early": 147,
+        "mid": 28
+      },
+      "gavage": {
+        "Not specified": 4668,
+        "adult": 456,
+        "early": 1663,
+        "mid": 211
+      },
+      "inhalation": {
+        "Not specified": 8
+      },
+      "injection": {
+        "Not specified": 3,
+        "adult": 3
+      },
+      "intramuscular": {
+        "Not specified": 1,
+        "early": 2
+      },
+      "intraperitoneal": {
+        "Not specified": 122,
+        "adult": 47,
+        "early": 185,
+        "mid": 7
+      },
+      "intravenous": {
+        "Not specified": 7,
+        "adult": 2
+      },
+      "oral": {
+        "Not specified": 159,
+        "adult": 55,
+        "early": 22
+      },
+      "subcutaneous": {
+        "Not specified": 90,
+        "adult": 20,
+        "early": 52
+      },
+      "topical": {
+        "Not specified": 3
+      }
+    },
+    "mg/kg diet": {
+      "Not specified": {
+        "Not specified": 1
+      },
+      "dermal": {
+        "Not specified": 1
+      },
+      "food": {
+        "Not specified": 215,
+        "adult": 25,
+        "early": 19,
+        "mid": 66
+      },
+      "gavage": {
+        "Not specified": 29
+      },
+      "oral": {
+        "Not specified": 3,
+        "adult": 2,
+        "mid": 67
+      }
+    },
+    "mg/kg org": {
+      "food": {
+        "Not specified": 5,
+        "early": 4
+      },
+      "gavage": {
+        "Not specified": 35,
+        "adult": 7,
+        "mid": 3
+      },
+      "intraperitoneal": {
+        "Not specified": 4,
+        "adult": 1
+      },
+      "intravenous": {
+        "adult": 4
+      },
+      "oral": {
+        "Not specified": 7
+      },
+      "topical": {
+        "Not specified": 2
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 20,
+        "adult": 6
+      },
+      "culture_media": {
+        "Not specified": 7,
+        "early": 382
+      },
+      "dermal": {
+        "mid": 2
+      },
+      "direct_application": {
+        "adult": 1,
+        "early": 5
+      },
+      "drinking": {
+        "Not specified": 5
+      },
+      "environmental": {
+        "early": 4
+      },
+      "food": {
+        "Not specified": 4,
+        "adult": 5,
+        "early": 3
+      },
+      "gavage": {
+        "Not specified": 59,
+        "adult": 1
+      },
+      "in_vitro": {
+        "Not specified": 71
+      },
+      "inhalation": {
+        "Not specified": 1977
+      },
+      "injection": {
+        "Not specified": 4,
+        "adult": 2
+      },
+      "intraperitoneal": {
+        "Not specified": 5,
+        "early": 2
+      },
+      "intravenous": {
+        "Not specified": 2
+      },
+      "oral": {
+        "Not specified": 124,
+        "adult": 29,
+        "early": 10,
+        "mid": 8
+      },
+      "soaking": {
+        "Not specified": 1
+      },
+      "subcutaneous": {
+        "Not specified": 2,
+        "adult": 4,
+        "early": 6,
+        "mid": 1
+      },
+      "topical": {
+        "Not specified": 7,
+        "early": 10
+      }
+    },
+    "mg/l air": {
+      "Not specified": {
+        "Not specified": 239
+      },
+      "food": {
+        "Not specified": 1
+      },
+      "inhalation": {
+        "Not specified": 1514
+      }
+    },
+    "mg/org": {
+      "Not specified": {
+        "Not specified": 1,
+        "early": 8
+      },
+      "dermal": {
+        "Not specified": 6
+      },
+      "direct_application": {
+        "adult": 1
+      },
+      "food": {
+        "adult": 1,
+        "early": 1,
+        "mid": 1
+      },
+      "gavage": {
+        "Not specified": 5,
+        "adult": 6
+      },
+      "injection": {
+        "Not specified": 3,
+        "adult": 1
+      },
+      "intraperitoneal": {
+        "Not specified": 1
+      },
+      "intravenous": {
+        "Not specified": 2
+      },
+      "oral": {
+        "Not specified": 4
+      },
+      "subcutaneous": {
+        "Not specified": 4,
+        "adult": 12,
+        "mid": 5
+      }
+    },
+    "mg/org/d": {
+      "Not specified": {
+        "adult": 12
+      },
+      "food": {
+        "Not specified": 14
+      },
+      "gavage": {
+        "adult": 2,
+        "mid": 1
+      },
+      "intraperitoneal": {
+        "Not specified": 2
+      },
+      "oral": {
+        "Not specified": 11,
+        "adult": 19
+      },
+      "subcutaneous": {
+        "Not specified": 1,
+        "mid": 1
+      }
+    },
+    "ml/kg bw": {
+      "Not specified": {
+        "Not specified": 29
+      },
+      "dermal": {
+        "Not specified": 27
+      },
+      "drinking": {
+        "Not specified": 1
+      },
+      "gavage": {
+        "Not specified": 388
+      },
+      "intraperitoneal": {
+        "Not specified": 18
+      },
+      "intravenous": {
+        "Not specified": 2
+      },
+      "oral": {
+        "Not specified": 78
+      },
+      "subcutaneous": {
+        "Not specified": 3
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 27,
+        "adult": 1,
+        "early": 5,
+        "mid": 25
+      },
+      "drinking": {
+        "Not specified": 175
+      },
+      "food": {
+        "Not specified": 1948,
+        "adult": 247,
+        "early": 43,
+        "mid": 120
+      },
+      "gavage": {
+        "Not specified": 20,
+        "adult": 3,
+        "mid": 4
+      },
+      "inhalation": {
+        "Not specified": 1863
+      },
+      "intraperitoneal": {
+        "Not specified": 4
+      },
+      "intravenous": {
+        "adult": 3
+      },
+      "oral": {
+        "Not specified": 224,
+        "adult": 65,
+        "early": 14,
+        "mid": 7
+      }
+    }
+  },
+  "rotifers": {
+    "%": {
+      "renewal": {
+        "Not specified": 5,
+        "mid": 4
+      },
+      "static": {
+        "early": 1
+      }
+    },
+    "kg/m2": {
+      "spray": {
+        "Not specified": 1
+      },
+      "static": {
+        "Not specified": 25
+      }
+    },
+    "mg/kg": {
+      "static": {
+        "mid": 1
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 483,
+        "adult": 10,
+        "mid": 89
+      },
+      "environmental": {
+        "Not specified": 4
+      },
+      "flow_through": {
+        "Not specified": 6,
+        "adult": 4
+      },
+      "food": {
+        "Not specified": 1
+      },
+      "renewal": {
+        "Not specified": 186,
+        "adult": 1,
+        "early": 12,
+        "mid": 381
+      },
+      "spray": {
+        "Not specified": 17
+      },
+      "static": {
+        "Not specified": 1075,
+        "adult": 77,
+        "early": 4,
+        "mid": 744
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 2
+      },
+      "renewal": {
+        "Not specified": 8
+      },
+      "static": {
+        "Not specified": 68,
+        "adult": 6,
+        "early": 2,
+        "mid": 1
+      }
+    }
+  },
+  "tunicates and sponges": {
+    "%": {
+      "Not specified": {
+        "early": 4
+      },
+      "static": {
+        "Not specified": 1
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 28,
+        "early": 35
+      },
+      "flow_through": {
+        "Not specified": 4
+      },
+      "in_vitro": {
+        "Not specified": 13
+      },
+      "renewal": {
+        "Not specified": 1,
+        "early": 54
+      },
+      "static": {
+        "Not specified": 6,
+        "early": 69
+      }
+    }
+  },
+  "unmapped": {
+    "%": {
+      "direct_application": {
+        "Not specified": 3
+      },
+      "environmental": {
+        "Not specified": 6
+      },
+      "soaking": {
+        "Not specified": 2
+      },
+      "spray": {
+        "Not specified": 10
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 10
+      },
+      "direct_application": {
+        "Not specified": 39
+      },
+      "environmental": {
+        "Not specified": 64
+      },
+      "granular": {
+        "Not specified": 13
+      },
+      "inhalation": {
+        "Not specified": 45,
+        "early": 1
+      },
+      "spray": {
+        "Not specified": 144
+      },
+      "static": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg": {
+      "environmental": {
+        "Not specified": 3
+      },
+      "spray": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg bw": {
+      "intraperitoneal": {
+        "adult": 1
+      }
+    },
+    "mg/kg soil": {
+      "environmental": {
+        "Not specified": 4
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 68,
+        "adult": 27,
+        "early": 3
+      },
+      "culture_media": {
+        "Not specified": 361,
+        "early": 3
+      },
+      "direct_application": {
+        "Not specified": 55,
+        "early": 2
+      },
+      "environmental": {
+        "Not specified": 98,
+        "early": 11
+      },
+      "flow_through": {
+        "Not specified": 15
+      },
+      "renewal": {
+        "Not specified": 11,
+        "adult": 10,
+        "mid": 40
+      },
+      "soaking": {
+        "Not specified": 5
+      },
+      "spray": {
+        "Not specified": 17
+      },
+      "static": {
+        "Not specified": 28,
+        "adult": 31,
+        "mid": 12
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 6
+      },
+      "culture_media": {
+        "Not specified": 91
+      },
+      "direct_application": {
+        "Not specified": 3
+      },
+      "environmental": {
+        "Not specified": 21
+      },
+      "flow_through": {
+        "Not specified": 10,
+        "mid": 4
+      },
+      "renewal": {
+        "Not specified": 9
+      },
+      "spray": {
+        "Not specified": 4
+      },
+      "static": {
+        "Not specified": 27
+      }
+    }
+  },
+  "worms": {
+    "%": {
+      "Not specified": {
+        "Not specified": 8
+      },
+      "culture_media": {
+        "Not specified": 3,
+        "adult": 19,
+        "early": 21
+      },
+      "direct_application": {
+        "Not specified": 11,
+        "adult": 4,
+        "mid": 1
+      },
+      "environmental": {
+        "Not specified": 9,
+        "adult": 21,
+        "early": 15,
+        "mid": 20
+      },
+      "granular": {
+        "Not specified": 6
+      },
+      "renewal": {
+        "early": 1
+      },
+      "soaking": {
+        "Not specified": 4,
+        "adult": 13,
+        "early": 11
+      },
+      "spray": {
+        "Not specified": 16,
+        "adult": 1
+      },
+      "static": {
+        "Not specified": 5,
+        "adult": 2,
+        "early": 6
+      }
+    },
+    "kg/m2": {
+      "Not specified": {
+        "Not specified": 84,
+        "adult": 18,
+        "early": 3,
+        "mid": 1
+      },
+      "culture_media": {
+        "Not specified": 102,
+        "adult": 2
+      },
+      "dermal": {
+        "adult": 29
+      },
+      "direct_application": {
+        "Not specified": 426,
+        "adult": 189,
+        "early": 27,
+        "mid": 26
+      },
+      "environmental": {
+        "Not specified": 359,
+        "adult": 283,
+        "early": 18,
+        "mid": 61
+      },
+      "food": {
+        "Not specified": 2
+      },
+      "granular": {
+        "Not specified": 347,
+        "early": 6,
+        "mid": 11
+      },
+      "inhalation": {
+        "Not specified": 248,
+        "mid": 1
+      },
+      "soaking": {
+        "adult": 3
+      },
+      "spray": {
+        "Not specified": 385,
+        "adult": 4,
+        "early": 10,
+        "mid": 11
+      },
+      "static": {
+        "Not specified": 17,
+        "mid": 26
+      }
+    },
+    "mg/kg": {
+      "Not specified": {
+        "Not specified": 768,
+        "adult": 7
+      },
+      "culture_media": {
+        "adult": 7,
+        "early": 4
+      },
+      "dermal": {
+        "adult": 2
+      },
+      "direct_application": {
+        "Not specified": 108,
+        "adult": 486,
+        "early": 3,
+        "mid": 63
+      },
+      "environmental": {
+        "Not specified": 169,
+        "adult": 122,
+        "mid": 29
+      },
+      "food": {
+        "adult": 1
+      },
+      "granular": {
+        "Not specified": 5
+      },
+      "intraperitoneal": {
+        "adult": 2
+      },
+      "renewal": {
+        "Not specified": 8
+      },
+      "soaking": {
+        "adult": 9,
+        "mid": 2
+      },
+      "spray": {
+        "Not specified": 2,
+        "adult": 1
+      },
+      "static": {
+        "early": 2,
+        "mid": 2
+      },
+      "topical": {
+        "Not specified": 1
+      }
+    },
+    "mg/kg bw": {
+      "Not specified": {
+        "adult": 9
+      },
+      "direct_application": {
+        "Not specified": 1,
+        "adult": 123
+      },
+      "environmental": {
+        "Not specified": 23,
+        "adult": 56
+      }
+    },
+    "mg/kg bw/d": {
+      "environmental": {
+        "Not specified": 13
+      },
+      "food": {
+        "Not specified": 3
+      }
+    },
+    "mg/kg diet": {
+      "food": {
+        "Not specified": 14,
+        "adult": 7
+      }
+    },
+    "mg/kg org": {
+      "environmental": {
+        "adult": 1
+      },
+      "food": {
+        "adult": 2
+      },
+      "topical": {
+        "Not specified": 2,
+        "adult": 1
+      }
+    },
+    "mg/kg soil": {
+      "Not specified": {
+        "Not specified": 35,
+        "adult": 45
+      },
+      "culture_media": {
+        "adult": 31
+      },
+      "direct_application": {
+        "Not specified": 185,
+        "adult": 1101,
+        "early": 7,
+        "mid": 62
+      },
+      "environmental": {
+        "Not specified": 226,
+        "adult": 1070,
+        "mid": 39
+      },
+      "granular": {
+        "early": 1
+      },
+      "soaking": {
+        "early": 1
+      },
+      "spray": {
+        "Not specified": 11,
+        "adult": 16,
+        "mid": 6
+      }
+    },
+    "mg/l": {
+      "Not specified": {
+        "Not specified": 1102,
+        "adult": 29,
+        "early": 79,
+        "mid": 4
+      },
+      "culture_media": {
+        "Not specified": 265,
+        "adult": 265,
+        "early": 579,
+        "mid": 78
+      },
+      "direct_application": {
+        "Not specified": 157,
+        "adult": 120,
+        "early": 207,
+        "mid": 6
+      },
+      "environmental": {
+        "Not specified": 228,
+        "adult": 93,
+        "early": 230,
+        "mid": 119
+      },
+      "flow_through": {
+        "Not specified": 60,
+        "adult": 84,
+        "early": 18
+      },
+      "food": {
+        "adult": 1,
+        "early": 3
+      },
+      "granular": {
+        "Not specified": 2
+      },
+      "in_vitro": {
+        "Not specified": 31
+      },
+      "inhalation": {
+        "Not specified": 4,
+        "adult": 6
+      },
+      "oral": {
+        "Not specified": 9
+      },
+      "renewal": {
+        "Not specified": 808,
+        "adult": 222,
+        "early": 29,
+        "mid": 83
+      },
+      "soaking": {
+        "Not specified": 12,
+        "adult": 15,
+        "early": 4,
+        "mid": 6
+      },
+      "spray": {
+        "Not specified": 33
+      },
+      "static": {
+        "Not specified": 1518,
+        "adult": 530,
+        "early": 178,
+        "mid": 558
+      },
+      "topical": {
+        "adult": 2,
+        "mid": 8
+      }
+    },
+    "mg/org": {
+      "dermal": {
+        "adult": 1
+      },
+      "direct_application": {
+        "mid": 5
+      },
+      "gavage": {
+        "adult": 2
+      },
+      "injection": {
+        "Not specified": 2
+      },
+      "static": {
+        "Not specified": 1
+      }
+    },
+    "ppm": {
+      "Not specified": {
+        "Not specified": 53,
+        "adult": 3
+      },
+      "culture_media": {
+        "Not specified": 9,
+        "early": 23,
+        "mid": 6
+      },
+      "direct_application": {
+        "Not specified": 38,
+        "adult": 11,
+        "early": 20,
+        "mid": 51
+      },
+      "environmental": {
+        "Not specified": 36,
+        "adult": 15,
+        "early": 40,
+        "mid": 6
+      },
+      "flow_through": {
+        "Not specified": 6,
+        "early": 1
+      },
+      "food": {
+        "Not specified": 1,
+        "adult": 1,
+        "mid": 8
+      },
+      "granular": {
+        "Not specified": 7
+      },
+      "inhalation": {
+        "adult": 4
+      },
+      "renewal": {
+        "Not specified": 23,
+        "adult": 15,
+        "early": 5,
+        "mid": 9
+      },
+      "soaking": {
+        "Not specified": 28,
+        "adult": 2,
+        "early": 1,
+        "mid": 4
+      },
+      "spray": {
+        "Not specified": 2
+      },
+      "static": {
+        "Not specified": 129,
+        "adult": 15,
+        "early": 42,
+        "mid": 42
+      }
+    }
+  }
+}

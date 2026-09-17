@@ -2,3 +2,4 @@ TRIDENT_application/
 **__pycache__
 models/TRIDENT2/**/pytorch_model.bin
 .env
+tmp

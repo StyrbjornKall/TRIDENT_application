@@ -10,6 +10,7 @@ entry point for the page's single- and batch-prediction modes.
 from __future__ import annotations
 
 import json
+import os
 from typing import Optional
 
 import numpy as np
@@ -36,9 +37,21 @@ TAXA_MAPPING_CSV_PATH = "data/trident2/taxa_assigned_units_effects_durations_202
 PERMITTED_ROUTE_LIFESTAGE_COMBINATIONS_PATH = (
     "data/trident2/permitted_route_lifestage_combinations.json"
 )
+TAXID_TO_N_OBS_PATH = "data/trident2/taxid2n_obs.json"
+SPECIES_GROUP_UNIT_ROUTE_LIFESTAGE_N_OBS_PATH = (
+    "data/trident2/species_group_unit_route_lifestage_n_obs.json"
+)
 
 NOT_SPECIFIED = "Not specified"
 ALL_SPECIES_GROUPS = "All species groups"
+
+# Locally, set TRIDENT2_UNRESTRICTED_OPTIONS=1 (e.g. in a .env file) to expose every
+# administration route/lifestage regardless of how many training observations back a
+# given species/lifestage/route combination. Left unset (the deployed default) so the
+# live app keeps only combinations meeting the >=5-observation allowlist threshold.
+UNRESTRICTED_ROUTE_LIFESTAGE_OPTIONS = os.environ.get(
+    "TRIDENT2_UNRESTRICTED_OPTIONS", ""
+).strip().lower() in {"1", "true", "yes"}
 
 ENDPOINTS = ["EC50", "EC10", "NOEC", "LOEC"]
 EFFECT_OPTIONS = sorted(VALID_EFFECTS)
@@ -67,15 +80,32 @@ def load_permitted_route_lifestage_combinations() -> dict[str, dict[str, list[st
 
 
 @st.cache_data(show_spinner="Loading species list...")
+def load_species_taxid_to_n_obs() -> dict[str, int]:
+    """Load the taxid -> number of training-data observations mapping."""
+    with open(TAXID_TO_N_OBS_PATH) as f:
+        return json.load(f)
+
+
+@st.cache_data(show_spinner="Loading experimental evidence counts...")
+def load_species_group_unit_route_lifestage_n_obs() -> dict:
+    """Load observation counts per species group/conc unit/route/lifestage combination."""
+    with open(SPECIES_GROUP_UNIT_ROUTE_LIFESTAGE_N_OBS_PATH) as f:
+        return json.load(f)
+
+
+@st.cache_data(show_spinner="Loading species list...")
 def load_species_options() -> pd.DataFrame:
     """Build the species selection table used by the page.
 
-    Only species present in both the name dictionaries, the taxa mapping CSV, and
-    the >=5-observation route/lifestage allowlist are included, so every
-    selectable species has a display label, a eukaryotic species group, and
-    default effect/conc_unit/duration values to pre-fill the form with.
+    The selectable species are exactly the unique NCBI taxids in
+    ``NCBI_rank_species`` of the taxa mapping CSV, so every species with a
+    default effect/conc_unit/duration/species_group assigned by the training
+    pipeline is selectable, even when it is missing a common name or a
+    scientific name. The taxid is always included in the label so species can
+    be searched for by taxid as well as by name, and the list is sorted by
+    number of supporting training-data observations (most evidence first).
     """
-    permitted_combinations = load_permitted_route_lifestage_combinations()
+    taxid2n_obs = load_species_taxid_to_n_obs()
 
     with open(TAXID_TO_COMMONNAME_PATH) as f:
         taxid2commonname: dict[str, str] = json.load(f)
@@ -89,15 +119,19 @@ def load_species_options() -> pd.DataFrame:
     )
 
     rows = []
-    for taxid, common_name in taxid2commonname.items():
-        if taxid not in taxid2sciname or taxid not in mapping_df.index:
-            continue
-        if taxid not in permitted_combinations:
-            continue
-        latin_name = taxid2sciname[taxid]
-        # A handful of entries have no recorded common name; fall back to the latin name alone.
-        label = f"{common_name} ({latin_name})" if common_name else latin_name
-        default = mapping_df.loc[taxid]
+    for taxid, default in mapping_df.iterrows():
+        common_name = taxid2commonname.get(taxid, "")
+        latin_name = taxid2sciname.get(taxid, "")
+        if common_name and latin_name:
+            label = f"{common_name} ({latin_name})"
+        elif latin_name:
+            label = latin_name
+        elif common_name:
+            label = common_name
+        else:
+            label = f"NCBI taxid {taxid}"
+        label = f"{label} [taxid {taxid}]"
+
         rows.append(
             {
                 "taxid": taxid,
@@ -108,20 +142,39 @@ def load_species_options() -> pd.DataFrame:
                 "default_effect": default["assigned_acute_effect"],
                 "default_conc_unit": default["assigned_conc_unit"],
                 "default_duration": default["assigned_acute_duration"],
+                "n_obs": taxid2n_obs.get(taxid, 0),
             }
         )
 
-    return pd.DataFrame(rows).sort_values("latin_name").reset_index(drop=True)
+    return (
+        pd.DataFrame(rows)
+        .sort_values(["n_obs", "latin_name"], ascending=[False, True])
+        .reset_index(drop=True)
+    )
 
 
 def get_valid_lifestage_options_for_species(taxid: str) -> list[str]:
-    """Return organism lifestages valid for a species under the >=5 rule."""
+    """Return organism lifestages valid for a species under the >=5 rule.
+
+    When ``TRIDENT2_UNRESTRICTED_OPTIONS`` is set (local development only), every
+    known lifestage is returned instead, regardless of the allowlist.
+    """
+    if UNRESTRICTED_ROUTE_LIFESTAGE_OPTIONS:
+        return ORGANISM_LIFESTAGE_OPTIONS
+
     allowed = load_permitted_route_lifestage_combinations().get(str(taxid), {})
     return [NOT_SPECIFIED] + sorted(allowed.keys())
 
 
 def get_valid_route_options_for_species_and_lifestage(taxid: str, lifestage: Optional[str]) -> list[str]:
-    """Return administration routes valid for a species and selected lifestage."""
+    """Return administration routes valid for a species and selected lifestage.
+
+    When ``TRIDENT2_UNRESTRICTED_OPTIONS`` is set (local development only), every
+    known administration route is returned instead, regardless of the allowlist.
+    """
+    if UNRESTRICTED_ROUTE_LIFESTAGE_OPTIONS:
+        return ADMINISTRATION_ROUTE_OPTIONS
+
     allowed = load_permitted_route_lifestage_combinations().get(str(taxid), {})
     if not allowed:
         return ADMINISTRATION_ROUTE_OPTIONS
@@ -131,6 +184,33 @@ def get_valid_route_options_for_species_and_lifestage(taxid: str, lifestage: Opt
     else:
         routes = sorted({route for route_list in allowed.values() for route in route_list})
     return [NOT_SPECIFIED] + sorted(routes)
+
+
+def get_n_obs_for_species(taxid: str) -> int:
+    """Return the number of training-data observations recorded for a taxid."""
+    return load_species_taxid_to_n_obs().get(str(taxid), 0)
+
+
+def get_n_obs_for_experimental_design(
+    species_group: Optional[str],
+    conc_unit: str,
+    administration_route: Optional[str],
+    organism_lifestage: Optional[str],
+) -> int:
+    """Return the number of training-data observations backing this exact combination.
+
+    Falls back to 0 when the species group/conc unit/route/lifestage combination
+    is not present in the training data at all.
+    """
+    route = administration_route if administration_route else NOT_SPECIFIED
+    lifestage = organism_lifestage if organism_lifestage else NOT_SPECIFIED
+    nested = load_species_group_unit_route_lifestage_n_obs()
+    return (
+        nested.get(species_group, {})
+        .get(conc_unit, {})
+        .get(route, {})
+        .get(lifestage, 0)
+    )
 
 
 def predict_toxicity(
@@ -165,8 +245,11 @@ def predict_toxicity(
     Returns:
         DataFrame with one row per input SMILES (original order/duplicates
         preserved) containing the canonicalized SMILES, a validity flag, the
-        species/effect/duration/route/lifestage/unit metadata used, and log10
-        + back-transformed predictions for EC50/EC10/NOEC/LOEC in the chosen
+        species/effect/duration/route/lifestage/unit metadata used, the number of
+        training-data observations backing the selected species and the selected
+        species group/conc unit/route/lifestage combination (so users can gauge the
+        underlying experimental evidence for a prediction), and log10 +
+        back-transformed predictions for EC50/EC10/NOEC/LOEC in the chosen
         concentration unit (all log10 columns first, followed by all linear
         columns). Invalid SMILES get ``NaN`` predictions.
     """
@@ -187,6 +270,13 @@ def predict_toxicity(
     df["Organism lifestage"] = organism_lifestage if organism_lifestage else NOT_SPECIFIED
     df["Concentration unit"] = conc_unit
     df["Duration (h)"] = duration_hours if duration_hours is not None else np.nan
+    df["Training observations for this species (n)"] = get_n_obs_for_species(taxid)
+    df["Training observations for this species group/unit/route/lifestage (n)"] = get_n_obs_for_experimental_design(
+        species_group=species_group,
+        conc_unit=conc_unit,
+        administration_route=administration_route,
+        organism_lifestage=organism_lifestage,
+    )
 
     log10_columns = [f"{endpoint} log10({conc_unit})" for endpoint in ENDPOINTS]
     linear_columns = [f"{endpoint} ({conc_unit})" for endpoint in ENDPOINTS]
